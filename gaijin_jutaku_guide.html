@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>外人住宅ガイド(沖縄特有の中古タイプ)|沖縄マイホーム研究室</title>
+<meta name="description" content="米軍住宅として建てられたコンクリートブロック造の平屋「外人住宅」。中古でしか出会えない魅力と、老朽化・断熱性・耐震性など中古だからこそ見るべき注意点をセットでまとめました。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1600047509782-20d39509f26d?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(25px,5.6vw,31px);font-weight:600;line-height:1.55;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px}
+  .hero h1{
+    position:relative;font-size:clamp(21px,4.6vw,25px);line-height:1.55;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"PROPERTY GUIDE  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero h1 span{display:block;font-size:.68em;color:#E5D5B3;margin-top:8px}
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px}
+  .pitch{font-size:13.5px;line-height:1.95;margin:18px 0 0;color:#344655;background:#F0EEE7;padding:15px 17px;border:1px solid #E4DFD4}
+
+  main{padding:8px clamp(20px,6vw,30px) 4px}
+
+  /* ---- Section / category ---- */
+  .category{margin:30px 0 0}
+  .category h2{
+    display:flex;align-items:center;gap:12px;margin:0 0 2px;
+    font-size:17px;font-weight:600;color:var(--navy);line-height:1.5
+  }
+  .badge{
+    flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;font-size:14.5px;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);
+  }
+  .cat-count{font-size:11px;color:var(--muted);font-weight:500;margin-left:auto;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .category-rule{border:none;border-top:1px solid var(--gold);margin:11px 0 16px;position:relative}
+  .category-rule::after{content:"";position:absolute;left:0;top:-2px;width:48px;height:3px;background:var(--navy)}
+
+  /* ---- Point list (static, non-checkbox) ---- */
+  .point-list{list-style:none;margin:0;padding:0}
+  .point-item{display:flex;align-items:flex-start;gap:13px;border-bottom:1px solid var(--line);padding:14px 2px;font-size:14px;color:var(--ink);line-height:1.85}
+  .point-item:last-child{border-bottom:none}
+  .point-mark{flex:0 0 17px;width:17px;height:17px;border:1px solid var(--gold);margin-top:4px;position:relative;background:#fffefa}
+  .point-mark::after{content:"";position:absolute;left:4px;top:4px;width:7px;height:7px;background:var(--navy)}
+  .point-text{flex:1}
+  .point-why{display:block;font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.9}
+
+  /* ---- Interactive checklist ---- */
+  .check-list{list-style:none;margin:0;padding:0}
+  .check-item{
+    width:100%;display:flex;align-items:flex-start;gap:13px;text-align:left;
+    background:transparent;border:0;border-bottom:1px solid var(--line);
+    padding:15px 8px;font-size:14px;font-family:inherit;color:var(--ink);
+    cursor:pointer;min-height:48px;-webkit-tap-highlight-color:transparent;
+    transition:background .15s ease;
+  }
+  .check-item:hover{background:#F8F5EF}
+  .check-box{
+    flex:0 0 18px;width:18px;height:18px;border:1px solid #8B969B;
+    margin-top:4px;position:relative;transition:all .15s ease;background:#fffefa
+  }
+  .check-box::after{
+    content:"";position:absolute;left:4px;top:1px;width:6px;height:10px;
+    border-right:2px solid #fff;border-bottom:2px solid #fff;
+    transform:rotate(40deg);opacity:0
+  }
+  .check-item.checked .check-box{background:var(--navy);border-color:var(--navy)}
+  .check-item.checked .check-box::after{opacity:1}
+  .check-text{flex:1}
+  .check-why{display:block;font-size:12.5px;color:#65717A;margin-top:6px;line-height:1.9}
+  .check-item.checked .check-text{color:#737D82;text-decoration:line-through;text-decoration-color:var(--gold)}
+  .check-item.checked .check-why{text-decoration:none}
+
+  .extra-note{font-size:13px;color:#344655;background:#F4F1E9;border-left:3px solid var(--gold);padding:15px 17px;margin:14px 0 0;line-height:1.95}
+  .extra-note b{display:block;margin-bottom:6px;color:var(--navy);font-size:13.5px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+
+  .source-line{font-size:11.5px;color:var(--muted);margin:8px 0 0;line-height:1.8}
+
+  .distinct-note{
+    padding:20px clamp(20px,6vw,30px);font-size:12.5px;color:#58656C;
+    background:#F0EEE7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.95
+  }
+
+  /* ---- Closing ---- */
+  .closing{padding:34px clamp(20px,6vw,30px) 40px;background:#fffefa}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .category h2{gap:8px}
+    .badge{flex-basis:28px;width:28px;height:28px}
+    .cat-count{font-size:10px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>中古でしか出会えない沖縄の住まい</span>「外人住宅」<br>という選択肢</h1>
+      <p class="cover-subtitle">米軍住宅として建てられたコンクリートブロック造の平屋。魅力と、中古だからこそ見ておきたい注意点をセットで紹介します。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典14</p>
+    <h1>「外人住宅」という選択肢<span>中古でしか出会えない沖縄の住まい</span></h1>
+    <p class="hero-lead">鉄筋コンクリートの陸屋根とコンクリートブロックの壁、広いリビングと大きな窓。沖縄で見かけるあの独特な佇まいの家の正体と、知っておきたい注意点をまとめました。</p>
+    <p class="pitch">レトロで可愛い、という魅力だけでは終わらせません。築40〜50年以上が経過した物件が多いからこそ向き合う必要がある、老朽化・断熱性・耐震性・配管の寿命といったリスク面も、具体的な金額・年数とあわせて載せています。良いところだけを見て決めると、住んでから「そこまでは知らなかった」となりやすいタイプの住宅です。</p>
+  </header>
+
+  <main>
+
+    <section class="category">
+      <h2><span class="badge">基</span>外人住宅とは(基礎知識)<span class="cat-count">7項目</span></h2>
+      <hr class="category-rule">
+      <ul class="point-list">
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">成り立ち:米軍住宅として建てられたコンクリートブロック造の平屋(フラットハウス)。鉄筋コンクリートの陸屋根とコンクリートブロックの壁を組み合わせた混構造で、台風対策として壁に厚みを持たせているのが特徴<span class="point-why">沖縄の不動産・建築系コラムの解説による</span></span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">集積エリア:北中城村などの高台エリアに多く集まっている</span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">築年数の実態:築40〜50年以上が経過した物件が多い</span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">価格帯の目安:外人住宅が多いエリアである北中城村の中古一戸建ては、30坪台で約3,080万円、50坪台で約5,482万円という相場観がある(不動産ポータルの掲載物件集計・2025年時点。外人住宅に限った統計ではなく、エリア全体の中古戸建て相場として参考にする)</span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">地価の推移:北中城村の2025年住宅地平均地価は1㎡あたり7万5,300円(坪単価で約24万8,925円)<span class="point-why">出典:2025年都道府県地価調査(公的な地価の目安データ)</span></span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">実例:リノベーション・オブ・ザ・イヤー2022受賞の「Mid-Century House」は築58年・102.87㎡のRCブロック造の外人住宅<span class="point-why">出典:リノベーション協議会公式(renovation.or.jp)</span></span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">再現の難しさ:当時と同じ様式・同じ工法で新築されることは基本的になく、新築でこの雰囲気を再現するのは難しい。成り立ち・築年数の実態から言えることで、「中古でしか選べない住宅」という位置づけになる</span></li>
+      </ul>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">魅</span>中古でしか出会えない魅力<span class="cat-count">5項目</span></h2>
+      <hr class="category-rule">
+      <ul class="point-list">
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">広いリビング・大きな窓・靴のまま歩ける設計など、レトロ・アメリカンな内装</span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">壁や柱に頼らない構造で、大型のリビングダイニングが実現しやすい</span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">庭や駐車スペースが充実しており、アウトドアリビングとして使いやすい</span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">カフェ・雑貨店・店舗への転用に向いた空間として、若い世代や女性からの人気が高い</span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">当時と同じ様式・同じ工法で新築されることは基本的になく、新築でこの雰囲気を再現するのは難しい。「中古でしか選べない住宅」という位置づけ</span></li>
+      </ul>
+      <p class="source-line">※この基礎知識・魅力の解説の多くは、沖縄の不動産・建築系サイトのコラム記事を参考にしています。</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">注</span>中古だからこそ見るべき注意点<span class="cat-count">10項目</span></h2>
+      <hr class="category-rule">
+      <ul class="point-list">
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">老朽化:築40〜50年以上の物件が多く、コンクリートのひび割れ・配管の劣化が懸念点として挙げられている</span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">給排水管・電気配線の耐用年数:一般に給排水管の耐用年数は30〜40年程度が目安とされ、築40〜50年の外人住宅の多くはすでにこの年数を超えている計算になる。更新済みかどうかは外観だけでは判断できないため、工事記録・リフォーム履歴の有無を必ず確認する必要がある<span class="point-why">業界で一般的に言われている耐用年数の目安</span></span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">断熱性:コンクリート造は熱を蓄えやすく、夏場は冷房効率が下がりやすいとされる。沖縄は2023年6月の電力大手7社一斉値上げで33.3%の上昇率となり、7社の中でも2番目に高い上げ幅だった経緯があり、断熱性の低い建物ほど光熱費の負担が重くなりやすい状況にある<span class="point-why">電力会社の料金改定に関する報道・解説記事による</span></span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">耐震性:コンクリートブロック造(CB造)は一般に、鉄筋コンクリート造(RC造)と比べて耐震性が低いとされ、主に3階建て以下の小規模な建物に使われる工法と説明されている(業界の一般的な整理であり、一次統計ではない)</span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">建築年代との関係:1981年6月1日より前に建築確認を受けた建物は「旧耐震基準」にあたる。外人住宅の多くはこれより前の年代に建てられているとみられるが、個々の建物の建築確認日は物件ごとに確認が必要(旧耐震/新耐震の基準そのものは建築基準法改正に基づく一次的な区分)</span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">耐震基準適合証明書の取得費用・期間:旧耐震の物件でフラット35や住宅ローン減税を使いたい場合に必要になることがあるこの証明書は、耐震診断でおおむね10〜15万円、証明書の発行でおおむね3〜5万円が相場とされ、発行までに長ければ3カ月程度かかるとされる。契約・入居のスケジュールに間に合うよう、早めに検討を始める必要がある(複数の建築・不動産系サイトの記載による目安)</span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">増改築のしにくさ:コンクリートブロック造は建築基準法上の制限により増改築が難しいとされる。一方で大規模なリノベーション自体は可能で、Mid-Century Houseの事例では躯体補修(欠損部分の補修+特殊繊維シートでのコーティング)、電気配線・給排水・ガス配管の全面刷新、間取り変更(3LDK→2LDK+ストレージ)を実施している<span class="point-why">出典:リノベーション協議会公式(改修内容)</span></span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">リノベ費用の規模感:Mid-Century House(築58年・102.87㎡)の総リノベ費用は2,000万円(税込)、工期6ヶ月<span class="point-why">出典:リノベーション協議会公式。中古の本体価格にこの規模の費用が乗る可能性を見込んで予算を考える必要がある。費用の詳細な相場・総予算の考え方は特典16(リノベーションの自由度ガイド)にまとめている</span></span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">住宅ローンへの影響:旧耐震基準に該当する場合、フラット35等の利用には耐震基準適合証明書の取得が必要になることがある。証明書がなければ審査自体に進めないケースもあるため、物件を決める前の段階で該当するかどうかを把握しておきたい</span></li>
+        <li class="point-item"><span class="point-mark"></span><span class="point-text">用途変更の実務的なハードル:カフェ・店舗への転用を考える場合、建築基準法の用途地域規制や消防法の基準を満たす必要があり、「可愛いから」だけでは進められないケースがある。用途変更を検討する場合は、着工前に自治体の建築指導課・消防署へ確認するのが基本</span></li>
+      </ul>
+      <div class="extra-note">
+        <b>断熱・耐震は「直せない」わけではない</b>
+        老朽化・断熱性・耐震性は、どれも購入後にリフォーム・リノベーションで手を入れられる部分です。ただし、その分の費用(耐震診断・証明書取得で十数万円、断熱改修・配管更新・大規模リノベでは数百万円〜2,000万円規模になることもある)が物件価格に上乗せでかかる前提で予算を考える必要があります。「可愛いから」だけで決めず、どこまで手を入れるか・いくらかかりそうかを先に確認しておくと、住んでからの後悔を減らせます。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">行</span>購入前に確認したいこと<span class="cat-count">6項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="g1" type="button"><span class="check-box"></span><span class="check-text">耐震診断や耐震基準適合証明書の有無を確認した<span class="check-why">未取得の場合、診断10〜15万円+証明書発行3〜5万円程度、取得まで最長3カ月程度を見込んで動く</span></span></button></li>
+        <li><button class="check-item" data-id="g2" type="button"><span class="check-box"></span><span class="check-text">給排水管・電気配線の更新履歴を確認した<span class="check-why">給排水管の耐用年数は一般に30〜40年とされ、築40〜50年の物件はすでに超えている可能性が高い</span></span></button></li>
+        <li><button class="check-item" data-id="g3" type="button"><span class="check-box"></span><span class="check-text">窓・屋根の断熱(遮熱)工事歴を確認した<span class="check-why">未工事の場合、沖縄は電気料金の値上げ幅が全国でも大きかった経緯があり、入居後の光熱費が想定より高くなることがある</span></span></button></li>
+        <li><button class="check-item" data-id="g4" type="button"><span class="check-box"></span><span class="check-text">カフェ・店舗など住居以外の用途に変える場合、用途変更や増改築が建築基準法・用途地域上できるか確認した<span class="check-why">消防法の基準も関わるため、着工前に自治体の建築指導課・消防署へ確認する</span></span></button></li>
+        <li><button class="check-item" data-id="g5" type="button"><span class="check-box"></span><span class="check-text">本体価格に加えてリノベーション費用を含めた総予算を試算した(特典16を参照)<span class="check-why">Mid-Century Houseの実例では築58年・102.87㎡で総リノベ費用2,000万円、工期6ヶ月だった</span></span></button></li>
+        <li><button class="check-item" data-id="g6" type="button"><span class="check-box"></span><span class="check-text">旧耐震に該当する場合、住宅ローンの利用条件を金融機関に確認した<span class="check-why">証明書の有無でフラット35や住宅ローン減税の利用可否が変わる</span></span></button></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <div class="distinct-note">この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORAGE_KEY = "okinawa_gaijin_jutaku_checklist_v1";
+  var TOTAL = 6;
+  function loadState(){try{var raw=localStorage.getItem(STORAGE_KEY);if(!raw)return{};var p=JSON.parse(raw);return(p&&typeof p==="object")?p:{};}catch(e){return{};}}
+  function saveState(s){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(s));}catch(e){}}
+  var state = loadState();
+  var items = Array.prototype.slice.call(document.querySelectorAll(".check-item"));
+  function applyItemState(el){var id=el.getAttribute("data-id");if(state[id]){el.classList.add("checked");}else{el.classList.remove("checked");}}
+  function toggleItem(el){var id=el.getAttribute("data-id");state[id]=!state[id];saveState(state);applyItemState(el);}
+  items.forEach(function(el){applyItemState(el);el.addEventListener("click",function(){toggleItem(el);});});
+})();
+</script>
+</body>
+</html>

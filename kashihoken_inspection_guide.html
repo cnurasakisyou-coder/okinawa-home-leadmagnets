@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>既存住宅売買瑕疵保険・ホームインスペクション完全ガイド|沖縄マイホーム研究室</title>
+<meta name="description" content="似ているようで別物の2つの制度(ホームインスペクションと既存住宅売買瑕疵保険)を、費用・実施率・築年数の壁まで出典付きで整理した16項目。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(23px,5.6vw,30px);font-weight:600;line-height:1.55;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px}
+  .hero h1{
+    position:relative;font-size:clamp(21px,4.6vw,25px);line-height:1.55;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"INSPECTION GUIDE  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px}
+  .pitch{font-size:13.5px;line-height:1.95;margin:18px 0 0;color:#344655;background:#F0EEE7;padding:15px 17px;border:1px solid #E4DFD4}
+
+  .progress-sticky{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,241,232,.97);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    padding:13px clamp(20px,6vw,30px) 15px;
+  }
+  .progress-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:9px}
+  .progress-label{font-size:10px;letter-spacing:.16em;color:var(--muted);font-weight:700}
+  .progress-text{font-size:13px;font-variant-numeric:tabular-nums;color:var(--navy);font-weight:700}
+  .progress-text .num{font-size:18px;color:var(--gold)}
+  .progress-track{width:100%;height:5px;background:#DDD8CD}
+  .progress-fill{height:100%;width:0%;background:var(--navy);transition:width .35s ease}
+  .progress-done-msg{display:none;margin-top:9px;font-size:12.5px;color:var(--navy);font-weight:700}
+  .progress-done-msg.show{display:block}
+
+  main{padding:8px clamp(20px,6vw,30px) 4px}
+
+  .category{margin:30px 0 0}
+  .category h2{display:flex;align-items:center;gap:12px;margin:0 0 2px;font-size:17.5px;font-weight:600;color:var(--navy);line-height:1.5}
+  .badge{
+    flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;font-size:14.5px;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);
+    position:relative;top:0
+  }
+  .cat-count{font-size:11px;color:var(--muted);font-weight:500;margin-left:auto;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .category-rule{border:none;border-top:1px solid var(--gold);margin:11px 0 16px;position:relative}
+  .category-rule::after{content:"";position:absolute;left:0;top:-2px;width:48px;height:3px;background:var(--navy)}
+
+  .check-list{list-style:none;margin:0;padding:0}
+  .check-item{
+    width:100%;display:flex;align-items:flex-start;gap:13px;text-align:left;
+    background:transparent;border:0;border-bottom:1px solid var(--line);
+    padding:16px 6px;font-size:14px;font-family:inherit;color:var(--ink);
+    cursor:pointer;min-height:48px;-webkit-tap-highlight-color:transparent;
+    transition:background .15s ease;
+  }
+  .check-item:hover{background:#F8F5EF}
+  .check-box{flex:0 0 18px;width:18px;height:18px;border:1px solid #8B969B;margin-top:3px;position:relative;transition:all .15s ease;background:#fffefa}
+  .check-box::after{content:"";position:absolute;left:4px;top:1px;width:6px;height:10px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(40deg);opacity:0}
+  .check-item.checked .check-box{background:var(--navy);border-color:var(--navy)}
+  .check-item.checked .check-box::after{opacity:1}
+  .check-text{flex:1}
+  .check-why{display:block;font-size:12.5px;color:#65717A;margin-top:5px;line-height:1.85}
+  .check-item.checked .check-text{color:#737D82;text-decoration:line-through;text-decoration-color:var(--gold)}
+  .check-item.checked .check-why{text-decoration:none}
+
+  .distinct-note{padding:18px clamp(20px,6vw,30px);font-size:12.5px;color:#58656C;background:#F0EEE7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.9}
+  .extra-note{font-size:12.5px;color:#344655;background:#F4F1E9;border-left:3px solid var(--gold);padding:15px 17px;margin:16px 0 0;line-height:1.9}
+  .extra-note b{display:block;margin-bottom:5px;color:var(--navy);font-size:13px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+
+  .closing{padding:34px clamp(20px,6vw,30px) 40px;background:#fffefa}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+  .reset-link{display:block;text-align:left;margin:20px 0 0;font-size:12.5px;color:var(--muted);background:none;border:none;text-decoration:underline;cursor:pointer;padding:0}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .check-item{font-size:13.5px;gap:10px;padding:14px 2px}
+    .check-why{font-size:12px}
+    .category h2{gap:8px}
+    .badge{flex-basis:28px;width:28px;height:28px}
+    .cat-count{font-size:10px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+    .progress-sticky{position:static}
+    .check-item{break-inside:avoid}
+    .reset-link{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>似ているようで別物の2つの制度</span>既存住宅売買瑕疵保険・<br>ホームインスペクション</h1>
+      <p class="cover-subtitle">費用・実施率・築年数の壁まで、出典付きの数字で整理した16項目のガイドです。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典12</p>
+    <h1>既存住宅売買瑕疵保険・<br>ホームインスペクション完全ガイド</h1>
+    <p class="hero-lead">「中古の構造・雨漏りは保険でカバーできる」とは聞いても、実際の費用・入りやすさ・どれくらいの人が使っているかまでは、意外と知られていません。似ているようで別物の2つの制度を、出典付きの数字で整理しました。</p>
+    <p class="pitch">ホームインスペクション(住宅診断)と既存住宅売買瑕疵保険は、よく一緒に語られますが仕組みは別物です。費用・実施率・事故率・築年数による入りやすさの違い、検査に落ちやすいポイントと通すための対応まで、タップしながら確認できる16項目にしました。</p>
+  </header>
+
+  <div class="progress-sticky">
+    <div class="progress-row">
+      <span class="progress-label">CHECK PROGRESS</span>
+      <span class="progress-text"><span class="num" id="progressCount">0</span> / 16</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-done-msg" id="progressDoneMsg">全部確認できました。内見前の予備知識は十分です。</div>
+  </div>
+
+  <main>
+
+    <section class="category">
+      <h2><span class="badge">別</span>この2つは別物<span class="cat-count">2項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="k1" type="button"><span class="check-box"></span><span class="check-text">ホームインスペクション(住宅診断)とは何か<span class="check-why">国が定める講習を修了した「既存住宅状況調査技術者」の資格を持つ建築士が、目視・計測によって建物の劣化・不具合の状況を調べる"検査"そのもの。保険ではなく、調査を受けたからといって自動的に保険に入れるようになるわけでもない。検査にかかる時間は戸建てでおおむね2〜3時間程度が目安とされ、調査後は結果報告書が交付される</span></span></button></li>
+        <li><button class="check-item" data-id="k2" type="button"><span class="check-box"></span><span class="check-text">既存住宅売買瑕疵保険とは何か<span class="check-why">柱・基礎などの構造耐力上主要な部分と、屋根・外壁など雨水の浸入を防止する部分を対象にした保険。加入には、保険法人や検査機関による現場検査+審査に通る必要がある。仲介する宅建業者が加入する「宅建業者販売タイプ」と、個人同士の売買で使う「個人間売買タイプ」の2種類がある</span></span></button></li>
+      </ul>
+      <div class="extra-note">
+        <b>混同しやすい点</b>
+        インスペクションは「調べる」行為、瑕疵保険は「もし欠陥が見つかったら補償する」仕組みです。インスペクションを受けたからといって自動的に保険に入れるわけではなく、保険に入るには別途、保険法人が定める現場検査に通る必要があります。また瑕疵保険には「宅建業者が加入するタイプ」と「個人間売買で使うタイプ」の2種類があり、どちらを使うかは取引の形(仲介業者がいるかどうか)によって変わります。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">額</span>費用はいくらか<span class="cat-count">3項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="k3" type="button"><span class="check-box"></span><span class="check-text">ホームインスペクション費用の相場<span class="check-why">マンションで4〜6万円、戸建てで5〜7万円程度が一般的な相場(複数の業者サイトの記載を平均した目安で、公的な一次統計ではない)。床面積や、配管内視鏡・サーモグラフィなどのオプション検査を追加すると、この相場より高くなることがある</span></span></button></li>
+        <li><button class="check-item" data-id="k4" type="button"><span class="check-box"></span><span class="check-text">既存住宅売買瑕疵保険(宅建業者販売)の保険料等<span class="check-why">約61,000円(純保険料 約21,000円+付加保険料 約19,000円+検査料 約21,000円)。戸建120㎡・保険金額1,000万円・保険期間5年・割引なしの条件で算定(出典:国土交通省 資料2「保険料等について」PDF)。個人間売買タイプの保険料は保険法人ごとに設定されており、戸建てで5万円程度からが目安とされる(出典:住宅瑕疵担保責任保険協会公式サイト)</span></span></button></li>
+        <li><button class="check-item" data-id="k5" type="button"><span class="check-box"></span><span class="check-text">2つを合わせた費用の目安<span class="check-why">インスペクション5〜7万円+瑕疵保険約6.1万円で、合計12万〜13万円程度になりうる(2つの数字を単純に足した概算。検査を1回で済ませられるケースもあるため、実際の見積もりは業者に確認)</span></span></button></li>
+      </ul>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">率</span>実際どれくらい使われているか<span class="cat-count">4項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="k6" type="button"><span class="check-box"></span><span class="check-text">全国のインスペクション実施率<span class="check-why">平成30年度の既存住宅状況調査の実施件数は全国で推計7,013件。既存住宅流通戸数(16万戸)の4%程度と推定され、前年度の約1.5倍に増加した。実施率が低い背景には、インスペクションの実施そのものは義務ではなく、仲介業者に「あっせんできるかどうかを示す義務」があるだけという制度の作りも関係しているとみられる(出典:国土交通省 令和元年「既存住宅状況調査の実施状況に関するアンケート調査結果」PDF)</span></span></button></li>
+        <li><button class="check-item" data-id="k7" type="button"><span class="check-box"></span><span class="check-text">調査実績ゼロの事業者が約8割<span class="check-why">アンケートに回答した不動産事業者(3,385件)のうち、インスペクションの実施実績がない事業者が79.7%を占めた(同上)</span></span></button></li>
+        <li><button class="check-item" data-id="k8" type="button"><span class="check-box"></span><span class="check-text">媒介契約のうち、あっせん希望があった割合<span class="check-why">媒介契約件数(57,141件)のうち、買主からインスペクションのあっせん希望があったのは0.6%、売主からは5.9%で、合計でも1割に満たない(同上)。「希望すれば受けられる」仕組みであるにもかかわらず、実際に希望を伝える人自体が少ないことがうかがえる</span></span></button></li>
+        <li><button class="check-item" data-id="k9" type="button"><span class="check-box"></span><span class="check-text">瑕疵保険の事故率(保険金支払いが発生した割合)<span class="check-why">既存住宅売買瑕疵保険(宅建業者販売)は事故率1.526%・平均支払額731,783円。個人間売買は事故率2.672%・平均支払額1,074,113円でより高い(平成30年3月末時点の累計)。ここでいう「事故」とは、引き渡し後に雨漏りや構造部分の欠陥が見つかり、保険金で補修費用がまかなわれたケースを指す(出典:国土交通省 資料2「保険料等について」PDF)</span></span></button></li>
+      </ul>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">壁</span>築年数の壁<span class="cat-count">2項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="k10" type="button"><span class="check-box"></span><span class="check-text">「築20年・30年の壁」と言われる理由<span class="check-why">既存住宅売買瑕疵保険は、原則として新耐震基準(1981年6月1日以降に建築確認を受けた住宅)に適合していることが加入の前提になっている(出典:住宅瑕疵担保責任保険協会公式サイト)。それより古い「旧耐震」の物件は現場検査でそのまま不適合と判定されやすく、これが一部の業者サイトで「築20年以上は加入できるケースが少なく、築30年以上はほとんど不適合と判定される」と説明されている理由とみられる</span></span></button></li>
+        <li><button class="check-item" data-id="k11" type="button"><span class="check-box"></span><span class="check-text">旧耐震でも入れる場合がある<span class="check-why">旧耐震の物件でも、耐震基準適合証明書や既存住宅性能評価書などを提出し、保険法人の現場検査に通れば加入できる場合がある(出典:住宅瑕疵担保責任保険協会公式サイト)。「古いから最初から無理」と決めつけず、保険法人・インスペクション事業者に直接問い合わせるのが確実</span></span></button></li>
+      </ul>
+      <div class="extra-note">
+        <b>検査に落ちる典型例と、通すための対応</b>
+        現場検査でよく指摘されるのは、雨漏りの跡(雨ジミ)が残っているケースです。この場合、検査までにその箇所を補修し、再検査に合格すれば加入できる可能性があります(出典:住宅瑕疵担保責任保険協会公式サイト)。「築年数が古いから無理」と早々にあきらめず、補修を前提に保険法人へ相談するという選択肢も検討する価値があります。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">法</span>制度の背景・注意点<span class="cat-count">2項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="k12" type="button"><span class="check-box"></span><span class="check-text">2018年4月の宅建業法改正(説明義務化)<span class="check-why">媒介契約締結時に宅建業者がインスペクション業者のあっせんの可否を示す義務、重要事項説明では実施済みならその結果の概要を、未実施ならその旨を説明する義務が課された。実施そのものを強制する制度ではなく、あくまで「選べること」と「説明すること」を義務化した制度である(出典:国土交通省インスペクション制度ページ)</span></span></button></li>
+        <li><button class="check-item" data-id="k13" type="button"><span class="check-box"></span><span class="check-text">瑕疵保険がカバーしない範囲<span class="check-why">対象はあくまで構造部分と雨水侵入防止部分のみ。給湯器・エアコン等の設備や内装の不具合は対象外。「保険に入っているから何でも補償される」わけではない点に注意</span></span></button></li>
+      </ul>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">次</span>次にすること(実践チェック)<span class="cat-count">3項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="k14" type="button"><span class="check-box"></span><span class="check-text">媒介契約時に「インスペクションをあっせんしてほしい」と伝えた<span class="check-why">あっせんの可否を示す義務は宅建業者側にあるが、希望を自分から伝えないと「あっせんなし」のまま進んでしまうことが多い</span></span></button></li>
+        <li><button class="check-item" data-id="k15" type="button"><span class="check-box"></span><span class="check-text">重要事項説明で、インスペクション実施の有無とその結果を確認した<span class="check-why">実施済みなら結果の概要が記載されるが、概要だけでなく詳細な調査報告書そのものも見せてもらうと判断材料が増える</span></span></button></li>
+        <li><button class="check-item" data-id="k16" type="button"><span class="check-box"></span><span class="check-text">瑕疵保険に加入できる物件か、築年数・現況から保険法人に確認した<span class="check-why">旧耐震の物件は耐震基準適合証明書等があれば加入できる場合がある。取得には別途費用・期間がかかるため、早めに検討を始めると安心</span></span></button></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <div class="distinct-note">この特典内の一般的な解説の一部は、不動産・住宅診断の専門サイトのコラム記事を参考にしています。この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+    <button class="reset-link" id="resetBtn" type="button">チェックを全部リセットする</button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORAGE_KEY = "okinawa_kashihoken_inspection_guide_v1";
+  var TOTAL = 16;
+  function loadState(){try{var raw=localStorage.getItem(STORAGE_KEY);if(!raw)return{};var p=JSON.parse(raw);return(p&&typeof p==="object")?p:{};}catch(e){return{};}}
+  function saveState(s){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(s));}catch(e){}}
+  var state = loadState();
+  var items = Array.prototype.slice.call(document.querySelectorAll(".check-item"));
+  var progressFill = document.getElementById("progressFill");
+  var progressCount = document.getElementById("progressCount");
+  var progressDoneMsg = document.getElementById("progressDoneMsg");
+  var resetBtn = document.getElementById("resetBtn");
+  function updateProgress(){var checked=0;items.forEach(function(el){if(state[el.getAttribute("data-id")])checked++;});var pct=Math.round((checked/TOTAL)*100);progressFill.style.width=pct+"%";progressCount.textContent=checked;if(checked>=TOTAL){progressDoneMsg.classList.add("show");}else{progressDoneMsg.classList.remove("show");}}
+  function applyItemState(el){var id=el.getAttribute("data-id");if(state[id]){el.classList.add("checked");}else{el.classList.remove("checked");}}
+  function toggleItem(el){var id=el.getAttribute("data-id");state[id]=!state[id];saveState(state);applyItemState(el);updateProgress();}
+  items.forEach(function(el){applyItemState(el);el.addEventListener("click",function(){toggleItem(el);});});
+  updateProgress();
+  resetBtn.addEventListener("click",function(){state={};saveState(state);items.forEach(applyItemState);updateProgress();});
+})();
+</script>
+</body>
+</html>

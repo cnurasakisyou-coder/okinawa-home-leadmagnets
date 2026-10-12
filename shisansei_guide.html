@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>資産性の見方ガイド「将来も売りやすい家」を見分ける6つの視点|沖縄マイホーム研究室</title>
+<meta name="description" content="プロが資産性を見るときに使う6つの視点(人口動態・地価・再開発計画・交通計画・学区・賃貸需要)と、自分で確認できる調べ方。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .tnum{font-variant-numeric:tabular-nums}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1598228723793-52759bba239c?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(23px,5.6vw,29px);font-weight:600;line-height:1.6;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 26px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px}
+  .hero h1{
+    position:relative;font-size:clamp(19px,4.6vw,23px);line-height:1.6;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"ASSET VALUE  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px}
+  .pitch{font-size:13.5px;line-height:1.95;margin:18px 0 0;color:#344655;background:#F0EEE7;padding:15px 17px;border:1px solid #E4DFD4}
+  .disclaimer-top{font-size:12px;color:#58656C;margin:16px 0 0;padding:12px 14px;border:1px solid var(--line);background:rgba(23,52,77,.04);line-height:1.9}
+
+  main{padding:8px clamp(20px,6vw,30px) 4px}
+
+  /* ---- Section / category (6 viewpoints) ---- */
+  .category{margin:30px 0 0;padding-bottom:20px;border-bottom:1px solid var(--line)}
+  .category h2{
+    display:flex;align-items:flex-start;gap:13px;margin:0 0 10px;
+    font-size:16.5px;font-weight:600;color:var(--navy);line-height:1.5
+  }
+  .badge{
+    flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:700;
+    font-variant-numeric:tabular-nums;border:1px solid var(--gold);margin-top:1px;
+  }
+  .badge.kanji{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:400}
+  .view-title{padding-top:5px}
+  .category-rule{border:none;border-top:1px solid var(--gold);margin:11px 0 16px;position:relative}
+  .category-rule::after{content:"";position:absolute;left:0;top:-2px;width:48px;height:3px;background:var(--navy)}
+  .view-body{font-size:14.5px;color:var(--ink);margin:0 0 10px}
+  .view-check{font-size:13px;color:#58656C;padding:11px 13px;background:#F8F5EF;border-left:3px solid var(--gold);margin:0 0 10px;line-height:1.9}
+  .view-check:last-child{margin-bottom:0}
+  .view-check b{color:var(--navy)}
+  .subhead{font-size:13.5px;font-weight:700;color:var(--navy);margin:18px 0 8px}
+
+  /* ---- Table (41市町村) ---- */
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0 0;border:1px solid var(--line)}
+  .table-wrap table{min-width:520px;width:100%;border-collapse:collapse}
+  .table-wrap th,.table-wrap td{padding:9px 7px;text-align:left;border-bottom:1px solid var(--line);font-size:12.5px}
+  .table-wrap thead th{
+    background:var(--navy);color:#E9D9B8;font-size:10.5px;letter-spacing:.06em;
+    text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--gold);position:sticky;top:0
+  }
+  .table-wrap tbody th{background:var(--blue-pale);color:var(--navy);font-weight:700;position:sticky;left:0}
+  .table-wrap td.rate{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink);text-align:right}
+  .table-wrap td.na{color:var(--muted);text-align:right}
+  .table-wrap tbody tr:last-child td,.table-wrap tbody tr:last-child th{border-bottom:none}
+  .table-legend{font-size:11.5px;color:var(--muted);margin:8px 0 0;line-height:1.9}
+
+  .note-box{font-size:12.5px;color:var(--muted);padding:18px clamp(20px,6vw,30px);background:#F0EEE7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.95}
+
+  /* ---- Closing ---- */
+  .closing{padding:34px clamp(20px,6vw,30px) 40px;background:#fffefa}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .category h2{gap:9px}
+    .badge{flex-basis:28px;width:28px;height:28px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>将来も売りやすい家を見分ける</span>資産性の見方ガイド<br>6つの視点</h1>
+      <p class="cover-subtitle">プロが資産性を見るときに実際に確認している視点と、自分で調べる方法を紹介します。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典5</p>
+    <h1>資産性の見方ガイド<br>「将来も売りやすい家」を見分ける6つの視点</h1>
+    <p class="hero-lead">「"値上がりする家"を当てるガイドではありません。プロが資産性を見るときに実際に確認している視点を知っておくと、物件選びの判断材料が増えます。」</p>
+    <div class="disclaimer-top">このガイドは特定の物件の将来価格を予測するものではありません。将来の資産性・売却のしやすさを保証するものでもありません。不動産のプロが物件を見るときに一般的にチェックしている視点と、その確認方法を紹介します。最終的な判断は、実際の物件調査・専門家への相談のうえで行ってください。</div>
+  </header>
+
+  <main>
+
+    <section class="category">
+      <h2><span class="badge tnum">1</span><span class="view-title">エリアの人口動態</span></h2>
+      <p class="view-body">人口が増え続けているエリアは需要が続きやすく、減っているエリアは将来の買い手が減る可能性があるという一般的な見方があります。子育て世帯の人口が増えているエリアでは保育園・小学校の新設や学校再編の検討が進みやすく、生活インフラが維持されやすい傾向があります。逆に人口が減り続けるエリアでは、通学区域の統廃合や公共サービスの縮小が将来的に議論になることがあります。</p>
+      <p class="view-check"><b>確認方法:</b>沖縄県「国勢調査」(市町村別、5年ごと)。2026年10月2日公表の令和7年国勢調査確定値によると、沖縄県の人口は146万6,548人で前回比932人減(▲0.1%)となり、戦後初めて人口が減少に転じました。ただし内訳を見ると、41市町村のうち16市町村は人口が増えています。実数での増加トップはうるま市+2,940人・名護市+2,458人・八重瀬町+1,727人・南城市+1,269人・南風原町+1,043人。減少トップは那覇市▲6,920人・沖縄市▲1,092人・宮古島市▲985人でした。沖縄県は15歳未満人口の割合が15.3%で全国最高です(出典:沖縄県企画部統計課「令和7年国勢調査 人口等基本集計結果の概要」)。那覇市に隣接する中城村・南風原町・うるま市などで人口が伸びているのは、那覇市内の地価・家賃上昇を背景に、子育て世帯が住居費を抑えられる周辺エリアに移っている可能性がある、という見方もできます。</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge tnum">2</span><span class="view-title">公示地価・基準地価の推移</span></h2>
+      <p class="view-body">地価が何年も上がり続けているか下がっているかは、需要の強さを示す一般的な指標とされます。公示地価は、国が全国に定めた「標準地」について不動産鑑定士が実際の取引事例をもとに鑑定評価した結果をベースに判定する価格で、相場に近い指標として扱われます。</p>
+      <p class="view-body">公示地価は土地の取引価格の目安になるだけでなく、税金の計算のベースにも使われます。相続税路線価は公示地価の8割程度を目安に国税庁が毎年7月に公表し、固定資産税評価額は公示地価の7割程度を目安に総務省の評価基準に基づいて市町村が算定します(出典:国税庁、総務省)。つまり地価の上昇が続くと、将来的に相続税評価額や固定資産税の負担も連動して上がっていく可能性があります。</p>
+      <p class="view-check"><b>確認方法:</b>国土交通省は毎年3月(公示地価)・9月(基準地価)に更新。2026年公示地価は沖縄県全体+6.6%(全国2位)・住宅地+6.4%(全国2位)。基準地価(7月1日時点)は県全体+5.8%で13年連続上昇(伸びは縮小)・住宅地+5.3%(全国2位)・商業地+6.9%(全国4位)・工業地+8.5%(全国3位)で、県内41市町村のうち地価が下落したのは1村のみという状況です(出典:琉球新報、沖縄デイリー)。市町村別の上昇率は北谷町+9.2%・宜野湾市+8.9%・那覇市+6.0%・浦添市+5.5%という推計があります。※これは過去の実績であり、将来も同じ傾向が続く保証はありません</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="view-title">全41市町村:人口動態×地価 一覧(視点1・2の詳細)</span></h2>
+      <p class="view-body">視点1・視点2で紹介した「人口が増えているか」「地価が上がっているか」を、沖縄県の全41市町村について一覧にしました。公示地価の調査地点がない市町村は「未確認」としています(その場合、参考として基準地価を併記しています)。</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>市町村</th><th>人口増減</th><th>公示地価前年比</th><th>基準地価(参考)</th></tr></thead>
+        <tbody>
+          <tr><td>那覇市</td><td class="rate tnum">−2.1%</td><td class="rate tnum">+6.0%</td><td class="na">–</td></tr>
+          <tr><td>浦添市</td><td class="rate tnum">±0.0%</td><td class="rate tnum">+5.5%</td><td class="na">–</td></tr>
+          <tr><td>宜野湾市</td><td class="rate tnum">±0.0%</td><td class="rate tnum">+8.9%</td><td class="na">–</td></tr>
+          <tr><td>北谷町</td><td class="rate tnum">+0.8%</td><td class="rate tnum">+9.2%</td><td class="na">–</td></tr>
+          <tr><td>中城村</td><td class="rate tnum">+3.4%</td><td class="na">未確認</td><td class="na">未確認</td></tr>
+          <tr><td>うるま市</td><td class="rate tnum">+2.5%</td><td class="na">未確認</td><td class="na">未確認</td></tr>
+          <tr><td>豊見城市</td><td class="rate tnum">+1.6%</td><td class="na">未確認</td><td class="na">未確認</td></tr>
+          <tr><td>南風原町</td><td class="rate tnum">+2.7%</td><td class="na">未確認</td><td class="na">未確認</td></tr>
+          <tr><td>八重瀬町</td><td class="rate tnum">+5.6%</td><td class="na">未確認</td><td class="na">未確認</td></tr>
+          <tr><td>与那原町</td><td class="rate tnum">−2.2%</td><td class="na">未確認</td><td class="na">未確認</td></tr>
+          <tr><td>石垣市</td><td class="rate tnum">+0.2%</td><td class="rate tnum">+5.78%</td><td class="na">–</td></tr>
+          <tr><td>名護市</td><td class="rate tnum">+3.9%</td><td class="rate tnum">+4.82%</td><td class="na">–</td></tr>
+          <tr><td>糸満市</td><td class="rate tnum">−0.6%</td><td class="rate tnum">+6.56%</td><td class="na">–</td></tr>
+          <tr><td>沖縄市</td><td class="rate tnum">−0.8%</td><td class="rate tnum">+4.6%</td><td class="na">–</td></tr>
+          <tr><td>宮古島市</td><td class="rate tnum">−1.9%</td><td class="rate tnum">+12.30%</td><td class="na">–</td></tr>
+          <tr><td>南城市</td><td class="rate tnum">+2.9%</td><td class="rate tnum">+7.18%</td><td class="na">–</td></tr>
+          <tr><td>読谷村</td><td class="rate tnum">+0.8%</td><td class="rate tnum">+3.03%</td><td class="na">–</td></tr>
+          <tr><td>嘉手納町</td><td class="rate tnum">−2.2%</td><td class="rate tnum">+2.52%</td><td class="na">–</td></tr>
+          <tr><td>北中城村</td><td class="rate tnum">+0.5%</td><td class="rate tnum">+8.82%</td><td class="na">–</td></tr>
+          <tr><td>西原町</td><td class="rate tnum">+0.8%</td><td class="rate tnum">+5.76%</td><td class="na">–</td></tr>
+          <tr><td>国頭村</td><td class="rate tnum">−8.5%</td><td class="na">未確認</td><td class="rate tnum">+0.14%</td></tr>
+          <tr><td>大宜味村</td><td class="rate tnum">−8.1%</td><td class="na">未確認</td><td class="rate tnum">+3.37%</td></tr>
+          <tr><td>東村</td><td class="rate tnum">−5.4%</td><td class="na">未確認</td><td class="rate tnum">+2.71%</td></tr>
+          <tr><td>今帰仁村</td><td class="rate tnum">−1.5%</td><td class="na">未確認</td><td class="rate tnum">+5.99%</td></tr>
+          <tr><td>本部町</td><td class="rate tnum">−5.8%</td><td class="rate tnum">+15.55%</td><td class="na">–</td></tr>
+          <tr><td>恩納村</td><td class="rate tnum">+3.2%</td><td class="na">未確認</td><td class="rate tnum">+9.18%</td></tr>
+          <tr><td>宜野座村</td><td class="rate tnum">+7.6%</td><td class="na">未確認</td><td class="rate tnum">+11.15%</td></tr>
+          <tr><td>金武町</td><td class="rate tnum">+3.1%</td><td class="na">未確認</td><td class="rate tnum">+6.24%</td></tr>
+          <tr><td>伊江村</td><td class="rate tnum">−9.5%</td><td class="na">未確認</td><td class="rate tnum">−0.34%</td></tr>
+          <tr><td>渡嘉敷村</td><td class="rate tnum">−12.8%</td><td class="na">未確認</td><td class="rate tnum">+2.75%</td></tr>
+          <tr><td>座間味村</td><td class="rate tnum">−7.0%</td><td class="na">未確認</td><td class="rate tnum">+2.82%</td></tr>
+          <tr><td>粟国村</td><td class="rate tnum">−10.4%</td><td class="na">未確認</td><td class="rate tnum">±0.0%</td></tr>
+          <tr><td>渡名喜村</td><td class="rate tnum">−32.7%</td><td class="na">未確認</td><td class="rate tnum">±0.0%</td></tr>
+          <tr><td>南大東村</td><td class="rate tnum">−8.8%</td><td class="na">未確認</td><td class="rate tnum">±0.0%</td></tr>
+          <tr><td>北大東村</td><td class="rate tnum">−5.1%</td><td class="na">未確認</td><td class="rate tnum">±0.0%</td></tr>
+          <tr><td>伊平屋村</td><td class="rate tnum">−6.7%</td><td class="na">未確認</td><td class="rate tnum">±0.0%</td></tr>
+          <tr><td>伊是名村</td><td class="rate tnum">−14.2%</td><td class="na">未確認</td><td class="rate tnum">±0.0%</td></tr>
+          <tr><td>久米島町</td><td class="rate tnum">−9.9%</td><td class="na">未確認</td><td class="rate tnum">±0.0%</td></tr>
+          <tr><td>竹富町</td><td class="rate tnum">+0.5%</td><td class="na">未確認</td><td class="rate tnum">+2.65%</td></tr>
+          <tr><td>与那国町</td><td class="rate tnum">−9.9%</td><td class="na">未確認</td><td class="rate tnum">±0.0%</td></tr>
+          <tr><td>多良間村</td><td class="rate tnum">−11.3%</td><td class="na">未確認</td><td class="rate tnum">±0.0%</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="table-legend">人口増減は2020→2025年(令和2年→令和7年国勢調査、沖縄県企画部統計課「令和7年国勢調査」確定値・速報値)。公示地価・基準地価は2026年の前年比(全用途)で、出典は国土交通省「不動産情報ライブラリ」のデータを集計した不動産情報サイト(totinokati.com・tochidai.info等)、一部は琉球新報・沖縄デイリー。「未確認」は公示地価の調査地点が設定されていない市町村です(計画がないという意味ではなく、調査地点が設定されていないため数値そのものが存在しません)。※地価は過去の実績であり将来を保証するものではありません。</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge tnum">3</span><span class="view-title">再開発計画・大型施設の進出予定</span></h2>
+      <p class="view-body">道路整備や商業・公共施設の新設はエリアの便利さ・人の流れを変える一般的な要因とされます。実例として、浦添市は2024年に「牧港補給地区跡地利用計画」を策定済みです。対象は約270ヘクタール(浦添市域の約14%)・地権者は約2,700人という大規模なもので、跡地利用によって「税収13倍」になるという試算があります。2026年10月には浦添市議会・市長が国に全面返還を要請しました(出典:琉球新報、沖縄タイムス)。このように大型の返還跡地やそれに伴う都市計画の変更が公表されると、周辺エリアの用途地域やインフラ整備が数年単位で変わり、地価・利便性に影響しやすいとされます。</p>
+      <p class="view-check"><b>確認方法:</b>市町村の「都市計画マスタープラン」「都市計画道路の整備状況」は各市町村サイトで公開されています。気になるエリアは市町村の都市計画課に確認してください</p>
+      <p class="subhead">主な動きが確認できる市町村(8市町村)</p>
+      <p class="view-check"><b>浦添市:</b>牧港補給地区跡地利用計画(2024年策定、対象約270ヘクタール=市域の約14%、地権者約2,700人)。2026年10月に市議会・市長が国に全面返還を要請(出典:琉球新報、沖縄タイムス)</p>
+      <p class="view-check"><b>宜野湾市:</b>普天間飛行場跡地利用に向け、2026年2月に県と市が「普天間飛行場跡地利用推進会議」を開催。ただし返還時期は未定で、現時点では跡地利用計画の具体化に向けた検討段階(出典:沖縄タイムス、琉球新報、宜野湾市公式)</p>
+      <p class="view-check"><b>名護市・本部町:</b>両市町にまたがる北部新テーマパーク開業構想が地価上昇の材料の一つとされているが、開業時期・規模は本ガイドでは一次確認できていない</p>
+      <p class="view-check"><b>石垣市:</b>2013年の新石垣空港開港を機に観光客・移住者の流入が拡大。空港周辺のインフラ整備・旧空港跡地の利用計画が進行中とされる</p>
+      <p class="view-check"><b>那覇市:</b>那覇新都心(旧米軍住宅地区)の再開発は完了済みの成功例として知られる。那覇軍港など今後返還が見込まれる地区もあるが、個別の時期・規模は本ガイドでは一次確認できていない</p>
+      <p class="view-check"><b>北中城村:</b>旧ゴルフ場跡地にイオンモール沖縄ライカム・中部徳洲会病院が開業し、大型商業施設の集積が進んでいる</p>
+      <p class="view-check"><b>読谷村:</b>基地跡地利用から生まれた「やちむんの里」に70以上の陶房が集積(1972年〜)</p>
+      <p class="view-check">上記以外の33市町村については、本ガイドでは大規模な再開発計画・跡地利用計画を示す一次資料を確認できていません。「確認できていない」は「計画がない」という意味ではなく、当方が一次資料に行き着けていない状態です。気になるエリアがあれば、該当市町村の都市計画課に直接確認することをおすすめします</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge tnum">4</span><span class="view-title">交通・道路計画の変化</span></h2>
+      <p class="view-body">沖縄は車社会で駅近の価値は本土ほど高くありませんが、新しい道路・バイパス・モノレール延伸などの計画は通勤時間を変え、需要に影響する一般的な要因とされます。実際にゆいレール(沖縄都市モノレール)は2019年10月1日、首里駅から浦添市内のてだこ浦西駅まで4.1km延伸され、石嶺・経塚・浦添前田・てだこ浦西の4駅が新設されました。先ほどの公示地価データでも浦添市は+5.5%の上昇となっており、交通アクセスの変化がエリアの評価にどう影響するかを考える際の実例として参考になります。</p>
+      <p class="view-check"><b>確認方法:</b>沖縄県・各市町村の交通計画の公表資料で確認できます</p>
+      <p class="subhead">主な動きが確認できる市町村(3市町村)</p>
+      <p class="view-check"><b>浦添市:</b>ゆいレール(沖縄都市モノレール)が2019年10月1日に首里駅からてだこ浦西駅まで4.1km延伸し、石嶺・経塚・浦添前田・てだこ浦西の4駅が新設された</p>
+      <p class="view-check"><b>石垣市:</b>2013年の新石垣空港開港が観光客・移住者の流入増加の転機になり、国際線ターミナル開港でアジア圏からのインバウンドも拡大した</p>
+      <p class="view-check"><b>久米島町:</b>久米島空港(滑走路2,000m)から那覇まで1日最大7便・約35分で、離島の中では交通利便性が高い</p>
+      <p class="view-check">上記以外の市町村については、交通・道路計画の具体的な「変化」を示す一次資料は本ガイドでは確認できていません。離島(竹富町・多良間村等)は定期船・空路の便数そのものが生活インフラとして重要ですが、これは既存インフラの違いであり、計画の変化とは別の情報として扱っています</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge tnum">5</span><span class="view-title">学区・子育て環境</span></h2>
+      <p class="view-body">子育て世帯が多いエリアでは、学区の人気や学校の新設・統合計画が資産性に影響するという一般的な見方があります。学区そのものは住所によって自治体の規則で機械的に決まりますが、一部自治体では学区の柔軟性を高める制度もあります。たとえば那覇市は「隣接校選択制」を実施しており、通学区域とは別に隣接する学校を選べます(小学校は2006年度・中学校は2007年度から)。浦添市には「区域外就学」、うるま市には「指定学校変更許可基準」といった、転入・転出のタイミングに応じて校区外の学校に通える制度もあります(出典:那覇市公式、浦添市公式、うるま市公式)。こうした制度の有無も、エリアの子育てのしやすさを見る視点の一つになります。</p>
+      <p class="view-check"><b>確認方法:</b>市町村教育委員会が公表する学校再編計画・児童数の推移で確認できます</p>
+      <p class="view-check">学区の柔軟な選択制度は、本ガイドでは那覇市・浦添市・うるま市の3市村で確認できています。沖縄市・宜野湾市・名護市など他の市町村についても同様の制度がある可能性はありますが、本ガイド作成時点で一次資料を確認できていません</p>
+    </section>
+
+    <section class="category" style="border-bottom:none">
+      <h2><span class="badge tnum">6</span><span class="view-title">賃貸需要・貸しやすさ</span></h2>
+      <p class="view-body">将来住み替えるときに「貸せる・売れる」選択肢が多い物件は出口が広いとされます。沖縄県は人口が増加している一方で空き家率が低い状態が続いており、中古物件が市場に出ても比較的動きやすい地合いだという見方があります。</p>
+      <p class="view-check"><b>確認方法:</b>沖縄県は貸家率50.7%で全国1位(出典:りゅうぎん総研 2026年6月)。空き家率は9.4%(65,400戸)で全国平均13.8%より低く、埼玉県に次いで全国2番目に低い水準という推計もあります。エリア別の賃貸相場はSUUMO等のポータルで確認できます</p>
+      <p class="view-check">市町村単位の貸家率・空き家率の個別データは、本ガイドでは確認できていません(那覇市・沖縄市など人口規模の大きい市についても同様です)。上記は沖縄県全体の数値で、個別エリアの賃貸需要はSUUMO等のポータルで相場を確認することをおすすめします</p>
+    </section>
+
+    <p style="font-size:12.5px;color:var(--muted);margin:22px 0 0;">マンションの場合は、特典4「中古物件だけの購入前チェックリスト」の「お金・権利」項目(修繕積立金の残高・管理組合の運営状況)も、資産性が保たれやすいかを見る視点として連動します。</p>
+
+  </main>
+
+  <div class="note-box">ここで紹介したのは「プロが物件を見るときにチェックする視点」です。これらを確認したからといって、将来の価格上昇や売却のしやすさが保証されるわけではありません。個別物件の将来価格について当サービスが予測・断言することはありません。※地価の市町村別順位や空き家率など一部の数値は、不動産業界のコラム記事・AI推計サイトの集計を参考にしています。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>2026年度 補助金ガイド(中古+リフォーム向け)|沖縄マイホーム研究室</title>
+<meta name="description" content="中古を買ってリフォームする人向けの2026年度補助金をまとめました。国の「住宅省エネ2026キャンペーン」(3事業)と、沖縄県41市町村を調査し確認できた18市町村の住宅リフォーム補助を出典付きで整理。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(23px,5.6vw,29px);font-weight:600;line-height:1.6;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px}
+  .hero h1{
+    position:relative;font-size:clamp(19px,4.4vw,24px);line-height:1.6;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"SUBSIDY GUIDE 2026  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px}
+  .pitch{font-size:13.5px;line-height:1.95;margin:18px 0 0;color:#344655;background:#F0EEE7;padding:15px 17px;border:1px solid #E4DFD4}
+
+  main{padding:8px clamp(20px,6vw,30px) 4px}
+
+  /* ---- Category ---- */
+  .category{margin:30px 0 0}
+  .category h2{
+    display:flex;align-items:center;gap:12px;margin:0 0 2px;
+    font-size:16.5px;font-weight:600;color:var(--navy);line-height:1.5
+  }
+  .badge{
+    flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;font-size:14.5px;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);
+  }
+  .category-rule{border:none;border-top:1px solid var(--gold);margin:11px 0 16px;position:relative}
+  .category-rule::after{content:"";position:absolute;left:0;top:-2px;width:48px;height:3px;background:var(--navy)}
+
+  .section-lead{font-size:13.5px;color:var(--ink);line-height:1.9;margin:12px 0 0}
+  .source-line{font-size:11.5px;color:var(--muted);margin:8px 0 0;line-height:1.7}
+
+  /* ---- Table ---- */
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 0;border:1px solid var(--line)}
+  table.data-table{min-width:560px;width:100%;border-collapse:collapse;font-size:12px}
+  table.data-table th,table.data-table td{border-bottom:1px solid var(--line);padding:8px 7px;text-align:left;vertical-align:top;line-height:1.65}
+  table.data-table tr:first-child th{background:var(--navy);color:#E9D9B8;font-weight:700;border-bottom:2px solid var(--gold);position:sticky;top:0}
+  table.data-table td{color:var(--ink);background:var(--paper)}
+  table.data-table tr:last-child td{border-bottom:none}
+  .status-open{color:var(--navy);font-weight:700}
+  .status-closed{color:#9B4A2A;font-weight:700}
+
+  .extra-note{
+    font-size:13px;color:#344655;background:#F4F1E9;
+    border-left:3px solid var(--gold);padding:15px 17px;margin:14px 0 0;line-height:1.9
+  }
+  .extra-note b{display:block;margin-bottom:6px;color:var(--navy);font-size:13.5px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+
+  .plain-list{margin:12px 0 0;padding:0;list-style:none}
+  .plain-list li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.85;padding:8px 2px;border-bottom:1px solid var(--line);color:var(--ink)}
+  .plain-list li::before{content:"□";flex:0 0 auto;color:var(--navy);font-size:14px;line-height:1.5}
+
+  .distinct-note{
+    padding:22px clamp(20px,6vw,30px);font-size:12.5px;color:#58656C;
+    background:#F0EEE7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.95
+  }
+
+  .closing{padding:35px clamp(20px,6vw,30px) 42px;background:#fffefa}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 18px}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .category h2{gap:8px}
+    .badge{flex-basis:28px;width:28px;height:28px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME SUBSIDY GUIDE 2026</p>
+      <div class="cover-rule"></div>
+      <h1><span>中古を買ってリフォームする人のための</span>2026年度<br>補助金ガイド</h1>
+      <p class="cover-subtitle">国の住宅省エネ2026キャンペーン(3事業)と、沖縄県41市町村を1つずつ調べた独自補助金を出典付きで整理しました。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典13</p>
+    <h1>中古を買って<br>リフォームする人のための<br>2026年度 補助金ガイド</h1>
+    <p class="hero-lead">「中古を買ってリフォームする」人に直接関係する、国と市町村の補助金をまとめました。先着順・予算上限ありの制度が多く、すでに受付終了しているものも含めて、2026年10月時点の状況を正直に書いています。</p>
+    <p class="pitch">国は「住宅省エネ2026キャンペーン」として、みらいエコ住宅2026事業・先進的窓リノベ2026事業・給湯省エネ2026事業の3つの補助事業を用意しており、これらは併用できます。沖縄県の全41市町村を1つずつ公式サイトで調べ、市町村独自のリフォーム補助を確認できた18市町村と合わせると、組み合わせ次第で補助の合計額がどう積み上がるか、具体的な試算も載せました。</p>
+  </header>
+
+  <main>
+
+    <section class="category">
+      <h2><span class="badge">国</span>国の制度:住宅省エネ2026キャンペーン(3事業)</h2>
+      <hr class="category-rule">
+      <p class="section-lead">2025年度で終了した「子育てグリーン住宅支援事業」の後継として、2026年度は国土交通省・経済産業省・環境省が共同で「住宅省エネ2026キャンペーン」を実施しています。このキャンペーンは性質の異なる3つの補助事業で構成されており、対象工事が重ならなければ3つとも併用できます。</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <tr><th>事業名</th><th>主な対象工事</th><th>補助上限額</th><th>申請期限</th></tr>
+        <tr><td>みらいエコ住宅2026事業</td><td>断熱改修・開口部改修など既存住宅の省エネリフォーム全般</td><td>最大100万円/戸</td><td>予約申請2026年11月16日まで、交付申請2026年12月31日まで(いずれも予算上限到達で早期終了)</td></tr>
+        <tr><td>先進的窓リノベ2026事業</td><td>内窓設置・外窓交換(カバー工法/はつり工法)・ガラス交換・ドア交換(他の窓工事と同一契約の場合)</td><td>最大100万円/戸</td><td>同上(予約申請2026年11月16日まで、交付申請2026年12月31日まで)</td></tr>
+        <tr><td>給湯省エネ2026事業</td><td>高効率給湯器の導入(エコキュート・ハイブリッド給湯機・エネファーム)</td><td>機器ごとの定額。エコキュート7万円(性能加算+3万円)、ハイブリッド給湯機10万円(性能加算+2万円)、エネファーム17万円。既存の電気温水器等を撤去する場合は追加加算あり</td><td>同上(交付申請は予算上限到達で終了、遅くとも2026年12月31日まで)</td></tr>
+      </table>
+      </div>
+      <p class="section-lead">このうち「みらいエコ住宅2026事業」は、既存住宅(中古)の省エネリフォームについて、新築向けの限定(子育て世帯・若者夫婦世帯限定)がなく、全世帯が対象になる点が旧制度からの変更点です。改修前の住宅の新築時期によって上限額が変わります。</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <tr><th>改修前の住宅</th><th>工事水準</th><th>補助上限額(/戸)</th></tr>
+        <tr><td>平成3年以前に新築</td><td>義務基準相当まで引き上げ</td><td>100万円</td></tr>
+        <tr><td>平成3年以前に新築</td><td>次世代省エネ基準相当まで引き上げ</td><td>50万円</td></tr>
+        <tr><td>平成4〜28年に新築</td><td>義務基準相当まで引き上げ</td><td>80万円</td></tr>
+        <tr><td>平成4〜28年に新築</td><td>次世代省エネ基準相当まで引き上げ</td><td>40万円</td></tr>
+      </table>
+      </div>
+      <p class="section-lead">工事着手時期:2025年11月28日以降に着手したものが対象。申請期限:みらいエコ住宅2026事業の予約申請は2026年11月16日まで、交付申請は遅くとも2026年12月31日まで(いずれも予算上限に達し次第終了)。</p>
+      <p class="source-line">出典:みらいエコ住宅2026事業公式(https://mirai-eco2026.mlit.go.jp/about/)、先進的窓リノベ2026事業公式(https://window-renovation2026.env.go.jp/about/)、給湯省エネ2026事業公式(https://kyutou-shoene2026.meti.go.jp/about/)、旧制度からの対象拡大はhouse.home4u.jp(https://house.home4u.jp/contents/subsidy-2-21015)</p>
+      <div class="extra-note">
+        <b>予算は年度途中でなくなることがある</b>
+        前身の「子育てグリーン住宅支援事業」(2025年度)では、GX志向型(新築)の枠が2025年7月22日時点で予算上限に到達し、受付が終了した実績があります。2026年度の3事業も同様に、年度の途中で予算上限に達し、告知された期限より早く締め切られる可能性があります。「まだ期限まで時間があるから」と後回しにせず、工事の予定が決まり次第、早めに申請の準備を進めることが大切です。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">試</span>組み合わせるとどうなるか(モデルケース試算)</h2>
+      <hr class="category-rule">
+      <p class="section-lead">例えば、平成4〜28年に新築された中古戸建てを買い、(1)断熱性能を次世代省エネ基準相当まで引き上げる改修、(2)内窓を設置する窓の改修、(3)古い電気温水器をエコキュートに入れ替える給湯改修、の3つを同時に行い、かつ沖縄市の住宅リフォーム補助(対象経費の25%・上限25万円)も使えた場合を仮定すると、理論上の補助の枠は次のようになります。</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <tr><th>補助の種類</th><th>上限額の目安</th></tr>
+        <tr><td>みらいエコ住宅2026事業(次世代省エネ基準相当)</td><td>40万円</td></tr>
+        <tr><td>先進的窓リノベ2026事業(内窓設置)</td><td>最大100万円(窓の数量・性能により実額は変動)</td></tr>
+        <tr><td>給湯省エネ2026事業(エコキュート+性能加算+電気温水器撤去加算)</td><td>7万円+3万円+2万円=12万円</td></tr>
+        <tr><td>沖縄市 住宅リフォーム補助(対象経費の25%)</td><td>上限25万円</td></tr>
+      </table>
+      </div>
+      <div class="extra-note">
+        <b>この試算の読み方</b>
+        単純に上限額だけを足すと40万円+100万円+12万円+25万円=177万円という「枠」になりますが、これはあくまで制度上の上限を並べた数字です。実際に受け取れる補助額は、工事内容・数量・対象経費の実額によって決まり、上限まで届かないことも多くあります。また「みらいエコ住宅2026事業」と「先進的窓リノベ2026事業」は対象工事(断熱改修・窓改修)が重なる部分があるため、同じ経費に二重で申請することはできません。実際の組み合わせ方・申請可能な金額は、リフォーム業者・各事業の事務局に見積もり段階で確認する必要があります。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">市</span>市町村独自の住宅リフォーム補助(確認できた18市町村)</h2>
+      <hr class="category-rule">
+      <p class="section-lead">沖縄県の全41市町村を1つずつ、2026年10月に公式サイト・公式告示(例規集)で確認した結果です。制度が見つかった18市町村を掲載し、見つからなかった23市町村は「制度がない」と断定せず、正直に未確認として次の章にまとめています。いずれも「補助対象経費の20〜50%・先着順または抽選・予算到達や期間終了で締切」という共通パターンを持ちます。</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <tr><th>市町村</th><th>補助率・上限額</th><th>申請期間</th><th>2026年10月11日時点の状況</th></tr>
+        <tr><td>沖縄市</td><td>補助対象経費の25%、上限25万円(バリアフリー・省エネ・空き家・耐久性向上・子育て支援・テレワークが対象、経年劣化のみの工事は対象外、総工事費20万円以上)</td><td>2026年6月1日〜12月28日(先着順・約120件予定)</td><td class="status-open">受付終了の告知は確認できず。先着順のため早めの確認を推奨</td></tr>
+        <tr><td>八重瀬町</td><td>補助対象経費の20%、上限20万円(バリアフリー改修は40%)。総工事費20万円以上</td><td>2026年7月22日〜2027年1月31日</td><td class="status-open">受付中とみられる(終了告知は確認できず)</td></tr>
+        <tr><td>嘉手納町</td><td>工事費の50%または上限額のいずれか低い方。多世帯住宅上限50万円/空き家(所有者居住)上限30万円/子育て世帯加算上限30万円/その他の住宅上限20万円</td><td>2026年5月1日〜12月18日(先着順)</td><td class="status-open">受付中とみられる(終了告知は確認できず)</td></tr>
+        <tr><td>南風原町</td><td>補助対象経費の20%、上限20万円。総工事費20万円以上</td><td>2026年6月24日〜10月30日</td><td class="status-open">本ガイド作成時点(10/11)ではまだ受付期間内。締切まで3週間ほど</td></tr>
+        <tr><td>豊見城市</td><td>対象工事費の20%以内、上限20万円。総工事費20万円以上</td><td>2026年6月15日〜8月14日予定</td><td class="status-closed">受付終了(応募多数のため上限到達。公式サイトに明記)</td></tr>
+        <tr><td>読谷村</td><td>20万円以上100万円未満の工事は20%、100万円以上の工事は上限20万円(1人1回・1住宅1回限り)</td><td>2026年6月10日〜11月30日予定</td><td class="status-closed">受付終了(予算到達のため9月30日で早期終了。公式サイトに明記)</td></tr>
+        <tr><td>宜野湾市</td><td>補助対象経費の20%、上限20万円(バリアフリー・省エネ・子育て・テレワーク・空き家・耐久性向上が対象)</td><td>2026年8月3日〜11月30日(延長後)</td><td class="status-open">受付中(追加募集約8件程度を先着順で受付中)</td></tr>
+        <tr><td>浦添市</td><td>補助対象経費の20%、上限18万円(交付規程で確認。制定は平成29年)</td><td>年度ごとに告示(2026年度の具体的な受付期間は公式サイトで確認できず)</td><td class="status-open">制度自体は現存。2026年度の募集告知の有無は要問い合わせ</td></tr>
+        <tr><td>糸満市</td><td>バリアフリー改修は補助対象経費の40%・上限20万円。その他(省エネ・空き家・耐久性向上・子育て・テレワーク)は20%(上限額は交付要綱内で確認できず)。総工事費20万円以上、市内業者限定</td><td>令和8年度事業として2026年8月5日付で公式サイト更新。具体的な受付開始日・締切日は確認できず</td><td class="status-open">2026年度の実施は確認。受付中か終了かは公式サイトからは判断できず</td></tr>
+        <tr><td>うるま市</td><td>島しょ地域空き家改修補助金:対象経費の1/2、上限50万円(平安座島・浜比嘉島・宮城島・伊計島・津堅島の5島限定)</td><td>随時受付(予算の範囲内)</td><td class="status-open">受付中とみられる(終了告知は確認できず)</td></tr>
+        <tr><td>宮古島市</td><td>緊急経済対策住宅ストック活用支援事業:補助対象経費の20%、上限40万円(バリアフリー・省エネ・空き家改修・耐久性向上が対象、市内業者限定)</td><td>2026年6月1日〜6月12日(応募多数の場合は抽選)</td><td class="status-closed">受付終了(申請期間は6月のみで終了済み)</td></tr>
+        <tr><td>名護市</td><td>空き家住宅改修支援事業:補助対象経費の40%、上限40万円(交付要綱による。市内業者限定)</td><td>2026年7月3日〜12月25日</td><td class="status-open">本ガイド作成時点(10/11)では受付期間内(予算上限到達で早期終了の場合あり)</td></tr>
+        <tr><td>石垣市</td><td>赤瓦等助成金(景観保全目的の制度。一般のリフォーム補助とは性質が異なる):赤瓦葺き工事1㎡あたり3,000円以内・上限50万円、漆喰塗替え1㎡あたり1,000円以内・上限20万円</td><td>通年(予算の範囲内)</td><td class="status-open">受付中とみられる</td></tr>
+        <tr><td>恩納村</td><td>空家活用事業補助金:対象経費の50%、上限200万円(交付決定日から5年以上の居住意思が条件。別荘・民泊・店舗・建売・不動産業者所有物件は対象外)</td><td>随時受付</td><td class="status-open">受付中とみられる(終了告知は確認できず)</td></tr>
+        <tr><td>伊江村</td><td>緊急経済対策住宅リフォーム支援事業補助金:補助対象経費の20%、上限30万円。村内業者限定・総工事費20万円以上</td><td>2026年4月1日〜2027年1月31日</td><td class="status-open">受付中</td></tr>
+        <tr><td>与那原町</td><td>住宅リフォーム支援事業補助金:補助対象経費の20%、上限20万円(交付要綱で確認)</td><td>2026年6月1日〜12月25日</td><td class="status-open">受付中(予算がなくなり次第終了)</td></tr>
+        <tr><td>竹富町</td><td>住宅リフォーム支援事業補助金:補助対象工事費の10分の2相当額または50万円のいずれか低い額(バリアフリー・省エネ・空き家・耐久性向上が対象、総工費10万円以上)</td><td>2026年6月29日〜予算額到達まで(先着順)</td><td class="status-open">受付終了の告知は確認できず。先着順のため要問い合わせ</td></tr>
+        <tr><td>久米島町</td><td>空き家対策総合支援事業補助金:補助対象経費の2/3、上限100万円(1年以上空き家であることが条件)</td><td>確認できたのは令和7年度(2025年度)の募集(6月2日〜6月30日)。令和8年度版の公式告知は確認できず</td><td class="status-open">令和8年度の受付有無は未確認。企画財政課に要問い合わせ</td></tr>
+      </table>
+      </div>
+      <p class="source-line">出典:沖縄市公式(https://www.city.okinawa.okinawa.jp/k042/contents/p00027.html)、八重瀬町公式(https://www.town.yaese.lg.jp/docs/2026070600030)、嘉手納町公式(https://www.town.kadena.okinawa.jp/life/kur7885.html)、南風原町公式(https://www.town.haebaru.lg.jp/soshiki/14/17050.html)、豊見城市公式(https://www.city.tomigusuku.lg.jp/soshiki/6/1025/gyomuannai/3/1258.html)、読谷村公式(https://www.vill.yomitan.okinawa.jp/soshiki/dobokukenchiku/gyomu/sumai/6185.html)、宜野湾市公式(https://www.city.ginowan.lg.jp/soshiki/kensetsu/kenchikushido/1/1/2/20263.html)、浦添市住宅リフォーム支援事業補助金交付規程(https://www1.g-reiki.net/urasoe/reiki_honbun/q908RG00001033.html)、糸満市住宅リフォーム支援事業補助金交付要綱(https://www1.g-reiki.net/itoman/reiki_honbun/q910RG00001431.html)、うるま市公式(https://www.city.uruma.lg.jp/1002001000/contents/p000009.html)、宮古島市公式(https://www.city.miyakojima.lg.jp/soshiki/shityo/kensetsu/kenchiku/index.html)、名護市公式(https://www.city.nago.okinawa.jp/kurashi/2018102500029/)、石垣市公式(https://www.city.ishigaki.okinawa.jp/soshiki/toshi_kensetsu/todokede/kenchikukouikeikannkannkei/akagawaratoujyoseikin/8363.html)、恩納村公式(https://www.vill.onna.okinawa.jp/sp/organize/section/teijuu/1743746815/)、伊江村公式(https://www.iejima.org/document/2021071200012/)、与那原町住宅リフォーム支援事業補助金交付要綱(https://www1.g-reiki.net/yonabaru/reiki_honbun/q935RG00000655.html)および町公式(https://www.town.yonabaru.okinawa.jp/soshiki/13/1505.html)、竹富町公式(https://www.town.taketomi.lg.jp/topics/taketomireform/)、久米島町公式(https://www.town.kumejima.okinawa.jp/docs/2025052100018/)。すべて2026年10月時点で確認。</p>
+      <div class="extra-note">
+        <b>すでに受付終了の制度がある</b>
+        2026年10月時点で、豊見城市・読谷村・宮古島市はすでに受付終了しています。南風原町も10月30日までと締切が近い状況です。「気になったらすぐ、その市町村の公式ページで最新の受付状況を確認する」ことが何より重要です。
+      </div>
+      <div class="extra-note">
+        <b>補助率・上限額の一部が確認できない制度もある</b>
+        浦添市・糸満市・久米島町は、制度自体は公式サイト・例規集で確認できましたが、2026年度の具体的な受付期間や上限額の一部までは公式ページから読み取れませんでした。金額を断定せず、確認できた範囲のみ記載しています。利用を検討する場合は、必ず各市町村の窓口で最新の要綱を確認してください。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">未</span>公式サイトで確認できなかった23市町村</h2>
+      <hr class="category-rule">
+      <p class="section-lead">2026年10月、全41市町村を1つずつ公式サイトで検索しましたが、以下の23市町村では住宅リフォーム・空き家改修に特化した市町村独自の補助金を確認できませんでした。「制度がない」と断定するものではなく、調査時点で公式発表が見つからなかったという意味です。これらの市町村にお住まいの場合も、国の住宅省エネ2026キャンペーン(3事業)は共通して使えるため、まずは国の制度の対象になるかを確認し、市町村独自の上乗せの有無は役場に直接確認することをおすすめします。</p>
+      <ul class="plain-list">
+        <li>那覇市(公式サイトで一般向け住宅リフォーム補助は確認できず。介護保険住宅改修・都市景観助成等は別制度としてあり)</li>
+        <li>南城市(介護保険住宅改修・新婚世帯支援・三世代同居支援はあるが、一般住宅リフォーム補助は確認できず)</li>
+        <li>国頭村(空き家バンクという物件情報の掲載制度はあるが、改修費を直接補助する制度は確認できず)</li>
+        <li>大宜味村(耐震改修促進計画はあるが、具体的な補助金の案内は確認できず)</li>
+        <li>東村(住宅用太陽光発電システム補助金はあるが、住宅リフォーム補助は確認できず)</li>
+        <li>今帰仁村</li>
+        <li>本部町(本部町住宅改修費給付事業実施要綱は確認できたが、対象が一般住民か高齢者・障害者限定かは確認できず)</li>
+        <li>宜野座村(沖縄県の「住宅ストック活用市町村支援事業」の実施対象に挙がった記録はあるが、2026年度の実施詳細は確認できず)</li>
+        <li>金武町</li>
+        <li>北谷町(北谷町高齢者住宅改修助成金〈上限5万円〉はあるが、対象は高齢者向けで一般のリフォーム補助とは別制度)</li>
+        <li>北中城村</li>
+        <li>中城村</li>
+        <li>西原町</li>
+        <li>渡嘉敷村</li>
+        <li>座間味村</li>
+        <li>粟国村</li>
+        <li>渡名喜村</li>
+        <li>南大東村</li>
+        <li>北大東村</li>
+        <li>伊平屋村</li>
+        <li>伊是名村</li>
+        <li>多良間村</li>
+        <li>与那国町</li>
+      </ul>
+      <p class="source-line">上記23市町村は、各市町村公式サイトをWebSearchで調査し(2026年10月)、住宅リフォーム・空き家改修に特化した独自補助金のページを発見できなかったものです。市町村によっては、空き家バンク(物件情報の掲載のみ)・移住支援住宅(村営賃貸)など、リフォーム補助とは別の形の支援制度がある場合があります。</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">併</span>国と市町村、両方使えるか</h2>
+      <hr class="category-rule">
+      <p class="section-lead">一般的に、国の補助金(住宅省エネ2026キャンペーンの3事業)と市町村独自の補助金は、対象工事が重複していなければ併用できる場合があります。ただし同じ工事・同じ経費に対して国と市町村の両方から二重に補助を受けられないルールになっているケースも多く、本ガイドではこの点を断定しません。併用できるかどうかは、国(各事業の事務局)・市町村(各担当課)それぞれの窓口に個別に確認してください。</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">確</span>最後に確認したいこと</h2>
+      <hr class="category-rule">
+      <ul class="plain-list">
+        <li>自分の中古物件の新築時期(平成3年以前か平成4〜28年か)を確認した</li>
+        <li>予定しているリフォーム工事が、みらいエコ住宅2026・先進的窓リノベ2026・給湯省エネ2026のいずれの対象になるか確認した</li>
+        <li>複数の事業を組み合わせる場合、対象経費が重複していないか(二重申請にならないか)確認した</li>
+        <li>住んでいる(住む予定の)市町村に独自のリフォーム補助がないか、公式ページで確認した</li>
+        <li>先着順・予算上限ありの制度が多いため、受付開始日に申請できる準備を進めた</li>
+        <li>国と市町村の補助金が併用できるか、それぞれの窓口に確認した</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <div class="distinct-note">この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+</div>
+</body>
+</html>

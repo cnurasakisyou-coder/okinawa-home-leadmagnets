@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>中古マンション「修繕積立金・管理状態」危険信号チェックシート|沖縄マイホーム研究室</title>
+<meta name="description" content="修繕積立金が全国平均より大きく低い物件、滞納している住戸が多い物件は要注意。国交省の全国調査データと照らし合わせてチェックできます。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .tnum{font-variant-numeric:tabular-nums}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1598228723793-52759bba239c?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(23px,5.6vw,30px);font-weight:600;line-height:1.55;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 26px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px}
+  .hero h1{
+    position:relative;font-size:clamp(20px,4.6vw,24px);line-height:1.6;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"MANSION RISK CHECK  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px}
+  .disclaimer-top{font-size:12px;color:#58656C;margin:16px 0 0;padding:12px 14px;border:1px solid var(--line);background:rgba(23,52,77,.04);line-height:1.9}
+
+  main{padding:8px clamp(20px,6vw,30px) 4px}
+
+  /* ---- Section ---- */
+  .section{margin:30px 0 0}
+  .section h2{display:flex;align-items:center;gap:12px;margin:0 0 2px;font-size:17.5px;font-weight:600;color:var(--navy);line-height:1.5}
+  .badge{
+    flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;font-size:14.5px;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);
+    position:relative;top:0
+  }
+  .section-rule{border:none;border-top:1px solid var(--gold);margin:11px 0 18px;position:relative}
+  .section-rule::after{content:"";position:absolute;left:0;top:-2px;width:48px;height:3px;background:var(--navy)}
+
+  .stat-row{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+  .stat-card{flex:1;min-width:130px;padding:14px;background:var(--paper);border:1px solid var(--line)}
+  .stat-num{font-size:24px;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+  .stat-label{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.6}
+  .source-line{font-size:11.5px;color:var(--muted);margin:4px 0 0}
+
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:13px;font-weight:700;color:var(--navy);letter-spacing:.03em;margin-bottom:7px}
+  .field-row{display:flex;align-items:center;gap:10px}
+  .field-row input[type="number"],.field-row input[type="text"]{flex:1;width:100%;font-size:16px;padding:11px 12px;border:1.5px solid var(--navy);background:var(--paper);color:var(--ink);font-variant-numeric:tabular-nums}
+  .field-row input:focus{outline:none;border-color:var(--gold)}
+  .field-unit{font-size:13.5px;color:var(--muted);white-space:nowrap}
+  .field-ref{font-size:12px;color:var(--muted);margin-top:6px}
+  .alert-banner{display:flex;align-items:center;gap:10px;margin-top:10px;padding:12px 14px;font-size:13.5px;font-weight:700;border:2px solid var(--line);color:var(--ink);background:var(--paper);transition:background .15s ease,border-color .15s ease}
+  .alert-banner .alert-icon{font-size:18px;line-height:1}
+  .alert-banner.is-danger{background:#F6E4DC;border-color:#A8461F;color:#7A2E12}
+  .alert-banner.is-caution{background:#FBF1D9;border-color:#B8860B;color:#7A5B06}
+  .alert-banner.is-safe{background:#E3EDE6;border-color:#3E6B4F;color:#234632}
+  .choice-note{display:none;margin-top:10px;padding:11px 13px;font-size:12.5px;color:#7A5B06;background:#FBF1D9;border-left:3px solid #B8860B}
+  .choice-note.show{display:block}
+
+  .choice-row{display:flex;gap:8px}
+  .choice-btn{flex:1;padding:10px 4px;font-size:12.5px;border:1.5px solid var(--navy);background:var(--paper);color:var(--navy);cursor:pointer;font-weight:700}
+  .choice-btn.active{background:var(--navy);color:#E9D9B8;border-color:var(--gold)}
+
+  .check-list{list-style:none;margin:0;padding:0}
+  .check-item{width:100%;display:flex;align-items:flex-start;gap:13px;text-align:left;background:transparent;border:0;border-bottom:1px solid var(--line);padding:16px 6px;font-size:14px;font-family:inherit;color:var(--ink);cursor:pointer;min-height:48px;-webkit-tap-highlight-color:transparent;transition:background .15s ease}
+  .check-item:hover{background:#F8F5EF}
+  .check-box{flex:0 0 18px;width:18px;height:18px;border:1px solid #8B969B;margin-top:3px;position:relative;background:#fffefa}
+  .check-box::after{content:"";position:absolute;left:4px;top:1px;width:6px;height:10px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(40deg);opacity:0}
+  .check-item.checked .check-box{background:var(--navy);border-color:var(--navy)}
+  .check-item.checked .check-box::after{opacity:1}
+  .check-item.checked .check-text{color:var(--muted)}
+
+  .note-box{font-size:12.5px;color:#58656C;padding:18px clamp(20px,6vw,30px);background:#F0EEE7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.9}
+
+  .closing{padding:34px clamp(20px,6vw,30px) 40px;background:#fffefa}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .section h2{gap:8px}
+    .badge{flex-basis:28px;width:28px;height:28px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>国交省データと照らし合わせる</span>中古マンション「修繕積立金・<br>管理状態」危険信号チェック</h1>
+      <p class="cover-subtitle">修繕積立金・滞納率・管理組合の運営状況を、国の全国調査の基準値と比べてその場で確認できます。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典7</p>
+    <h1>中古マンション「修繕積立金・管理状態」<br>危険信号チェックシート</h1>
+    <p class="hero-lead">「修繕積立金が足りているマンションは、実は全国でも6割強。あなたが見ている物件の数字を、国の調査データと照らし合わせてチェックしてみませんか。」</p>
+    <div class="disclaimer-top">この後の基準値は国土交通省の全国調査(マンション全体の平均・分布)です。個別の物件がこの基準より低い・高いからといって、その物件の良し悪しを断定するものではありません。あくまで「確認する基準」として使ってください。</div>
+  </header>
+
+  <main>
+
+    <section class="section">
+      <h2><span class="badge">国</span>全国の基準値</h2>
+      <hr class="section-rule">
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-num tnum">13,054<span style="font-size:14px;">円</span></div><div class="stat-label">1戸あたりの修繕積立金・月額平均(前回調査より1,811円上昇)</div></div>
+        <div class="stat-card"><div class="stat-num tnum">36.6<span style="font-size:14px;">%</span></div><div class="stat-label">計画上の積立額に対し、実際の積立額が不足しているマンションの割合</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-num tnum">11.7<span style="font-size:14px;">%</span></div><div class="stat-label">そのうち20%以上不足しているマンションの割合</div></div>
+        <div class="stat-card"><div class="stat-num tnum">24.8<span style="font-size:14px;">%</span></div><div class="stat-label">管理費・修繕積立金を3カ月以上滞納している住戸があるマンションの割合(平成30年度調査)</div></div>
+      </div>
+      <p class="field-ref">国交省は2024年2月、段階増額方式(積立額が後から段階的に上がっていく仕組み。対になるのが、最初から最後まで同じ額を積み立てる均等方式)の上限を最大約1.8倍とする新基準を設定しました。</p>
+      <p class="field-ref">なぜ積立金の不足が起きやすいかというと、建築時期が古い物件ほど建設当初に設定した積立額が低いまま据え置かれ、計画と実態の差が大きくなりやすいためです。全国で築40年以上のマンションストックは約125万戸、全体の22.7%を占め、そのうち旧耐震基準(1981年5月以前の建築確認)の建物は全国平均20.9%(5棟に1棟)にのぼるという全国データがあります。沖縄県単独の旧耐震マンション比率は確認できていませんが、築年数が古いほど積立不足のリスクに注意が必要という傾向自体は全国的なものです。</p>
+      <p class="field-ref">マンションの管理・再生をしやすくするための区分所有法改正が、約20年ぶりに2026年4月に施行されました。老朽化したマンションの管理組合の意思決定を円滑にする仕組み(総会決議の集計方法の見直し、所在不明の区分所有者を決議対象から除外する制度、建替え以外に敷地の一括売却・一棟リノベーションも同じ要件でできる制度など)が盛り込まれています。国は、マンションの再生件数を2024年の472件から、施行後5年で1,000件に増やす目標を掲げています(出典:国土交通省・法務省の制度説明資料)。</p>
+      <p class="field-ref">中古マンション購入者を対象にした約1,530件のアンケート調査では、購入後に感じた後悔の2番目に多かったのが「修繕積立金や管理費の値上げ・一時金徴収」でした(1番目は立地の利便性、3番目は駐車場・駐輪場の問題という結果でした)。</p>
+      <p class="source-line">出典:国交省「令和5年度マンション総合調査」。滞納率は国交省「平成30年度マンション総合調査」の数値(第三者サイト経由で引用、一次PDFでの再確認は未了)です。</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">見</span>この物件をチェックする</h2>
+      <hr class="section-rule">
+      <p class="field-ref" style="margin:0 0 16px;">内見・重要事項説明で確認して書き込んでください。</p>
+
+      <div class="field">
+        <label>修繕積立金(月額・1戸あたり)</label>
+        <div class="field-row"><input type="number" id="tsumitate" inputmode="decimal" placeholder="例:10000" min="0" step="100"><span class="field-unit">円</span></div>
+        <div class="alert-banner" id="tsumitateAlert"><span class="alert-icon">—</span><span id="tsumitateAlertText">金額を入れると、全国平均(13,054円)との差を判定します</span></div>
+        <p class="field-ref">たとえば全国平均より20%不足している状態(月額換算で約2,600円の差)が35年間続くと仮定すると、積立不足額は単純計算で約109万円にのぼります(当サービスによる試算。実際の不足額は長期修繕計画書の記載額で確認してください)。</p>
+      </div>
+
+      <div class="field">
+        <label>積立方式</label>
+        <div class="choice-row">
+          <button type="button" class="choice-btn" data-choice="houshiki" data-value="均等">均等方式</button>
+          <button type="button" class="choice-btn" data-choice="houshiki" data-value="段階増額">段階増額方式</button>
+        </div>
+        <div class="choice-note" id="houshikiNote">⚠️ 段階増額方式は、今の金額のまま続くわけではありません。上限は最大約1.8倍(国交省基準)まで上がる可能性があります。将来いくらになるか、長期修繕計画書で必ず確認してください。</div>
+      </div>
+
+      <ul class="check-list">
+        <li><button class="check-item" data-id="m1" type="button"><span class="check-box"></span><span class="check-text">計画上の積立額に対し、実際の積立額は足りているか(長期修繕計画書で確認)</span></button></li>
+        <li><button class="check-item" data-id="m2" type="button"><span class="check-box"></span><span class="check-text">直近の大規模修繕の実施年月と、計画どおり進んでいるか</span></button></li>
+        <li><button class="check-item" data-id="m3" type="button"><span class="check-box"></span><span class="check-text">滞納世帯の有無・割合(管理組合の総会議事録・管理会社への確認。全国では3カ月以上滞納の住戸があるマンションが24.8%という調査がある)</span></button></li>
+        <li><button class="check-item" data-id="m4" type="button"><span class="check-box"></span><span class="check-text">管理組合の運営状況(自主管理か管理会社委託か、理事会・総会が機能しているか)</span></button></li>
+        <li><button class="check-item" data-id="m5" type="button"><span class="check-box"></span><span class="check-text">リゾート利用中心か定住中心か(沖縄はリゾートマンションの割合が高く、定住者が少ないと理事のなり手不足・積立金不足が起きやすいという指摘があります)</span></button></li>
+      </ul>
+      <p class="field-ref">管理組合の運営状況については、実際の購入者から「輪番制の管理組合の役員の順番がいつ回って来るのかを確認せずに購入し、購入した翌年にすぐ役員の順番が回ってきた」「小規模マンション(総戸数40戸未満)なので毎月の積立額が高い」といった体験談がYahoo!知恵袋に投稿されています。管理組合の規模(総戸数)が小さいほど、1戸あたりの負担額は高くなりやすい傾向があります。</p>
+    </section>
+
+  </main>
+
+  <div class="note-box">滞納率24.8%は平成30年度調査の数字で、最新調査ではありません。駐車場の不足率など、沖縄県・市町村単位での公的な統計は確認できていないため、この診断シートには含めていません。数字が気になる物件は、必ず管理組合の総会議事録・長期修繕計画書そのものを確認してください。※購入後の後悔ランキング・体験談の一部は、不動産比較サイトの独自調査・Yahoo!知恵袋の投稿を参考にしています。この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORAGE_KEY = "okinawa_kanri_kiken_v1";
+  function loadState(){try{var raw=localStorage.getItem(STORAGE_KEY);if(!raw)return{};var p=JSON.parse(raw);return(p&&typeof p==="object")?p:{};}catch(e){return{};}}
+  function saveState(s){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(s));}catch(e){}}
+  var state = loadState();
+
+  var items = Array.prototype.slice.call(document.querySelectorAll(".check-item"));
+  function applyItemState(el){var id=el.getAttribute("data-id");if(state[id]){el.classList.add("checked");}else{el.classList.remove("checked");}}
+  items.forEach(function(el){applyItemState(el);el.addEventListener("click",function(){var id=el.getAttribute("data-id");state[id]=!state[id];saveState(state);applyItemState(el);});});
+
+  var tsumitateInput = document.getElementById("tsumitate");
+  var tsumitateAlert = document.getElementById("tsumitateAlert");
+  var tsumitateAlertIcon = tsumitateAlert.querySelector(".alert-icon");
+  var tsumitateAlertText = document.getElementById("tsumitateAlertText");
+  if(state.tsumitate){tsumitateInput.value = state.tsumitate;}
+  function setAlert(level, icon, text){
+    tsumitateAlert.classList.remove("is-danger","is-caution","is-safe");
+    if(level){tsumitateAlert.classList.add(level);}
+    tsumitateAlertIcon.textContent = icon;
+    tsumitateAlertText.textContent = text;
+  }
+  function updateTsumitateRef(){
+    var v = parseFloat(tsumitateInput.value);
+    if(!v || v<=0){setAlert(null,"—","金額を入れると、全国平均(13,054円)との差を判定します");return;}
+    var diff = Math.round(v-13054);
+    if(v < 13054*0.5){setAlert("is-danger","⚠️","危険水域:全国平均13,054円の半分以下("+v.toLocaleString()+"円)。長期修繕計画書で積立不足になっていないか、至急確認してください");}
+    else if(diff < -1000){setAlert("is-caution","△","要注意:全国平均13,054円より"+Math.abs(diff).toLocaleString()+"円低い水準です。長期修繕計画書で不足していないか確認してください");}
+    else if(diff > 1000){setAlert("is-safe","◯","全国平均13,054円より"+diff.toLocaleString()+"円高い水準です");}
+    else{setAlert("is-safe","◯","全国平均13,054円とほぼ同程度です");}
+  }
+  tsumitateInput.addEventListener("input",function(){
+    if(tsumitateInput.value!==""&&parseFloat(tsumitateInput.value)<0){tsumitateInput.value="0";}
+    state.tsumitate=tsumitateInput.value;saveState(state);updateTsumitateRef();
+  });
+  updateTsumitateRef();
+
+  var choiceBtns = Array.prototype.slice.call(document.querySelectorAll(".choice-btn"));
+  var houshikiNote = document.getElementById("houshikiNote");
+  function applyChoiceState(){
+    choiceBtns.forEach(function(b){
+      var group=b.getAttribute("data-choice");
+      b.classList.toggle("active", state[group]===b.getAttribute("data-value"));
+    });
+    houshikiNote.classList.toggle("show", state.houshiki==="段階増額");
+  }
+  choiceBtns.forEach(function(b){
+    b.addEventListener("click",function(){
+      var group=b.getAttribute("data-choice");
+      state[group]=b.getAttribute("data-value");
+      saveState(state);
+      applyChoiceState();
+    });
+  });
+  applyChoiceState();
+})();
+</script>
+</body>
+</html>

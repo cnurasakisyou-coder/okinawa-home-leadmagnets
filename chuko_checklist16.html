@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>中古物件だけの購入前チェックリスト16(上級編)|沖縄マイホーム研究室</title>
+<meta name="description" content="特典1(30項目)に上乗せする、中古だけが持つ「もう直せない・もう選べない」リスクを確認する16項目。建物の老朽化・お金と権利・法律と権利関係・沖縄特有の中古リスク。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,820px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+  .hero{
+    padding:clamp(28px,6vw,58px) clamp(22px,6vw,58px) 34px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-size:11px;
+    letter-spacing:.16em;
+    color:var(--gold);
+    text-transform:uppercase;
+    font-weight:700;
+    margin:0 0 22px;
+  }
+  .hero h1{
+    position:relative;
+    font-size:clamp(27px,4.4vw,38px);
+    line-height:1.45;
+    margin:0 0 24px;
+    padding:24px 24px 26px;
+    font-weight:600;
+    letter-spacing:.035em;
+    color:#fff;
+    background:var(--navy);
+    box-shadow:8px 8px 0 var(--gold-pale);
+    text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"PURCHASE GUIDE  /  OKINAWA";
+    display:block;
+    font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;
+    font-size:9px;
+    font-weight:600;
+    letter-spacing:.19em;
+    margin-bottom:13px;
+  }
+  .hero h1 span{color:#E5D5B3!important;font-size:.52em!important;white-space:nowrap}
+  .hero-lead{
+    font-size:15px;
+    line-height:2;
+    margin:30px 0 0;
+    color:#46545E;
+    border-left:2px solid var(--gold);
+    padding:1px 0 1px 18px;
+  }
+  .pitch{
+    font-size:13.5px;
+    line-height:1.95;
+    margin:22px 0 0;
+    color:#344655;
+    background:#F0EEE7;
+    padding:17px 19px;
+    border:1px solid #E4DFD4;
+  }
+  .progress-sticky{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,241,232,.97);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    padding:13px clamp(22px,6vw,58px) 15px;
+  }
+  .progress-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:9px}
+  .progress-label{font-size:10px;letter-spacing:.16em;color:var(--muted);font-weight:700}
+  .progress-text{font-size:13px;font-variant-numeric:tabular-nums;color:var(--navy);font-weight:700}
+  .progress-text .num{font-size:18px;color:var(--gold)}
+  .progress-track{width:100%;height:5px;background:#DDD8CD}
+  .progress-fill{height:100%;width:0%;background:var(--navy);transition:width .35s ease}
+  .progress-done-msg{display:none;margin-top:9px;font-size:12.5px;color:var(--navy);font-weight:700}
+  .progress-done-msg.show{display:block}
+  main{padding:8px clamp(22px,6vw,58px) 30px}
+  .category{margin:34px 0 0}
+  .category h2{
+    display:flex;align-items:center;gap:12px;
+    margin:0 0 2px;font-size:clamp(17px,2.8vw,21px);
+    font-weight:600;color:var(--navy);line-height:1.5
+  }
+  .badge{
+    flex:0 0 34px;width:34px;height:34px;
+    background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;
+    font-size:15px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    border:1px solid var(--gold);box-shadow:none;position:relative;top:0
+  }
+  .cat-count{font-size:11px;color:var(--muted);font-weight:500;margin-left:auto;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .category-rule{border:none;border-top:1px solid var(--gold);margin:13px 0 8px;position:relative}
+  .category-rule::after{content:"";position:absolute;left:0;top:-2px;width:56px;height:3px;background:var(--navy)}
+  .check-list{list-style:none;margin:0;padding:0}
+  .check-item{
+    width:100%;display:flex;align-items:flex-start;gap:13px;text-align:left;
+    background:transparent;border:0;border-bottom:1px solid var(--line);
+    padding:17px 8px;font-size:15px;font-family:inherit;color:var(--ink);
+    cursor:pointer;min-height:52px;-webkit-tap-highlight-color:transparent;
+    transition:background .15s ease;
+  }
+  .check-item:hover{background:#F8F5EF}
+  .check-box{
+    flex:0 0 19px;width:19px;height:19px;border:1px solid #8B969B;
+    margin-top:4px;position:relative;transition:all .15s ease;background:#fffefa
+  }
+  .check-box::after{
+    content:"";position:absolute;left:5px;top:1px;width:6px;height:10px;
+    border-right:2px solid #fff;border-bottom:2px solid #fff;
+    transform:rotate(40deg);opacity:0
+  }
+  .check-item.checked .check-box{background:var(--navy);border-color:var(--navy)}
+  .check-item.checked .check-box::after{opacity:1}
+  .check-text{flex:1}
+  .check-why{display:block;font-size:13px;color:#65717A;margin-top:6px;line-height:1.9}
+  .check-item.checked .check-text{color:#737D82;text-decoration:line-through;text-decoration-color:var(--gold)}
+  .check-item.checked .check-why{text-decoration:none}
+  .distinct-note{
+    padding:22px clamp(22px,6vw,58px);font-size:12.5px;color:#58656C;
+    background:#F0EEE7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.95
+  }
+  .extra-note{
+    font-size:13px;color:#344655;background:#F4F1E9;
+    border-left:3px solid var(--gold);padding:17px 19px;margin:18px 0 0;line-height:1.95
+  }
+  .extra-note b{display:block;margin-bottom:6px;color:var(--navy);font-size:14px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .closing{padding:35px clamp(22px,6vw,58px) 42px;background:#fffefa}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 18px}
+  .cta-button{display:block;width:100%;padding:17px 10px;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;font-size:15.5px;text-align:center;letter-spacing:.04em;border:1px solid var(--gold)}
+  .cta-button:active{opacity:.85}
+  .reset-link{display:block;text-align:left;margin:20px 0 0;font-size:12.5px;color:var(--muted);background:none;border:none;text-decoration:underline;cursor:pointer;padding:0}
+
+  .cover-page{
+    position:relative;min-height:680px;display:flex;align-items:center;justify-content:center;
+    padding:54px 28px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,430px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:36px 31px 33px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 25px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 22px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(29px,5vw,39px);font-weight:600;line-height:1.55;letter-spacing:.035em;margin:0 0 22px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.56em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 30px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:15px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media(min-width:700px){.cover-page{min-height:760px}.cover-panel{transform:translateX(-8%);padding:43px 38px 37px}}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  @media(min-width:700px){
+    .hero{padding-top:52px;padding-bottom:42px}
+    .hero-lead{max-width:680px}
+    .pitch{max-width:680px}
+    .check-item{padding:19px 12px}
+  }
+  @media(max-width:420px){
+    .hero h1{padding:20px 18px 22px;box-shadow:5px 5px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .check-item{font-size:14px;gap:10px;padding:15px 2px}
+    .check-why{font-size:12.5px}
+    .category h2{gap:8px}
+    .badge{flex-basis:30px;width:30px;height:30px}
+    .cat-count{font-size:10px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+    .progress-sticky{position:static}
+    .check-item{break-inside:avoid}
+    .reset-link{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>中古住宅・中古マンション購入前</span>中古物件だけの<br>購入前チェックリスト16</h1>
+      <p class="cover-subtitle">見落としやすい建物の状態・修繕費・権利関係を、契約前に確認するための実践ガイド。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典4</p>
+    <h1>中古物件だけの<br>購入前チェックリスト16<span style="font-size:15px;">(上級編)</span></h1>
+    <p class="hero-lead">特典1(30項目)は新築・中古共通の基本チェック。これはそこに乗せる「中古だけ」の追加チェックです。すでに人が住んだ建物・すでに決まっている権利関係だからこそ出てくる確認ポイントに絞りました。各項目には、なぜそこを見るべきかという理由と、分かっている範囲の金額の目安も添えています。</p>
+    <p class="pitch">中古は新築と違って、もう一度チェックできない部分があります。ここを見落とすと「契約前に確認すればよかった」と一番悔やむタイプの後悔になりがちです。内見前に印刷して持っていくための16項目です。</p>
+  </header>
+
+  <div class="progress-sticky">
+    <div class="progress-row">
+      <span class="progress-label">CHECK PROGRESS</span>
+      <span class="progress-text"><span class="num" id="progressCount">0</span> / 16</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-done-msg" id="progressDoneMsg">全部チェックできました。内見の準備は万端です。</div>
+  </div>
+
+  <main>
+
+    <section class="category">
+      <h2><span class="badge">修</span>建物の老朽化・修繕<span class="cat-count">5項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="k1" type="button"><span class="check-box"></span><span class="check-text">直近の大規模修繕の実施年月と内容(マンション)<span class="check-why">外壁・屋上防水・給排水管の見直しが遅れていると、近いうちにまとまった一時金請求が来ることがある。国土交通省の実態調査では、大規模修繕のときに一時金負担または修繕積立金の増額を求められた世帯のうち半数以上が戸あたり75万円以上を負担し、27%の世帯は100万〜125万円を負担している。マンション全体の工事費用は中央値で7,600万〜8,700万円、平均では1億円を超える規模になることも珍しくない(出典:国土交通省マンション大規模修繕工事実態調査)</span></span></button></li>
+        <li><button class="check-item" data-id="k2" type="button"><span class="check-box"></span><span class="check-text">長期修繕計画があるか、計画どおり進んでいるか(マンション)<span class="check-why">計画と実態がズレていると、将来の一括費用や修繕積立金の急な引き上げにつながる。1回目の大規模修繕は戸あたり100万〜125万円が目安とされるが、2回目以降も75万〜125万円程度かかり続けるため、「1回払えば終わり」ではない支出として考えたい</span></span></button></li>
+        <li><button class="check-item" data-id="k3" type="button"><span class="check-box"></span><span class="check-text">専有部(マンションの各住戸)のリフォーム履歴(時期・箇所・保証書の有無)<span class="check-why">水回り・配管が未更新のまま売られていると、入居後すぐに自己負担の工事が必要になることがある</span></span></button></li>
+        <li><button class="check-item" data-id="k4" type="button"><span class="check-box"></span><span class="check-text">共用部・専用部の給排水管の更新履歴<span class="check-why">古い配管を放置していると漏水・断水のリスクが上がり、工事費も自分持ちになる</span></span></button></li>
+        <li><button class="check-item" data-id="k5" type="button"><span class="check-box"></span><span class="check-text">最後の防蟻(シロアリ)処理の時期・保証の有無・床下の被害痕<span class="check-why">沖縄のシロアリ被害はほぼ100%がイエシロアリで、1コロニー最大100万匹規模(本土で多いヤマトシロアリは1万〜3万匹)。規模が大きい分、新築と違い既に被害が進んでいる可能性があり、保証が切れていれば再処理費用がかかる。駆除費用は30坪程度で17万円前後が目安だが、修繕まで含めると合計50万〜100万円以上かかることもある(出典:沖縄タイムス住宅情報サイト)</span></span></button></li>
+      </ul>
+      <div class="extra-note">
+        <b>見落としがちな別の論点:旧耐震・新耐震</b>
+        1981年5月31日までに建築確認を受けた建物は「旧耐震」(震度5程度で倒壊しない基準)、1981年6月1日以降は「新耐震」(震度6強〜7で倒壊しない基準)。多くの金融機関が新耐震基準を融資条件にしており、旧耐震のままだと住宅ローンが使えないことがある。耐震基準適合証明書を取得できれば可能性が上がる。全国では築40年超のマンションストックが約125万戸あり、そのうち旧耐震基準の割合は全国平均で約2割(5棟に1棟)というデータもある(全国値であり、沖縄県単独の割合は確認できていない)。「築年数」だけでなく「いつ建築確認を受けたか」を売主・業者に確認するとよい。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">金</span>お金・権利(マンション特有)<span class="cat-count">4項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="k6" type="button"><span class="check-box"></span><span class="check-text">修繕積立金の残高・1戸あたりの金額・積立方式(段階増額か均等か)<span class="check-why">全国平均は月額13,054円。計画上の積立額に対し実際の積立額が不足しているマンションは全国36.6%(うち20%以上不足が11.7%)というデータがあり、残高が少ない・段階増額方式(後から上がる仕組み)だと将来の負担が急に増える。国交省は2024年2月、段階増額方式の上限を最大約1.8倍とする新基準を設定した(出典:国交省「令和5年度マンション総合調査」)</span></span></button></li>
+        <li><button class="check-item" data-id="k7" type="button"><span class="check-box"></span><span class="check-text">修繕積立金・管理費の滞納世帯の有無と割合<span class="check-why">3カ月以上の滞納世帯があるマンションは全国24.8%、築年数が古いほど滞納率が高い傾向(出典:国交省調査、平成30年度)。滞納が多いと大規模修繕の資金が不足し、追加負担や工事の延期につながる</span></span></button></li>
+        <li><button class="check-item" data-id="k8" type="button"><span class="check-box"></span><span class="check-text">駐車場の権利形態(専用使用権/抽選制/台数が足りているか)<span class="check-why">車社会の沖縄で、後から駐車場が確保できないと住みにくい。マンションの駐車場不足率についての公的な統計は確認できていないが、「2台分確保できる物件は需要が高い」という傾向は広く指摘されている</span></span></button></li>
+        <li><button class="check-item" data-id="k9" type="button"><span class="check-box"></span><span class="check-text">管理組合の運営状況(総会議事録・理事会の有無、自主管理か管理会社委託か)<span class="check-why">管理が機能していない組合は、将来の修繕判断そのものが進まないことがある。沖縄はリゾートマンションの割合が他都道府県より高く、定住者が少ないと理事のなり手不足・修繕積立金の不足が起きやすいという指摘もある。リゾート利用中心か定住中心かも、管理の安定度を見る目安になる</span></span></button></li>
+      </ul>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">法</span>法律・権利関係<span class="cat-count">5項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="k10" type="button"><span class="check-box"></span><span class="check-text">再建築可否(道路に2m以上接しているか、セットバックが必要か)<span class="check-why">建て替え・増築ができない土地は、将来の使い勝手・資産価値が大きく下がる</span></span></button></li>
+        <li><button class="check-item" data-id="k11" type="button"><span class="check-box"></span><span class="check-text">既存不適格建築物でないか(建築時と現行の容積率・耐震基準などが食い違っていないか)<span class="check-why">「既存不適格」は建築時は適法だったがその後の法改正で現行法に不適合になったもので売却は可能。似た言葉の「違反建築」(次項)とは別物で、売却の可否が大きく変わる。増改築のときに現行法への適合を求められ、想定外の費用が出ることがある</span></span></button></li>
+        <li><button class="check-item" data-id="k12" type="button"><span class="check-box"></span><span class="check-text">違反建築の有無(確認申請の図面と現況が一致しているか、未登記の増築部分がないか)<span class="check-why">「違反建築」は建築時から違法なもので、既存不適格と違い売却困難・ローンが通らないことが多い。沖縄は増築が多く、未登記のまま売られているケースがある。解体を求められるリスクもある</span></span></button></li>
+        <li><button class="check-item" data-id="k13" type="button"><span class="check-box"></span><span class="check-text">境界が確定しているか(確定測量図・隣地所有者の署名入り境界確認書の有無)<span class="check-why">境界確定測量の費用は、官民査定ありで60万〜80万円、なしでも35万〜45万円程度が相場とされ、隣地所有者全員の立会いが必要なため1か月半〜4か月ほどかかることもある。中古は境界があいまいなまま売買されるケースが多く、後で隣地とのトラブルになったり、この測量費用を自己負担で負うことになったりする</span></span></button></li>
+        <li><button class="check-item" data-id="k14" type="button"><span class="check-box"></span><span class="check-text">擁壁の安全性(検査済証の有無、宅地造成等規制法・急傾斜地法の対象か)<span class="check-why">沖縄県の条例では、高さ2mを超える崖に接して建築する場合、崖の高さの1.5倍以上の水平距離を確保する必要がある(出典:沖縄県公式施行条例解説)。擁壁の新設・作り直しは1㎡あたり3万〜10万円が目安で、高さ2m・幅10mのRC擁壁で約100万円、高さ3m・幅10mなら400万円程度に跳ね上がる試算もある。沖縄は高台・斜面地の住宅地が多く、老朽化した擁壁は崩壊や建て替え制限のリスクがあるだけでなく、作り直す場合の費用も小さくない</span></span></button></li>
+      </ul>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">沖</span>沖縄特有の中古リスク<span class="cat-count">2項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="k15" type="button"><span class="check-box"></span><span class="check-text">水タンク・受水槽・ポンプの経年と点検記録<span class="check-why">10トン以下の貯水タンクは水道法上、清掃が義務ではないため、管理が悪いと内部に藻・サビ・ヘドロ・雑菌が繁殖することがある(年1回清掃が推奨)。中古は設置から年数が経っていることが多く、交換費用(数十万円)が近いタイミングで来る可能性もある(出典:沖縄タイムス)</span></span></button></li>
+        <li><button class="check-item" data-id="k16" type="button"><span class="check-box"></span><span class="check-text">塩害によるコンクリート爆裂の修繕履歴(外壁・ベランダ・庇)<span class="check-why">爆裂は塩分・中性化で鉄筋が錆びて膨張し、コンクリートが割れる現象(出典:日本コンクリート工学会)。補修費用は浅い欠損で1箇所1万〜2万円程度から、鉄筋の防錆処理が必要な場合は2万〜4万円以上、全面打ち換えなら1㎡あたり3万〜8万円以上と幅がある。一度爆裂が出た建物は再発しやすく、放置されていた履歴があると追加修繕費がかさむ</span></span></button></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <div class="distinct-note">この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+    <button class="reset-link" id="resetBtn" type="button">チェックを全部リセットする</button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORAGE_KEY = "okinawa_chuko_checklist16_v1";
+  var TOTAL = 16;
+  function loadState(){try{var raw=localStorage.getItem(STORAGE_KEY);if(!raw)return{};var p=JSON.parse(raw);return(p&&typeof p==="object")?p:{};}catch(e){return{};}}
+  function saveState(s){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(s));}catch(e){}}
+  var state = loadState();
+  var items = Array.prototype.slice.call(document.querySelectorAll(".check-item"));
+  var progressFill = document.getElementById("progressFill");
+  var progressCount = document.getElementById("progressCount");
+  var progressDoneMsg = document.getElementById("progressDoneMsg");
+  var resetBtn = document.getElementById("resetBtn");
+  function updateProgress(){var checked=0;items.forEach(function(el){if(state[el.getAttribute("data-id")])checked++;});var pct=Math.round((checked/TOTAL)*100);progressFill.style.width=pct+"%";progressCount.textContent=checked;if(checked>=TOTAL){progressDoneMsg.classList.add("show");}else{progressDoneMsg.classList.remove("show");}}
+  function applyItemState(el){var id=el.getAttribute("data-id");if(state[id]){el.classList.add("checked");}else{el.classList.remove("checked");}}
+  function toggleItem(el){var id=el.getAttribute("data-id");state[id]=!state[id];saveState(state);applyItemState(el);updateProgress();}
+  items.forEach(function(el){applyItemState(el);el.addEventListener("click",function(){toggleItem(el);});});
+  updateProgress();
+  resetBtn.addEventListener("click",function(){state={};saveState(state);items.forEach(applyItemState);updateProgress();});
+})();
+</script>
+</body>
+</html>

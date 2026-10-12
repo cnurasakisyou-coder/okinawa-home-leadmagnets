@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>LINE登録特典 一覧|沖縄マイホーム研究室</title>
+<meta name="description" content="沖縄マイホーム研究室の公式LINE登録特典、全20本をまとめた一覧ページです。届いた特典はいつでもここから読み返せます。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    max-width:1040px;margin:0 auto;
+    background:var(--paper);
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+  .tnum{font-variant-numeric:tabular-nums;}
+
+  /* ---- roofline ---- */
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(30px,6vw,52px) clamp(22px,6vw,40px) 32px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-size:11px;letter-spacing:.16em;color:var(--gold);
+    text-transform:uppercase;font-weight:700;margin:0 0 20px;
+  }
+  .hero h1{
+    position:relative;font-size:clamp(25px,4.6vw,33px);line-height:1.5;margin:0 0 20px;
+    padding:22px 22px 24px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:7px 7px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"LINE BENEFITS INDEX  /  OKINAWA";display:block;
+    font-family:"Hiragino Sans","Yu Gothic",sans-serif;color:#D7C49B;
+    font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:12px;
+  }
+  .hero-sub{
+    font-size:14px;line-height:1.95;margin:0;color:#46545E;
+    border-left:2px solid var(--gold);padding:1px 0 1px 16px;
+  }
+
+  /* ---- あいさつ文(構造色の帯) ---- */
+  .greeting{
+    margin:28px clamp(22px,6vw,40px) 0;background:var(--navy);color:#fff;
+    padding:22px 20px;border-left:4px solid var(--gold);
+  }
+  .greeting p{font-size:14px;line-height:2;margin:0;color:#EDEEE8;}
+
+  /* ---- 進捗の説明バー ---- */
+  .howto{
+    margin:26px clamp(22px,6vw,40px) 0;padding:14px 16px;border:1px solid var(--line);
+    background:#F4F1E9;font-size:12.5px;color:var(--muted);line-height:1.9;
+  }
+  .howto b{color:var(--navy);}
+
+  /* ---- Grid ---- */
+  main{padding:30px clamp(22px,6vw,40px) 10px;}
+  .section-title{
+    display:flex;align-items:baseline;gap:12px;margin:0 0 14px;
+  }
+  .section-title h2{font-size:17px;font-weight:600;color:var(--navy);margin:0;}
+  .section-title .count{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;}
+  .section-rule{border:none;border-top:1px solid var(--gold);margin:0 0 24px;position:relative;}
+  .section-rule::after{content:"";position:absolute;left:0;top:-2px;width:56px;height:3px;background:var(--navy);}
+
+  .tgrid{
+    display:grid;grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    border-top:1px solid var(--line);border-left:1px solid var(--line);
+  }
+  .tcard{
+    scroll-margin-top:16px;background:var(--paper);padding:22px 18px 20px;
+    display:flex;flex-direction:column;
+    border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+    transition:background-color .6s ease, box-shadow .3s ease;
+  }
+  .tcard-head{margin-bottom:14px;}
+  .tcard-no{
+    display:inline-block;font-size:15px;font-weight:600;letter-spacing:.05em;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;color:#E9D9B8;
+    background:var(--navy);padding:4px 10px;box-shadow:2px 2px 0 var(--gold-pale);
+    border:1px solid var(--gold);
+    font-variant-numeric:tabular-nums;
+  }
+  .tcard-no.lead{
+    display:inline-block;font-size:15px;font-weight:600;letter-spacing:.05em;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;color:#E9D9B8;
+    background:var(--navy);padding:4px 10px;box-shadow:2px 2px 0 var(--gold-pale);
+    border:1px solid var(--gold);
+  }
+  .tcard-title{
+    font-size:16px;line-height:1.55;font-weight:600;color:var(--ink);
+    margin:0 0 10px;min-height:0;
+  }
+  .tcard-desc{font-size:13px;line-height:1.85;color:var(--muted);margin:0 0 18px;flex:1;}
+  .tcard-cta{
+    display:block;width:100%;padding:13px 10px;background:var(--navy);
+    color:#fff;text-decoration:none;font-weight:700;font-size:13.5px;
+    text-align:center;letter-spacing:.03em;border:1px solid var(--gold);
+  }
+  .tcard-cta:active{opacity:.85;}
+
+  .tcard.lead-card{border:1px solid var(--gold);box-shadow:inset 0 0 0 1px rgba(182,154,98,.25);}
+
+  /* ---- ロック状態(未解放の特典) ---- */
+  .tcard.locked{background:#ECEAE3;}
+  .tcard.locked .tcard-no{opacity:.5;filter:grayscale(60%);}
+  .tcard.locked .tcard-title{color:#8E99A3;}
+  .tcard.locked .tcard-desc,
+  .tcard.locked .tcard-cta{display:none;}
+  .tcard-lock-msg{display:none;}
+  .tcard.locked .tcard-lock-msg{
+    display:flex;flex-direction:column;align-items:flex-start;
+    flex:1;justify-content:flex-end;
+    margin:0 0 4px;padding-top:14px;border-top:1px dashed var(--line);
+  }
+  .tcard-lock-msg .lock-icon{font-size:19px;line-height:1;margin-bottom:8px;opacity:.55;}
+  .tcard-lock-msg .lock-text{font-size:12.5px;line-height:1.85;color:var(--muted);}
+  .tcard-lock-msg .lock-text b{color:#5B6670;font-weight:700;}
+
+  /* ---- アンカー誘導時のハイライト(格納演出) ---- */
+  .tcard.highlight{
+    background:#F7F3EA;box-shadow:inset 0 0 0 2px var(--gold);
+  }
+  .highlight-flag{
+    display:none;font-size:11px;color:var(--navy);font-weight:700;
+    letter-spacing:.05em;margin:0 0 8px;
+  }
+  .tcard.highlight .highlight-flag{display:block;}
+
+  /* ---- Footer ---- */
+  .closing{padding:40px clamp(22px,6vw,40px) 16px;}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 18px;}
+  .legal{
+    padding:18px clamp(22px,6vw,40px) 44px;border-top:1px solid var(--line);
+  }
+  .legal p{font-size:11.5px;color:var(--muted);line-height:1.9;margin:0 0 8px;}
+
+  @media(max-width:420px){
+    .hero h1{padding:19px 18px 21px;box-shadow:5px 5px 0 var(--gold-pale);}
+    .hero-sub{font-size:13.5px;}
+    .tcard-no,.tcard-no.lead{font-size:13px;padding:3px 8px;}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE登録特典</p>
+    <h1>LINE登録特典 一覧</h1>
+    <p class="hero-sub">全20本を、このページにまとめています。</p>
+  </header>
+
+  <div class="greeting">
+    <p>沖縄マイホーム研究室にご登録いただき、ありがとうございます。<br>
+    これまでにLINEでお届けした特典と、これから順番にお届けする特典を、あわせてこのページに全部まとめています。<br>
+    LINEで届いた特典は、いつでもこのページから読み返せます。わからないこと・知りたいことがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+  <div class="howto">
+    <b>見方:</b> 特典は番号順に並んでいます。LINEでお届けしたメッセージのリンクをタップすると、このページの該当する特典まで自動でジャンプします。まだ受け取っていない特典も含め、全部のタイトルと概要はこのページでいつでも確認できます。
+  </div>
+
+  <main>
+    <div class="section-title"><h2 class="mincho">特典一覧(全20)</h2><span class="count tnum">01–20</span></div>
+    <hr class="section-rule">
+
+    <div class="tgrid">
+
+      <article class="tcard lead-card" id="tokuten-1">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no lead">特典01</span></div>
+        <h2 class="tcard-title">沖縄で家を買う前のチェックリスト30</h2>
+        <p class="tcard-desc">お金6・エリア5・台風4・塩害建物6・シロアリ2・土地権利4・契約3の全30項目を、確認する理由と具体的な金額の目安つきでチェックできるシートです。</p>
+        <a class="tcard-cta" href="checklist.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-2">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典02</span></div>
+        <h2 class="tcard-title">年収別「いくらまで買える?」診断シート</h2>
+        <p class="tcard-desc">世帯年収400万〜1,000万円・返済負担率20%/25%・金利1.0%/2.0%の組み合わせから、借入の目安がその場でわかる診断シートです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="budget.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-3">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典03</span></div>
+        <h2 class="tcard-title">沖縄県 全41市町村 エリア別メモ</h2>
+        <p class="tcard-desc">沖縄県内全41市町村の人口増減・地価・特徴・確認したいことを、1つずつまとめた比較メモです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="area.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-4">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典04</span></div>
+        <h2 class="tcard-title">中古物件だけの購入前チェックリスト(上級編・16項目)</h2>
+        <p class="tcard-desc">特典1の30項目に加え、中古だけが持つ「もう直せない・もう選べない」リスク(老朽化・修繕積立金・権利関係)を16項目で確認するチェックシートです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="chuko_checklist16.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-5">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典05</span></div>
+        <h2 class="tcard-title">資産性の見方ガイド「将来も売りやすい家」を見分ける6つの視点</h2>
+        <p class="tcard-desc">プロが資産性を見るときに使う6つの視点(人口動態・地価・再開発計画・交通計画・学区・賃貸需要)と、自分で確認できる調べ方をまとめたガイドです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="shisansei_guide.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-6">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典06</span></div>
+        <h2 class="tcard-title">沖縄県 地価上昇率ランキング+自分で調べる方法</h2>
+        <p class="tcard-desc">出典がある市町村だけの地価上昇率ランキング、住宅地の坪単価・上昇率(全23区分)、自分で全市町村を調べる方法をまとめたものです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="chikaka_ranking.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-7">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典07</span></div>
+        <h2 class="tcard-title">中古マンション「修繕積立金・管理状態」危険信号チェックシート</h2>
+        <p class="tcard-desc">修繕積立金が全国平均(月13,054円)より大きく低い、または滞納世帯が多い物件は要注意、という国の調査データを基準に確認する自己診断シートです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="kanri_kiken_check.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-8">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典08</span></div>
+        <h2 class="tcard-title">内見〜契約までの流れ&仲介手数料 早わかりガイド</h2>
+        <p class="tcard-desc">内見で見るべき実践ポイント、重要事項説明で見落としがちな点、仲介手数料の決まり方、契約から引き渡しまでの流れを1つにまとめたガイドです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="naiken_keiyaku_guide.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-9">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典09</span></div>
+        <h2 class="tcard-title">沖縄県 小中学校データベース</h2>
+        <p class="tcard-desc">沖縄県41市町村すべての公立小学校257校・中学校144校の学校名と所在地を、市町村ごとにタップで開けるデータベースです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="gakku_shiraberikata.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-10">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典10</span></div>
+        <h2 class="tcard-title">金利・インフレ早わかりシート</h2>
+        <p class="tcard-desc">「待てば下がるかも」と迷っている間に、金利も建築費も上がり続けているという客観的な事実だけを出典付きでまとめたシートです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="kinri_inflation_sheet.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-11">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典11</span></div>
+        <h2 class="tcard-title">リフォーム一体型ローン解説</h2>
+        <p class="tcard-desc">中古物件とリフォーム費用を一本の住宅ローンにまとめられるか、沖縄の地銀3行・ろうきんを実際に調べた結果と総返済額の試算をまとめたガイドです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="reform_loan_guide.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-12">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典12</span></div>
+        <h2 class="tcard-title">既存住宅売買瑕疵保険・ホームインスペクション完全ガイド</h2>
+        <p class="tcard-desc">似て非なる2つの制度(ホームインスペクションと既存住宅売買瑕疵保険)を、出典付きの16項目で整理したガイドです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="kashihoken_inspection_guide.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-13">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典13</span></div>
+        <h2 class="tcard-title">2026年度 補助金ガイド(中古+リフォーム向け)</h2>
+        <p class="tcard-desc">国の「住宅省エネ2026キャンペーン」(3事業)と、沖縄県内で確認できた市町村独自の住宅リフォーム補助18市町村を、出典付きで整理したガイドです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="hojokin_2026_guide.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-14">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典14</span></div>
+        <h2 class="tcard-title">外人住宅ガイド(沖縄特有の中古タイプ)</h2>
+        <p class="tcard-desc">米軍住宅として建てられたコンクリートブロック造の平屋「外人住宅」の魅力と、購入前に確認したい老朽化・断熱性・耐震性などの注意点をまとめたガイドです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="gaijin_jutaku_guide.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-15">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典15</span></div>
+        <h2 class="tcard-title">沖縄県 全41市町村 子ども医療費助成 比較表</h2>
+        <p class="tcard-desc">沖縄県内41市町村すべてについて、こども医療費助成(現物給付の有無・対象年齢拡大時期等)を一覧で比較した表です。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="kosodate_shien_zenshichoson.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-16">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典16</span></div>
+        <h2 class="tcard-title">中古+リノベーションの自由度ガイド</h2>
+        <p class="tcard-desc">フルリノベ・部分リノベの㎡単価の費用相場と、新築と比べた総予算シミュレーション(3パターン)で、買い方の自由度を示したガイドです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="renovation_jiyudo_guide.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-17">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典17</span></div>
+        <h2 class="tcard-title">空き家バンク・移住支援補助金ガイド</h2>
+        <p class="tcard-desc">沖縄県内41市町村を1つずつ調べ、空き家バンク・空き家活用の制度があると確認できた19市町村をまとめたガイドです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="akiya_bank_guide.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-18">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典18</span></div>
+        <h2 class="tcard-title">内見で見る 台風対策チェックリスト</h2>
+        <p class="tcard-desc">雨戸・シャッターの確認、塩害爆裂のサインの目視、重要事項説明での確認点など、内見当日に使える17項目の実践チェックリストです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="taifu_sonae_checklist.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-19">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典19</span></div>
+        <h2 class="tcard-title">住宅ローン減税チェックシート(中古)</h2>
+        <p class="tcard-desc">中古物件の住宅ローン減税が使えるかを、築年数・耐震基準・床面積・所得要件など11項目で確認するチェックシートです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
+        <a class="tcard-cta" href="jutaku_loan_genzei_check.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-20">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典20</span></div>
+        <h2 class="tcard-title">今月の金利・地価・補助金ニュース(毎月更新)</h2>
+        <p class="tcard-desc">金利・地価上昇率・空き家バンクの補助金額・リフォーム補助の受付状況など、各特典の「今月動きがあった部分」をまとめた毎月更新のダイジェストです。</p>
+        <a class="tcard-cta" href="monthly_news_2026_10.html">特典を受け取る ↓</a>
+      </article>
+
+    </div>
+  </main>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典をまとめた一覧ページです。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+  <div class="legal">
+    <p>本ページおよび各特典の内容は沖縄マイホーム研究室が作成したものです。個人の情報収集を目的にご自由にご覧いただけますが、内容の転載・再配布はご遠慮ください。</p>
+    <p>本ページの情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</p>
+    <p>© 沖縄マイホーム研究室</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  // ロック解除の仕組み。
+  // URLの ?unlock=N (カンマ区切りで複数可。例: ?unlock=2,3) を読み取り、
+  // localStorage(キー:unlockedTokuten)に追記保存する。
+  // 特典01・20はロック対象外。それ以外は unlockedTokuten に含まれるまで
+  // カードに .locked クラスを付け、タイトルのみ見える「ロックUI」で表示する。
+  var STORAGE_KEY = "unlockedTokuten";
+  var ALWAYS_UNLOCKED = ["1", "20"]; // 特典01・特典20はロック対象外
+
+  function readUnlocked(){
+    try{
+      var raw = localStorage.getItem(STORAGE_KEY);
+      var arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr : [];
+    }catch(e){
+      return [];
+    }
+  }
+
+  function saveUnlocked(arr){
+    try{
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+    }catch(e){
+      // localStorageが使えない環境では保存しない(ロック表示のみ継続)
+    }
+  }
+
+  function mergeUnlockParam(existing){
+    var params = new URLSearchParams(window.location.search);
+    var unlockParam = params.get("unlock");
+    if(!unlockParam) return existing;
+    var nums = unlockParam.split(",").map(function(s){ return s.trim(); }).filter(Boolean);
+    var set = {};
+    existing.forEach(function(n){ set[n] = true; });
+    nums.forEach(function(n){ set[n] = true; });
+    return Object.keys(set);
+  }
+
+  function applyLockState(unlockedList){
+    var unlockedSet = {};
+    unlockedList.forEach(function(n){ unlockedSet[n] = true; });
+    ALWAYS_UNLOCKED.forEach(function(n){ unlockedSet[n] = true; });
+
+    var cards = document.querySelectorAll(".tcard[id^='tokuten-']");
+    cards.forEach(function(card){
+      var num = card.id.replace("tokuten-", "");
+      if(ALWAYS_UNLOCKED.indexOf(num) !== -1) return; // 特典01・20は対象外
+      if(unlockedSet[num]){
+        card.classList.remove("locked");
+      }else{
+        card.classList.add("locked");
+      }
+    });
+  }
+
+  var existing = readUnlocked();
+  var merged = mergeUnlockParam(existing);
+  var changed = merged.length !== existing.length ||
+    merged.some(function(n){ return existing.indexOf(n) === -1; });
+  if(changed) saveUnlocked(merged);
+  applyLockState(merged);
+})();
+</script>
+
+<script>
+(function(){
+  "use strict";
+  // URLフラグメント(#tokuten-N)で来訪した場合、該当カードへスクロールし一時的にハイライトする。
+  // これにより「配信された特典がこの一覧ページに格納された」体験を、静的ページのまま実現する。
+  function highlightFromHash(){
+    var hash = window.location.hash;
+    if(!hash) return;
+    var target = document.querySelector(hash);
+    if(!target || !target.classList.contains("tcard")) return;
+    target.classList.add("highlight");
+    target.scrollIntoView({behavior:"smooth", block:"center"});
+    setTimeout(function(){ target.classList.remove("highlight"); }, 4500);
+  }
+  window.addEventListener("load", highlightFromHash);
+  window.addEventListener("hashchange", highlightFromHash);
+})();
+</script>
+
+<!--
+  公開方法(どちらでも無料・このファイル1つだけでOK):
+
+  [GitHub Pages]
+  1. GitHubにリポジトリを作成し、このファイルを含むフォルダをpush
+  2. リポジトリの Settings → Pages → Branch を選んで Save
+  3. 発行されたURL(https://ユーザー名.github.io/リポジトリ名/tokuten_ichiran.html)をLINEで配布
+
+  [Netlify Drop]
+  1. https://app.netlify.com/drop を開く
+  2. lead_magnetsフォルダをブラウザにドラッグ&ドロップ
+  3. 数秒で発行されるURLをLINEで配布(無料・会員登録不要)
+
+  [配信メッセージへの添え方]
+  各配信メッセージの特典リンクの下に、一覧ページへのアンカーリンクを添える。
+  例:「ほかの特典もこちらにまとめてあります → tokuten_ichiran.html#tokuten-7」
+  (アンカー部分の番号は、そのメッセージで初めて解放される特典の番号に合わせる)
+-->
+</body>
+</html>

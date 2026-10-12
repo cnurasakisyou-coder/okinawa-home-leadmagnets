@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>金利・インフレ早わかりシート「新築と中古、今はどちらが合理的か」|沖縄マイホーム研究室</title>
+<meta name="description" content="待てば下がるかもと迷っている間に、金利も建築費も上がり続けているという客観的な事実だけを出典付きでまとめたシートです。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .tnum{font-variant-numeric:tabular-nums}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(23px,5.6vw,29px);font-weight:600;line-height:1.6;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 26px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px}
+  .hero h1{
+    position:relative;font-size:clamp(18px,4.2vw,22px);line-height:1.6;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"RATE & INFLATION BRIEF  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px}
+  .disclaimer-top{font-size:12px;color:#58656C;margin:18px 0 0;padding:12px 14px;border:1px solid var(--line);background:rgba(23,52,77,.04);line-height:1.9}
+
+  main{padding:8px clamp(20px,6vw,30px) 4px}
+
+  /* ---- Section ---- */
+  .section{margin:30px 0 0}
+  .section h2{display:flex;align-items:center;gap:12px;margin:0 0 2px;font-size:16.5px;font-weight:600;color:var(--navy);line-height:1.5}
+  .badge{
+    flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;font-size:14.5px;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);
+  }
+  .section-rule{border:none;border-top:1px solid var(--gold);margin:11px 0 16px;position:relative}
+  .section-rule::after{content:"";position:absolute;left:0;top:-2px;width:48px;height:3px;background:var(--navy)}
+
+  .stat-row{display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+  .stat-card{flex:1;min-width:130px;padding:14px;background:var(--paper);border:1px solid var(--line)}
+  .stat-num{font-size:22px;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+  .stat-label{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.6}
+
+  .body-text{font-size:14.5px;margin:0 0 8px}
+  .source-line{font-size:11px;color:var(--muted);margin:0 0 4px;line-height:1.8}
+
+  .bank-list{margin:0 0 10px}
+  .bank-row{padding:11px 0;border-bottom:1px solid var(--line)}
+  .bank-row:last-child{border-bottom:none}
+  .bank-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .bank-name{font-size:13.5px;font-weight:700;color:var(--navy)}
+  .bank-rate{flex:0 0 auto;font-size:16px;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .bank-note{font-size:12px;color:var(--muted);margin:3px 0 0;line-height:1.7}
+  .howto-box{font-size:13px;color:var(--ink);background:#F8F5EF;border-left:3px solid var(--gold);padding:13px 15px;margin:10px 0 14px;line-height:1.85}
+
+  .note-box{font-size:12.5px;color:#58656C;padding:18px clamp(20px,6vw,30px);background:#F0EEE7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.9}
+
+  .closing{padding:35px clamp(20px,6vw,30px) 42px;background:#fffefa}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 18px}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .section h2{gap:8px}
+    .badge{flex-basis:28px;width:28px;height:28px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">INTEREST RATE & INFLATION BRIEF</p>
+      <div class="cover-rule"></div>
+      <h1><span>新築と中古、今はどちらが合理的か</span>金利・インフレ<br>早わかりシート</h1>
+      <p class="cover-subtitle">金利も建築費も上がり続けているという客観的な事実だけを、出典付きで短くまとめました。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典10</p>
+    <h1>金利・インフレ早わかりシート<br>「新築と中古、今はどちらが合理的か」</h1>
+    <p class="hero-lead">「"待てば下がるかも"と動かないでいるうちに、金利も建築費も上がり続けているとしたら。新築の金利も建築費も、今まさに上がっている最中という事実だけを、出典付きで短くまとめました。」</p>
+    <div class="disclaimer-top">このシートは「今すぐ買うべき」「中古の方が得」と断定するものではありません。金利・建築費の動きという客観データを知った上で、自分たちのタイミングを考えるための資料です。将来の金利・価格を予測するものではありません。</div>
+  </header>
+
+  <main>
+
+    <section class="section">
+      <h2><span class="badge">利</span>金利は上がっている(一次データ)</h2>
+      <hr class="section-rule">
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-num tnum">3.830<span style="font-size:13px;">%</span></div><div class="stat-label">フラット35の最頻金利(2026年10月、借入期間21〜35年・融資率9割以下)。業界メディアは「過去最高」と報道</div></div>
+        <div class="stat-card"><div class="stat-num tnum">1.25<span style="font-size:13px;">%</span></div><div class="stat-label">日銀の政策金利(2026年9月18日、31年ぶりの水準)。2026年10月は多くの銀行が変動金利を引き上げ</div></div>
+      </div>
+      <p class="body-text">民間金融機関の住宅ローン変動金利は、政策金利に連動する短期の貸出基準金利をもとに決まることが多く、日銀が政策金利を引き上げると住宅ローンの変動金利にも波及しやすい、という仕組みがあります。日本経済研究センターの予測では、政策金利は2027年6月末までに約1.6%まで上昇する見通しとされています(予測であり確定事実ではありません)。</p>
+      <p class="body-text">あわせて、親・祖父母から住宅取得資金の贈与を受ける場合の非課税措置(省エネ等住宅は1,000万円、それ以外は500万円まで非課税)は、2026年12月31日までの適用期限です(出典:国土交通省)。相続した空き家(やその敷地)を売却する場合の3,000万円特別控除は2027年12月31日まで(対象は昭和56年5月31日以前に建築された家屋で、分譲マンションは対象外)。金利の動きとあわせて、使える制度の期限も把握しておく材料になります。</p>
+      <p class="source-line">出典:住宅金融支援機構 公式「借入金利の推移」、熊日</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">行</span>沖縄の金融機関・変動金利(2026年10月時点)</h2>
+      <hr class="section-rule">
+      <div class="bank-list">
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">琉球銀行(しあわせの住宅ローン)</span><span class="bank-rate">年3.825%</span></div>
+          <p class="bank-note">団信加入必須。融資取扱手数料は融資額×1.98%(税込)</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">沖縄銀行(金利選択型住宅ローン)</span><span class="bank-rate">年3.825%</span></div>
+          <p class="bank-note">保証料型(借入1,000万円で10年86,520円〜50年250,180円を一括前払い)。事務手数料55,000円(税込)</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">沖縄海邦銀行</span><span class="bank-rate">年3.825%</span></div>
+          <p class="bank-note">団信保険料は銀行負担(無料)。保証料・手数料は窓口での個別確認が必要</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">沖縄ろうきん(有担保住宅ローン)</span><span class="bank-rate">年1.15〜3.675%</span></div>
+          <p class="bank-note">会員・一般等で優遇差。団信はろうきん負担(無料)。手数料は融資額×1.65%(会員)〜2.42%(一般)</p>
+        </div>
+      </div>
+      <p class="body-text" style="font-size:13px;">変動金利は基準金利(表面上の金利)で、実際に適用される金利は取引状況・審査結果に応じて優遇されるため各行非公開です(ろうきんのみ幅で公式開示)。地銀3行とも基準金利の見直しは年2回(4月・10月)。団信に上乗せする特約の金利目安は、がん100%保障団信が年0.1〜0.2%程度、三大疾病団信が年0.2〜0.3%程度、持病があっても加入しやすいワイド団信(引受緩和型)が年0.2〜0.3%程度とされ、借入時の年齢上限を50歳の誕生日までとする金融機関が多いという一般的な目安があります(複数の金融メディアの集計)。</p>
+      <p class="body-text" style="font-size:13px;">フラット35には「子育てプラス」という制度もあり、子ども1人につき1ポイント・1ポイントあたり5年間年0.25%の金利引き下げ(最大年1.0%引き下げ)が受けられます。新築・中古どちらの購入でも使え、2026年3月の資金実行分からは借り換えにも適用が拡大されました。また那覇市は子育て支援に積極的な自治体として、フラット35「地域連携型」の連携先に指定されており、当初5年間、金利が年0.5%引き下げられる制度を利用できます(利用には那覇市発行の「利用対象証明書」が必要)。</p>
+      <div class="howto-box">
+        <b style="display:block;margin-bottom:4px;color:var(--navy);">フラット35(中古)を使う場合の技術基準</b>
+        適合証明書の取得が必須。原則、新耐震基準(建築確認日が1981年6月1日以降)に適合、敷地が前面道路に2m以上接道、床面積50㎡以上(マンションは30㎡以上)、居住専用であることなどが要件で、書類審査+現地調査の2段階があります。
+      </div>
+      <p class="source-line">出典:琉球銀行公式、沖縄銀行公式、沖縄海邦銀行公式、沖縄ろうきん公式(いずれも2026年10月1日時点と明記)、フラット35公式、日本経済新聞(2026年9月)。団信の上乗せ金利は複数の金融メディアの集計を参考にしています。</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">築</span>建築費も上がっている(準一次データ)</h2>
+      <hr class="section-rule">
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-num tnum">+30<span style="font-size:13px;">%</span></div><div class="stat-label">国交省の建設工事費デフレーター、10年での上昇(2025年8月時点130.9/2015年=100)</div></div>
+        <div class="stat-card"><div class="stat-num tnum">+55<span style="font-size:13px;">%</span></div><div class="stat-label">公共工事設計労務単価、11年での上昇(2013年度15,175円→2024年3月23,600円)</div></div>
+      </div>
+      <p class="body-text">直近5年(2020年19,392円→2025年24,852円)でも約28%上昇しており、上昇ペースはむしろ加速しています。要因は資材(鉄・木材・セメント等)の価格上昇、人手不足による人件費上昇、円安など複合的です。</p>
+      <p class="body-text">さらに2025年4月から、新築住宅(住宅・非住宅問わず)は省エネ基準への適合が義務化されました。中古住宅はこの義務化の対象外です。断熱材・省エネ設備のコストが新築の建築費にさらに上乗せされる一方、既存の中古住宅にはこの追加コストがかからないという構造の違いがあります。</p>
+      <p class="source-line">出典:国交省発表の単価を引用した業界コラム経由(一次発表ページでの再確認が望ましい)</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">撤</span>大手ハウスメーカーも新築事業を見直している</h2>
+      <hr class="section-rule">
+      <p class="body-text">大和ハウス工業は2027年4月に新築一戸建て事業を23道県から撤退し、都市部に集中する方針です。理由は建築費高騰による採算悪化。<b>沖縄県は撤退対象の23道県に含まれていません。</b></p>
+      <p class="body-text" style="font-size:13px;color:var(--muted);">沖縄が対象外であることと、沖縄の新築価格が上がらないことは別の話です。全国的に新築の採算が厳しくなっている動きの一部として紹介しています。</p>
+      <p class="source-line">出典:Yahoo!ニュース(共同通信)、時事通信</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">差</span>沖縄の新築・中古の価格差は、全国平均より小さい</h2>
+      <hr class="section-rule">
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-num tnum">5,160<span style="font-size:13px;">万円</span></div><div class="stat-label">沖縄県 新築マンション平均価格(2024年)</div></div>
+        <div class="stat-card"><div class="stat-num tnum">4,633<span style="font-size:13px;">万円</span></div><div class="stat-label">沖縄県 中古マンション(築10年・70㎡換算)平均価格(2024年)。年収倍率11.19倍は全国4位</div></div>
+      </div>
+      <p class="body-text">価格差はおよそ11%。全国データでは、新築と中古の価格差は戸建てで約1,622万円・マンション(集合住宅)で約2,414万円という推計もあります(全国データのため、沖縄の実態とは別物として参考値扱い)。全国平均では新築建売住宅が約3,826万円・中古戸建が約2,573万円という調査引用もあり、価格差はおよそ33%とされます。<b>沖縄は新築マンションの建築費・金利の高騰を強く受けている分、新築と中古の価格差が全国的な傾向より小さいという見方ができます。</b></p>
+      <p class="body-text">沖縄県内のマンション価格は、この10年で約2倍になったという報道もあります(出典:琉球新報「止まらぬ沖縄マンション高騰」連載、2026年8〜9月)。全国では、2025年の新築マンション平均価格は6,556万円・㎡単価104.5万円で前年比+7.8%・9年連続の過去最高を更新しており(出典:不動産経済研究所発表、日本経済新聞)、新築マンション価格の上昇自体は沖縄だけの現象ではなく全国的な流れの一部です。なお2025年分の沖縄県単独の新築マンション価格・供給戸数は、2026年10月時点で一次ソースを確認できていません(不動産経済研究所の発表資料では沖縄は「九州・沖縄地区」として戸数のみ合算表示され、価格は開示されていません)。</p>
+      <p class="source-line">出典:不動産経済研究所(琉球新報報道)、東京カンテイ(沖縄)、日本経済新聞(2026年2月)。全国の価格差データは業者コラム複数(一次ソース未確認・参考値)を参考にしています。</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">算</span>金利が1%上がると、返済額はどう変わるか(参考試算)</h2>
+      <hr class="section-rule">
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-num tnum">+1.4<span style="font-size:13px;">万円</span></div><div class="stat-label">月々の返済額の増加(借入3,000万円・35年ローン、金利+1%)</div></div>
+        <div class="stat-card"><div class="stat-num tnum">+587〜604<span style="font-size:13px;">万円</span></div><div class="stat-label">35年間の総返済額の増加</div></div>
+      </div>
+      <p class="body-text">元利均等返済では、毎月の返済額に占める利息の割合が、返済の初期ほど大きくなります。借入期間が長く残っているうちに金利が上がるほど、利息として支払う総額への影響が大きくなる仕組みです。当サービスの試算(35年・元利均等・ボーナス払いなし)では、借入3,000万円の月々の返済額は金利1.0%で8.5万円、2.0%で9.9万円、フラット35の2026年9月目安だった3.46%では12.3万円となり、金利水準によって月々1万円以上の差が生まれます。借入4,000万円・35年ローンで金利が1.0%から2.0%に上がると、総返済額は約823万円増加する計算です(固定資産税・管理費・修繕積立金・保険は含まない単純計算)。</p>
+      <p class="source-line" style="font-size:11.5px;">試算の前提(何%から何%か)はメディアにより異なるため幅があります。出典:moneycanvas.bk.mufg.jp、limo.media</p>
+    </section>
+
+  </main>
+
+  <div class="note-box">金利・建築費の数字は毎月変わります。配信直前に住宅金融支援機構・日銀の公式ページで最新値を確認してください。「新築は金利上昇と建築費高騰の両方を受けやすく、中古は建築費高騰の影響を受けにくい」という傾向は見えますが、だからといって「今買うべき」とは言いません。ご自身のタイミングで判断してください。※一部の数値(団信上乗せ幅、全国の新築・中古価格差、返済額試算の前提)は金融メディア・業界コラムの集計を参考にしています。この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>中古+リフォーム、住宅ローンは一本化できる?|沖縄マイホーム研究室</title>
+<meta name="description" content="中古物件の購入費用とリフォーム費用、一本の住宅ローンにまとめられるか。沖縄の地銀3行・ろうきんを実際に調べた結果と、総返済額の試算をまとめました。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .tnum{font-variant-numeric:tabular-nums}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(23px,5.6vw,29px);font-weight:600;line-height:1.6;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px}
+  .hero h1{
+    position:relative;font-size:clamp(19px,4.4vw,23px);line-height:1.6;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"FINANCE GUIDE  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero h1 span{color:#E5D5B3!important}
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px}
+  .pitch{font-size:13.5px;line-height:1.95;margin:18px 0 0;color:#344655;background:#F0EEE7;padding:15px 17px;border:1px solid #E4DFD4}
+
+  main{padding:8px clamp(20px,6vw,30px) 4px}
+
+  /* ---- Section / category ---- */
+  .category{margin:30px 0 0}
+  .category h2{
+    display:flex;align-items:center;gap:12px;margin:0 0 2px;
+    font-size:17px;font-weight:600;color:var(--navy);line-height:1.5
+  }
+  .badge{
+    flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;font-size:14.5px;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);
+  }
+  .category-rule{border:none;border-top:1px solid var(--gold);margin:11px 0 16px;position:relative}
+  .category-rule::after{content:"";position:absolute;left:0;top:-2px;width:48px;height:3px;background:var(--navy)}
+
+  .section-lead{font-size:13.5px;color:#344655;line-height:1.95;margin:14px 0 0}
+  .section-lead b{color:var(--navy)}
+  .source-line{font-size:11.5px;color:var(--muted);margin:8px 0 0;line-height:1.8}
+
+  /* ---- Table ---- */
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 0;border:1px solid var(--line)}
+  .table-wrap table{min-width:620px;width:100%;border-collapse:collapse}
+  .table-wrap th,.table-wrap td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--line);font-size:12px;vertical-align:top;line-height:1.7}
+  .table-wrap thead th{background:var(--navy);color:#E9D9B8;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--gold)}
+  .table-wrap tbody th{background:var(--blue-pale);color:var(--navy);font-weight:700}
+  .table-wrap td.num{font-variant-numeric:tabular-nums;font-weight:700;color:var(--navy)}
+  .table-wrap tbody tr:last-child td,.table-wrap tbody tr:last-child th{border-bottom:none}
+
+  /* ---- Calc box ---- */
+  .calc-box{background:var(--blue-pale);border:1px solid var(--line);padding:15px 17px;margin:14px 0 0;font-size:13.5px;line-height:1.9}
+  .calc-box b{display:block;margin-bottom:6px;color:var(--navy);font-size:13.5px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .calc-row{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line);padding:6px 0}
+  .calc-row:last-child{border-bottom:none}
+  .calc-row .v{font-variant-numeric:tabular-nums;font-weight:700;color:var(--navy)}
+
+  /* ---- Extra note (gold left border) ---- */
+  .extra-note{font-size:13px;color:#344655;background:#F4F1E9;border-left:3px solid var(--gold);padding:15px 17px;margin:14px 0 0;line-height:1.95}
+  .extra-note b{display:block;margin-bottom:6px;color:var(--navy);font-size:13.5px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+
+  /* ---- Plain list (no checkbox, square marker) ---- */
+  .plain-list{margin:14px 0 0;padding:0;list-style:none}
+  .plain-list li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.85;padding:9px 2px;border-bottom:1px solid var(--line);color:var(--ink)}
+  .plain-list li:last-child{border-bottom:none}
+  .plain-list li::before{content:"□";flex:0 0 auto;color:var(--gold);font-size:14px;line-height:1.6}
+
+  .note-box{font-size:12.5px;color:var(--muted);padding:18px clamp(20px,6vw,30px);background:#F0EEE7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.95}
+
+  /* ---- Closing ---- */
+  .closing{padding:34px clamp(20px,6vw,30px) 40px;background:#fffefa}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .category h2{gap:8px}
+    .badge{flex-basis:28px;width:28px;height:28px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>沖縄の地銀3行・ろうきんを実際に調べた</span>中古+リフォーム<br>住宅ローンは一本化できる?</h1>
+      <p class="cover-subtitle">金利の建前だけでなく、保証料・事務手数料まで含めた「総費用」で沖縄の金融機関を比較しました。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典11</p>
+    <h1>中古を買って<br>リフォームするなら<br>ローンは<span style="color:#E5D5B3;">一本化</span>できるか</h1>
+    <p class="hero-lead">「中古物件の購入費用とリフォーム費用、一本の住宅ローンにまとめられると総返済額を抑えられる」とよく言われます。それが沖縄の金融機関で実際にどうなっているか、公式ページを1行ずつ確認しました。</p>
+    <p class="pitch">一般的には「住宅ローン本体は年0.5〜1%台、単独のリフォームローンは年2〜5%台」と言われ、金利差3.2%で総返済額が約370万円変わるという試算もあります。ただし沖縄の地銀は基準金利が年3.825%と前提が違うため、沖縄の数字で試算し直しました。さらに、金利だけでなく保証料・事務手数料まで含めた「総費用」で比べると、銀行ごとの差はもう一段変わってきます。</p>
+  </header>
+
+  <main>
+
+    <section class="category">
+      <h2><span class="badge">基</span>そもそも「一体型ローン」とは</h2>
+      <hr class="category-rule">
+      <p class="section-lead">一体型ローンとは、中古物件の購入費用とリフォーム費用を、住宅ローン(本体)としてまとめて借りられる仕組みの一般的な呼び方です。不動産・金融系のメディアでは、住宅ローン本体は年0.5〜1%台で借りられるケースがある一方、単独のリフォームローンは年2〜5%台・融資期間も10〜25年と短めになりやすく、金利差3.2%で総返済額が約370万円変わるという試算が紹介されています。</p>
+      <p class="section-lead"><b>なぜ金利に差がつきやすいのか。</b>住宅ローン本体は、購入する土地・建物に抵当権を設定する「有担保融資」です。万一返済できなくなっても、銀行は不動産を処分して資金を回収できるため、貸し手のリスクが低く、金利を低く抑えやすい構造になっています。これに対して単独のリフォームローンの多くは、担保を取らない「無担保融資」です。工事内容によっては物件価値が確実に上がるとも限らず、銀行にとってのリスクが住宅ローンより高くなるため、その分が金利に上乗せされやすい、という仕組みです。また融資額が大きい住宅ローンの方が、銀行側も審査に時間とコストをかけやすく、結果として金利面で優遇されやすいという事情もあります。</p>
+      <p class="section-lead">※この金利差・総返済額の試算は、不動産・金融系メディアのコラム記事を参考にしています。一次の統計データではなく、あくまで一般的な目安として紹介されている数字です。</p>
+      <div class="extra-note">
+        <b>注意:この「0.5〜1%台」はそのまま沖縄に当てはまらない</b>
+        これは全国的なメディアが紹介している、優遇後の実行金利の一例です。沖縄の金融機関が公式に出している変動金利の「基準金利」(表面上の金利)は、2026年10月時点で地銀3行とも年3.825%であり、前提がまったく異なります。沖縄で実際に借りるときの金利は、次の章で確認した数字をもとに考える必要があります。
+      </div>
+      <div class="extra-note">
+        <b>ローンを組まなくても使える「税額控除」という選択肢</b>
+        国税庁には、リフォーム費用そのものを借入(ローン)にしなくても使える「住宅特定改修特別税額控除」という制度があります。耐震改修または省エネ改修と、小屋裏・外壁・給排水管などの劣化対策(耐久性向上改修工事)を組み合わせて行うと、対象工事の標準的な費用の10%(限度額を超える部分は5%)が、その年の所得税額から直接差し引かれます。控除の上限額は組み合わせる工事内容により250万円〜600万円(太陽光発電設備を含む場合は350万円〜600万円)で、床面積50㎡以上(合計所得1,000万円超の場合)、または40㎡以上50㎡未満(合計所得1,000万円以下の場合)が要件です。適用期限は令和10年(2028年)12月31日までに居住を開始した場合までとされています(出典:国税庁No.1227「耐久性向上改修工事をした場合(住宅特定改修特別税額控除)」)。自己資金でリフォームする場合はもちろん、ローンを組む場合でも、この税額控除が別枠で使えないか確認する価値があります。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">沖</span>沖縄の金融機関を実際に調べた結果</h2>
+      <hr class="category-rule">
+      <p class="section-lead">琉球銀行・沖縄銀行・沖縄海邦銀行・沖縄ろうきんの公式ページを確認しました(2026年10月時点)。</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>金融機関</th><th>住宅ローン本体<br>(変動・基準金利)</th><th>リフォーム専用ローン</th><th>一本化できる商品か</th></tr></thead>
+        <tbody>
+          <tr><th>琉球銀行</th><td class="num">年3.825%</td><td>住宅リフォームローン:変動基準金利3.95%(団信込み4.15%)、または固定10万〜500万円で4.80〜14.00%。限度額1,000万円、期間1〜15年</td><td>公式ページに「一体型」の明記なし。単独商品として案内</td></tr>
+          <tr><th>沖縄銀行</th><td class="num">年3.825%</td><td>新型住宅リフォームローン(具体的な金利は公式ページで未記載)</td><td>中古購入と同時にリフォームする場合、支払時期に合わせて分割融資するという案内が業者経由の情報で見つかったが、沖縄銀行公式ページ本体では確認できず(窓口へ要確認)</td></tr>
+          <tr><th>沖縄海邦銀行</th><td class="num">年3.825%</td><td>リフォームローン:年2.90〜5.30%、最大1,000万円、返済期間6ヶ月〜15年</td><td>公式ページに「一体型」の明記なし</td></tr>
+          <tr><th>沖縄ろうきん</th><td>有担保住宅ローン 年1.15〜3.675%(会員/一般等で優遇差)</td><td>リフォーム専用ローンの金利は公式ページで未確認</td><td>確認できず(要問い合わせ)</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="source-line">出典:琉球銀行公式(https://www.ryugin.co.jp/kariru/jutaku_loan/reform/)、沖縄銀行公式(https://www.okinawa-bank.co.jp/kojin/kariru/jyutaku/)、沖縄海邦銀行公式(https://www.kaiho-bank.co.jp/kojin/kariru/reform/)、沖縄ろうきん公式(https://www.okinawa-rokin.or.jp/kariru/housing_loan/tanpo_ari/)。各行とも2026年10月1日時点の公式ページ記載内容。</p>
+      <div class="extra-note">
+        <b>結論</b>
+        沖縄の地銀3行・ろうきんとも、「購入費用とリフォーム費用を最初から一本の住宅ローンにまとめられる」と明記した専用商品は、2026年10月時点の公式ページでは確認できませんでした。ただし住宅ローンの資金使途にリフォーム費用を含められるかどうかは、銀行・支店・担当者の対応で変わる可能性があります。「まとめられますか」と窓口で直接聞くのが一番早い確認方法です。
+      </div>
+
+      <p class="section-lead">金利だけでなく、保証料・事務手数料・団信(団体信用生命保険)の条件も銀行ごとにかなり違います。同じ基準金利3.825%でも、借りるときにかかる諸費用まで含めると、実質的な負担は変わってきます。</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>金融機関</th><th>保証料</th><th>事務手数料</th><th>団信(基本+上乗せオプション)</th></tr></thead>
+        <tbody>
+          <tr><th>琉球銀行</th><td>公式ページに保証料の記載なし(りゅうぎん保証(株)の保証)</td><td>融資額×1.98%(税込、融資取扱手数料)</td><td>加入必須。オプション:ガン保障特約+年0.07%、3大疾病+5つの慢性疾患保障+年0.2%</td></tr>
+          <tr><th>沖縄銀行</th><td>保証料型。借入1,000万円の場合、期間に応じ86,520円(10年)〜250,180円(50年)を一括前払い</td><td>55,000円(税込、保証会社へ)</td><td>加入必須(無料のオプションあり)。3大疾病保障特約・ライフサポートキング+年0.2%、ダブルサポート団信+年0.25%</td></tr>
+          <tr><th>沖縄海邦銀行</th><td>公式ページに記載なし(窓口・プラザで個別確認が必要)</td><td>公式ページに記載なし(窓口・プラザで個別確認が必要)</td><td>保険料は当行負担(無料)。がん団信+年0.1%</td></tr>
+          <tr><th>沖縄ろうきん</th><td>ろうきん負担(利用者負担なし)</td><td>融資額×手数料率(会員1.65%/一般2.42%、税込)</td><td>保険料はろうきん負担(無料)。オプション+年0.1%〜0.4%(夫婦連生団信・がん団信・就業不能保障団信+0.1%、引受緩和団信(ワイド団信)+0.4%)</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="source-line">出典:琉球銀行公式・沖縄銀行公式・沖縄海邦銀行公式・沖縄ろうきん公式(いずれも2026年10月1日時点の各行公式ページ記載内容)。沖縄海邦銀行は保証料・事務手数料の具体額を公式ページで確認できませんでした。</p>
+      <div class="extra-note">
+        <b>諸費用まで含めると、銀行ごとの「実質的な借りやすさ」は変わる</b>
+        例えば500万円を琉球銀行の住宅ローンに含める場合、事務手数料だけで約9.9万円(500万円×1.98%)かかります。一方、沖縄ろうきんは保証料・団信とも無料で、事務手数料は会員なら500万円×1.65%=約8.3万円です。沖縄銀行は保証料が借入額・期間で決まる一括前払い方式のため、500万円・15年なら目安として数万円程度の負担になる計算です(正確な金額は窓口での試算が必要)。金利の数字だけを見比べるのではなく、この諸費用の差も合わせて「総支払額」で比較することが大切です。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">試</span>一本化できた場合・できなかった場合の試算</h2>
+      <hr class="category-rule">
+      <p class="section-lead">仮にリフォーム費用500万円を、(a)住宅ローン本体に含めて35年・年3.825%で借りた場合と、(b)単独のリフォームローン(琉球銀行の例)で15年・年3.95%で借りた場合を計算すると、次のようになりました(元利均等返済・ボーナス払いなし、保証料・手数料・団信上乗せは含まない単純計算)。</p>
+      <div class="calc-box">
+        <b>(a) 住宅ローン本体に含める(35年・年3.825%)</b>
+        <div class="calc-row"><span>月々の返済額</span><span class="v">約2.2万円</span></div>
+        <div class="calc-row"><span>完済までの総返済額</span><span class="v">約908万円</span></div>
+        <div class="calc-row"><span>うち利息分</span><span class="v">約408万円</span></div>
+      </div>
+      <div class="calc-box">
+        <b>(b) 単独のリフォームローン(15年・年3.95%)</b>
+        <div class="calc-row"><span>月々の返済額</span><span class="v">約3.7万円</span></div>
+        <div class="calc-row"><span>完済までの総返済額</span><span class="v">約663万円</span></div>
+        <div class="calc-row"><span>うち利息分</span><span class="v">約163万円</span></div>
+      </div>
+      <div class="extra-note">
+        <b>金利がほぼ同じでも、総返済額は逆転する</b>
+        (a)の方が月々の負担は軽い一方、完済までの総返済額・総利息は(b)より大きくなりました。理由は金利差ではなく「返済期間の長さ」です。35年間かけて返せば、その分利息を払う期間も長くなります。「一本化すれば必ず得」とは言えず、「月々の負担を軽くしたいか」「総支払額を抑えたいか」のどちらを優先するかで答えが変わる、という試算結果でした。この試算は沖縄の地銀公式の基準金利を使った一例であり、実際に適用される金利(実行金利)は審査結果により異なります。冒頭の試算(3.2%差で約370万円)とは前提の金利・期間が異なるため単純比較はできません。
+      </div>
+      <div class="extra-note">
+        <b>諸費用を足すとどうなるか</b>
+        上記の試算は元金・利息の返済額のみの単純計算で、保証料・事務手数料・団信の上乗せ金利は含めていません。例えば(a)で琉球銀行を使う場合、事務手数料約9.9万円が別途かかります。(b)で単独のリフォームローンを組む場合も、銀行ごとに保証料・事務手数料の有無が異なるため、「どちらが総額で得か」は個々の銀行の諸費用も含めて比較する必要があります。この諸費用まで含めた正確な比較は、検討している銀行に直接見積もりを依頼するのが確実です。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">補</span>補助金と合わせて考える</h2>
+      <hr class="category-rule">
+      <p class="section-lead">リフォーム内容によっては、国の「住宅省エネ2026キャンペーン」(みらいエコ住宅2026事業・先進的窓リノベ2026事業・給湯省エネ2026事業の3事業)や市町村独自の補助金が別途使える場合があります。ローンの組み方だけでなく、補助金で工事費そのものを下げられないかも合わせて確認するとよいでしょう(詳しくは特典「2026年度 補助金ガイド」を参照)。</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">確</span>最後に確認したいこと</h2>
+      <hr class="category-rule">
+      <ul class="plain-list">
+        <li>検討している銀行に「中古購入費用とリフォーム費用を一本の住宅ローンにまとめられるか」を直接聞いた</li>
+        <li>まとめられない場合、単独リフォームローンの金利・限度額・返済期間を確認した</li>
+        <li>月々の返済額だけでなく、完済までの総返済額(総利息)も試算してもらった</li>
+        <li>保証料・事務手数料・団信の上乗せ金利も含めた「諸費用込みの見積もり」をもらった</li>
+        <li>リフォーム内容が補助金の対象にならないか確認した(特典「2026年度 補助金ガイド」参照)</li>
+        <li>住宅特定改修特別税額控除(耐震・省エネ+耐久性向上改修)の対象にならないか確認した</li>
+        <li>団信(団体信用生命保険)がリフォーム部分にも適用されるか確認した</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <div class="note-box">この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+</div>
+</body>
+</html>

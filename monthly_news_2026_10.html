@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>今月の金利・地価・補助金ニュース 2026年10月号(創刊号)|沖縄マイホーム研究室</title>
+<meta name="description" content="毎月お届けする沖縄の住まいニュース、2026年10月号(創刊号)。金利・地価・空き家バンク・リフォーム補助金の最新動向を、出典を整理したうえで厚めに解説しました。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .tnum{font-variant-numeric:tabular-nums}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(23px,5.6vw,29px);font-weight:600;line-height:1.6;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px}
+  .issue-badge{display:inline-block;font-size:12px;font-weight:700;color:#E9D9B8;background:var(--navy);padding:4px 10px;letter-spacing:.06em;margin:0 0 14px;border:1px solid var(--gold)}
+  .hero h1{
+    position:relative;font-size:clamp(20px,4.6vw,25px);line-height:1.55;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"MONTHLY HOUSING NEWS  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px}
+  .disclaimer-top{font-size:12px;color:#58656C;margin:18px 0 0;padding:12px 14px;border:1px solid var(--line);background:rgba(23,52,77,.04);line-height:1.9}
+
+  main{padding:8px clamp(20px,6vw,30px) 4px}
+
+  /* ---- Section ---- */
+  .section{margin:30px 0 0}
+  .section h2{display:flex;align-items:center;gap:12px;margin:0 0 2px;font-size:16.5px;font-weight:600;color:var(--navy);line-height:1.5}
+  .badge{
+    flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:700;
+    font-variant-numeric:tabular-nums;border:1px solid var(--gold);
+  }
+  .section-rule{border:none;border-top:1px solid var(--gold);margin:11px 0 16px;position:relative}
+  .section-rule::after{content:"";position:absolute;left:0;top:-2px;width:48px;height:3px;background:var(--navy)}
+
+  .stat-row{display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+  .stat-card{flex:1;min-width:130px;padding:14px;background:var(--paper);border:1px solid var(--line)}
+  .stat-num{font-size:22px;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+  .stat-label{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.6}
+
+  .body-text{font-size:14.5px;margin:0 0 8px}
+  .source-line{font-size:11px;color:var(--muted);margin:0 0 4px;line-height:1.8}
+
+  .link-box{font-size:13px;color:var(--ink);background:#F8F5EF;border-left:3px solid var(--gold);padding:12px 14px;margin:10px 0 14px;line-height:1.8}
+  .link-box b{color:var(--navy)}
+
+  .note-box{font-size:12.5px;color:#58656C;padding:16px 18px;background:#F0EEE7;border:1px solid var(--line);margin:14px 0 0;line-height:1.9}
+
+  .next-issue{font-size:13px;color:var(--ink);background:rgba(182,154,98,.10);border:1px dashed var(--gold);padding:14px 16px;margin:28px 0 0;line-height:1.85;text-align:center}
+
+  .disclaimer{font-size:12.5px;color:#58656C;padding:18px clamp(20px,6vw,30px);background:#F0EEE7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.9}
+
+  .closing{padding:35px clamp(20px,6vw,30px) 42px;background:#fffefa}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .section h2{gap:8px}
+    .badge{flex-basis:28px;width:28px;height:28px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">MONTHLY HOUSING NEWS — 2026.10</p>
+      <div class="cover-rule"></div>
+      <h1><span>創刊号</span>今月の金利・地価・<br>補助金ニュース</h1>
+      <p class="cover-subtitle">金利・地価・空き家バンク・補助金の最新動向を、一次情報をもとに少し厚めに解説します。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典20</p>
+    <span class="issue-badge">2026年10月号 ─ 創刊号</span>
+    <h1>今月の金利・地価・補助金ニュース</h1>
+    <p class="hero-lead">毎月お届けする、沖縄の住まいにまつわるニュースのダイジェストです。今月動きがあった金利・地価・空き家バンク・補助金の話題を、公的な一次情報を軸に、背景や「だから何が言えるか」まで含めて少し厚めに解説しました。詳しく知りたい項目は、それぞれの特典にリンクしています。</p>
+    <div class="disclaimer-top">これは第1号です。毎月アップデートし、新しい号をこのLINEでお届けします。将来の金利・地価の動きを予測・保証するものではなく、確認できた事実だけをまとめています。</div>
+  </header>
+
+  <main>
+
+    <section class="section">
+      <h2><span class="badge">1</span>金利:フラット35が過去最高、沖縄の地銀も追随</h2>
+      <hr class="section-rule">
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-num tnum">3.830<span style="font-size:13px;">%</span></div><div class="stat-label">フラット35の最頻金利(2026年10月、借入期間21〜35年・融資率9割以下)。業界メディアは「過去最高」と報道</div></div>
+        <div class="stat-card"><div class="stat-num tnum">1.25<span style="font-size:13px;">%</span></div><div class="stat-label">日銀の政策金利(2026年9月18日、31年ぶりの水準)</div></div>
+      </div>
+      <p class="body-text">日銀が政策金利を引き上げたことを受け、2026年10月は多くの銀行が変動金利を引き上げています。沖縄の地銀3行(琉球銀行・沖縄銀行・沖縄海邦銀行)も変動金利の基準金利を年3.825%で足並みを揃えました。沖縄ろうきんは有担保住宅ローンで年1.15〜3.675%と幅のある金利を公式に開示しており、会員区分によって優遇差があります。ただし基準金利はあくまで「表面上の金利」で、実際に適用される実行金利は審査結果によって優遇されるため、具体的な水準は各行とも非公開です。「金利が低い」という案内だけで判断せず、自分が借りたときの実行金利・手数料・団信の条件まで確認する必要があります。</p>
+      <p class="source-line">出典:住宅金融支援機構公式「借入金利の推移」、日本銀行、琉球銀行・沖縄銀行・沖縄海邦銀行・沖縄ろうきん各公式(2026年10月1日時点)</p>
+      <div class="link-box">沖縄の地銀3行・ろうきんの手数料比較、フラット35(中古)の技術基準、金利1%上昇で返済額がどう変わるかの試算は<b>特典10(金利・インフレ早わかりシート)</b>で詳しく解説しています。</div>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">2</span>地価:県全体+6.6%、浦添・宮古島で大きな動き</h2>
+      <hr class="section-rule">
+      <div class="stat-row">
+        <div class="stat-card"><div class="stat-num tnum">+6.6<span style="font-size:13px;">%</span></div><div class="stat-label">沖縄県全体の地価上昇率(2026年公示地価、全用途)。全国2位の伸び</div></div>
+        <div class="stat-card"><div class="stat-num tnum">+9.2<span style="font-size:13px;">%</span></div><div class="stat-label">市町村別トップの北谷町。2位は宜野湾市+8.9%、3位は那覇市+6.0%</div></div>
+      </div>
+      <p class="body-text">県内41市町村のうち地価が下落したのは1村のみで、残り40市町村は上昇しました。住宅地+6.4%・商業地+6.9%(全国4位)・工業地+8.5%(全国3位)と、どの用途でも伸びています。中でも今月注目したいのは浦添市と宮古島市です。浦添市は2024年に「牧港補給地区跡地利用計画」を策定済みで、対象面積は約270ヘクタール(浦添市域の約14%)・地権者は約2,700人という大規模な計画です。跡地利用によって税収が13倍になるという試算もあり、2026年10月には市議会・市長が国へ全面返還を要請しました。段階的な返還・再開発が進めば、周辺エリアの地価・住環境にも影響が及ぶと見られています。宮古島市は住宅地+10.5%・商業地+17.1%という高い伸びで、台湾・香港からのインバウンド増加に伴うホテル・飲食店の開業が要因とされています。</p>
+      <p class="source-line">出典:国土交通省 地価公示(2026年1月1日時点)</p>
+      <div class="link-box">出典がある市町村だけのランキングと、全市町村を自分で調べる方法、市町村・郡別の坪単価データ、「今後上がると言われているエリア」の詳細は<b>特典6(地価上昇率ランキング)</b>にまとめています。</div>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">3</span>空き家バンク:41市町村中19市町村、具体的な金額が分かる制度も</h2>
+      <hr class="section-rule">
+      <p class="body-text">移住・UIターンを考えている方向けに、沖縄県内41市町村すべてを1つずつ調べたところ、空き家バンク・空き家活用の制度を確認できたのは19市町村でした。具体的な金額が分かる制度としては、恩納村の空家活用事業補助金(対象経費の50%・上限200万円。交付決定日から5年以上の居住意思が条件)、うるま市の島しょ地域(平安座島・浜比嘉島・宮城島・伊計島・津堅島)改修補助金(対象経費の1/2・上限50万円)、本部町の空き家利活用定住促進事業(賃貸契約が成立すると、所有者に謝礼金3万円・情報を提供した人に報奨金3万円を支給する珍しいタイプの制度)の3つがあります。残り22市町村は、本リストでは公式の制度を確認できませんでした(制度が無いと断定するものではありません)。</p>
+      <p class="source-line">出典:恩納村・うるま市・本部町 各公式サイト(2026年10月時点)</p>
+      <div class="link-box">確認できた19市町村の一覧、制度の詳細、残り22市町村の状況は<b>特典17(空き家バンク・移住支援補助金ガイド)</b>をご覧ください。</div>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">4</span>国の補助金:みらいエコ住宅2026、申請期限が近づく</h2>
+      <hr class="section-rule">
+      <p class="body-text">既存住宅(中古)の省エネリフォームに使える「みらいエコ住宅2026事業」は、改修前の住宅の築年数・工事水準に応じて上限100万円/戸まで補助されます。対象は2025年11月28日以降に着手した工事で、予約申請は2026年11月16日まで、交付申請は遅くとも2026年12月31日まで(予算上限に達し次第終了)。新築向けの補助(長期優良・ZEH水準住宅)は子育て世帯・若者夫婦世帯限定ですが、リフォームの補助にはその年齢制限がなく、全世帯が対象です。中古を買ってリフォームを考えている方は、着手のタイミングを早めに検討する価値があります。</p>
+      <p class="source-line">出典:みらいエコ住宅2026事業公式</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">5</span>市町村独自のリフォーム補助:受付中・終了が分かれています</h2>
+      <hr class="section-rule">
+      <p class="body-text">国の制度とは別に、市町村独自の住宅リフォーム補助は全41市町村を1つずつ調べ、18市町村で確認できています。2026年10月時点では沖縄市・八重瀬町・嘉手納町・南風原町など多くが受付中とみられますが、豊見城市・読谷村・宮古島市はすでに受付を終了しています(豊見城市は応募多数で上限到達、読谷村は予算到達のため9月30日に早期終了、宮古島市は申請期間が6月のみで終了済み)。南風原町は10月11日時点で締切まで残り3週間ほどです。先着順・予算上限ありの制度がほとんどのため、検討している方は受付開始後できるだけ早く申請できるよう準備しておくことをおすすめします。</p>
+      <p class="source-line">出典:沖縄市・八重瀬町・嘉手納町・南風原町・豊見城市・読谷村ほか、確認できた18市町村の各公式サイト(2026年10月時点)</p>
+      <div class="link-box">18市町村の補助率・上限額・申請期間の一覧は<b>特典13(2026年度補助金ガイド)</b>に、中古購入費用とリフォーム費用を一本のローンにまとめられるか沖縄の金融機関を実際に調べた結果は<b>特典11(リフォーム一体型ローン解説)</b>にまとめています。</div>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">6</span>この「月刊ニュース」について</h2>
+      <hr class="section-rule">
+      <p class="body-text">この特典は固定の内容ではなく、毎月更新していくニュースレターです。沖縄マイホーム研究室では、特典・配信のネタを定期的に見直しており、金利や地価、補助金の受付状況のように動きが速い情報は、この月刊ニュースでまとめて追いかけられるようにしています。</p>
+    </section>
+
+  </main>
+
+  <div class="note-box">この号では、国土交通省・日本銀行・住宅金融支援機構・各市町村公式サイトなどの一次情報に加えて、地価・金利の動きを分かりやすく解説した不動産業界のコラムや報道(ダイヤモンド不動産研究所、沖縄デイリー、house.home4u.jp、琉球新報、沖縄タイムス等)も参考にしています。「今後上がると言われているエリア」として紹介した見立ては、これらの業界コラム・報道で語られている見解であり、当サービスが将来の地価上昇を保証・断定するものではありません。</div>
+
+  <div class="next-issue">※この情報は2026年10月時点のものです。次回更新は翌月を予定しています。</div>
+
+  <div class="disclaimer">この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+</div>
+</body>
+</html>

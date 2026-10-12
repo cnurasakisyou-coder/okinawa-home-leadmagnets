@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>空き家バンク・移住支援補助金ガイド(沖縄県41市町村)|沖縄マイホーム研究室</title>
+<meta name="description" content="沖縄県内で空き家バンク・空き家活用の補助金制度を確認できた19市町村と、具体的な金額が分かる移住支援補助金をまとめたガイド。全41市町村の確認状況も掲載。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+  .tnum{font-variant-numeric:tabular-nums;}
+
+  .roofline{height:7px;background:var(--navy);border-bottom:2px solid var(--gold);}
+
+  /* ---- Cover ---- */
+  .cover-page{position:relative;min-height:660px;display:flex;align-items:center;justify-content:center;padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;}
+  .cover-photo{position:absolute;inset:0;z-index:-2;background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1600&q=85');background-size:cover;background-position:center;filter:saturate(.72);}
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;}
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(22px,5.4vw,28px);font-weight:600;line-height:1.6;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  .hero{padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px;}
+  .hero h1{position:relative;font-size:clamp(18px,4.4vw,22px);line-height:1.55;margin:0 0 20px;padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;}
+  .hero h1::before{content:"VACANT HOME GUIDE  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;}
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px;}
+  .disclaimer-top{font-size:12px;color:var(--muted);margin:18px 0 0;padding:12px 14px;border:1px solid var(--line);background:rgba(23,52,77,0.04);line-height:1.85;}
+
+  main{padding:8px 22px 4px;}
+  .section{margin:30px 0 0;}
+  .section h2{display:flex;align-items:center;gap:12px;margin:0 0 2px;font-size:16.5px;font-weight:600;color:var(--navy);}
+  .badge{flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;display:flex;align-items:center;justify-content:center;font-size:15px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);box-shadow:2px 3px 0 rgba(23,52,77,0.12);position:relative;top:-1px;}
+  .section-rule{border:none;border-top:1px solid var(--gold);margin:10px 0 14px;position:relative;}
+  .section-rule::after{content:"";position:absolute;left:0;top:-2px;width:46px;height:3px;background:var(--navy);}
+
+  .stat-row{display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
+  .stat-card{flex:1;min-width:130px;padding:14px;background:var(--paper);border:1px solid var(--line);}
+  .stat-num{font-size:22px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums;}
+  .stat-label{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.6;}
+
+  .body-text{font-size:14.5px;margin:0 0 8px;}
+  .source-line{font-size:11px;color:var(--muted);margin:0 0 4px;line-height:1.8;}
+
+  .bank-list{margin:0 0 10px;}
+  .bank-row{padding:11px 0;border-bottom:1px solid var(--line);}
+  .bank-row:last-child{border-bottom:none;}
+  .bank-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+  .bank-name{font-size:13.5px;font-weight:700;color:var(--ink);}
+  .bank-rate{flex:0 0 auto;font-size:13px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right;}
+  .bank-note{font-size:12px;color:var(--muted);margin:3px 0 0;line-height:1.7;}
+  .howto-box{font-size:13px;color:var(--ink);background:var(--paper);border-left:3px solid var(--gold);padding:13px 15px;margin:10px 0 14px;line-height:1.85;}
+
+  .note-box{font-size:12.5px;color:var(--muted);padding:16px 18px;background:var(--paper);border:1px solid var(--line);margin:14px 0 0;line-height:1.9;}
+  .note-box ul{margin:6px 0 0;padding-left:18px;}
+  .note-box li{margin-bottom:6px;}
+
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;}
+  .table-wrap table{min-width:460px;}
+  table{width:100%;border-collapse:collapse;margin:0 0 14px;}
+  th,td{padding:9px 7px;text-align:left;border-bottom:1px solid var(--line);font-size:13px;}
+  th{font-size:11px;letter-spacing:.06em;color:var(--navy);text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--navy);}
+  td.status-ok{color:var(--gold);font-weight:700;white-space:nowrap;}
+  td.status-no{color:var(--muted);white-space:nowrap;}
+
+  .disclaimer{font-size:12.5px;color:var(--muted);padding:18px 22px;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.9;}
+
+  .closing{padding:40px 22px 44px;}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0;}
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>沖縄県41市町村</span>空き家バンク・<br>移住支援補助金ガイド</h1>
+      <p class="cover-subtitle">制度を確認できた19市町村の内容と、金額が分かる改修補助金をまとめました。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典17</p>
+    <h1>空き家バンク・<br>移住支援補助金ガイド<span style="font-size:14px;">(沖縄県41市町村)</span></h1>
+    <p class="hero-lead">「移住して沖縄で暮らしたいけれど、どの市町村に空き家バンクがあるのか分からない」という声に向けて、沖縄県内41市町村のうち、空き家バンク・空き家活用の制度があると確認できた市町村だけをまとめました。確認できなかった市町村は正直に「未確認」と書いています。</p>
+    <p class="hero-lead" style="margin-top:14px;">「空き家バンク」という同じ名前でも、中身は市町村でかなり違います。物件を一覧で公開するだけのところもあれば、改修費を補助する制度、さらには村が空き家を改修して移住者向けに貸し出す「村営の受け皿住宅」まで、やり方は様々です。このガイドでは名称にこだわらず、空き家を移住・定住につなげる仕組みがあるかどうかで確認しています。</p>
+    <div class="disclaimer-top">このガイドは主に離島・郡部の中古物件(古民家・戸建て等)を検討する移住・UIターン層向けです。那覇市・中部エリアの中古マンションを検討している方には、特典3(エリア別メモ)・特典6(地価ランキング)の方が参考になります。当サービスは宅建業者ではないため、物件の案内・斡旋は行いません。各制度の利用は、必ず各市町村の窓口に直接お問い合わせください。</div>
+  </header>
+
+  <main>
+
+    <section class="section">
+      <h2><span class="badge">空</span>空き家バンクとは</h2>
+      <hr class="section-rule">
+      <p class="body-text">自治体が、空き家を「売りたい・貸したい」所有者と、「買いたい・借りたい」利用希望者をつなぐために物件情報を公開する仕組みです。民間の不動産ポータルとは別に、市町村が窓口になっている点が特徴です。制度の名称・内容は市町村ごとに違い、物件を一覧できる「バンク」形式のところもあれば、改修費の補助金だけの制度、移住者向けの村営住宅を用意しているところもあります。</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">19</span>制度を確認できた19市町村</h2>
+      <hr class="section-rule">
+      <p class="body-text" style="font-size:13px;color:var(--muted);">2026年10月、41市町村を1つずつ検索し、市町村公式サイト・報道で確認できた制度です。制度の名称は「空き家バンク」とは限らないため、内容ごとに注記しています。</p>
+      <div class="bank-list">
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">那覇市</span><span class="bank-rate">空き家バンク</span></div>
+          <p class="bank-note">市公式サイトで空き家バンクのページを公開</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">沖縄市</span><span class="bank-rate">空き家バンク</span></div>
+          <p class="bank-note">市公式サイト・専用の空き家バンクサイトを運営。窓口は住まい建築課(098-939-1231)</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">国頭村</span><span class="bank-rate">空き家バンク</span></div>
+          <p class="bank-note">2024年7月開始。村内の空き家・空き地の所有者と移住希望者をつなぐ。双方とも村税等の滞納がないことの証明が必要。仲介手数料は宅建業法の報酬額以内。窓口は企画政策課(0980-41-2621)</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">東村</span><span class="bank-rate">空き家・空き地バンク</span></div>
+          <p class="bank-note">令和6年8月1日開始。45歳未満という年齢制限あり。窓口は企画観光課(0980-43-2265)</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">本部町</span><span class="bank-rate">利活用定住促進事業</span></div>
+          <p class="bank-note">空き家バンクという名称ではないが、賃貸物件として契約が成立すると、所有者に謝礼金3万円・情報提供者に報奨金3万円を支給する独自の仕組み。窓口は企画商工観光課 重点政策班(0980-47-2702)</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">恩納村</span><span class="bank-rate">空家活用事業補助金</span></div>
+          <p class="bank-note">改修費の50%・上限200万円の補助金。交付決定日から5年以上の居住意思が条件(詳細は次の章)</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">うるま市</span><span class="bank-rate">島しょ地域 改修補助金</span></div>
+          <p class="bank-note">平安座島・浜比嘉島・宮城島・伊計島・津堅島の5島限定。改修費の1/2・上限50万円(詳細は次の章)</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">南城市</span><span class="bank-rate">空き家活用事業</span></div>
+          <p class="bank-note">不動産会社・自治会と連携し、年間約50件の移住相談に対応していると報道されている。窓口は市のくらし・住まい担当</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">石垣市</span><span class="bank-rate">空き家バンク</span></div>
+          <p class="bank-note">「石垣市移住定住支援ポータルサイト」内で運営</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">久米島町</span><span class="bank-rate">空き家情報(島ぐらしガイド)</span></div>
+          <p class="bank-note">「久米島 島ぐらしガイド」というサイト内で空き家情報を掲載</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">粟国村</span><span class="bank-rate">空き家バンク</span></div>
+          <p class="bank-note">村公式サイトで空き家バンクのページを公開</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">渡名喜村</span><span class="bank-rate">空き家活用の取り組み</span></div>
+          <p class="bank-note">空き家バンクという名称の制度ではないが、村費で空き家を改修し賃貸住宅・飲食店として活用する取り組みが報道されている。移住者向けの「多用途住宅」(月額15,000円)もある</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">多良間村</span><span class="bank-rate">定住促進空家活用住宅</span></div>
+          <p class="bank-note">空き家バンクという名称ではないが、村が空き家を改修し、移住・定住希望者向けに貸し出す村営住宅の制度がある</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">竹富町</span><span class="bank-rate">空き家等掲示板制度</span></div>
+          <p class="bank-note">町公式サイトで賃貸・売却物件の掲示板を運営</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">大宜味村</span><span class="bank-rate">移住定住促進住宅</span></div>
+          <p class="bank-note">空き家バンクという名称ではないが、村内の空き家を改修し移住希望者に貸し出す「移住定住促進住宅」を整備(2023年度から取り組み、ペット可物件もあり)。村公式サイトの「移住・定住」ページから案内。窓口は企画観光課(0980-44-3001)</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">伊是名村</span><span class="bank-rate">古民家等定住促進住宅</span></div>
+          <p class="bank-note">2013年度開始の「定住促進住宅」事業。村内に残る古民家を改修し、5年以上の村内定住を条件に貸し出す(家賃3万円の例あり)。公募時はアクセス数が週100万件を超えるなど関心が高い。村公式サイトで入居者募集を随時告知</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">伊平屋村</span><span class="bank-rate">定住促進住宅</span></div>
+          <p class="bank-note">「伊平屋村定住促進住宅の設置及び管理に関する条例」に基づき運営。農林水産業の担い手に加え、看護師・保育士・起業家等の専門職向け住宅も整備中。村公式サイトで入居者募集を告知</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">南大東村</span><span class="bank-rate">定住促進住宅(建設中)</span></div>
+          <p class="bank-note">移住者受け入れのため1LDK×4戸の定住促進住宅を村として初めて整備。「移住婚」支援とセットで推進する方針が報道されている</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">与那国町</span><span class="bank-rate">移住定住促進住宅</span></div>
+          <p class="bank-note">町が「与那国町移住定住促進住宅」を整備し、入居者を随時募集(町公式サイトで告知)。入居条件は地域行事等への積極的な参加。民間の空き家を改修した交流拠点づくりの取り組みも別途ある</p>
+        </div>
+      </div>
+      <p class="source-line">出典:各市町村公式サイト(那覇市・沖縄市・国頭村・東村・本部町・恩納村・うるま市・南城市・石垣市・久米島町・粟国村・多良間村・竹富町・大宜味村・伊是名村・伊平屋村・与那国町)、南城市・渡名喜村・南大東村は報道(沖縄タイムス・琉球新報)。2026年10月時点。</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">¥</span>金額が具体的に分かる移住支援・改修補助金</h2>
+      <hr class="section-rule">
+      <div class="bank-list">
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">恩納村 空家活用事業補助金</span><span class="bank-rate">上限200万円</span></div>
+          <p class="bank-note">対象経費の50%(端数切り捨て)。空き家の所有者、または売買・賃貸契約から1年以内で「交付決定日から5年以上継続居住する意思」がある利用者が対象。村税等の滞納がないこと、暴力団関係者でないことなどが条件。対象の空き家は「一戸建てで概ね1年以上居住者がない」もの(別荘・民泊・店舗・建売・不動産業者所有物件は対象外)</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">うるま市 島しょ地域空き家改修補助金</span><span class="bank-rate">上限50万円</span></div>
+          <p class="bank-note">対象経費の1/2(端数切り捨て)。平安座島・浜比嘉島・宮城島・伊計島・津堅島の5島が対象。改修後5年以上の移住・定住・賃貸の意思、空き家の登記簿上の所有者であること、税・介護保険料の滞納がないことなどが条件</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">本部町 空き家利活用定住促進事業</span><span class="bank-rate">謝礼金3万円+3万円</span></div>
+          <p class="bank-note">賃貸物件として契約が成立すると、物件の所有者に謝礼金3万円、空き家の情報を提供した人に報奨金3万円を支給。補助金というより「空き家を貸しに出すこと・情報提供すること」自体への謝礼金という珍しいタイプの制度</p>
+        </div>
+        <div class="bank-row">
+          <div class="bank-head"><span class="bank-name">八重瀬町 住宅リフォーム支援事業(令和8年度)</span><span class="bank-rate">上限20万円</span></div>
+          <p class="bank-note">町内施工業者を使う個人住宅リフォームが対象。補助率20%(バリアフリー改修は40%)。申請期間2026年7月22日〜2027年1月31日、対象は総工事費20万円以上のバリアフリー・省エネ・空き家改修等。空き家バンクの制度ではないが、空き家を改修して住む場合に使える可能性がある</p>
+        </div>
+      </div>
+      <p class="source-line">出典:恩納村・うるま市・本部町 各公式サイト(2026年10月時点)、八重瀬町公式サイト(research/05既出)。補助金は予算上限に達し次第終了する場合があるため、申請前に必ず最新の要綱を各窓口で確認してください。</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">41</span>全41市町村の確認状況</h2>
+      <hr class="section-rule">
+      <p class="body-text" style="font-size:13px;color:var(--muted);">本リストで確認できたのはここまでです。「未確認」は制度が無いという意味ではなく、2026年10月時点の検索で公式情報を見つけられなかったという意味です。検討しているエリアが「未確認」の場合は、必ずその市町村の企画課・都市計画課・移住定住担当に直接問い合わせてください。</p>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>市町村</th><th>状況</th></tr></thead>
+        <tbody>
+          <tr><td>那覇市</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>宜野湾市</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>石垣市</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>浦添市</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>名護市</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>糸満市</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>沖縄市</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>豊見城市</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>うるま市</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>宮古島市</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>南城市</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>国頭村</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>大宜味村</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>東村</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>今帰仁村</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>本部町</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>恩納村</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>宜野座村</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>金武町</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>伊江村</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>読谷村</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>嘉手納町</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>北谷町</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>北中城村</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>中城村</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>西原町</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>与那原町</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>南風原町</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>渡嘉敷村</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>座間味村</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>粟国村</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>渡名喜村</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>南大東村</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>北大東村</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>伊平屋村</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>伊是名村</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>久米島町</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>八重瀬町</td><td class="status-no tnum">未確認</td></tr>
+          <tr><td>多良間村</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>竹富町</td><td class="status-ok tnum">確認済</td></tr>
+          <tr><td>与那国町</td><td class="status-ok tnum">確認済</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="note-box">
+        <ul>
+          <li>41市町村中、確認できたのは19市町村です。残り22市町村は、本リストでは公式の空き家バンク・空き家活用の制度を確認できませんでした(制度が無いと断定するものではありません)</li>
+          <li>制度の内容・補助金額・対象条件は年度ごとに変わります。申請前に必ず各市町村の最新の公式情報で確認してください</li>
+          <li>浦添市は空き家の「情報提供を呼びかけるページ」はありましたが、物件を一覧できる「バンク」形式かどうかは本リストでは確認できなかったため、「未確認」に含めています。名護市は「空き家アドバイザー協議会」という相談体制はありますが、移住者向けの物件バンク・受け皿住宅としての制度は本リストでは確認できず「未確認」としています。糸満市は空き家バンク制度の導入を検討している段階という情報があり、2026年10月時点ではまだ稼働していないとみて「未確認」に含めています</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="disclaimer">この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+</div>
+</body>
+</html>

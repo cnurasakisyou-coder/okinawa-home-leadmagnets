@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>中古+リノベーションの自由度ガイド|沖縄マイホーム研究室</title>
+<meta name="description" content="「買ってリノベ」は、構造体だけ残すフルリノベも、水回りだけの部分リノベも選べる自由度の高い買い方。㎡単価の費用相場と、新築と比べた総予算シミュレーションを出典付きでまとめました。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1581141849291-1125c7b692b5?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(25px,6vw,32px);font-weight:600;line-height:1.55;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px}
+  .hero h1{
+    position:relative;font-size:clamp(20px,4.6vw,25px);line-height:1.55;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"RENOVATION GUIDE  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px}
+  .pitch{font-size:13.5px;line-height:1.95;margin:18px 0 0;color:#344655;background:#F0EEE7;padding:15px 17px;border:1px solid #E4DFD4}
+
+  main{padding:8px clamp(20px,6vw,30px) 4px}
+
+  /* ---- Category ---- */
+  .category{margin:30px 0 0}
+  .category h2{
+    display:flex;align-items:center;gap:12px;margin:0 0 2px;
+    font-size:17px;font-weight:600;color:var(--navy);line-height:1.5
+  }
+  .badge{
+    flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;font-size:14.5px;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);
+  }
+  .cat-count{font-size:11px;color:var(--muted);font-weight:500;margin-left:auto;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .category-rule{border:none;border-top:1px solid var(--gold);margin:11px 0 16px;position:relative}
+  .category-rule::after{content:"";position:absolute;left:0;top:-2px;width:48px;height:3px;background:var(--navy)}
+
+  /* ---- Checklist ---- */
+  .check-list{list-style:none;margin:0;padding:0}
+  .check-item{
+    width:100%;display:flex;align-items:flex-start;gap:13px;text-align:left;
+    background:transparent;border:0;border-bottom:1px solid var(--line);
+    padding:15px 2px;font-size:14.5px;font-family:inherit;color:var(--ink);
+    cursor:pointer;min-height:48px;-webkit-tap-highlight-color:transparent;
+    transition:background .15s ease;
+  }
+  .check-item:hover{background:#F8F5EF}
+  .check-box{
+    flex:0 0 18px;width:18px;height:18px;border:1px solid #8B969B;
+    margin-top:3px;position:relative;transition:all .15s ease;background:#fffefa
+  }
+  .check-box::after{
+    content:"";position:absolute;left:4px;top:1px;width:6px;height:10px;
+    border-right:2px solid #fff;border-bottom:2px solid #fff;
+    transform:rotate(40deg);opacity:0
+  }
+  .check-item.checked .check-box{background:var(--navy);border-color:var(--navy)}
+  .check-item.checked .check-box::after{opacity:1}
+  .check-text{flex:1}
+  .check-item.checked .check-text{color:#737D82;text-decoration:line-through;text-decoration-color:var(--gold)}
+
+  /* ---- Simulation box ---- */
+  .sim-box{background:#F8F5EF;border:1px solid var(--line);padding:14px 16px;margin:14px 0 0;font-size:13.5px;line-height:1.9;color:var(--ink)}
+  .sim-box .sim-title{display:block;font-weight:700;color:var(--navy);margin-bottom:6px;font-size:13px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .sim-box .sim-result{color:var(--navy);font-weight:700}
+
+  .extra-note{
+    font-size:13px;color:#344655;background:#F4F1E9;
+    border-left:3px solid var(--gold);padding:17px 19px;margin:18px 0 0;line-height:1.95
+  }
+  .extra-note b{display:block;margin-bottom:6px;color:var(--navy);font-size:14px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+
+  .distinct-note{
+    padding:22px clamp(20px,6vw,30px);font-size:12.5px;color:#58656C;
+    background:#F0EEE7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.95
+  }
+
+  .closing{padding:35px clamp(20px,6vw,30px) 42px;background:#fffefa}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 18px}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .category h2{gap:8px}
+    .badge{flex-basis:28px;width:28px;height:28px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME RENOVATION GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>工事の範囲は自分で決められる</span>中古+リノベーションの<br>自由度ガイド</h1>
+      <p class="cover-subtitle">部分リノベも全面リノベも選べる、予算と好みに応じた買い方。費用相場と総予算シミュレーションを出典付きでまとめました。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典16</p>
+    <h1>中古+リノベーションの<br>自由度ガイド</h1>
+    <p class="hero-lead">「買ってリノベ」は、構造体(壁・柱)だけ残して間取り・設備を一新するフルリノベーションも、水回りだけ・表層だけで済ませる部分リノベーションも選べる、予算と好みに応じて自由度の高い買い方です。</p>
+    <p class="pitch">「中古+リノベは必ず安くなる」とは言い切れません。物件価格とリノベの範囲(部分か全面か)次第では、新築と同じか、それ以上になることもあります。ここでは出典付きの金額レンジで、自分たちの総予算を考えるための材料を並べました。</p>
+  </header>
+
+  <main>
+
+    <section class="category">
+      <h2><span class="badge">基</span>「買ってリノベ」とは<span class="cat-count"></span></h2>
+      <hr class="category-rule">
+      <p>「買ってリノベ」の一番の価値は、工事の範囲を自分で決められることです。構造体(壁・柱)だけを残してスケルトン状態にし、間取り・設備を丸ごと一新するフルリノベーションもできますし、気になる水回りや表層のクロス・床だけを交換する部分リノベーションで済ませることもできます。新築注文住宅のように土地から組み立てるのではなく、すでにある建物を土台にする分、「どこまでお金をかけるか」を工事段階で後からでも調整しやすいのが中古+リノベ特有の自由度です。総予算を低めに抑えられた場合は、その分を立地(通勤時間・学区・実家からの距離)に振り向けられるという考え方も成り立ちます。</p>
+      <p style="margin-top:10px;">この自由度の高さは実際の購入行動にも表れています。中古マンション購入者を対象にした民間調査では、53.2%が「リフォーム・リノベーション済み」の物件を選んでいるという結果が出ており、決め手として「物件価格」「交通利便性」「資産性」が挙がっています。つまり、買ってから自分でリノベする人だけでなく、すでにリノベ済みの中古を選ぶ人もほぼ半数いるということです。</p>
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.9;margin:12px 0 0;">出典:中古マンション購入者調査(ホームズ、民間調査)、リノベーションの自由度に関する一般的な整理(research/05_chuko_research_bank.md)</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">費</span>リノベ費用の相場(具体額)<span class="cat-count"></span></h2>
+      <hr class="category-rule">
+      <p>工事の範囲を小さく絞る部分リノベーションなら、100万〜500万円が目安です。内訳で見ると、キッチンだけなら80万〜150万円、浴室だけなら80万〜120万円、水回り(キッチン・浴室・トイレ・洗面)を4点まとめて交換すると250万〜300万円という水準になります(出典:SHUKEN Re調査記事・2026年版)。一方、構造体だけ残すフルリノベーション(スケルトンリノベ)まで範囲を広げると、マンションで15万〜20万円/㎡、70㎡なら1,050万〜1,400万円。戸建てで10万〜22万円/㎡、100㎡なら1,000万〜2,200万円という目安になります。別の調査会社・施工会社の集計では、部分リフォームが50万〜200万円、フルリフォームが600万〜1,500万円という、やや幅の異なる数字も出ており、どの会社・どの地域のデータを見るかで相場感が変わる点は知っておいた方がいいでしょう。マンションのフルリノベだけに絞ると250万〜900万円程度という集計もあり、デザインにこだわるほど1,000万円を超えるケースも珍しくありません。リフォーム全体(新築・中古を問わない全国平均)の平均支出は405万円という数字もあります(出典:住宅リフォーム推進協議会「リフォームに関する消費者・事業者実態調査」2026年2月公表)。</p>
+      <p style="margin-top:10px;">お金の借り方にも差が出ます。購入費用とリフォーム費用を一本の住宅ローンにまとめる「リフォーム一体型ローン」は年0.5〜1%台で借りられるケースがある一方、単独のリフォームローンは年2〜5%台になりやすく、金利差3.2%で総返済額が約370万円変わるという試算例があります(詳しい沖縄の金融機関別の実態は特典11「リフォーム一体型ローン解説」参照)。また、2026年度の国の補助金「みらいエコ住宅2026事業」では、既存住宅(中古)の省エネリフォームへの補助上限が100万円/戸に引き上げられており、2025年11月28日以降に着手した工事が対象、申請期限は最長2026年12月31日です(詳細は特典13参照)。</p>
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.9;margin:12px 0 0;">出典:SHUKEN Re調査記事(2026年版)、住宅リフォーム推進協議会(2026年2月公表)、国内複数のリフォーム会社・調査会社の施工事例集計、みらいエコ住宅2026事業公式・house.home4u.jp・suumo。費用相場は会社・工事範囲によって幅が大きいため、実際の見積もりは複数社から取ることをおすすめします。</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">予</span>総予算シミュレーション(対・新築)<span class="cat-count">3パターン</span></h2>
+      <hr class="category-rule">
+      <div class="sim-box">
+        <span class="sim-title">パターン1:中古マンション(築10年・70㎡)+フルリノベ</span>
+        中古マンション4,633万円(2024年・沖縄県平均)+ フルリノベ70㎡(15万〜20万円/㎡)1,050万〜1,400万円
+        = <span class="sim-result">総額5,683万〜6,033万円</span><br>
+        参考:沖縄の新築マンション県平均は5,160万円(2024年)。リノベの範囲によっては新築を上回ることもある。
+      </div>
+      <div class="sim-box">
+        <span class="sim-title">パターン2:中古戸建て(沖縄県・築20年)+部分リノベ</span>
+        中古戸建て3,373万円(AIによる推計値)+ 部分リノベ100万〜500万円
+        = <span class="sim-result">総額3,473万〜3,873万円</span>
+      </div>
+      <div class="sim-box">
+        <span class="sim-title">パターン3:同じ中古戸建て+フルリノベ</span>
+        中古戸建て3,373万円 + フルリノベ100㎡(10万〜22万円/㎡)1,000万〜2,200万円
+        = <span class="sim-result">総額4,373万〜5,573万円</span><br>
+        参考:全国平均の新築建売住宅は約3,826万円(2024年度・全国平均であり沖縄固有ではない)。
+      </div>
+      <div class="extra-note">
+        <b>出典の性質に注意</b>
+        中古戸建ての3,373万円はダイヤモンド不動産研究所の「AIによる推計」で、国交省統計のような一次統計とは性質が異なります(research/05_chuko_research_bank.md 1-7)。全国平均の新築建売約3,826万円も沖縄固有のデータではありません。どちらも「だいたいの感覚をつかむための参考値」として扱ってください。
+      </div>
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.9;margin:14px 0 0;">「中古+リノベ=必ず安い」ではなく、物件価格とリノベ範囲(部分か全面か)次第で総額は変わります。立地を優先して予算を抑えたい場合は、部分リノベ中心で考えるという選び方もあります。</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">例</span>沖縄の実際の工事事例<span class="cat-count"></span></h2>
+      <hr class="category-rule">
+      <p>相場の数字だけだと実感がわきにくいので、実際に行われた工事の規模感を3件並べます。</p>
+      <div class="sim-box">
+        <span class="sim-title">事例1:戸建て・部分リノベ(南風原町)</span>
+        水回り設備(キッチン・浴室・トイレ・洗面)を全て入れ替え、クロスも全面張り替え。浴室と脱衣所の間取りを組み替え、和室1部屋を子ども部屋として洋室に造り替えた。工期は約2ヶ月、施工費用は約520万円。「部分リノベ」のレンジの中でも、水回り全部+1部屋の間取り変更まで含めると500万円台に乗る規模感が分かる事例。
+      </div>
+      <div class="sim-box">
+        <span class="sim-title">事例2:戸建て・スケルトンリノベ(豊見城市)</span>
+        建物の骨組み(柱・梁)だけを残して内部を全て解体し、壁・床・天井・水回り設備を造り直すスケルトンリフォーム。2階部分の工事に外壁塗装・防水工事を加えた規模で、工期は約3ヶ月、施工費用は約1,517万円。「フルリノベ・戸建て10万〜22万円/㎡」という目安のレンジの中でも上寄りに入る、外壁・防水まで含めたフルセットの事例。
+      </div>
+      <div class="sim-box">
+        <span class="sim-title">事例3:外人住宅・フルリノベ(北中城村、特典14と同一事例)</span>
+        築58年・102.87㎡のRCブロック造「外人住宅」を、間取り3LDK→2LDK+ストレージに変更。躯体補修・配管の全刷新・断熱改修まで含む老朽化対応フルセットで、工期6ヶ月・総額2,000万円(税込)。老朽化が進んだ築古物件ほど、見た目のリノベだけでなく構造・配管にまで手を入れる必要が出て、総額が膨らみやすいことが分かる事例(リノベーション・オブ・ザ・イヤー2022受賞)。
+      </div>
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.9;margin:12px 0 0;">この3事例を並べると、同じ「リノベ」でも520万円から2,000万円まで4倍近い差があり、差を生んでいるのは面積よりも「どこまで構造・設備に手を入れたか」であることが見えてきます。出典:沖縄県内の施工会社の公開施工事例、リノベーション協議会公式(renovation.or.jp)。個別の事例の金額は物件の老朽化度合い・仕様により変わるため、自分の物件の見積もりの参考値として扱ってください。</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">自</span>自由度の具体例と制約<span class="cat-count"></span></h2>
+      <hr class="category-rule">
+      <p>工事の自由度は「水回りだけ交換する最小限の工事」から「構造体だけ残して間取りを丸ごと変える工事」まで連続的に選べます。どこで線を引くかは、予算とどこまで我慢できるかのバランスの問題です。ただし自由度には制約もあります。マンションの場合、管理規約で床の遮音性能(LL-45以上など)の基準を定めていることが多く、フローリングへの変更などに制限がかかることがあります。遮音性能の表示方法は2008年にLL等級からΔL等級に変わっており、古い管理規約の表記が現在のカタログ表示とそのまま対応しないこともあるため、工事前に管理組合・施工会社の両方に確認した方が安全です。</p>
+      <p style="margin-top:10px;">また、マンションの大規模な改修・再生そのものを取り巻く制度も動いています。2026年4月に施行された改正区分所有法では、共用部分の変更にかかる決議要件が緩和されたほか、所在不明の区分所有者を決議対象から除外する制度、建替え以外に敷地の一括売却・一棟リノベーションも建替えと同じ4/5決議で可能になる制度などが新設されました。国はマンション再生件数を2024年の472件から施行後5年で1,000件に増やす目標を掲げており、今後は老朽化マンションでも大規模改修の選択肢が広がっていく可能性があります。</p>
+      <p style="font-size:12.5px;color:var(--muted);line-height:1.9;margin:12px 0 0;">出典:research/05_chuko_research_bank.md、zenkoku-mankan.org(遮音等級の解説)、国土交通省・法務省の制度説明資料および複数の業界メディア(区分所有法改正)。詳細な条文解釈は専門家への確認をおすすめします。</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">確</span>リノベ前に確認したいこと<span class="cat-count">5項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="r1" type="button"><span class="check-box"></span><span class="check-text">リフォーム一体型ローンと、単独のリフォームローンの金利差を確認した</span></button></li>
+        <li><button class="check-item" data-id="r2" type="button"><span class="check-box"></span><span class="check-text">2026年度の補助金(みらいエコ住宅2026事業など)の対象工事・申請期限を確認した</span></button></li>
+        <li><button class="check-item" data-id="r3" type="button"><span class="check-box"></span><span class="check-text">マンションの場合、管理規約・遮音等級の制限を確認した</span></button></li>
+        <li><button class="check-item" data-id="r4" type="button"><span class="check-box"></span><span class="check-text">概算の見積もりだけでなく、抜ける壁・柱があるかなど構造の調査を業者に依頼した</span></button></li>
+        <li><button class="check-item" data-id="r5" type="button"><span class="check-box"></span><span class="check-text">物件価格+リノベ費用の合計を、新築や他の中古物件と比べて予算感を確認した</span></button></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <div class="distinct-note">この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORAGE_KEY = "okinawa_renovation_jiyudo_checklist_v1";
+  var TOTAL = 5;
+  function loadState(){try{var raw=localStorage.getItem(STORAGE_KEY);if(!raw)return{};var p=JSON.parse(raw);return(p&&typeof p==="object")?p:{};}catch(e){return{};}}
+  function saveState(s){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(s));}catch(e){}}
+  var state = loadState();
+  var items = Array.prototype.slice.call(document.querySelectorAll(".check-item"));
+  function applyItemState(el){var id=el.getAttribute("data-id");if(state[id]){el.classList.add("checked");}else{el.classList.remove("checked");}}
+  function toggleItem(el){var id=el.getAttribute("data-id");state[id]=!state[id];saveState(state);applyItemState(el);}
+  items.forEach(function(el){applyItemState(el);el.addEventListener("click",function(){toggleItem(el);});});
+})();
+</script>
+</body>
+</html>

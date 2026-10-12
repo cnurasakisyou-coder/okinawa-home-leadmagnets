@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>沖縄県 全41市町村 エリア別メモ|沖縄マイホーム研究室</title>
+<meta name="description" content="沖縄県の全41市町村の人口動態・地価・特徴・確認したいことをカードで一覧。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+    --up:#3E6B4F;
+    --down:#A8402F;
+    --flat:#6F7670;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+  .tnum{font-variant-numeric:tabular-nums;}
+
+  .roofline{height:7px;background:var(--navy);border-bottom:2px solid var(--gold);}
+
+  /* ---- Cover ---- */
+  .cover-page{position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;}
+  .cover-photo{position:absolute;inset:0;z-index:-2;background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=85');background-size:cover;background-position:center;filter:saturate(.72);}
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;}
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(23px,5.6vw,29px);font-weight:600;line-height:1.6;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);border-bottom:1px solid var(--line);}
+  .eyebrow{
+    font-size:11px;letter-spacing:.16em;color:var(--gold);
+    text-transform:uppercase;font-weight:700;margin:0 0 18px;
+  }
+  .hero h1{
+    position:relative;font-size:clamp(20px,4.6vw,24px);line-height:1.55;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"AREA GUIDE  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero-lead{
+    font-size:14.5px;line-height:1.95;margin:0;color:#46545E;
+    border-left:2px solid var(--gold);padding:1px 0 1px 16px;
+  }
+  .legend{
+    font-size:11.5px;color:var(--muted);padding:14px 22px;line-height:1.8;
+    border-bottom:1px solid var(--line);
+  }
+  .legend b{color:var(--navy);}
+
+  main{padding:0 22px;}
+
+  .area{padding:26px 0;border-bottom:1px solid var(--line);}
+  .area-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px;}
+  .area-name{
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-size:19px;font-weight:600;color:var(--ink);
+  }
+  .area-badges{display:flex;gap:7px;flex-wrap:wrap;}
+  .tag{font-size:12px;font-weight:700;padding:3px 8px;border:1px solid currentColor;white-space:nowrap;}
+  .tag-pop-up{color:var(--up);}
+  .tag-pop-down{color:var(--down);}
+  .tag-pop-flat{color:var(--flat);}
+  .tag-price{color:var(--navy);border-color:var(--navy);}
+  .tag-price-na{color:var(--muted);border-color:var(--line);}
+
+  .area-row{margin-bottom:10px;}
+  .area-row:last-child{margin-bottom:0;}
+  .row-label{font-size:11.5px;font-weight:700;color:var(--navy);letter-spacing:.06em;margin-bottom:3px;}
+  .row-text{font-size:14.5px;color:var(--ink);}
+  .check-row .row-text{color:var(--muted);}
+
+  .footnote-section{padding:20px 0 30px;font-size:12px;color:var(--muted);line-height:1.9;}
+
+  .closing{padding:34px 22px 44px;}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 18px;}
+  .cta-button{
+    display:block;width:100%;padding:17px 10px;background:var(--navy);color:#fff;
+    text-decoration:none;font-weight:700;font-size:15.5px;text-align:center;letter-spacing:.04em;
+  }
+  .cta-button:active{opacity:.85;}
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>全41市町村を数字で比較する</span>沖縄県 全41市町村<br>エリア別メモ</h1>
+      <p class="cover-subtitle">人口動態・地価の実データを、全市町村ぶんカードで一覧にしました。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典</p>
+    <h1>沖縄県 全41市町村<br>エリア別メモ</h1>
+    <p class="hero-lead">「"このエリア、この先も住みやすいまま?"を人口・地価の実データで確認できます。見た目や雰囲気だけで決めて、あとで後悔しないために。人口が増えているか減っているか、地価が上がっているか下がっているかは、将来そのエリアで暮らし続ける人の数・資産性の両方に関わる一般的な見方です。」</p>
+  </header>
+
+  <div class="legend"><b>人口:</b>2020→2025年の増減率(緑=増加／赤=減少／グレー=変化なし)　<b>地価:</b>2026年公示地価(全用途)の前年比</div>
+
+  <main>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">那覇市</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −2.1%</span>
+          <span class="tag tag-price">地価 +6.0%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">職場・商業が集中し、マンション中心の供給。価格は県内最高水準で、中古マンション(築10年・70㎡換算)でも4,633万円、年収倍率は11.19倍と全国4位の高さ。人口は2020→2025年で−2.1%と減っている一方、地価は公示地価ベースで+6.0%上昇しており、「住む人は減っても、土地の値段は上がる」という逆転が起きているエリア。比較サイトの住みやすさランキングでは県内1位とされることが多いが、価格の高さとのバランスで検討したい</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">駐車場の確保(マンションは抽選制・不足気味な物件もある)、停電時の断水(受水槽+ポンプ方式のマンションは特に注意)</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">浦添市</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-flat">人口 ±0.0%</span>
+          <span class="tag tag-price">地価 +5.5%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">那覇市に隣接し通勤・買い物に便利。モノレール延伸エリア(てだこ浦西駅周辺)では新しい商業施設の開発も進む。中古マンション価格は那覇市よりやや抑えめな水準で取引されている。子育て支援に力を入れているという評判もあり、通院・入院費の助成を独自に手厚くしているという情報もある(制度の正式名称・対象年齢・所得制限の有無は市の公式ページで確認したい)</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">渋滞の時間帯(那覇市方面に向かう幹線道路沿いは朝夕に混みやすい)</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">宜野湾市</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-flat">人口 ±0.0%</span>
+          <span class="tag tag-price">地価 +8.9%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">中部の中心エリアで、2026年公示地価の上昇率+8.9%は那覇市・浦添市を上回る。普天間飛行場に近い区域は住宅防音工事の助成制度があるが、対象は1983年9月10日までに建てられた住宅に限られ、新築はこの助成の対象外になりやすい(出典:沖縄防衛局公式)</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">基地周辺の騒音(時間帯・風向きで変わるため、できれば夜間に現地を訪れて確認したい)、防音工事助成の対象区域かどうか</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">北谷町</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +0.8%</span>
+          <span class="tag tag-price">地価 +9.2%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">海沿い・商業・リゾートエリアとして人気が高く、2026年公示地価の上昇率は+9.2%と高い水準にある。人口も+0.8%と増加傾向にある。海に近い物件ほど塩害による建物の劣化が早く進みやすい点は、価格の高さとセットで考えておきたい</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">塩害(鉄部のサビ・コンクリートの爆裂)、津波浸水想定区域かどうか</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">中城村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +3.4%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">高台から海を見渡せる景色の良さで知られ、人口は+3.4%と大きく増えている。一方でクチャ(泥岩)層が分布するエリアでもあり、2023年8月の台風6号では中城村で実際に地すべりが発生した記録がある(出典:琉球新報)。国の「中部東地すべり地帯」の指定は西原町・北中城村にもまたがる</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">斜面・クチャ層かどうか、土砂災害区域に指定されていないか</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">うるま市</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +2.5%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">価格を抑えやすく、土地を広く取りやすいエリア。人口は+2.5%と増加している。子育て支援では中学卒業までの通院・入院費が自己負担なしという情報がある一方、0〜1歳クラスの待機児童が一定数いるという指摘もある(いずれも市の公式ページで最新状況を確認したい)</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">那覇方面への通勤時間(中部エリアからの通勤は距離が延びる分、朝の所要時間を実際に測っておきたい)</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">豊見城市</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +1.6%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">那覇市・那覇空港に近い南部の人気エリアで、人口は+1.6%増加。大型商業施設が充実し、道路整備も進んで渋滞が比較的少ないとされる。認定保育施設の数も多く共働き世帯に向くという評判がある(保育施設数・待機児童の最新数値は市の公式ページで確認したい)</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">埋立地の液状化・浸水(豊見城市は海沿いの埋立地を含むエリアが多い)</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">南風原町</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +2.7%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">那覇市に近く商業施設も充実しており、子育て世帯に人気。人口は+2.7%増加している。南部の中では那覇への距離が近い分、価格と利便性のバランスが取りやすいエリアとされる</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">朝の渋滞(那覇市方面への幹線道路が混みやすい時間帯を事前に確認したい)</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">八重瀬町</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +5.6%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">人口の伸びが+5.6%と大きく、土地を広く取りやすい。南部エリア全体で子育て世帯の人口増加が目立つ中でも、伸び幅が大きいエリア</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">通勤時間、生活インフラ(スーパー・医療機関までの距離)の整備状況</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">与那原町</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −2.2%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">東海岸に位置し、マリンタウン地区の開発が進むエリア。人口は−2.2%とやや減少傾向にある(那覇市も−2.1%とほぼ同水準で減少しており、都市部でも人口減少が起きている例)</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">浸水・津波想定区域に入っていないか</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">石垣市</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +0.2%</span>
+          <span class="tag tag-price">地価 +5.78%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">2013年の新石垣空港開港を機に観光客・移住者の流入が増え、国際線ターミナル開港でアジア圏からのインバウンドも拡大。年間観光客は136万人超。石垣牛・八重山かまぼこ等の地域ブランドがあり、離島の中心として病院・高校など生活インフラが一通り揃う</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">台風の直撃頻度が高い地域であること(建物の耐風性能、停電・断水の復旧にかかる日数)</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">名護市</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +3.9%</span>
+          <span class="tag tag-price">地価 +4.82%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">北部圏域(人口約13万人)の中心都市で、北部人口の約半分が名護市に集中する。名桜大学・北部看護学校・沖縄高専など教育機関の充実が人口流入を後押ししており、人口増加数は県内2位(+2,458人、令和7年国勢調査確定値)。名護市・本部町にまたがる北部新テーマパーク開業構想も地価上昇の材料の一つとされる</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">新テーマパークの開業時期・規模(本リストでは一次確認できていない)</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">糸満市</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −0.6%</span>
+          <span class="tag tag-price">地価 +6.56%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">沖縄本島最南端に位置し、古くから「海人(うみんちゅ)のまち」として知られる漁業の町。基幹産業は農業・水産業。将来人口推計では2030年頃をピークに減少に転じる見通しとされている</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">市が公表している津波浸水予測図で、検討中の物件が浸水想定区域に入っていないか</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">沖縄市</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −0.8%</span>
+          <span class="tag tag-price">地価 +4.6%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">1974年にコザ市と美里村の合併で誕生し、県内第2位の人口を持つ。市域面積の約34%を米軍基地(嘉手納基地等)が占め、ゲート通り周辺には基地関連の国際色豊かな商業・文化が根付く。人口減少数は県内2位(−1,092人、確定値)</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">検討エリアでの航空機騒音の実際の体感(時間帯・頻度)、基地返還・再編計画の有無</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">宮古島市</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −1.9%</span>
+          <span class="tag tag-price">地価 +12.30%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">インバウンド急増が続き、2024年度の入域観光客は過去最高水準の約120万人、観光収入は令和5年度で約891億円(コロナ前比+38%)。地価上昇率は41市町村中トップ水準で、住宅不足により賃料が倍近くに上がった例も報じられている。人口自体は減少が続いており(確定値−1.9%)、地価上昇と人口減少が同時に進む市町村。過去に観測史上最大瞬間風速85.3m/sを記録した台風の常襲地域でもある</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">住宅の構造(鉄筋コンクリート造か)、賃料・取引価格の上昇ペース</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">南城市</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +2.9%</span>
+          <span class="tag tag-price">地価 +7.18%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">那覇市から車で約35分の那覇都市圏ベッドタウンとして人口増加が続き、人口増加数は県内4位(+1,269人、確定値)。世界遺産「斎場御嶽」など歴史・文化資源があり年間約25万人が訪れる。こども医療費助成等の子育て支援制度があるとされる</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">子育て支援制度の対象年齢・所得制限の有無(市公式サイトで最新状況を確認)</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">読谷村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +0.8%</span>
+          <span class="tag tag-price">地価 +3.03%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">村域の約40%を米軍基地(嘉手納弾薬庫地区等)が占める一方、基地跡地利用から生まれた「やちむんの里」に70以上の陶房が集積。1972年に人間国宝・金城次郎氏が移住したことを機に陶工が集まった経緯がある</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">基地跡地利用計画の進捗、周辺道路・生活インフラの整備状況</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">嘉手納町</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −2.2%</span>
+          <span class="tag tag-price">地価 +2.52%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">町面積の約82%を嘉手納基地が占め、基地を除いた可住地の人口密度は全国有数の高さとされる。航空機騒音をめぐる第3次嘉手納爆音訴訟では、住民側に総額約261億円の賠償命令が出た経緯がある</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">航空機騒音の時間帯・頻度(夜間飛行の有無を含む)</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">北中城村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +0.5%</span>
+          <span class="tag tag-price">地価 +8.82%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">旧ゴルフ場跡地に開業したイオンモール沖縄ライカム・中部徳洲会病院を核に大型商業施設の集積が進み、地価上昇率は41市町村中でも上位。那覇市への通勤圏として移住者も増加傾向にある</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">商業施設周辺の渋滞状況、物件と商業エリアとの距離</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">西原町</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +0.8%</span>
+          <span class="tag tag-price">地価 +5.76%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">県内唯一の国立大学である琉球大学をはじめ3つの大学が立地し、「文教のまち」を掲げる。子どもの割合16.8%は全国平均より高い。大型商業施設・公園・ビーチがあり那覇市にも近い</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">大学周辺特有の学生向け賃貸需要と、住宅地としての住環境の違い</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">国頭村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −8.5%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">沖縄本島最北端に位置し、村域の約84%が「やんばるの森」で、2021年に世界自然遺産(奄美大島、徳之島、沖縄島北部及び西表島)に登録された一部。ヤンバルクイナ等の希少種の生息地である一方、過疎化・高齢化が進む。公示地価の調査地点はなく、基準地価(2026年)は+0.14%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">生活インフラ(スーパー・医療機関)までの距離、集落ごとの交通手段</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">大宜味村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −8.1%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">「長寿の里」として「長寿日本一宣言」をしている村。やんばるの森の一部として世界自然遺産登録エリアに含まれる。人口減少が続いている。公示地価の調査地点はなく、基準地価(2026年)は+3.37%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">生活インフラ(スーパー・医療機関)までの距離、集落ごとの交通手段</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">東村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −5.4%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">沖縄本島北部の東海岸に位置し、沖縄県内のエコツーリズム・ブルーツーリズムの草分け的な地域。「やんばる3村」(国頭村・大宜味村・東村)の中でも人口規模が最も小さい。公示地価の調査地点はなく、基準地価(2026年)は+2.71%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">生活インフラ(スーパー・医療機関)までの距離、集落ごとの交通手段</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">今帰仁村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −1.5%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">世界遺産「今帰仁城跡」のある歴史の村。大型商業施設はなく、手つかずの自然と昔ながらの集落の風景が残る。公示地価の調査地点はなく、基準地価(2026年)は+5.99%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">日常の買い物・通院のための移動手段・所要時間</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">本部町</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −5.8%</span>
+          <span class="tag tag-price">地価 +15.55%</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">沖縄美ら海水族館・海洋博公園を擁し、年間約500万人が訪れる観光の町。シークヮーサー等の柑橘産地でもある。人口は減少が続く(確定値−5.8%)一方、観光需要と北部新テーマパーク構想を背景に地価上昇率は41市町村中トップ(+15.55%)。「人口は減るが地価は上がる」の典型例</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">観光シーズン(GW・夏季)の交通渋滞、生活道路と観光道路の重複状況</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">恩納村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +3.2%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">国内屈指のリゾート地で、海沿いに外資系を含むリゾートホテルが林立(2000年九州・沖縄サミットの宿泊地にもなった)。観光業に加えモズク・海ぶどう等の養殖業も盛ん。移住者増加とホテル進出で地価が高騰しており、2024年の基準地価上昇率は全国1位(+29.0%)との報道がある。公示地価の調査地点はなく、基準地価(2026年)は+9.18%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">リゾート開発エリアと生活エリアの距離感、海沿い物件の塩害対策</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">宜野座村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +7.6%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">村域の約50.7%を米軍基地(キャンプ・ハンセン、キャンプ・シュワブ)が占めるが、人口増加率は41市町村中トップ(確定値+7.6%)。増加の具体的な要因は本リストでは一次確認できていない。公示地価の調査地点はなく、基準地価(2026年)は+11.15%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">基地負担の実態(演習・騒音等)、人口増加の具体的な要因(宅地開発の有無等)</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">金武町</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +3.1%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">町域の55.6%を米軍基地(キャンプ・ハンセン)が占める。実弾演習が行われる県内最大規模の訓練地を抱える。公示地価の調査地点はなく、基準地価(2026年)は+6.24%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">基地負担の実態(実弾演習の騒音・頻度)</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">伊江村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −9.5%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">伊江島1島1村で、本部町からフェリーで約30分。島の約35%を米軍基地(伊江島補助飛行場)が占め、区域内には住宅も残る。1970年の人口5,842人から2020年に4,118人へと長期的な減少が続く。公示地価の調査地点はなく、基準地価(2026年)は−0.34%(県内でも珍しい下落)</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">フェリーの運航本数・欠航時の代替手段、救急搬送を含む医療体制</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">渡嘉敷村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −12.8%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">慶良間諸島の一島で、「ケラマブルー」と称される透明度の高い海を持つダイビングの島。第3次産業が89.1%を占め観光業への依存度が高い。人口700人未満の小規模自治体で、人口減少率は41市町村中3位(確定値−12.8%)。公示地価の調査地点はなく、基準地価(2026年)は+2.75%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">定期船(フェリー・高速船)の運航頻度・所要時間、医療機関の有無</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">座間味村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −7.0%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">渡嘉敷村と並ぶ慶良間諸島の村で、第3次産業が92.4%とさらに観光依存度が高い。人口900人未満の小規模自治体。公示地価の調査地点はなく、基準地価(2026年)は+2.82%(過去44年で最高値を更新)</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">定期船の運航頻度・所要時間、医療機関の有無</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">粟国村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −10.4%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">那覇港とを結ぶフェリーは1日1往復のみ。1970年の人口1,522人から2025年には599人へと長期的に大幅減少している。公示地価の調査地点はなく、基準地価(2026年)は±0.0%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">フェリー欠航時(荒天時)の代替交通手段、医療機関の体制</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">渡名喜村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −32.7%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">面積3.87㎢は沖縄県最小・全国で2番目に小さい自治体。「掘り下げ屋敷」と呼ばれる独特の伝統家屋が残る。人口減少率は41市町村中最大(確定値−32.7%)。公示地価の調査地点はなく、基準地価(2026年)は±0.0%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">学校・医療機関の維持状況、定住支援の有無</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">南大東村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −8.8%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">那覇から約360km離れた絶海の孤島(大東諸島)。1970年の人口2,252人から長期的な減少が続いている。公示地価の調査地点はなく、基準地価(2026年)は±0.0%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">本島への交通手段(定期船・航空便)の頻度、輸送コストによる物価水準</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">北大東村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −5.1%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">南大東村と並ぶ大東諸島の村で、基準地価の全国順位は1,733位/1,737市町村と全国でも地価水準が最も低い地域の一つ。公示地価の調査地点はなく、基準地価(2026年)は±0.0%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">本島への交通手段(定期船・航空便)の頻度、輸送コストによる物価水準</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">伊平屋村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −6.7%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">伊平屋島・野甫島からなる村で、1955年の4,008人をピークに急激な人口減少が続いている。サトウキビ・稲作・モズク養殖が主産業。公示地価の調査地点はなく、基準地価(2026年)は±0.0%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">フェリーの運航頻度、救急搬送を含む医療体制</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">伊是名村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −14.2%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">伊是名島中心の村で、伊平屋村と同じく1955年をピークに人口減少が続く(確定値−14.2%)。サトウキビ・モズク養殖等が主産業。公示地価の調査地点はなく、基準地価(2026年)は±0.0%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">フェリーの運航頻度、救急搬送を含む医療体制</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">久米島町</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −9.9%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">1955年の17,167人をピークに減少が続くが、久米島空港(滑走路2,000m、那覇まで最大7便・約35分)により離島の中では交通利便性が高い。観光業・農業・泡盛醸造業が主産業。公示地価の調査地点はなく、基準地価(2026年)は±0.0%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">台風時の空路欠航頻度、本島への救急搬送体制</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">竹富町</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-up">人口 +0.5%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">石垣島周辺の9つの有人島(竹富島・西表島等)からなる町で、役場は石垣市内にある。西表石垣国立公園に指定され、イリオモテヤマネコ等の希少種が生息。2018年には日本初の星空保護区に認定された。公示地価の調査地点はなく、基準地価(2026年)は+2.65%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">居住する島によって生活インフラ(医療・買い物)が大きく異なる点、定期船の便数</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">与那国町</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −9.9%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">日本最西端、台湾まで約111kmで石垣島より近い国境の島。2016年の陸上自衛隊与那国駐屯地開設で自衛隊員とその家族約250人が移住し、人口の15%近くを占める。農業・畜産業・漁業が主産業。公示地価の調査地点はなく、基準地価(2026年)は±0.0%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">自衛隊配備が地域経済・住環境に与えている実際の影響</div></div>
+    </div>
+
+    <div class="area">
+      <div class="area-head">
+        <span class="area-name">多良間村</span>
+        <span class="area-badges">
+          <span class="tag tag-pop-down">人口 −11.3%</span>
+          <span class="tag tag-price-na">地価 未確認</span>
+        </span>
+      </div>
+      <div class="area-row"><div class="row-label">特徴</div><div class="row-text">サトウキビ由来の黒糖生産量が県内シェア約40%で全国一。高齢化率30.3%と高く、民間試算では2070年に人口が現在からおよそ6割減少する見通しとされている。公示地価の調査地点はなく、基準地価(2026年)は±0.0%</div></div>
+      <div class="area-row check-row"><div class="row-label">確認したいこと</div><div class="row-text">多良間空港の便数、台風時の孤立リスク</div></div>
+    </div>
+
+    <div class="footnote-section">
+      出典:沖縄県企画部統計課「令和7年国勢調査 人口等基本集計結果の概要(確定値)」(令和8年10月2日公表)・同「令和7年国勢調査速報(要計表による市町村別人口・世帯数)」(令和8年5月29日公表)/2026年公示地価・基準地価(国土交通省「不動産情報ライブラリ」データを集計した不動産情報サイトtotinokati.com・tochidai.infoの数値、一部はダイヤモンド不動産研究所・琉球新報)。人口増減率は、令和7年確定値で個別公表されている市町村(宜野座村・八重瀬町・名護市・中城村・金武町・うるま市・南城市・南風原町・渡名喜村・伊是名村・渡嘉敷村・多良間村・久米島町・那覇市・沖縄市・宮古島市・本部町)は確定値、それ以外は速報値(確定値は令和8年9月以降順次公表予定)を使用しています。「未確認」は本リストで公的な出典を確認できていない項目で、特に離島・北部の小規模町村は公示地価の調査地点が設定されておらず、公示地価そのものが存在しません(該当する場合は基準地価を特徴欄に参考値として記載)。住宅地の地価は県全体で+6.4%(2026公示)、+5.3%(2026基準地価)。エリアの特徴・子育て支援に関する記述の一部は、市町村公式サイト・統計局資料に加えて、不動産・移住・観光情報サイトのまとめ記事を参考にしており、制度の金額・対象年齢・所得制限の有無は各市町村の公式サイトで最新状況を確認してください。
+    </div>
+
+  </main>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。提携が決まり次第、条件が合う方から順に非公開物件の先行情報をお届けします。</p>
+    <p style="font-size:12.5px;color:var(--muted);margin:0;">トーク画面で気になるエリアをお伝えください。</p>
+  </div>
+
+</div>
+
+<!--
+  公開方法(どちらでも無料・このファイル1つだけでOK):
+
+  [GitHub Pages]
+  1. GitHubにリポジトリを作成し、このファイルを含むフォルダをpush
+  2. リポジトリの Settings → Pages → Branch を選んで Save
+  3. 発行されたURL(https://ユーザー名.github.io/リポジトリ名/area.html)をLINEで配布
+
+  [Netlify Drop]
+  1. https://app.netlify.com/drop を開く
+  2. このファイル(1枚)、またはlead_magnetsフォルダをブラウザにドラッグ&ドロップ
+  3. 数秒で発行されるURLをLINEで配布(無料・会員登録不要)
+-->
+</body>
+</html>

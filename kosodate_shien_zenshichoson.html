@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>沖縄県 全41市町村 子ども医療費助成 比較表|沖縄マイホーム研究室</title>
+<meta name="description" content="沖縄県の全41市町村について、こども医療費助成(現物給付の有無・対象年齢拡大時期・入院時食事療養費の扱い)を比較しました。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+  .tnum{font-variant-numeric:tabular-nums;}
+
+  .roofline{height:7px;background:var(--navy);border-bottom:2px solid var(--gold);}
+
+  /* ---- Cover ---- */
+  .cover-page{position:relative;min-height:640px;display:flex;align-items:center;justify-content:center;padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;}
+  .cover-photo{position:absolute;inset:0;z-index:-2;background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1476234251651-f353703a034d?auto=format&fit=crop&w=1600&q=85');background-size:cover;background-position:center;filter:saturate(.72);}
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;}
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(23px,5.6vw,29px);font-weight:600;line-height:1.6;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  .hero{padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px;}
+  .hero h1{position:relative;font-size:clamp(19px,4.6vw,23px);line-height:1.55;margin:0 0 20px;padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;}
+  .hero h1::before{content:"CHILDCARE SUPPORT  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;}
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px;}
+
+  main{padding:28px 22px 4px;}
+  h2{font-size:17px;color:var(--ink);margin:28px 0 10px;font-weight:600;}
+  h2:first-child{margin-top:0;}
+
+  .stat-row{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .stat-card{flex:1;min-width:130px;padding:14px;background:var(--paper);border:1px solid var(--line);}
+  .stat-num{font-size:22px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums;}
+  .stat-label{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.6;}
+
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;}
+  .table-wrap table{min-width:480px;}
+  table{width:100%;border-collapse:collapse;margin:0 0 14px;}
+  th,td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--line);font-size:13px;}
+  th{font-size:10.5px;letter-spacing:.06em;color:var(--navy);text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--navy);}
+  td.city{font-weight:700;white-space:nowrap;}
+  td.meal-yes{color:#234632;font-weight:700;}
+  td.meal-no{color:var(--muted);}
+  td.method-note{color:var(--gold);font-size:11.5px;}
+
+  .ref-line{font-size:13px;color:var(--muted);margin:0 0 6px;}
+  .source-line{font-size:11.5px;color:var(--muted);margin:0 0 20px;}
+
+  .note-box{font-size:12.5px;color:var(--muted);padding:16px 18px;background:var(--paper);border:1px solid var(--line);margin:0 0 20px;line-height:1.9;}
+  .note-box ul{margin:6px 0 0;padding-left:18px;}
+  .note-box li{margin-bottom:6px;}
+
+  .disclaimer{font-size:12.5px;color:var(--muted);padding:18px 22px;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.9;}
+
+  .closing{padding:40px 22px 44px;}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 18px;}
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>全41市町村を比較する</span>子ども医療費助成<br>比較表</h1>
+      <p class="cover-subtitle">窓口負担の有無・対象年齢の拡大時期・入院時食事代まで、市町村ごとの違いを一覧にしました。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典</p>
+    <h1>沖縄県 全41市町村<br>子ども医療費助成 比較表</h1>
+    <p class="hero-lead">「子育て支援は那覇・浦添・宜野湾だけじゃない。沖縄県の全41市町村、どこも手厚く助成しています。住むエリアを選ぶときの判断材料にしてください。」</p>
+    <p class="ref-line" style="margin-top:16px;line-height:1.9;">こども医療費助成はもともと市町村ごとに制度設計がバラバラで、「窓口で払わなくていい市町村」と「一旦払って後から戻ってくる市町村」が混在していた時代がありました。沖縄県が市町村の実施費用の2分の1を補助する仕組みを持っているため、令和4年4月以降、現物給付(窓口負担なし)への切り替えが県内全域で急速に進み、令和8年4月時点では41市町村全てが何らかの形で窓口負担を軽くする仕組みを備えるところまで来ています。ただし「対象年齢をいつ拡大したか」「入院中の食事代まで見るか」は市町村の財政状況・議会判断によって今も差があり、これが住むエリアを選ぶときの地味だが効く判断材料になります。</p>
+  </header>
+
+  <main>
+    <h2>まず結論</h2>
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-num tnum">41/41</div><div class="stat-label">窓口負担なし(現物給付)の仕組みを導入している市町村の数(多良間村・渡名喜村・伊是名村の一部は償還払/自動償還)</div></div>
+      <div class="stat-card"><div class="stat-num tnum">13</div><div class="stat-label">入院時の食事療養費(食事代)まで助成対象にしている市町村の数</div></div>
+    </div>
+    <p class="ref-line">沖縄県は市町村が実施するこども医療費助成に対象経費の2分の1を補助しており、令和4年4月から通院時も受給資格者証の提示だけで窓口負担なし(現物給付)になる仕組みが県内に広がっています。</p>
+    <p class="ref-line" style="margin-top:0;line-height:1.9;">「現物給付」と「償還払い」の違いは、紙の上では小さく見えても家計には差が出ます。現物給付の市町村は、受給資格者証を見せるだけでその場の自己負担がゼロか一部で済みます。一方、償還払い(多良間村)や自動償還(渡名喜村・伊是名村の一部)の市町村では、受診のたびに医療費をいったん全額(または通常の自己負担割合分)窓口で立て替え、後日申請してから市町村が助成金を振り込む流れになります。立て替えから実際に口座へ戻ってくるまで数か月かかることも珍しくなく、特に子どもが続けて体調を崩す時期(梅雨時・年度替わりなど)は、立て替え額がまとまった金額になりやすい点は知っておく価値があります。離島・小規模町村でこの方式が残っているのは、医療機関との連携体制や事務コストの違いが背景にあるとみられます。</p>
+
+    <h2>市町村別一覧(令和8年4月1日現在)</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>市町村</th><th>方式</th><th>直近の年齢拡大</th><th>入院時食事代</th></tr></thead>
+      <tbody>
+        <tr><td class="city">那覇市</td><td>現物給付</td><td class="tnum">R4.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">宜野湾市</td><td>現物給付</td><td class="tnum">R7.10</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">石垣市</td><td>現物給付</td><td class="tnum">R5.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">浦添市</td><td>現物給付</td><td class="tnum">R4.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">名護市</td><td>現物給付</td><td class="tnum">H31.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">糸満市</td><td>現物給付</td><td class="tnum">R4.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">沖縄市</td><td>現物給付</td><td class="tnum">R7.4</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">豊見城市</td><td>現物給付</td><td class="tnum">R4.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">うるま市</td><td>現物給付</td><td class="tnum">R4.2</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">宮古島市</td><td>現物給付</td><td class="tnum">R8.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">南城市</td><td>現物給付</td><td class="tnum">R6.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">国頭村</td><td>現物給付</td><td>—</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">大宜味村</td><td>現物給付</td><td class="tnum">H30.12</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">東村</td><td>現物給付</td><td class="tnum">R4.4</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">今帰仁村</td><td>現物給付</td><td class="tnum">R4.4</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">本部町</td><td>現物給付</td><td class="tnum">R7.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">恩納村</td><td>現物給付</td><td class="tnum">R4.4</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">宜野座村</td><td>現物給付</td><td class="tnum">R6.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">金武町</td><td>現物給付</td><td class="tnum">R4.4</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">伊江村</td><td>現物給付</td><td class="tnum">R6.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">読谷村</td><td>現物給付</td><td class="tnum">R4.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">嘉手納町</td><td>現物給付</td><td class="tnum">R5.4</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">北谷町</td><td>現物給付</td><td class="tnum">R4.10</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">北中城村</td><td>現物給付</td><td class="tnum">R4.4</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">中城村</td><td>現物給付</td><td class="tnum">R5.10</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">西原町</td><td>現物給付</td><td class="tnum">R4.4</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">与那原町</td><td>現物給付</td><td class="tnum">R6.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">南風原町</td><td>現物給付</td><td class="tnum">R4.10</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">渡嘉敷村</td><td>現物給付</td><td class="tnum">R4.10</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">座間味村</td><td>現物給付</td><td>—</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">粟国村</td><td>現物給付</td><td class="tnum">R5.4</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">渡名喜村</td><td class="method-note">自動償還</td><td class="tnum">H26.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">南大東村</td><td>現物給付</td><td class="tnum">R6.4</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">北大東村</td><td>現物給付</td><td class="tnum">R7.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">伊平屋村</td><td>現物給付</td><td>—</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">伊是名村</td><td class="method-note">自動償還</td><td>—</td><td class="meal-yes">対象</td></tr>
+        <tr><td class="city">久米島町</td><td>現物給付</td><td class="tnum">R3.10</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">八重瀬町</td><td>現物給付</td><td class="tnum">R8.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">多良間村</td><td class="method-note">償還払</td><td>—</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">竹富町</td><td>現物給付</td><td class="tnum">R5.4</td><td class="meal-no">対象外</td></tr>
+        <tr><td class="city">与那国町</td><td>現物給付</td><td class="tnum">R7.4</td><td class="meal-no">対象外</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="source-line">出典:沖縄県公式「こども医療費助成事業市町村制度一覧」(令和8年4月1日現在)</p>
+
+    <div class="note-box">
+      <ul>
+        <li>「方式」が現物給付の市町村は、窓口で受給資格者証を見せるだけで自己負担なしで受診できます。渡名喜村・伊是名村は自動償還(一旦支払い後に自動で戻る)、多良間村は償還払(申請して払い戻しを受ける)で、現物給付とは仕組みが異なります</li>
+        <li>「直近の年齢拡大」は対象年齢を広げた直近の時期です。未就学児・小学生・中学生・高校生のどこまでが対象かは市町村・年度によって異なるため、検討している物件の市町村に直接確認することをおすすめします</li>
+        <li>「入院時食事代」が対象の市町村は、入院中の食事療養費(食事代)も助成に含まれます。対象外の市町村では医療費以外に食事代が自己負担になります</li>
+      </ul>
+    </div>
+
+    <h2>医療費以外の子育て支援(保育料・出産祝い金)</h2>
+    <p class="ref-line" style="line-height:1.9;">子育て支援は医療費助成だけで比べると見落とす部分があります。浦添市は公式サイトで、こども医療費助成(0歳〜中学校修了前)について所得制限を設けていないことを明記しています(出典:浦添市公式「浦添市こども医療費助成制度について」)。保育料は国の無償化(3〜5歳クラス)に加えて、市町村が独自に上乗せの軽減を行っている例があり、名護市は認可保育施設の保育料に加えて認可外保育施設の利用料も軽減する独自の仕組みを持つとされます(ただし2026年10月から、一定の基準を満たさない認可外施設は軽減の対象外になったという変更も報じられています)。出産祝い金は市町村ごとの差がとりわけ大きく、第1子・第2子・第3子以降で段階的に金額を上げる町村が複数ある一方、出産祝い金という形を取らず多胎児世帯への調整粉乳支給など別の支援に充てている市もあります。これらの保育料・出産祝い金の金額は制度変更が頻繁で、本ガイドでは民間の子育て支援まとめサイトを経由して確認した情報が含まれるため、引っ越しを具体的に検討する段階では、対象市町村のこども家庭課・子育て支援課に電話で最新額を確認することを強くおすすめします。</p>
+    <p class="source-line">出典:浦添市公式「浦添市こども医療費助成制度について」(https://www.city.urasoe.lg.jp/doc/6248f14273fe266fe59a99e2)。保育料・出産祝い金の市町村別の例は民間まとめサイト(machikurabe.jp「沖縄県の出産祝い金まとめ【2026年】」、okinawa-navi.jp「児童手当・子育て支援制度を市町村別に紹介」)経由で確認。いずれも2026年10月時点の情報で、制度・金額は年度により変わるため最新情報は各市町村窓口で確認してください。</p>
+    <p class="ref-line" style="line-height:1.9;margin-top:10px;">参考までに、沖縄県全体の待機児童数は2026年4月1日時点(速報値)で171人となり、前年比52.0%減・10年連続で過去最少を更新しています(出典:沖縄県企画部統計課、沖縄タイムス報道)。医療費助成の手厚さだけでなく、保育園に入りやすいかどうかも、子育て世帯がエリアを選ぶときの現実的な判断材料になります。</p>
+  </main>
+
+  <div class="disclaimer">この特典の情報は参考情報です。助成制度は年度ごとに変わる可能性があるため、検討している物件の市町村に最新の制度内容を直接ご確認ください。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>内見で見る 台風対策チェックリスト|沖縄マイホーム研究室</title>
+<meta name="description" content="防災グッズの備蓄の話ではなく、中古物件を内見するときに台風対策の観点で何を確認すべきかの17項目。雨戸の可動確認・塩害爆裂のサイン・売主への質問の仕方・火災保険の見方まで、2026年の台風9号・13号の実例を踏まえた物件選びの実践チェック。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(25px,6vw,32px);font-weight:600;line-height:1.55;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.52em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px}
+  .hero h1{
+    position:relative;font-size:clamp(22px,4.8vw,27px);line-height:1.55;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"TYPHOON READY  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px}
+  .pitch{font-size:13.5px;line-height:1.95;margin:18px 0 0;color:#344655;background:#F0EEE7;padding:15px 17px;border:1px solid #E4DFD4}
+
+  .progress-sticky{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,241,232,.97);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    padding:13px clamp(20px,6vw,30px) 15px;
+  }
+  .progress-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:9px}
+  .progress-label{font-size:10px;letter-spacing:.16em;color:var(--muted);font-weight:700}
+  .progress-text{font-size:13px;font-variant-numeric:tabular-nums;color:var(--navy);font-weight:700}
+  .progress-text .num{font-size:18px;color:var(--gold)}
+  .progress-track{width:100%;height:5px;background:#DDD8CD}
+  .progress-fill{height:100%;width:0%;background:var(--navy);transition:width .35s ease}
+  .progress-done-msg{display:none;margin-top:9px;font-size:12.5px;color:var(--navy);font-weight:700}
+  .progress-done-msg.show{display:block}
+
+  main{padding:8px clamp(20px,6vw,30px) 4px}
+
+  .category{margin:30px 0 0}
+  .category h2{display:flex;align-items:center;gap:12px;margin:0 0 2px;font-size:17.5px;font-weight:600;color:var(--navy);line-height:1.5}
+  .badge{
+    flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;font-size:14.5px;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);
+    position:relative;top:0
+  }
+  .cat-count{font-size:11px;color:var(--muted);font-weight:500;margin-left:auto;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .category-rule{border:none;border-top:1px solid var(--gold);margin:11px 0 16px;position:relative}
+  .category-rule::after{content:"";position:absolute;left:0;top:-2px;width:48px;height:3px;background:var(--navy)}
+
+  .check-list{list-style:none;margin:0;padding:0}
+  .check-item{
+    width:100%;display:flex;align-items:flex-start;gap:13px;text-align:left;
+    background:transparent;border:0;border-bottom:1px solid var(--line);
+    padding:16px 6px;font-size:14px;font-family:inherit;color:var(--ink);
+    cursor:pointer;min-height:48px;-webkit-tap-highlight-color:transparent;
+    transition:background .15s ease;
+  }
+  .check-item:hover{background:#F8F5EF}
+  .check-box{flex:0 0 18px;width:18px;height:18px;border:1px solid #8B969B;margin-top:3px;position:relative;transition:all .15s ease;background:#fffefa}
+  .check-box::after{content:"";position:absolute;left:4px;top:1px;width:6px;height:10px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(40deg);opacity:0}
+  .check-item.checked .check-box{background:var(--navy);border-color:var(--navy)}
+  .check-item.checked .check-box::after{opacity:1}
+  .check-text{flex:1}
+  .check-why{display:block;font-size:12.5px;color:#65717A;margin-top:5px;line-height:1.85}
+  .check-item.checked .check-text{color:#737D82;text-decoration:line-through;text-decoration-color:var(--gold)}
+  .check-item.checked .check-why{text-decoration:none}
+
+  .distinct-note{padding:18px clamp(20px,6vw,30px);font-size:12.5px;color:#58656C;background:#F0EEE7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.9}
+
+  .closing{padding:34px clamp(20px,6vw,30px) 40px;background:#fffefa}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+  .reset-link{display:block;text-align:left;margin:20px 0 0;font-size:12.5px;color:var(--muted);background:none;border:none;text-decoration:underline;cursor:pointer;padding:0}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .check-item{font-size:13.5px;gap:10px;padding:14px 2px}
+    .check-why{font-size:12px}
+    .category h2{gap:8px}
+    .badge{flex-basis:28px;width:28px;height:28px}
+    .cat-count{font-size:10px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+    .progress-sticky{position:static}
+    .check-item{break-inside:avoid}
+    .reset-link{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>防災グッズの話ではなく内見の視点</span>内見で見る<br>台風対策チェックリスト</h1>
+      <p class="cover-subtitle">雨戸の可動確認・塩害爆裂のサイン・売主への質問の仕方まで、内見当日に使える17項目です。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典18</p>
+    <h1>内見で見る<br>台風対策チェックリスト</h1>
+    <p class="hero-lead">2026年の台風9号・13号でも、本島各地で数万戸規模の停電が起き、一部地域では断水も発生しました。飲料水の備蓄やポータブル電源といった「買った後の防災グッズ」の話ではなく、「中古物件を選ぶ・内見する段階で、台風対策の観点から何を確認すべきか」に絞った実践チェックです。</p>
+    <p class="pitch">特典1・特典4にある「雨戸の有無」「給水方式」などの基本チェックを、さらに一歩踏み込みます。実際に動かして確認する、売主に何と聞くか、重要事項説明でどこを見るか——内見当日に使える17項目です。</p>
+  </header>
+
+  <div class="progress-sticky">
+    <div class="progress-row">
+      <span class="progress-label">CHECK PROGRESS</span>
+      <span class="progress-text"><span class="num" id="progressCount">0</span> / 17</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-done-msg" id="progressDoneMsg">全部チェックできました。内見での確認は万全です。</div>
+  </div>
+
+  <main>
+
+    <section class="category">
+      <h2><span class="badge">外</span>外観・躯体で確認する痕跡<span class="cat-count">5項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="t1" type="button"><span class="check-box"></span><span class="check-text">内見時に、少なくとも1枚は実際に雨戸・シャッターを閉めてみて、レールの歪み・建付けの重さがないか確認する<span class="check-why">設置されているだけで、実際には動かしにくい・錆びて途中で止まる個体もある。見るだけでなく動かして確認するのが実践のポイント</span></span></button></li>
+        <li><button class="check-item" data-id="t2" type="button"><span class="check-box"></span><span class="check-text">ベランダ手すりの溶接部・支柱の根元、外壁や庇のコンクリートに茶色いサビの筋や亀裂が出ていないか目視で確認する<span class="check-why">塩分や中性化で鉄筋が錆びて膨張し、コンクリートが割れる現象を「爆裂」と呼ぶ。海沿い・高台で潮風を受けやすい物件ほど出やすい(出典:日本コンクリート工学会)</span></span></button></li>
+        <li><button class="check-item" data-id="t3" type="button"><span class="check-box"></span><span class="check-text">屋根瓦のズレ・割れ、屋上防水層のひび割れ・膨れ、天井や窓まわりの雨染みがないかを確認する<span class="check-why">台風の強風・飛来物で屋根・防水層にダメージが出ていても、天井を見上げないと気づきにくい</span></span></button></li>
+        <li><button class="check-item" data-id="t4" type="button"><span class="check-box"></span><span class="check-text">擁壁がある物件・斜面地の物件は、排水溝(側溝)に土砂や落ち葉が詰まっていないか、擁壁と建物の距離が十分かを確認する<span class="check-why">沖縄県の条例では、高さ2mを超える崖に近接して建築する場合、崖の高さの1.5倍以上の水平距離を確保する規定がある(出典:沖縄県公式「崖に近接する建築物」施行条例解説PDF)。排水溝が詰まっていると大雨時に水があふれ、擁壁の裏に水が溜まりやすくなる</span></span></button></li>
+        <li><button class="check-item" data-id="t5" type="button"><span class="check-box"></span><span class="check-text">給湯器・室外機の設置場所(海に直接面していないか)とサビの進み具合を確認する</span></button></li>
+      </ul>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">聞</span>過去の台風被害の確認方法<span class="cat-count">3項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="t6" type="button"><span class="check-box"></span><span class="check-text">「2026年の台風9号・13号のとき、この建物は停電・断水・雨漏りがありましたか」と、時期と現象を名指しして売主・仲介に質問する<span class="check-why">漠然と「台風被害はないですか」と聞くと「特にないです」で終わりやすい。2026年7月の台風9号では26市町村で2万4,110戸、同年9月の台風13号では沖縄本島で最大1万8,410世帯が停電した(出典:琉球新報「台風9号」「台風13号(本部町)」)</span></span></button></li>
+        <li><button class="check-item" data-id="t7" type="button"><span class="check-box"></span><span class="check-text">火災保険の保険金請求履歴(風災での修理歴)があるかを売主・仲介に確認する<span class="check-why">請求歴があるということは、台風で弱点が出た箇所がすでに分かっている、ということでもある。修理済みか・再発リスクが残っているかも併せて聞く</span></span></button></li>
+        <li><button class="check-item" data-id="t8" type="button"><span class="check-box"></span><span class="check-text">重要事項説明で「物件の瑕疵・修繕履歴」として台風関連の修理が記載されているかを確認する<span class="check-why">重要事項説明は契約前に宅建業者が物件の重要なポイントを説明する義務のある手続き。説明を受けた後は、その内容を理由にした白紙解除はできないため、事前にコピーをもらって読んでおく</span></span></button></li>
+      </ul>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">域</span>地域特性の見極め方<span class="cat-count">4項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="t9" type="button"><span class="check-box"></span><span class="check-text">ハザードマップで浸水・高潮の想定区域に入っていないかを市町村公式サイトで確認する</span></button></li>
+        <li><button class="check-item" data-id="t10" type="button"><span class="check-box"></span><span class="check-text">内見で周辺を歩き、近隣の戸建て・マンションの雨戸・シャッターの設置率を観察する<span class="check-why">設置率の高さだけで地域の安全性を断定はできないが、周辺一帯が設置している・していないという傾向は、地域を見る手がかりの一つになる</span></span></button></li>
+        <li><button class="check-item" data-id="t11" type="button"><span class="check-box"></span><span class="check-text">電柱が地中化されている地域かを確認する<span class="check-why">地中化されている地域は、倒木・電柱の倒壊による停電リスクが相対的に低いとされる</span></span></button></li>
+        <li><button class="check-item" data-id="t12" type="button"><span class="check-box"></span><span class="check-text">検討しているエリアが、過去の台風報道に具体的に出ていないかを調べる<span class="check-why">2026年の台風13号では名護市5,880戸を含む本島で最大1万8,410世帯が停電し、本部町伊豆味区では停電の長期化に加え断水も発生、町が給水袋を配布した(出典:琉球新報「台風13号(本部町)」、沖縄タイムス「台風13号」)。同じ台風でも地域差があるため、検討エリアがどうだったかを個別に調べる</span></span></button></li>
+      </ul>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">共</span>マンションの場合<span class="cat-count">3項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="t13" type="button"><span class="check-box"></span><span class="check-text">共用部の非常用発電設備の有無と、点検記録(いつ、どんな点検をしたか)を管理組合・管理会社に確認する</span></button></li>
+        <li><button class="check-item" data-id="t14" type="button"><span class="check-box"></span><span class="check-text">排水ポンプ・受水槽・高置水槽の点検記録と、停電時にどこまで給水が維持される仕組みかを確認する<span class="check-why">受水槽方式では、停電でポンプが止まっても高置水槽に残った水は重力で使えるが、新たなくみ上げはできなくなる。非常用電源や検水栓が非常用給水栓として使える建物もある(出典:大阪市水道局「停電によるビル・マンション等の断水に備えましょう」。全国共通の一般的な技術解説として紹介)</span></span></button></li>
+        <li><button class="check-item" data-id="t15" type="button"><span class="check-box"></span><span class="check-text">過去の停電・断水時に、管理組合・管理会社がどう対応したか(給水車の手配の有無等)の実績を聞く</span></button></li>
+      </ul>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">険</span>火災保険選びの観点<span class="cat-count">2項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="t16" type="button"><span class="check-box"></span><span class="check-text">風災特約・水災特約が付いているか、保険会社によって補償範囲(免責金額・支払い基準)が違うことを比較する</span></button></li>
+        <li><button class="check-item" data-id="t17" type="button"><span class="check-box"></span><span class="check-text">停電・断水そのもの(電気・水道の供給停止)は一般的な火災保険の対象外であることを踏まえた上で、建物損壊(風災)の補償内容を確認する<span class="check-why">供給停止そのものと建物の損壊は別の話。契約内容は保険会社に要確認(一般的な火災保険の商品性。個別の契約条件は保険証券で確認すること)</span></span></button></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <div class="distinct-note">特典1(購入前チェックリスト30項目)・特典4(中古だけのチェック16項目)にも「雨戸の有無」「給水方式」などの台風関連項目がありますが、本特典はそこからさらに踏み込み、「実際にどう確認する・売主に何を聞く」までを具体的な行動として並べた実践編です。重複を避けるため、有無の確認だけで終わる項目は繰り返していません。</div>
+
+  <div class="distinct-note">この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+    <button class="reset-link" id="resetBtn" type="button">チェックを全部リセットする</button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORAGE_KEY = "okinawa_taifu_naiken_checklist_v2";
+  var TOTAL = 17;
+  function loadState(){try{var raw=localStorage.getItem(STORAGE_KEY);if(!raw)return{};var p=JSON.parse(raw);return(p&&typeof p==="object")?p:{};}catch(e){return{};}}
+  function saveState(s){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(s));}catch(e){}}
+  var state = loadState();
+  var items = Array.prototype.slice.call(document.querySelectorAll(".check-item"));
+  var progressFill = document.getElementById("progressFill");
+  var progressCount = document.getElementById("progressCount");
+  var progressDoneMsg = document.getElementById("progressDoneMsg");
+  var resetBtn = document.getElementById("resetBtn");
+  function updateProgress(){var checked=0;items.forEach(function(el){if(state[el.getAttribute("data-id")])checked++;});var pct=Math.round((checked/TOTAL)*100);progressFill.style.width=pct+"%";progressCount.textContent=checked;if(checked>=TOTAL){progressDoneMsg.classList.add("show");}else{progressDoneMsg.classList.remove("show");}}
+  function applyItemState(el){var id=el.getAttribute("data-id");if(state[id]){el.classList.add("checked");}else{el.classList.remove("checked");}}
+  function toggleItem(el){var id=el.getAttribute("data-id");state[id]=!state[id];saveState(state);applyItemState(el);updateProgress();}
+  items.forEach(function(el){applyItemState(el);el.addEventListener("click",function(){toggleItem(el);});});
+  updateProgress();
+  resetBtn.addEventListener("click",function(){state={};saveState(state);items.forEach(applyItemState);updateProgress();});
+})();
+</script>
+</body>
+</html>

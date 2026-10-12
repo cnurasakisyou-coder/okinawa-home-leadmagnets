@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>沖縄県 小中学校データベース(全市町村・全校)|沖縄マイホーム研究室</title>
+<meta name="description" content="沖縄県41市町村・小学校262校/中学校152校の学校名と所在地を1ページにまとめました。校区の調べ方の説明ではなく、このページで完結するデータベースです。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:480px;margin:0 auto;background:var(--paper);box-shadow:0 0 38px rgba(23,52,77,.06);}
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+
+  .roofline{height:7px;background:var(--navy);border-bottom:2px solid var(--gold);}
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(23px,5.6vw,29px);font-weight:600;line-height:1.6;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media(min-width:700px){.cover-page{min-height:680px}.cover-panel{transform:translateX(-4%);padding:36px 32px 32px}}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  .hero{padding:36px 22px 28px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);}
+  .eyebrow{font-size:11.5px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px;}
+  .hero h1{
+    position:relative;font-size:clamp(19px,4.6vw,23px);line-height:1.6;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"SCHOOL DATABASE  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:var(--muted);border-left:3px solid var(--gold);padding-left:16px;}
+  .position-note{font-size:12.5px;color:#58656C;margin:16px 0 0;padding:12px 14px;border:1px solid var(--line);background:rgba(23,52,77,.04);line-height:1.85;}
+
+  .coverage-box{font-size:12.5px;color:var(--ink);margin:16px 0 0;padding:14px 16px;border-left:3px solid var(--gold);background:var(--paper);line-height:1.9;}
+  .coverage-box b{display:block;margin-bottom:4px;font-size:13px;color:var(--navy);}
+  .coverage-box .num{font-weight:700;color:var(--navy);}
+
+  main{padding:8px 22px 4px;}
+  .section{margin:30px 0 0;}
+  .section h2{display:flex;align-items:center;gap:12px;margin:0 0 2px;font-size:17px;font-weight:600;color:var(--navy);}
+  .badge{flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;display:flex;align-items:center;justify-content:center;font-size:16px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);position:relative;top:-1px;}
+  .section-rule{border:none;border-top:1px solid var(--gold);margin:10px 0 16px;position:relative;}
+  .section-rule::after{content:"";position:absolute;left:0;top:-2px;width:46px;height:3px;background:var(--navy);}
+  .section-body{font-size:14.5px;margin:0 0 14px;}
+
+  table{width:100%;border-collapse:collapse;margin:0 0 10px;}
+  th,td{padding:8px 6px;text-align:left;border-bottom:1px solid var(--line);font-size:13px;vertical-align:top;}
+  th{font-size:10.5px;letter-spacing:.06em;color:#E9D9B8;text-transform:uppercase;font-weight:700;background:var(--navy);border-bottom:2px solid var(--gold);}
+  .source-line{font-size:11px;color:var(--muted);margin:0 0 6px;line-height:1.8;word-break:break-all;}
+  .table-wrap{overflow-x:auto;margin:0 0 4px;border:1px solid var(--line);}
+
+  .gun-group{margin:28px 0 0;}
+  .gun-label{font-size:11.5px;font-weight:700;color:var(--gold);letter-spacing:.1em;margin:0 0 10px;padding-bottom:5px;border-bottom:1px solid var(--navy);text-transform:uppercase;}
+
+  details.muni{border-bottom:1px solid var(--line);}
+  details.muni summary{cursor:pointer;padding:13px 2px;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--ink);list-style:none;-webkit-tap-highlight-color:transparent;position:relative;}
+  details.muni summary::-webkit-details-marker{display:none;}
+  details.muni summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:16px;color:var(--gold);font-weight:700;}
+  details.muni[open] summary::after{content:"—";}
+  details.muni[open] summary{color:var(--navy);}
+  .muni-badge{flex:0 0 26px;width:26px;height:26px;background:var(--navy);color:#E9D9B8;display:flex;align-items:center;justify-content:center;font-size:12px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);}
+  .muni-name{flex:1;}
+  .muni-count{font-size:11px;color:var(--muted);font-weight:400;font-variant-numeric:tabular-nums;padding-right:18px;}
+  .sname{font-weight:600;}
+  .skind,.stype{white-space:nowrap;color:var(--muted);font-size:11.5px;}
+  .star{color:var(--gold);font-weight:700;font-size:12px;white-space:nowrap;}
+  .feature{white-space:normal;color:var(--muted);font-size:11.5px;line-height:1.7;min-width:220px;max-width:280px;}
+  .legend-note{font-size:11.5px;color:var(--muted);margin:10px 0 18px;line-height:1.85;}
+
+  .check-list{list-style:none;margin:0;padding:0;}
+  .check-item{width:100%;display:flex;align-items:flex-start;gap:14px;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);padding:15px 2px;font-size:14.5px;font-family:inherit;color:var(--ink);cursor:pointer;min-height:48px;-webkit-tap-highlight-color:transparent;}
+  .check-box{flex:0 0 18px;width:18px;height:18px;border:1.5px solid var(--navy);margin-top:3px;position:relative;}
+  .check-box::after{content:"";position:absolute;left:4px;top:1px;width:6px;height:10px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(40deg);opacity:0;}
+  .check-item.checked .check-box{background:var(--navy);border-color:var(--navy);}
+  .check-item.checked .check-box::after{opacity:1;}
+  .check-item.checked .check-text{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--gold);}
+
+  .note-box{font-size:12.5px;color:#58656C;padding:18px 22px;background:#F0EEE7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.9;}
+
+  .closing{padding:40px 22px 44px;background:#fffefa;}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 18px;}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale);}
+  }
+  @media print{
+    body{background:#fff;}
+    .wrap{box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>全市町村・414校を網羅</span>沖縄県 小中学校<br>データベース</h1>
+      <p class="cover-subtitle">「この物件、学区の学校ってどこ?」を、自治体サイトや口コミサイトを調べに行かなくても、このページだけで分かるようにまとめました。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典9</p>
+    <h1>沖縄県 小中学校データベース<br>(全市町村・学校名と所在地まとめ)</h1>
+    <p class="hero-lead">「この物件、学区の学校ってどこ?」を、わざわざ自治体サイトや口コミサイトを調べに行かなくても、このページだけで分かるようにまとめました。沖縄県41市町村の公立小中学校を、市町村ごとに一覧にしています。</p>
+    <div class="position-note">学校の良し悪しを当サービスが評価・順位付けすることはありません。口コミ(★)を掲載している学校は、口コミサイトに実際に投稿があった学校のみです。投稿が無い学校は口コミ欄が空欄になります(「口コミが無い=評判が悪い」という意味ではありません)。</div>
+    <div class="coverage-box">
+      <b>このページで分かること</b>
+      沖縄県41市町村すべての公立小学校<span class="num">257校</span>・中学校<span class="num">144校</span>(国立・私立を含めると小学校262校・中学校152校)の学校名と所在地(市町村)を掲載しています。市町村名をタップすると学校の一覧が開きます。<br>
+      出典:沖縄県小学校一覧・中学校一覧(Wikipedia。沖縄県教育委員会公表データに基づく集計を転記・市町村ごとに整理)。那覇市・浦添市・うるま市・宜野湾市の4市は、各市教育委員会の公式ページに掲載された校数とも照合し、一致を確認しています(出典:各市公式サイト「学校区」「市内学校一覧表」)。
+    </div>
+  </header>
+
+  <main>
+
+    <section class="section">
+      <h2><span class="badge">区</span>校区は「住んでいる住所」で自治体の規則によって決まる</h2>
+      <hr class="section-rule">
+      <p class="section-body">学区は自治体ごとの規則で機械的に割り当てられており、同じ町内でも番地によって校区が分かれることがあります。下の一覧で学校の存在と所在市町村を確認したうえで、内見で気に入った物件が見つかったら、契約前に必ずその住所の校区を自治体の学区マップ・窓口で確認してください(学校名が分かっても、どちらの校区にあたるかは住所で機械的に決まるため、最終確認はこのページではなく自治体でとる必要があります)。</p>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">校</span>市町村別 学校一覧</h2>
+      <hr class="section-rule">
+      <p class="legend-note">「区分」は小学校・中学校の別、「設置」は公立・私立・国立の別です。「口コミ」は、みんなの小学校情報・みんなの中学校情報(minkou.jp)に実際の投稿があった学校の平均評価(★、2026年10月時点の掲載値)です。個人の発言の引用ではなく、同サイトが集計した評価点のみを掲載しています。「特性」は、学校公式サイト等に掲載された学校教育目標・特色ある教育活動を要約したものです(那覇市・浦添市・宜野湾市・うるま市・沖縄市・豊見城市を優先して調査。一部の学校はX(旧Twitter)上の2024年以降の投稿も参考にしていますが、個人の発言をそのまま引用せず、どのような傾向の投稿があったかという形でまとめています)。掲載が無い学校は、今回の調査では確認が追いつかなかった学校です(評価の高低とは無関係です)。</p>
+
+    <div class="gun-group">
+      <p class="gun-label">11市</p>
+      <details class="muni">
+        <summary><span class="muni-badge">那</span><span class="muni-name">那覇市</span><span class="muni-count">小36・中20</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">那覇市立曙小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">自校調理の給食が美味しいという書き込みが多い<br>地域との交流が活発という書き込みも見られる</td><td class="feature">「曙スタイル」として、自他尊重・落ち着いて取り組む・整理整頓など4つの指針を掲げ、生活・学習習慣の定着に取り組んでいる。</td></tr>
+          <tr><td class="sname">那覇市立安謝小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「一人一人の個性を活かし、豊かな人間性と創造性に富む心身ともに健全な児童の育成」。地域の祭り・伝統行事と連携した学習に取り組む。</td></tr>
+          <tr><td class="sname">那覇市立天久小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">施設がきれいで行事が充実しているという書き込みが多い<br>教育水準が高いという書き込みも見られる</td><td class="feature">教育目標は「気づき・考え・行動し、仲間と共に未来を切り拓く子の育成」。図書室・自習室・Wi-Fi環境などICT環境が充実。</td></tr>
+          <tr><td class="sname">那覇市立石嶺小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">子どもが明るく学校に通い先生の対応が良いという書き込みが多い<br>学習環境の整備状況を気にする投稿も見られる</td><td class="feature">学校名にちなみ「い・し・み・ね」(挨拶・辛抱強さ・仲良く・願いを持つ)を教育目標の合言葉にしている。</td></tr>
+          <tr><td class="sname">那覇市立宇栄原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">幼稚園・学童併設で安心という書き込みがある<br>あいさつや見守りが良いという投稿も見られる<br>アレルギー対応や情報共有が不十分という投稿も見られる</td><td class="feature">大太鼓やエイサーの学習など地域の伝統芸能、平和学習に力を入れている。</td></tr>
+          <tr><td class="sname">那覇市立上間小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">担任の先生が親身という投稿も見られる<br>教師への不満という投稿も見られる</td><td class="feature">教育目標は「よく考え進んで学ぶ子」等。校内書き初め大会を行うなど、歴史と緑に囲まれた環境にある。</td></tr>
+          <tr><td class="sname">那覇市立大名小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">小規模でアットホームな雰囲気という書き込みが多い<br>先生の目が行き届くという書き込みも見られる<br>夜間の照明不足など周辺の安全面を心配する投稿も見られる</td><td class="feature">教育目標は「夢をはぐくみ 未来を拓き たくましく生きる児童の育成」。習熟度に応じた少人数指導のほか、隣接する高齢者施設との交流を継続している。</td></tr>
+          <tr><td class="sname">那覇市立小禄小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">あいさつ運動が良い印象という投稿も見られる</td><td class="feature">教育DXスクールとして「Well-being」をテーマにタブレット活用を推進。黒糖づくりなど地域の方と関わる体験学習も行う。</td></tr>
+          <tr><td class="sname">那覇市立小禄南小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">のびのび育つ普通の公立校という書き込みが多い<br>オープン教室のセキュリティ面や校舎の老朽化を指摘する書き込みが多い</td><td class="feature">教育目標は「自ら学び 豊かな心で たくましく行動する子」。NIE(新聞を活用した教育)に力を入れる市内有数の大規模校。</td></tr>
+          <tr><td class="sname">那覇市立開南小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">授業がわかりやすいという書き込みがある<br>PTAの見守りが安心という投稿も見られる<br>同調圧力の強さを指摘する投稿も見られる</td><td class="feature">X上では卒業生が、絵画コンクール受賞など母校での思い出を懐かしむ投稿が見られる(2024年以降)。</td></tr>
+          <tr><td class="sname">那覇市立垣花小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">先生と児童・保護者の距離が近いという書き込みが多い<br>地域とのつながりが深いという書き込みも見られる<br>PTA役員決めの負担が大きいという書き込みが多い</td><td class="feature">教育目標は「夢と希望を育み どの子も楽しく学び 生き生きと活動する垣花っ子の育成」。那覇市内では珍しい緑豊かな環境で、少人数によるきめ細かい教育を行う。</td></tr>
+          <tr><td class="sname">那覇市立金城小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">教育熱心な保護者が多く学力が高いという書き込みが多い<br>給食が美味しいという投稿も見られる<br>オープン教室で騒がしく施設が老朽化しているという書き込みが多い<br>いじめ対応への不満という投稿も見られる</td><td class="feature">教育目標は知・徳・体・志の4つの柱。転勤族や自衛隊家族が多く教育熱心な家庭が多いとされ、学力テストで市内上位の実績がある。</td></tr>
+          <tr><td class="sname">那覇市立神原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">治安が良く地域交流が盛んという投稿も見られる<br>いじめ対応や学童の評判、セキュリティ面への不満という書き込みが多い</td><td class="feature"></td></tr>
+          <tr><td class="sname">那覇市立古蔵小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">落ち着いた雰囲気でのびのび学べるという書き込みが多い<br>スポーツが盛んという投稿も見られる</td><td class="feature">総括目標は「人間性豊かで、自主性・社会性・創造性・国際性に富んだ心身ともに健全な児童の育成」。「誰一人見捨てない」を経営理念に掲げる。</td></tr>
+          <tr><td class="sname">那覇市立さつき小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">先生が一生懸命で授業参観が多いという書き込みが多い<br>高学年が低学年に優しいという投稿も見られる<br>授業の進み方や先生の対応に差があるという投稿も見られる</td><td class="feature">教育目標は「心豊かな子」等。2000年創立で、スローガンは「げんき・やるき・さつき」。</td></tr>
+          <tr><td class="sname">那覇市立識名小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">地域とのつながりが強いという投稿も見られる</td><td class="feature">市内では珍しいハンドボール部・おやじの会などがある、児童数の多い学校。</td></tr>
+          <tr><td class="sname">那覇市立城岳小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">地域とのつながりが強く温かい雰囲気という書き込みが多い<br>運動場が狭く水はけが悪いという書き込みが多い</td><td class="feature">教師と児童が一緒になって授業づくりを考える取り組みが、全国の教育活動を表彰する事業で準大賞を受賞。</td></tr>
+          <tr><td class="sname">那覇市立城西小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">伝統校としての意識が強いという書き込みがある<br>給食が美味しいという投稿も見られる<br>トイレが古く運動場が狭いという書き込みが多い</td><td class="feature">首里城のお膝元に立地する創立127年の歴史校。SDGs学習や首里の文化を学ぶ活動に取り組む。</td></tr>
+          <tr><td class="sname">那覇市立城東小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">先生が一人ひとりをよく見てくれているという書き込みが多い<br>運動場のトイレの老朽化など施設面を気にする投稿も見られる</td><td class="feature">教育目標は「自ら学び自ら考える子」等、知・徳・体のバランスを重視する。</td></tr>
+          <tr><td class="sname">那覇市立城南小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">落ち着いた家庭が多いという書き込みが多い<br>PTA活動が盛んという投稿も見られる</td><td class="feature">1880年創立という古い歴史を持ち、琉球王国時代から続く格式ある地域に立地している。</td></tr>
+          <tr><td class="sname">那覇市立城北小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">学力が高く静かな雰囲気という書き込みが多い<br>教育熱心な保護者が多いという投稿も見られる<br>先生の対応にばらつきがあり施設や通学路の安全面を心配する書き込みが多い</td><td class="feature">明治28年創立の歴史校。全国学力テストで沖縄県1位になったことがあるなど、教育熱心な家庭が多いとされる。</td></tr>
+          <tr><td class="sname">那覇市立大道小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">PTA主催の行事が充実しているという投稿も見られる<br>担任によって対応にムラがあるという投稿も見られる</td><td class="feature">1934年開校の歴史ある学校。</td></tr>
+          <tr><td class="sname">那覇市立高良小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">先生の授業がわかりやすいという書き込みが多い<br>連絡網がしっかりしているという投稿も見られる<br>校舎の老朽化や通学路に歩道がなく危険という書き込みが多い</td><td class="feature">スローガンは「高良っ子」。英会話クラブ・吹奏楽部・女子サッカー部など部活動がある。</td></tr>
+          <tr><td class="sname">那覇市立壺屋小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">少人数で先生の目が行き届くという投稿も見られる</td><td class="feature">校訓は「創造・自立・友愛」。壺屋焼の制作など、地域に根ざした授業が特色。</td></tr>
+          <tr><td class="sname">那覇市立天妃小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">PTA活動が盛んという投稿も見られる</td><td class="feature">スローガン「8時だよ、全員登校！」で生活リズムの定着を重視。1学年2〜3クラスの小回りの利く規模。</td></tr>
+          <tr><td class="sname">那覇市立泊小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">優しい先生が多く明るいという書き込みが多い<br>給食が美味しいという投稿も見られる<br>校舎の老朽化を指摘する投稿も見られる</td><td class="feature">教育目標は「夢に向かって、たくましく生きる児童の育成」。X上では卒業生が通学当時を懐かしむ投稿も見られる(2024年以降)。</td></tr>
+          <tr><td class="sname">那覇市立仲井真小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">子どもたちが素直でいい子が多いという投稿も見られる</td><td class="feature">教育目標は「豊かな心を持ち 自ら学ぶたくましい子」。「けテぶれ」学習法による家庭学習を推進している。</td></tr>
+          <tr><td class="sname">那覇市立那覇小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">オープンな雰囲気という書き込みが多い<br>あいさつが気持ちよいという投稿も見られる</td><td class="feature">2014年、久茂地小学校と前島小学校を統合して開校。</td></tr>
+          <tr><td class="sname">那覇市立真地小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">自然環境が良いという投稿も見られる</td><td class="feature">教育目標は「自ら学び、心豊かに、たくましい生きる子の育成」。将棋部・科学部など部活動が多彩。</td></tr>
+          <tr><td class="sname">那覇市立真嘉比小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">アットホームな雰囲気でいじめがないという書き込みが多い<br>地域密着型という投稿も見られる<br>宿題が少なくセキュリティ面を心配する投稿も見られる</td><td class="feature">教育目標は「社会を生き抜く子どもを育む」。昭和38年に大道小学校から分離開校し、地域の伝統行事や文化を学ぶ機会がある。</td></tr>
+          <tr><td class="sname">那覇市立松川小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">学力を重視する保護者が多いという書き込みが多い<br>緑が多く自然豊かという投稿も見られる</td><td class="feature">教育目標は「自ら学び、みんなとともに伸びる心豊かでたくましい子」。那覇市街を一望する高台に立地し、緑化活動で表彰歴がある。</td></tr>
+          <tr><td class="sname">那覇市立松島小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">あいさつ運動やPTA活動がしっかりしているという投稿も見られる</td><td class="feature">教育目標は「心豊かで、知・徳・体の調和のとれた、たくましく生きる児童の育成」。</td></tr>
+          <tr><td class="sname">那覇市立真和志小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">明るい元気な雰囲気という投稿も見られる</td><td class="feature">スローガンは「笑顔いっぱい、元気いっぱい、あいさついっぱい」。</td></tr>
+          <tr><td class="sname">那覇市立銘苅小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">施設が新しくきれいという書き込みが多い<br>転校生を受け入れやすいという投稿も見られる<br>先生による差や遊具の管理不足を指摘する書き込みも多い</td><td class="feature">基本理念は「自立、参画、貢献、飛翔」。2005年開校で、都心部にありながら自然体験・農業体験学習に力を入れている。</td></tr>
+          <tr><td class="sname">那覇市立与儀小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「夢を持ち自分を高め学び続ける子」。幼小連携・小中一貫教育を重視し、市内では珍しい春の運動会を行う。</td></tr>
+          <tr><td class="sname">那覇市立若狭小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">海の近くで景色が良いという書き込みが多い<br>あいさつ運動がしっかりしているという投稿も見られる</td><td class="feature">市内では珍しい農業体験や、栽培学習を取り入れた給食メニューがある。</td></tr>
+          <tr><td class="sname">那覇市立安岡中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">元気で活気があり先生が優しいという書き込みが多い<br>男子から女子へのいじめが絶えないという指摘がある<br>先生の身だしなみへの不満という投稿も見られる</td><td class="feature">学校教育目標は「確かな学力を身につけ、心豊かでたくましい生徒を育む」。主体的な学習や自学自習力の育成、思いやりと感謝の心、健康管理・体力向上を重視している。読書推進や人権教育、清掃活動を通じた公共心の育成にも力を入れている。</td></tr>
+          <tr><td class="sname">那覇市立神原中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">小規模で先生の目が行き届くという書き込みが多い<br>文武両道で落ち着いているという投稿も見られる<br>教師の指導力にばらつきがあるという投稿も見られる</td><td class="feature">沖縄県で初めての小中一貫校として、隣接する神原小学校と連携した教育を行う。</td></tr>
+          <tr><td class="sname">那覇市立古蔵中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活動が盛んでにぎやかという書き込みが多い<br>校舎が古いという投稿も見られる</td><td class="feature">ラムサール条約登録湿地「漫湖」の近くに立地し、自然環境を生かした学習に取り組む。野球部は市内屈指の強豪。</td></tr>
+          <tr><td class="sname">那覇市立那覇中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">進学実績や学力を評価する書き込みがある<br>施設が古いという投稿も見られる</td><td class="feature">校訓は「明朗 自治 協同」。陸上・柔道などで全国大会実績があり、X上では卒業生が学食や清掃活動の思い出を語る投稿も見られる(2024年以降)。</td></tr>
+          <tr><td class="sname">那覇市立上山中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">校舎が新しく綺麗という投稿も見られる</td><td class="feature">校訓は「質実剛健」。中国福州市など他地域との交流教育、旗頭・獅子舞など地域の伝統文化を継承している。</td></tr>
+          <tr><td class="sname">那覇市立鏡原中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">施設が新しく部活・学習環境が良いという書き込みが多い<br>校則が厳しく制服への不満という書き込みが多い</td><td class="feature">校訓は「進取・創造・雄飛」。市内で初めて「学年チーム担任制」を導入し、漫湖に近い自然豊かな環境にある。</td></tr>
+          <tr><td class="sname">那覇市立松城中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">ブレザー制服がおしゃれという投稿も見られる</td><td class="feature">教育の柱は「自主・協調・創造」。落ち着いた校風で、地域との連携を重視している。</td></tr>
+          <tr><td class="sname">那覇市立小禄中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活動が盛んでにぎやかという書き込みが多い<br>校舎が新しくなったという投稿も見られる<br>いじめが多く学習面・進学実績が良くないという書き込みが多い</td><td class="feature">校訓は「自立進取」「不撓不屈」。文武両道を掲げ、サッカー部が県内強豪として知られる。</td></tr>
+          <tr><td class="sname">那覇市立金城中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">イベントが多く学力が高めという書き込みが多い<br>いじめの話を聞いたことがあるという投稿も見られる</td><td class="feature">教育方針は「みつめ、はぐくみ、かたちにする」。茶道部・柔道部などがあり、水泳で全国優勝の実績もある。</td></tr>
+          <tr><td class="sname">那覇市立松島中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">文武両道で生徒同士の仲が良いという投稿も見られる<br>校舎が古く雨漏りがあるという投稿も見られる</td><td class="feature">教育目標は「自ら学びつづけ 心身ともに健やかに たくましく生きる生徒」。</td></tr>
+          <tr><td class="sname">那覇市立真和志中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活動が盛んで先生が親身という投稿も見られる</td><td class="feature">教育目標は「自主明朗」。生徒会・部活動を通じて生徒の自主性を重んじている。</td></tr>
+          <tr><td class="sname">那覇市立石田中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">賑やかで行事が多く楽しいという書き込みが多い<br>不良が多いという噂や学力レベルを心配する投稿も見られる</td><td class="feature">校訓は「かしこく やさしく たくましく」。テニス部・ハンドボール部など部活動のレベルが高い。</td></tr>
+          <tr><td class="sname">那覇市立仲井真中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">緑が多く個性を尊重してくれるという書き込みがある<br>部活動が盛んという投稿も見られる<br>生徒の治安悪化や学力低下を心配する書き込みが多い</td><td class="feature">スローガンは「みんなで目指そう！！日本一の学校！！」。駅伝・運動部やボランティア活動が活発。</td></tr>
+          <tr><td class="sname">那覇市立寄宮中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">落ち着いていて部活と勉強を両立できるという投稿も見られる<br>活気が足りない、施設が古いという投稿も見られる</td><td class="feature">教育目標は「自ら学ぶ力・思いやりの心・ねばりぬく力」。旗頭パレードや那覇ハーリーなど地域行事に参加している。</td></tr>
+          <tr><td class="sname">那覇市立城北中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">スポーツが盛んという投稿も見られる</td><td class="feature">校訓は「向上無限」。1人1台端末を生かした個別最適な学びに力を入れ、野球部は市内屈指の強豪。</td></tr>
+          <tr><td class="sname">那覇市立城北中学校若夏分校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">那覇市立石嶺中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">先生が優しく学力が高めという書き込みが多い<br>校舎の古さを指摘する投稿も見られる</td><td class="feature">教育目標は「自ら学び 深く考え 未来を拓く 心豊かでたくましい生徒を育成する」。校訓「錬心」のもと、プロジェクト型探究学習や「錬心タイム」「錬心ダイアリー」による自学自習力育成、生徒会活動による異学年交流などが特色。</td></tr>
+          <tr><td class="sname">那覇市立首里中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活動が盛んという書き込みがある<br>施設が古いという指摘も見られる</td><td class="feature">教育目標は「ふるさと首里を誇り 志高く未来の可能性に挑戦する生徒を育む」。首里城近くに立地し、陸上競技で県内トップクラスの実績がある。</td></tr>
+          <tr><td class="sname">興南中学校</td><td class="skind">中</td><td class="stype">私立</td><td class="srate">文武両道で熱心な先生が多いという書き込みが多い<br>制服が可愛いという投稿も見られる<br>校則が厳しく自主性に差が出やすいという書き込みが多い</td><td class="feature">建学の精神は「社会に有為な人物の育成」。中高で週38時間の授業を確保し、英検・数検等の資格取得にも力を入れる。野球部・ハンドボール部などが強化指定部。</td></tr>
+          <tr><td class="sname">沖縄尚学高等学校附属中学校</td><td class="skind">中</td><td class="stype">私立</td><td class="srate">文武両道の進学校で国際教育が盛んという書き込みが多い<br>寄附金の負担が大きいという書き込みが多い</td><td class="feature">教育スローガンは「文武両道のたくましい進学校」。沖縄伝統空手(型)が必修で、海外研修・交換留学など国際プログラムが充実。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">宜</span><span class="muni-name">宜野湾市</span><span class="muni-count">小10・中5</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">宜野湾市立大山小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">教職員・保護者・地域が一体という書き込みが多い</td><td class="feature">教育目標は「知恵かしこい子 誠実やさしい子 挑戦たくましい子」。3年生の総合学習で田いもの植え付け〜収穫を体験し、地域の伝統行事「大山大綱引き」にも児童が参加。</td></tr>
+          <tr><td class="sname">宜野湾市立大謝名小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">先生がまめに連絡してくれるという投稿も見られる<br>急なお便りが多いという投稿も見られる</td><td class="feature">教育方針は「一人一人の個性が生き、豊かな人間性と創造力に富む心身共に健全な児童の育成」。赤瓦のオープンスペース校舎や「澄ちゃん文庫」など、地域に根ざした環境が特徴。</td></tr>
+          <tr><td class="sname">宜野湾市立嘉数小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「進んで学び、よく考える子」等。キャリア教育と英語指導に力を入れている。</td></tr>
+          <tr><td class="sname">宜野湾市立宜野湾小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">保護者への連絡ツールが充実しているという投稿も見られる<br>マンモス校で1クラスの人数が多く目が届くか心配という投稿も見られる</td><td class="feature">教育目標は「他者と協働しながら、よりよいものを創り出そうとする児童の育成」。児童数800人超の大規模校で、創立140年を超える歴史校。</td></tr>
+          <tr><td class="sname">宜野湾市立志真志小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">先生方が熱心で寄り添ってくれるという書き込みが多い<br>新校舎で環境が良いという投稿も見られる<br>通学路のスクールゾーン未整備を心配する投稿も見られる</td><td class="feature">教育目標は「よく考え進んで学ぶ子」等。市立図書館・琉球大学・沖縄国際大学に隣接し、緑化活動や外国語でのコミュニケーション活動に力を入れている。</td></tr>
+          <tr><td class="sname">宜野湾市立長田小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">落ち着いた環境でのびのび学べるという投稿も見られる<br>PTA役員の負担が大きいという投稿も見られる</td><td class="feature">教育目標は「自ら学び自ら考え行動する子」等。1999年開校と市内では比較的新しい学校。</td></tr>
+          <tr><td class="sname">宜野湾市立はごろも小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">校舎がきれいで先生が優しいという投稿も見られる</td><td class="feature">教育目標は「古に学び、未来を切り拓く...はごろもっ子の育成」。2014年開校。田芋畑や宜野湾海浜公園が近い環境。</td></tr>
+          <tr><td class="sname">宜野湾市立普天間小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">緑が多く環境が良いという書き込みが多い<br>先生と保護者の仲が良いという投稿も見られる<br>校内のセキュリティ面を心配する投稿も見られる</td><td class="feature">教育目標は「豊かな人間性を培い、健康で明るくたくましい児童の育成」。英語教育に力を入れてきた歴史がある。</td></tr>
+          <tr><td class="sname">宜野湾市立普天間第二小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">先生が親切で安心して通えるという投稿も見られる<br>クラス人数や宿題の多さを心配する投稿も見られる</td><td class="feature">教育目標は「進んで学習し よく考える子」等。英語教育に力を入れ、野球・バスケ・バレー・サッカーなどスポーツ少年団が盛ん。</td></tr>
+          <tr><td class="sname">沖縄カトリック小学校</td><td class="skind">小</td><td class="stype">私立</td><td class="srate">施設・セキュリティが良いという書き込みがある<br>先生の当たり外れが激しいという投稿も見られる</td><td class="feature">カトリック理念に基づき、神を敬愛し優れた道徳心と高い知性を備えた自主自立の「人」づくりを目指す。宗教の授業・行事、専科制授業、週2時間の英語教育、朝の自学自習「朝活」などが特色。</td></tr>
+          <tr><td class="sname">宜野湾市立普天間中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">先生が優しく施設が充実しているという書き込みが多い<br>学習面の差が大きくいじりが多いという書き込みが多い</td><td class="feature">教育目標は「平凡を非凡に努め...自己実現に向かう生徒」。部活動の実績が多く、平和学習にも力を入れている。</td></tr>
+          <tr><td class="sname">宜野湾市立宜野湾中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活が盛んで文武両道という書き込みがある<br>先生の対応への不満という投稿も見られる</td><td class="feature">教育目標は「進んで学習する」「思いやりのある」「心身ともにたくましい」生徒の育成。生徒会活動が活発。</td></tr>
+          <tr><td class="sname">宜野湾市立嘉数中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「我慢の川を渡りきれ！やさしく かしこく たくましく」。</td></tr>
+          <tr><td class="sname">宜野湾市立真志喜中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">人数が多く施設が新しいという書き込みがある<br>いじめや治安への不満という投稿も見られる</td><td class="feature">教育目標は「豊かな心で自ら学び、たくましく国際社会を生きる生徒の育成」。ICTを活用した授業に力を入れている。</td></tr>
+          <tr><td class="sname">沖縄カトリック中学校</td><td class="skind">中</td><td class="stype">私立</td><td class="srate">校舎が綺麗で管理がしっかりしているという書き込みが多い</td><td class="feature">「人は父なる神によって造られた兄弟姉妹である」という世界観に基づき、神を敬愛し隣人を愛する自主自立の「人づくり」を目指す。中高一貫で6年間を見通した教育、習熟度別授業、探究学習、国際交流などが特色。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">石</span><span class="muni-name">石垣市</span><span class="muni-count">小20・中9</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">石垣市立明石小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立新川小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">校訓は「夢 汗 チャレンジ」。学校経営方針を公開し、児童の主体的な成長を重視した教育を進めている。</td></tr>
+          <tr><td class="sname">石垣市立石垣小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立伊野田小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立大浜小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立大本小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">校訓は「共に育つ」。へき地・小規模・複式の特性を生かし、地域・保護者と連携しながら「よく聞き考え・表現する力」を育む教育を行っている。</td></tr>
+          <tr><td class="sname">石垣市立川平小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立川原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立崎枝小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立白保小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立登野城小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">先生と子どもの距離が近く相談しやすいという書き込みが多い<br>地域・PTAの協力が得やすい落ち着いた校風という書き込みが多い<br>内地の学校より学習の進度に差を感じるという投稿も見られる</td><td class="feature">教育目標は「自分の良さを発揮し 豊かに学び 共に成長する子」。校訓は「誠実・勇敢・礼節」で、個の充実と集団の調和を目指している。</td></tr>
+          <tr><td class="sname">石垣市立富野小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立名蔵小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立野底小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立平真小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">放課後に学内で宿題ができる「チャレンジ広場」が助かるという書き込みが多い<br>施設が古く和式トイレで低学年が困るという投稿も見られる</td><td class="feature">リーディングDXスクール指定校として、児童の情報活用能力の育成に力を入れている。</td></tr>
+          <tr><td class="sname">石垣市立真喜良小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立宮良小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立八島小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立吉原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">海星小学校</td><td class="skind">小</td><td class="stype">私立</td><td class="srate">少人数で目が届きやすく学校を好きになる子が多いという書き込みが多い<br>共働き世帯に便利な校内学童があるという書き込みが多い<br>学級の詰め込みすぎ・先生の質を疑問視する投稿も見られる</td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立石垣中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">明るく元気な生徒が多く部活動が盛んという書き込みが多い<br>PTA活動が活発で地域とのつながりが強いという書き込みが多い<br>下位層へのいじり・からかいがあるという投稿も見られる</td><td class="feature">最上位目標は「自ら考え、判断し、言動できる人」の育成(自分らしく あなたらしく)。自ら考え主体的に学習する生徒(知)、勇気を持って行動する心豊かな生徒(徳)、心身ともにたくましい生徒(体)を目指している。</td></tr>
+          <tr><td class="sname">石垣市立石垣第二中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">先生と生徒の距離が近く楽しく過ごせるという書き込みが多い<br>吹奏楽・マーチングバンド部が全国大会で実績という書き込みが多い<br>先生の指導力にばらつきがあるという投稿も見られる</td><td class="feature">学校教育目標は「人間尊重の教育を基調として 知性を磨き 豊かな心と 健康な体をつくる」(あいさつの二中・文化の二中・スポーツの二中)。めざす生徒像は「賢く、やさしく、たくましく、夢実現」。</td></tr>
+          <tr><td class="sname">石垣市立伊原間中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立大浜中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">校訓は「自主・協同・進取」。めざす生徒像は知性を磨く・心を磨く・心身を鍛える・自然を愛し郷土文化に親しむ生徒で、キャッチフレーズは「一人一人が輝いて、大中が輝く」。</td></tr>
+          <tr><td class="sname">石垣市立川平中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">地域の見守りが強くアットホームな雰囲気という書き込みが多い<br>少人数で勉強のフォローが丁寧という書き込みが多い</td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立崎枝中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立白保中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立富野中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">石垣市立名蔵中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">浦</span><span class="muni-name">浦添市</span><span class="muni-count">小11・中6</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">浦添市立内間小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">エレベーター等の設備が充実しているという書き込みが多い<br>いじめ対応に真剣に取り組んでいるという書き込みが多い<br>先生の指導力にばらつきがある・PTA参加者が偏りがちという投稿も見られる</td><td class="feature">教育目標は「夢と志を持ち、未来の可能性に挑戦する内間っ子を育む」。地域の獅子舞・棒術など伝統芸能を学校行事で継承している。</td></tr>
+          <tr><td class="sname">浦添市立浦城小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">児童数が多く学年を超えた交流がしやすいという書き込みが多い<br>連絡手段のアプリ化で便利になったという書き込みが多い<br>担任対応のばらつき・教員数不足を指摘する投稿も見られる</td><td class="feature">教育目標は「よく考え進んで学ぶ子」等。野球・バスケットボールなどスポーツが盛んな学校。</td></tr>
+          <tr><td class="sname">浦添市立浦添小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">校舎が新しくPTA活動が活発という書き込みが多い<br>地域学習(浦添グスク関連)を評価する書き込みが多い<br>高台で外部から様子が見えにくいという投稿も見られる</td><td class="feature">市内最初の小学校として明治15年に創立し、140年超の歴史を持つ。英語科を中心とする国際理解教育を長年継続研究し、浦添グスク周辺の歴史文化を探究する学習にも取り組む。</td></tr>
+          <tr><td class="sname">浦添市立神森小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">のびのびとした校風でハンドボールなど部活動が盛んという書き込みが多い<br>やんちゃな児童が多く学力面は低めという投稿も見られる</td><td class="feature">校訓は「よく遊び よく学び 心も強く 体も強く」。ハンドボールが全国レベルで、2000年から5年連続全国制覇の実績を持つ。</td></tr>
+          <tr><td class="sname">浦添市立沢岻小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">保護者同士のつながりが強く地域行事が盛んという書き込みが多い<br>素直な子が多いという書き込みが多い<br>発達特性のある子へのフォローが不十分という投稿も見られる</td><td class="feature">教育目標は「豊かな心で たくましく生きる子どもの育成」。東シナ海を望む高台に立地し、市内では珍しい剣道部、県内では珍しいハンドボール部がある。</td></tr>
+          <tr><td class="sname">浦添市立当山小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">児童数が多くイベントが学年・学級単位で定期的という書き込みが多い<br>教員の力量差が見えるという投稿も見られる</td><td class="feature">教育目標は「よく考え自ら学ぶ子」等。児童数1,000人を超える県内トップクラスの規模の学校。</td></tr>
+          <tr><td class="sname">浦添市立仲西小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「心豊かでたくましく生きる日本人の育成」。「伝統と創造」を基調に、国際社会と共生する力を育む方針。</td></tr>
+          <tr><td class="sname">浦添市立前田小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">地域の自治会との連携が強くアットホームという書き込みが多い<br>気持ちの優しい児童が多いという書き込みが多い</td><td class="feature">教育目標は「自ら学び 互いに思いやり たくましく 未来に羽ばたく 前田の子」。地域の伝統武術「前田棒」や米づくり・サトウキビ栽培等の体験学習があり、2023年度からコミュニティ・スクール化。</td></tr>
+          <tr><td class="sname">浦添市立牧港小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">児童数が少なくアットホームで行事の負担が少ないという書き込みが多い<br>校長が朝の挨拶・巡回を丁寧に行うという書き込みが多い<br>悪口や噂・いじめが目立つ、先生が厳しく宿題が多いという投稿も見られる</td><td class="feature">教育目標は「よく考える子」「心豊かな子」「健康で明るい子」。</td></tr>
+          <tr><td class="sname">浦添市立港川小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">保護者・地域の関わりが活発でコミュニティ・スクール表彰歴があるという書き込みが多い<br>自由な校風で英語プレゼンなど特色ある活動という書き込みが多い<br>転入者の増加で地域のまとまりが薄れた・自己中心的な保護者が増えたという投稿も見られる</td><td class="feature">教育目標は「自主的でよく考える子・すなおで心の豊かな子・強いからだと心をもった子」。2024年度で開校45年、児童数約1,000人の大規模校。</td></tr>
+          <tr><td class="sname">浦添市立宮城小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「目標を持ち、ねばり強く学ぶ子」等。1982年に神森小学校から分離開校し、ハンドボール・サッカーなど部活動が盛ん。</td></tr>
+          <tr><td class="sname">浦添市立浦添中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">不良行動やいじめの多さを指摘する書き込みが多い<br>学力平均が低く塾なしでは進学が厳しいという書き込みが多い<br>校舎がきれいで部活が盛んという投稿も見られる(やや古い情報)</td><td class="feature">教育目標は「ふるさとを誇り 未来社会を切り拓く たくましい 心豊かな生徒」。市内で最も古い中学校。</td></tr>
+          <tr><td class="sname">浦添市立仲西中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活動(野球・バレー等)が盛んで評価が高いという書き込みが多い<br>行事が楽しく先生が話しやすいという書き込みが多い<br>いじめや素行面の指摘も見られる</td><td class="feature">校風は「文武両道の仲西中学校」。男女ハンドボール部がともに全国制覇の実績を持ち、吹奏楽部も全国大会で金賞を受賞。</td></tr>
+          <tr><td class="sname">浦添市立神森中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">ハンドボール等の部活動が全国レベルという書き込みが多い<br>学力差が大きく先生の対応にムラがあるという書き込みが多い<br>非行が多くおすすめしないという投稿も見られる</td><td class="feature">知・徳・体の3本柱を教育目標に掲げる。過去10年でハンドボール・水泳等の全国大会実績があり、交換留学プログラムも実施。</td></tr>
+          <tr><td class="sname">浦添市立港川中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">文武両道を意識した指導・雰囲気という書き込みが多い<br>いじめが少なく先生が生徒に向き合っているという書き込みが多い<br>校則がやや厳しく上下関係の制限があるという投稿も見られる</td><td class="feature">総括目標は「自ら学び（知）・心豊かで（徳）・ねばり強くたくましい生徒（体）」。学年ごとに色分けする「学年カラー」制度が特色。<br><span style="color:#A8461F;font-size:11.5px;">※過去の報道:2009年に体罰事案、2026年に個人情報紛失事案が報じられている(口コミの集計とは別に、公的発表・報道があった事実として記載)</span></td></tr>
+          <tr><td class="sname">浦添市立浦西中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「ふるさとに誇りを持ち未来を拓く心豊かでたくましい生徒を育成する」。「文武両道の花咲く浦西中」を掲げ、部活動加入率が高い。</td></tr>
+          <tr><td class="sname">昭和薬科大学附属中学校</td><td class="skind">中</td><td class="stype">私立</td><td class="srate">進学実績(医歯薬・難関大)に定評があるという書き込みが多い<br>中高一貫で高校受験がない点がメリットという書き込みが多い<br>高校受験がない分中だるみしやすいという投稿も見られる</td><td class="feature">建学の精神は戦後沖縄への人材育成を通じた貢献。中高一貫でグローバルに活躍できる人材育成を掲げる進学校で、4科目入試・調査書なしの選抜制度が特色。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">名</span><span class="muni-name">名護市</span><span class="muni-count">小14・中10</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">名護市立東江小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">地域とのつながりが強く保護者との合同行事が多いという書き込みが多い<br>校舎が比較的新しく学童・幼稚園併設で便利という書き込みが多い<br>授業が乱れがちという投稿も見られる(限られた情報による)</td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立安和小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">地域の協力(交通安全・読み聞かせ等)が厚いという書き込みが多い<br>異年齢交流が盛んで上級生が下級生の面倒を見るという書き込みが多い</td><td class="feature">地域特産のシークヮーサーを活用した商品開発学習など、地域と連携した体験活動に取り組んでいる。</td></tr>
+          <tr><td class="sname">名護市立稲田小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">登校後に全校で清掃する奉仕活動が特徴という書き込みが多い<br>地域・保護者の支えが厚く部活動が盛んという書き込みが多い</td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立大北小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">団地が多く学校までの近さが安心材料という書き込みが多い<br>教員の高齢化で活気が損なわれているという投稿も見られる</td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立大宮小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">施設・先生ともにしっかりしているという書き込みが多い<br>大きないじめの話は聞きにくく部活動も盛んという書き込みが多い<br>独自色が薄くPTA負担感を指摘する投稿も見られる</td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立久志小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立久辺小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立瀬喜田小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">市内最小規模で兄弟のように仲が良いという書き込みが多い<br>いじめが少なく素直な子が多いという書き込みが多い<br>PTAのまとまりの弱さ・行事負担を指摘する投稿も見られる</td><td class="feature">地域の魅力を学ぶ座談会など、地域と連携した学習活動に取り組んでいる。</td></tr>
+          <tr><td class="sname">名護市立名護小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">校舎が新しく広く綺麗という書き込みが多い<br>給食が美味しい・クラブ活動が盛んという書き込みが多い<br>クラス人数が多く教師の対応にばらつきがあるという投稿も見られる</td><td class="feature">教育目標は「未来を拓く『たくましい子』の育成」(考えつくりだす子・心をみがく子・体をきたえる子)。重点目標として基礎学力の定着・豊かな心の育成・基本的生活習慣の形成に取り組んでいる。</td></tr>
+          <tr><td class="sname">名護市立羽地小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">校舎が綺麗で整理整頓されているという書き込みが多い<br>子どもたちが元気に挨拶するという書き込みが多い</td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立真喜屋小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">全学年が兄弟のように仲が良いという書き込みが多い<br>素直でかわいい子が多いという書き込みが多い</td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立屋我地小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">小中一貫で勉学に力を入れているという書き込みが多い<br>IT活用やホームページでの情報発信が積極的という書き込みが多い</td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立屋部小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">敷地内に樹齢の長いデイゴ(市天然記念物)がある歴史ある学校という書き込みが多い<br>子どもたちが道で挨拶するなどきびきびした印象という書き込みが多い</td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立屋部小学校中山分校（分校）</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">やんばるの山中にある極めて小規模な分校という書き込みが多い<br>子どもたちが元気で農業体験など自然を生かした活動があるという書き込みが多い</td><td class="feature"></td></tr>
+          <tr><td class="sname">沖縄県立名護高校附属桜中学校</td><td class="skind">中</td><td class="stype">県立</td><td class="srate"></td><td class="feature">校訓は「知性を研こう」「感性を鍛えよう」「個性を育てよう」、校是は「一人文武両道」。中高一貫の「フロンティア科」として、語学力・コミュニケーション・プレゼンテーション能力の育成に力を入れている。</td></tr>
+          <tr><td class="sname">名護市立屋部中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立大宮中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立東江中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立名護中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立羽地中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立屋我地中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">小規模で地域一体型のアットホームな環境という書き込みが多い<br>上級生が下級生を世話し地域全体で見守るという書き込みが多い</td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立久辺中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">名護市立久志中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">沖縄三育中学校</td><td class="skind">中</td><td class="stype">私立</td><td class="srate">先生との距離が近くアットホームという書き込みが多い<br>いじめが少なく個性的な生徒がまとまりやすいという書き込みが多い<br>校則が厳しい(スマホ・漫画禁止等)という投稿も見られる</td><td class="feature">教育理念は「神に仕え、人に奉仕する人物の育成」。全寮制のキリスト教教育で、自然体験学習・労作教育・農業体験を通じた人格形成に力を入れている。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">糸</span><span class="muni-name">糸満市</span><span class="muni-count">小11・中6</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">糸満市立糸満小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">明るい雰囲気で楽しい学校という書き込みが多い。<br>施設が整っているという投稿も見られる。</td><td class="feature">学校教育目標は「思いやりのある 進んで学ぶ たくましい子」。地域の伝統行事(糸満ハーレーや十五夜・大綱引きなど)が盛んな環境を生かし、家庭・地域と連携した教育を進めている。</td></tr>
+          <tr><td class="sname">糸満市立糸満南小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">児童の頑張りを見守り公平に評価してくれるという書き込みが多い。<br>施設や立地が良いという投稿も見られる。<br>授業への取り組みやPTAのマンネリ感を指摘する投稿も見られる。</td><td class="feature">学校教育目標は「思いやりのある(徳) 自ら学ぶ(知) 元気な子(体)」。海洋教育を柱にした活動を展開し、児童の主体性・個性を生かして自己肯定感を高める取り組みを行っている。</td></tr>
+          <tr><td class="sname">糸満市立兼城小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">地域密着で活気があり、保護者連携がしっかりしているという書き込みが多い。<br>校舎が新しいという投稿も見られる。<br>施設・セキュリティ面への不満を述べる投稿も見られる。</td><td class="feature">学校教育目標は「思いやりのある(徳) かしこく(知) たくましい子(体)」。徳育を第一に掲げ、相手の立場になって考える子・自他のよさを認め助け合う子・ルールを守る子の育成を全校体制で進めている。</td></tr>
+          <tr><td class="sname">糸満市立喜屋武小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">基本目標は「創造性豊かで、未来を拓く子」。自ら学び考える子・心豊かで思いやりのある子・粘り強くたくましい子の育成を掲げ、地域に根ざした「みさきっ子」の育成に取り組んでいる。</td></tr>
+          <tr><td class="sname">糸満市立光洋小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">礼儀正しい指導や落ち着いた生活習慣づくりが評判という書き込みが多い。<br>転勤族が多く標準語の使用が見られるという投稿も見られる。<br>施設や校庭が広いという投稿も見られる。</td><td class="feature">学校教育目標は「礼儀正しく、心やさしい子(徳)」「めあてを持ち、進んで学習する子(知)」「健康で、ねばり強くやりぬく子(体)」。支持的風土のある学校づくりや「わかる授業」、いじめを見逃さない取り組みを重視している。</td></tr>
+          <tr><td class="sname">糸満市立米須小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「一人も独りにせず、だれもが学び続ける学校」。探究と協働による学びを実現する授業改善に取り組み、黒糖づくりや海人工房見学、防災フェスタなど地域の体験活動も実施している。</td></tr>
+          <tr><td class="sname">糸満市立米須小学校大度分校（分校）</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">糸満市立潮平小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">児童数が多く友達ができやすいという書き込みが多い。<br>スポーツ活動が盛んで設備が整っているという投稿も見られる。</td><td class="feature">教育目標は「やさしく かしこく たくましい 潮平っ子の育成」。「いろいろなことにチャレンジする」「がんばっている人を応援する」「命を守る行動をする」など具体的な目標を掲げて育成に努めている。</td></tr>
+          <tr><td class="sname">糸満市立高嶺小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">小規模でアットホームな雰囲気という書き込みが多い。<br>先生と子どもの距離が近く一人ひとりをよく見ているという投稿も見られる。<br>PTA活動が強制でないという投稿も見られる。<br>学童(トワイライト)がなく集団登校もないため、登下校の安全面を心配する投稿も見られる。<br>校舎老朽化により2024年に校章が外壁から落下する事故が発生し、小中一貫校への移転改築計画が入札不調で大幅に遅れていると報じられている。</td><td class="feature">「読書いっぱい・あいさついっぱい・花いっぱい」の三ぱい学校づくりを推進し、糸満市の研究指定校として海洋教育(海人科など)に取り組んでいる。小中連携や基本的生活習慣の確立も進めている。</td></tr>
+          <tr><td class="sname">糸満市立西崎小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自ら学び考える 心豊かで 健康な 児童の育成」。テーマは「みんなで協力！よく学びよく遊ぶ、思いやりのある西崎っ子」。地域に信頼される開かれた学校を目指し、規範意識や協働する力の育成を重視している。</td></tr>
+          <tr><td class="sname">糸満市立真壁小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">静かで良い環境という書き込みが多い。<br>スポーツが盛んで校舎が比較的新しいという投稿も見られる。</td><td class="feature"></td></tr>
+          <tr><td class="sname">糸満市立潮平中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">先生が親身で相談しやすく、生徒同士の仲が良いという書き込みが多い。<br>自分のやりたいことを応援してもらえる雰囲気があるという投稿も見られる。<br>校則が厳しいという投稿も見られる。</td><td class="feature">学校教育目標は「自ら学び自ら考える主体的な生徒(知育)」「情操豊かで思いやりのある生徒(徳育)」「心身ともに健康でたくましい生徒(体育)」。目指す生徒像を「主体的に学び続け、多様な他者と協働できる生徒」とし、ICT推進校としての取り組みを進めている。</td></tr>
+          <tr><td class="sname">糸満市立西崎中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">多様な生徒がいて、勉強は自分次第という書き込みが多い。<br>部活が強いという投稿も見られる。<br>学力レベルが低いという投稿も見られる。</td><td class="feature">校訓は「自主・自律・貢献」、学校教育目標は「頭をきたえ、心をみがき、体をきたえる生徒の育成」。生徒会活動が活発でスポレク大会や西中祭などを生徒主体で運営し、地域・小学校と連携した学校づくりを進めている。</td></tr>
+          <tr><td class="sname">糸満市立兼城中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">いじめが少なく、勉強と部活の両立ができているという書き込みが多い。<br>先生による評価のばらつきを指摘する投稿も見られる。</td><td class="feature"></td></tr>
+          <tr><td class="sname">糸満市立高嶺中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">先生が優しく、いじめが少なく過ごしやすいという書き込みが多い。<br>自然に囲まれた環境が良いという投稿も見られる。<br>グラウンドが狭い、図書館の本が少ないという投稿も見られる。<br>校舎老朽化により2025年に天井のコンクリートが剥落する事案が起きたと報じられている。</td><td class="feature">教育目標は「豊かな心を持ち、自ら考え判断し、実感できるたくましい生徒の育成」。海洋教育を柱に、糸満の海や歴史・環境について探究する活動を行っている。</td></tr>
+          <tr><td class="sname">糸満市立三和中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">校訓「和の心」のもと、教育目標は「ふるさと三和を愛し 夢を拓く 心豊かな生徒」。真壁・米須・喜屋武小学校などから集う伝統ある学校として、生徒の夢の実現と開かれた学校づくりに取り組んでいる。</td></tr>
+          <tr><td class="sname">糸満市立糸満中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">校則がゆるめという書き込みが多い。<br>スポーツ系の部活が強いという投稿も見られる。<br>いじめや治安面への懸念を述べる投稿も見られる。</td><td class="feature">教育目標は「主体的に学び(知)」「心豊かで勤労を大切にする(徳)」「心身ともに健康な生徒(体)」。海人科などの海洋教育に取り組み、糸満の海や文化を学ぶ活動を進めている。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">沖</span><span class="muni-name">沖縄市</span><span class="muni-count">小15・中9</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">沖縄市立安慶田小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">幼稚園や児童館との連携が良く、安心して通わせられるという書き込みが多い。<br>施設のセキュリティ面で低い評価の投稿も見られる。</td><td class="feature">学校教育目標は「自ら学び、豊かな心でたくましく行動する子」。平和学習の発表会や児童会主催の活動など、体験を通じた学びを重視している。</td></tr>
+          <tr><td class="sname">沖縄市立泡瀬小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">子供が素直で元気いっぱいで、礼儀正しいという書き込みが多い。<br>グラウンドが広く綺麗に整備されているという投稿も見られる。</td><td class="feature">教育目標は「心豊かで創造性に富み自主的に行動する子」。</td></tr>
+          <tr><td class="sname">沖縄市立北美小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">教室がオープンで開放的、部活動のサポートが手厚いという書き込みが多い。<br>米軍基地が近く騒音などの影響を感じるという投稿も見られる。</td><td class="feature">教育目標は「進んで学習する子」等。市内では珍しい保護者用駐輪場があり、職場体験等の取り組みも行う。</td></tr>
+          <tr><td class="sname">沖縄市立越来小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自ら学ぶ子、心豊かな子、たくましい子」。市内では児童数が少なめの学校。</td></tr>
+          <tr><td class="sname">沖縄市立コザ小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「よく考え進んで学ぶ子」等。市内では珍しく全学年で英語・国語・算数の習熟度別クラス編成を行う。</td></tr>
+          <tr><td class="sname">沖縄市立島袋小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">沖縄市立高原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">「高原っ子像」を設定し、特色ある学校づくりを目指している。学習発表会や、中学校と連携したキャリア教育などに取り組む。</td></tr>
+          <tr><td class="sname">沖縄市立中の町小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「夢を持ち、進んで学び、持続可能な社会に生きる心身ともに健康で、国際性豊かな児童の育成」。</td></tr>
+          <tr><td class="sname">沖縄市立美東小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">自主性を育て、考える力を教える雰囲気で、あいさつが行き交う花いっぱいの学校という書き込みが多い。<br>新校舎が清潔で使いやすいという投稿も見られる。<br>校庭が砂利で汚れやすいという声も見られる。</td><td class="feature">学校教育目標は「社会とつながり、主体的に未来を切り拓く子どもの育成」。新校舎を活用した活動や、安心・所属・承認・自立をキーワードにした指導が特徴。</td></tr>
+          <tr><td class="sname">沖縄市立美里小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">校舎が綺麗で地域との連携が良いという書き込みが多い。<br>PTA会計に関する報道・関連投稿も見られる。</td><td class="feature">市内では珍しいバス通学、県内では珍しい2分の1成人式・放送部がある。</td></tr>
+          <tr><td class="sname">沖縄市立美原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">明るい雰囲気で参観日などの参加率が高いという書き込みが多い。<br>大規模校ながら教頭や保健室の体制に安心感があるという投稿も見られる。<br>3年生の教室がプレハブで、雨天時の給食準備に苦労するという投稿も見られる(2016年当時)。</td><td class="feature">教育目標は「自ら学び 心豊かでたくましい子どもの育成」。美里小学校の過密解消のため1990年開校し、教室と廊下の仕切りがない開放的な造りが特色。</td></tr>
+          <tr><td class="sname">沖縄市立宮里小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「進んで学びよく考えて行動する子」等。沖縄市内で児童数の多い学校の一つで、県内では珍しいバドミントン部がある。</td></tr>
+          <tr><td class="sname">沖縄市立室川小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「豊かな心を持ち、ねばり強く学び続ける、心身ともにたくましい子」。2014年にコミュニティ・スクールに指定。</td></tr>
+          <tr><td class="sname">沖縄市立諸見小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">創立68年の伝統校。文部科学省「リーディングDXスクール」「生成AIパイロット校」の指定校として、1人1台端末を生かした学びに力を入れている。</td></tr>
+          <tr><td class="sname">沖縄市立山内小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「よく考え学ぶ子、心豊かな子、元気な子」。「一人一鉢運動」など環境教育に力を入れ、校内に「やまももの里」という自然スペースがある。</td></tr>
+          <tr><td class="sname">沖縄県立球陽中学校</td><td class="skind">中</td><td class="stype">県立</td><td class="srate">学習環境が良く先生のサポートが手厚いという書き込みが多い。<br>雰囲気が良くいじめが少ないという投稿も見られる。<br>校則がやや厳しいという投稿も見られる。</td><td class="feature">県立の併設型中高一貫校。高い知性と豊かな人間性を養い国際社会で活躍する人材の育成を目標に掲げ、国際英語科での台湾研修などを実施。</td></tr>
+          <tr><td class="sname">沖縄市立越来中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">全国的にも珍しい文化祭・学芸会、県内では珍しいマラソン大会がある。</td></tr>
+          <tr><td class="sname">沖縄市立安慶田中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">先生が生徒に気を配り環境が良いという書き込みが多い。<br>スポーツが盛んという投稿も見られる。<br>施設の古さや汚れを指摘する投稿も見られる。</td><td class="feature">全生徒対象の英語スピーチ大会を実施するなど、英語教育に力を入れている。</td></tr>
+          <tr><td class="sname">沖縄市立コザ中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">先生がノリよく楽しいという書き込みが多い。<br>いじめが少ないという投稿も見られる。<br>文化祭や体育祭の内容に物足りなさを感じる投稿も見られる。</td><td class="feature">教育目標は「コザを愛し、将来、コザに貢献できる生徒の育成」。1998年の全国中学校バスケットボール大会で全国優勝した実績を持つ。</td></tr>
+          <tr><td class="sname">沖縄市立山内中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">セーターや靴下の色が自由など比較的自由な校則で知られ、サッカー部は強豪校としてプロ選手も輩出している。</td></tr>
+          <tr><td class="sname">沖縄市立美里中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活が盛んという書き込みが多い。<br>校則や生徒指導が厳しいという投稿も見られる。<br>先生の当たり外れが大きいという投稿も見られる。</td><td class="feature">歴史ある学校として地域とのつながりを大切にしている。部活動(特に野球など)や平和学習、学習成果発表会などが活発。</td></tr>
+          <tr><td class="sname">沖縄市立宮里中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活動が盛んという書き込みが多い。<br>普通の学校という投稿も見られる。<br>先生による対応のばらつきや学習環境への不満を述べる投稿も見られる。</td><td class="feature">教育目標は「自主的に考動し、自治共同の絆で、希望が膨らむ生徒」。県内でも大規模な中学校の一つで、緑の制服が特徴。</td></tr>
+          <tr><td class="sname">沖縄市立沖縄東中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活動が盛んで成績も良いという書き込みが多い。<br>生徒同士の仲が良く立地が便利という投稿も見られる。<br>校舎の古さを指摘する投稿も見られる。</td><td class="feature">モットーは「スポーツ熱中！勉強集中！みんな夢中の沖縄東中！！」。美東小・高原小・泡瀬小の3校から進学する、通学区域が広い学校。</td></tr>
+          <tr><td class="sname">沖縄市立美東中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活が強く行事が多いという書き込みが多い。<br>校舎が綺麗で雰囲気が良いという投稿も見られる。<br>制服や校則への不満を述べる投稿も見られる。</td><td class="feature">放課後にテスト前補習を行う「ひやみかち」という取り組みがある。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">豊</span><span class="muni-name">豊見城市</span><span class="muni-count">小8・中4</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">豊見城市立長嶺小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">子どもたちが元気で挨拶がしっかりしているという書き込みが多い。<br>先生が楽しそうに指導しているという投稿も見られる。<br>山の上に立地し徒歩通学の児童が少なく、朝は周辺道路が混雑するという投稿も見られる(2014年当時)。</td><td class="feature">教育目標は「未来に向かって夢を持ち根気強く学ぶ子」。独自の授業づくりで基礎学力の定着に力を入れる、創立110年を超える学校。</td></tr>
+          <tr><td class="sname">豊見城市立伊良波小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">学力が高く子ども同士が仲良いという書き込みが多い。<br>行事や部活動が充実しているという投稿も見られる。<br>施設面で物足りなさを感じる投稿も見られる。</td><td class="feature">校訓は「学ぶ子・あそぶ子・やりぬく子『いらはっ子』」。</td></tr>
+          <tr><td class="sname">豊見城市立豊見城小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">思いやりの心を大事にしているという書き込みが多い。<br>自然を感じる静かな環境が良いという投稿も見られる。<br>体育館の砂っぽさを指摘する投稿も見られる。</td><td class="feature">教育目標は「思いやりのある子、よく学び考える子、元気でねばり強い子」。地域との連携行事や、自然・歴史を生かした学習に力を入れる。</td></tr>
+          <tr><td class="sname">豊見城市立座安小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">新しい校舎で広々としているという書き込みが多い。<br>少人数指導など授業が工夫されているという投稿も見られる。<br>運動場が少し手狭という投稿も見られる(2014年当時)。</td><td class="feature">教育目標は「なかよく かしこく たくましく」。主体的に他者と協働し学ぶ子どもの育成を掲げる。</td></tr>
+          <tr><td class="sname">豊見城市立とよみ小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">自然豊かでスポーツが盛んという書き込みが多い。<br>施設が充実しているという投稿も見られる。</td><td class="feature">市内では珍しい農業体験や、常勤のネイティブ外国語教師による外国語教育、陸上部が特色。近くにラムサール条約登録の漫湖があり、自然豊かな環境。</td></tr>
+          <tr><td class="sname">豊見城市立上田小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">先生の指導や授業態度が良いという書き込みが多い。<br>生徒数が多くマンモス校という投稿も見られる。<br>学習の進捗に不安を感じる投稿も見られる。</td><td class="feature">スローガンは「心豊かな上田っ子」。</td></tr>
+          <tr><td class="sname">豊見城市立豊崎小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">校舎が新しく環境に恵まれているという書き込みが多い。<br>子どもがのびのびしているという投稿も見られる。<br>クーラー不足を指摘する投稿も見られる。</td><td class="feature">教育理念は「豊かな心を持ち、夢や目標に向かって自ら考え、取り組む子どもの育成」。再開発エリア「豊崎タウン」内にあり、那覇空港・高速道路へのアクセスが良い環境。</td></tr>
+          <tr><td class="sname">豊見城市立ゆたか小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「ゆめに向かって たくましく かしこく生きる ゆたかっ子」。上田小学校の児童数過密解消のため2015年に分離新設。</td></tr>
+          <tr><td class="sname">豊見城市立長嶺中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">経験やイベントが充実しているという書き込みが多い。<br>運動系の部活が良いという投稿も見られる。<br>いじめの少なさの評価はやや低めで、やんちゃな生徒もいるという書き込みが複数見られる。<br>放課後の学習サポートが部活優先で手薄、校則が緩いという投稿も見られる。</td><td class="feature">教育目標は「自ら考え判断し、実践できるたくましい生徒」。女子バレーボール部・男子サッカー部が県内トップクラスの実績。</td></tr>
+          <tr><td class="sname">豊見城市立伊良波中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">イベントが充実して楽しいという書き込みが多い。<br>見晴らしの良い環境が良いという投稿も見られる。<br>体育館が生徒数に対して手狭という投稿も見られる。</td><td class="feature">校訓は「自主・創造」。全国的にも珍しいハンドボール部、県内でも珍しい柔道部がある。</td></tr>
+          <tr><td class="sname">豊見城市立豊見城中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">先生が優しく文武両道を目指せるという書き込みが多い。<br>部活が強いという投稿も見られる。<br>いじめが多いという投稿も見られる。</td><td class="feature">教育目標は「自律、協働、創造し 未来を築く生徒」。</td></tr>
+          <tr><td class="sname">豊見城市立豊崎中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標の3本柱は「自律・尊重・創造」。2024年4月、伊良波中学校から分離して開校した新しい学校。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">う</span><span class="muni-name">うるま市</span><span class="muni-count">小19・中12</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">うるま市立赤道小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">保護者と先生方の連携が細かく安心できる、挨拶や文武両道を重視しているという書き込みが多い。</td><td class="feature">「赤道っ子の4つの力・心」を育成方針に掲げる。通知表を廃止し、習熟度を反映した「個票」を導入(県内初の取り組み)。</td></tr>
+          <tr><td class="sname">うるま市立あげな小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">市内で唯一、制服のある小学校。</td></tr>
+          <tr><td class="sname">うるま市立彩橋小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">離島地域の4つの小中学校を含む7校を2012年に統合して開校した小中併設校。小規模特認校として、小中連携した特色ある教育環境を整えている。</td></tr>
+          <tr><td class="sname">うるま市立伊波小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">先生方が率先して挨拶活動や登下校の見守りをしてくれ、子供一人ひとりをよく見てくれるという書き込みが多い。<br>駐車場が少ないという投稿も見られる。</td><td class="feature">2024年で創立130年を迎えた歴史ある学校。</td></tr>
+          <tr><td class="sname">うるま市立勝連小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">夏に地域の伝統行事「ハーリー」に参加するなど、地域密着型の学校。</td></tr>
+          <tr><td class="sname">うるま市立兼原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">指導方針が明確でPTA活動が活発、先生が子供一人ひとりに合わせた指導をしてくれるという書き込みが多い。</td><td class="feature">高台にあり恩納岳や金武湾を望む景観。市立図書館・市立芸術劇場に近く、文化的環境に恵まれている。</td></tr>
+          <tr><td class="sname">うるま市立川崎小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">少人数で顔見知りが多く楽しい、建物が明るく綺麗という書き込みが多い。</td><td class="feature">教育理念として「社会参画」力の育成を重視。こども園併設で交流活動を行うほか、近隣の米軍基地内小学校との共同学習など国際交流にも取り組む。</td></tr>
+          <tr><td class="sname">うるま市立具志川小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">赤犬子川や具志川城跡など、市中央部の自然・史跡に近い立地。</td></tr>
+          <tr><td class="sname">うるま市立城前小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">新校舎が綺麗で運動場が広く、先生が親身になって相談に乗ってくれるという書き込みが多い。<br>学校前の道路が狭く交通量が多いという投稿も見られる。</td><td class="feature">教育目標は「気づき・考え・行動する子」。1945年5月、沖縄戦のさなかに開校した歴史を持ち、教職員・保護者・地域が一体となる「みほそ教育」(みとめ・ほめ・そだてよう)が特色。</td></tr>
+          <tr><td class="sname">うるま市立高江洲小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">先生の対応が良く、子供が楽しく通っているという書き込みが多い。<br>給食の量が少ない、遠足の内容が物足りないという投稿も見られる。</td><td class="feature">教育目標は「志を高く持ち、礼儀正しく、たくましい実践力を身につけた心身ともに豊かな子どもの育成」。合言葉は「たのしく、なかよく、げんきよく」。</td></tr>
+          <tr><td class="sname">うるま市立田場小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">新しい校舎で綺麗、スポーツや音楽で賞を取るなど活躍しているという書き込みが見られる。</td><td class="feature">地域は戦後沖縄の教育発祥の地とされ、文教学校などが置かれた歴史を持つ。</td></tr>
+          <tr><td class="sname">うるま市立津堅小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">離島・津堅島にあり、追い込み漁や人参栽培、サバニでの島めぐりなど、島の暮らしを生かした体験学習が特色。</td></tr>
+          <tr><td class="sname">うるま市立天願小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">校内の小さな池で子供たちが自然に親しんで遊んでいるという書き込みが見られる。</td><td class="feature">2006年に創立100周年を迎えた学校。天願川沿いの自然豊かな環境に立地する。</td></tr>
+          <tr><td class="sname">うるま市立中原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">「中原っ子の4つの力・心」(なかよくする力・かんがえる力・はっけんする力・らしさを発揮する力)を育成方針に掲げる。教員が学年を超えてチームで対話する取り組みや、単元内自由進度学習など主体的な学びづくりに力を入れている。</td></tr>
+          <tr><td class="sname">うるま市立平敷屋小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「心豊かでたくましく、主体的に行動する子」。</td></tr>
+          <tr><td class="sname">うるま市立南原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">敷地が広くきれいに掃除されているという書き込みが見られる。</td><td class="feature">世界遺産「勝連城跡」の裾野に立地し、「地域学校協働活動」を推進。地域の風景や伝統的な踊りを学ぶ学習にも取り組む。</td></tr>
+          <tr><td class="sname">うるま市立宮森小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">平和や歴史を意識した教育が重視されているという書き込みが見られる。<br>校舎が古いという投稿も見られる(2015年当時)。</td><td class="feature"></td></tr>
+          <tr><td class="sname">うるま市立与那城小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">沖縄アミークスインターナショナル小学校</td><td class="skind">小</td><td class="stype">私立</td><td class="srate">自己探究型の教育で子どもの「やりたい」を伸ばし、多様な国籍の教師のもとで人間力やコミュニケーション力が育まれるという書き込みが多い。<br>施設が充実し、英語と日本語のバランスが取れた環境という評価も目立つ。<br>英語力の伸びが期待ほどではない・学費に対して満足しにくいという投稿も見られる。</td><td class="feature">英語イマージョン教育を行う幼小中一貫の私立校。「自分で考え、学び、行動し、将来を自分で切り拓く自立した子ども」の育成を理念とする。</td></tr>
+          <tr><td class="sname">沖縄県立与勝緑が丘中学校</td><td class="skind">中</td><td class="stype">県立</td><td class="srate">中高一貫校として学費が抑えられる点が評価される書き込みが多い。<br>行事は高校生が中心で中学生は脇役という指摘や、部活は強くないという投稿も見られる。</td><td class="feature">県立の中高一貫校。校訓は「自主・創造・誠実」。他の公立校より5教科の週コマ数が多く、生徒1人に1台のタブレット端末を貸与。</td></tr>
+          <tr><td class="sname">うるま市立石川中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自らの可能性を広げ、たくましく生き抜く力を身に付ける」。卒業生が進路の話をする取り組みなど、将来を見据えた教育に力を入れる。</td></tr>
+          <tr><td class="sname">うるま市立伊波中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">陸上部など部活が強く、全国・九州大会レベルの活躍があるという書き込みが多い。<br>受験対策がしっかりしているという意見も見られる。<br>いじめの少なさの評価が低め、校則が甘い、陰口が多いという指摘も見られる。</td><td class="feature">県内では珍しい女子サッカー部がある。</td></tr>
+          <tr><td class="sname">うるま市立彩橋中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">彩橋小学校と同じ小中併設の小規模特認校。離島地域7校の統合により開校し、小中連携した教育環境が特色。</td></tr>
+          <tr><td class="sname">うるま市立津堅中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">津堅小学校と同じ離島・津堅島の小中併設校。島の暮らしを生かした体験学習が特色。</td></tr>
+          <tr><td class="sname">うるま市立与勝第二中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">うるま市立与勝中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「深く考え自ら進んで創造する生徒」等。生徒会による「3R(あいさつ・イベント・元気)運動」を推進。</td></tr>
+          <tr><td class="sname">うるま市立あげな中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活(特に運動部)が強く実績があるという書き込みが多い。<br>髪型や雰囲気が荒れているという投稿も見られる。</td><td class="feature">バレーボール・テニス・ソフトボールが県内屈指の実力を持つ。</td></tr>
+          <tr><td class="sname">うるま市立具志川中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">施設が綺麗(トイレ・体育館など)で普通の学校という書き込みが多い。<br>景色が良い点や部活の充実を挙げる意見もある。<br>校則(眉剃り禁止・スカート丈など)を見直してほしいという投稿も見られる。</td><td class="feature">教育目標は「じんぶん(生きる知恵)を身に付ける」。</td></tr>
+          <tr><td class="sname">うるま市立具志川東中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活が強い(バレー・野球など)という書き込みが多く、生徒同士の仲が良いという意見も目立つ。<br>校舎が古い・学力や治安に課題があるという投稿も見られる。</td><td class="feature">「3F・3ゼロ運動」(楽しさ・挨拶・花がいっぱい/いじめ・遅刻・ゴミがゼロ)を掲げている。</td></tr>
+          <tr><td class="sname">うるま市立高江洲中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">生徒の素行が良く勉強に集中しやすい環境という書き込みが複数ある。<br>部活が盛んという意見も見られる。<br>先生の対応に贔屓があり、安心して通わせられないという投稿も見られる。</td><td class="feature"></td></tr>
+          <tr><td class="sname">沖縄アミークスインターナショナル中学校</td><td class="skind">中</td><td class="stype">私立</td><td class="srate">英語主体の学びでグローバルな視点や世界で活躍できる力が身につくという書き込みが多い。<br>施設が新しくのびのびした環境で、いじめが少ない印象という意見もある。<br>日本の高校入試(特に国語・社会)への対応に不安があるという投稿も見られる。</td><td class="feature">沖縄アミークスインターナショナル小学校と同じ理念の私立校。英語イマージョン教育による幼小中一貫教育を行う。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">宮</span><span class="muni-name">宮古島市</span><span class="muni-count">小16・中11</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">宮古島市立池間小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「○気づく ○伝える ○活かす」。小中併置校（池間小中学校）として一体的な教育を進めている。</td></tr>
+          <tr><td class="sname">宮古島市立伊良部島小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「ふるさとに誇りを持ち 世界へはばたく いらぶの子」。結の橋学園として小中一貫教育を実施している。</td></tr>
+          <tr><td class="sname">宮古島市立上野小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自ら学びよく考える子・思いやりのある心豊かな子・健康でたくましい子」。</td></tr>
+          <tr><td class="sname">宮古島市立鏡原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「夢や目標を持ち何事にも挑戦し自他を大切にできふるさとを愛することができる子の育成」。</td></tr>
+          <tr><td class="sname">宮古島市立狩俣小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自らすすんで学ぶ子ども・思いやりのある広い心の子ども・健康で明るくたくましい子ども」。</td></tr>
+          <tr><td class="sname">宮古島市立北小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「ともに学び合う子・思いやりのある子・健康で明るい子」。</td></tr>
+          <tr><td class="sname">宮古島市立城辺小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">小規模の良さと課題を明確にした特色ある教育活動を推進し、「元気・夢・あいさつ・花いっぱい」を掲げている。</td></tr>
+          <tr><td class="sname">宮古島市立下地小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">先生と子供の距離が近いという書き込みが多い<br>上級生が下級生の面倒をよく見るという投稿も見られる<br>PTA活動が半ば強制的でコミュニティが狭く感じるという投稿も見られる</td><td class="feature">教育目標は「創造性に溢れた心豊かでたくましく生きる児童の育成」。</td></tr>
+          <tr><td class="sname">宮古島市立砂川小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「進んで学ぶ子（知）・心豊かな子（徳）・たくましい子（体）」。</td></tr>
+          <tr><td class="sname">宮古島市立西城小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自分の考えをもち、思いを表現できる子どもの育成」。</td></tr>
+          <tr><td class="sname">宮古島市立西辺小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「よく考えて 判断し 行動する子ども」。</td></tr>
+          <tr><td class="sname">宮古島市立東小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「気付き・伝え・活かせる児童の育成」。</td></tr>
+          <tr><td class="sname">宮古島市立久松小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「よく考え進んで学ぶ子（かしこく）・思いやりの心を持ち助け合う子（やさしく）・健康でたくましい子（たくましく）」。</td></tr>
+          <tr><td class="sname">宮古島市立平良第一小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「可能性をひらき・のばす～一人一人に、それぞれの可能性～」。</td></tr>
+          <tr><td class="sname">宮古島市立福嶺小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自ら学び、考え、行動し、思いやりの心を持った、健康でねばり強い子の育成」。</td></tr>
+          <tr><td class="sname">宮古島市立南小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">少人数で落ち着いて学べるという書き込みが多い<br>立地・治安が良いという投稿も見られる<br>PTA活動への参加圧力を感じるという投稿も見られる<br>トイレの老朽化を指摘する投稿も見られる</td><td class="feature">教育目標は「『自ら学び 心豊かで たくましい子』の育成」。</td></tr>
+          <tr><td class="sname">宮古島市立池間中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は小学校と共通の「○気づく ○伝える ○活かす」。小中併置校として一体的な教育を進めている。</td></tr>
+          <tr><td class="sname">宮古島市立狩俣中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「豊かな知性と品性を持ちたくましく生きる生徒」の育成。</td></tr>
+          <tr><td class="sname">宮古島市立西辺中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自ら学び 心身ともに健やかで 思いやりのある生徒の育成」。</td></tr>
+          <tr><td class="sname">宮古島市立北中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自ら学び、思いやりに溢れ、心身共に逞しい生徒」。</td></tr>
+          <tr><td class="sname">宮古島市立平良中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活動が盛んという書き込みが多い<br>生徒数が多く活気があるという投稿も見られる<br>校則が細かく携帯持ち込み禁止など規定が厳しいという投稿も見られる<br>図書館・武道場の老朽化を指摘する投稿も見られる</td><td class="feature">教育目標は「凡事に至誠を貫き 可能性を伸ばす生徒」。</td></tr>
+          <tr><td class="sname">宮古島市立久松中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">先生・生徒・保護者・地域のつながりが深いという書き込みが多い<br>いじめが少ないという投稿も見られる<br>校則が他校より厳しいという投稿も見られる<br>先生によって熱意に差があるという投稿も見られる</td><td class="feature">教育目標は「心身共に健康で、主体的に学び、自己実現を目指す生徒の育成」。</td></tr>
+          <tr><td class="sname">宮古島市立鏡原中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「よりよく考える生徒・すすんで学ぶ生徒・粘り強く逞しい生徒」。</td></tr>
+          <tr><td class="sname">宮古島市立下地中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「豊かな心を持つ生徒・自ら学ぶ意欲を持つ生徒・健康でねばり強い生徒」。</td></tr>
+          <tr><td class="sname">宮古島市立上野中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自ら学び、心身を磨き、博愛を大切にする生徒の育成」（校訓：自律博愛錬磨）。</td></tr>
+          <tr><td class="sname">宮古島市立城東中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自らに誇りを持ち 確かな知性で未来を切り拓く生徒」。</td></tr>
+          <tr><td class="sname">宮古島市立伊良部島中学校]]（結の橋学園）</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は小学校と共通の「ふるさとに誇りを持ち 世界へはばたく いらぶの子」。小中一貫教育を実施している。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">南</span><span class="muni-name">南城市</span><span class="muni-count">小9・中6</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">南城市立大里北小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「よりよく考え進んで学習する子」「心豊かで思いやりのある子」「体をきたえ最後までやりぬく子」。地域とともにある学校づくりや自己肯定感を育む教育活動を推進している。</td></tr>
+          <tr><td class="sname">南城市立大里南小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">校長の毎日ブログや学習支援の取り組みを評価する書き込みが多い<br>行事日程の早期周知や連絡体制の改善を求める投稿も見られる</td><td class="feature">教育目標は「自立・協働・創造」。「チーム大南」として地域や専門機関と協働し、社会に開かれた教育課程の実現を目指している。</td></tr>
+          <tr><td class="sname">南城市立久高小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「よく考え、進んで学ぶ児童生徒（知）」「ねばり強く、思いやりのある児童生徒（徳）」「心身ともに健康な児童生徒（体）」。少人数・小中併置（久高小中学校）の利点を生かした教育を行う。</td></tr>
+          <tr><td class="sname">南城市立佐敷小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「ともに のびる さしきっこ」。自他を尊重する力を育成し、地域・保護者と協働した学校づくりを進めている。</td></tr>
+          <tr><td class="sname">南城市立玉城小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「進んで学習する子（知育）」「心豊かで思いやりのある子（徳育）」「最後までやりぬく子（体育）」。</td></tr>
+          <tr><td class="sname">南城市立知念小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">国際理解教育や外国語活動の特区指定などの実績があり、幼小中連携や地域性を生かした心豊かな児童の育成に取り組んでいる。</td></tr>
+          <tr><td class="sname">南城市立馬天小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">特に目立った特徴はないという書き込みが多い<br>人数がちょうどよいという投稿も見られる<br>校舎や体育館の老朽化を指摘する書き込みが多い<br>立地・アクセスが不便という書き込みが多い<br>PTA活動への協力が得にくいという書き込みが多い</td><td class="feature">教育目標は「よく考え自ら学び 思いやりのある たくましい子」。特別支援教育の充実や地域との交流活動が見られる。</td></tr>
+          <tr><td class="sname">南城市立百名小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「目標をもち 自ら学ぶ子（知）」「心豊かで 決まりを守る子（徳）」「健康で たくましい子（体）」。</td></tr>
+          <tr><td class="sname">南城市立船越小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「かしこい子（知育）」「心豊かな子（徳育）」「たくましい子（体育）」。キャリア教育の充実も図っている。</td></tr>
+          <tr><td class="sname">南城市立玉城中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">男子バスケ・吹奏楽部が強いという書き込みが多い<br>学力が低く授業態度の悪い生徒が目立つという書き込みが多い<br>喫煙・器物破損など不良行為が多いという書き込みが多い<br>先生の対応(感情的な叱責・えこひいき)に問題があるという書き込みが多い<br>いじめが多くカーストが強いという書き込みが多い</td><td class="feature">教育目標は「自ら学び自ら考え（知） 心豊かに実践する（徳） たくましい生徒（体）」。「時を守り、場を清め、礼を正す」の凡事徹底に取り組む。</td></tr>
+          <tr><td class="sname">南城市立久高中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">小学校と同様に「よく考え、進んで学ぶ児童生徒」「ねばり強く、思いやりのある児童生徒」「心身ともに健康な児童生徒」を目標とし、少人数・併置校の特色を生かした教育を行う。</td></tr>
+          <tr><td class="sname">南城市立知念中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自律」「尊重」「創造」。校訓「愛汗大志」のもと小中一貫教育を特色としている。</td></tr>
+          <tr><td class="sname">南城市立佐敷中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">部活動に力を入れているという書き込みが多い<br>挨拶がしっかりしているという投稿も見られる<br>いじめがあるという投稿も見られる<br>校則の運用が不公平に感じるという投稿も見られる</td><td class="feature">教育方針として「生徒の『よさ』を認め、発揮し、自己肯定感が育まれる佐敷中学校の推進」を掲げている。</td></tr>
+          <tr><td class="sname">南城市立大里中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自ら頭をきたえ、心をみがき、体をきたえることができる生徒」。校訓「自主勇往」のもと知・徳・体のバランスのとれた「生きる力」を育む。</td></tr>
+          <tr><td class="sname">珊瑚舎スコーレ東表中学校</td><td class="skind">中</td><td class="stype">私立</td><td class="srate"></td><td class="feature">少人数制を基本に対話を通じて授業や学校をつくる夜間中学校（学びの多様化学校指定）。沖縄の言葉・歴史・文化をカリキュラムに取り入れ、義務教育のセーフティーネットとしての学びの機会を保障している。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+    <div class="gun-group">
+      <p class="gun-label">国頭郡(北部・村町)</p>
+      <details class="muni">
+        <summary><span class="muni-badge">国</span><span class="muni-name">国頭村</span><span class="muni-count">小5・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">国頭村立安田小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">国頭村立安波小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">国頭村立奥小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">少人数（児童9名程度）の利点を活かしたきめ細やかな指導を行い、地域の「共同一致」の精神を大切にしている。安田小・安波小との合同遠足・合同学習や、ヤンバルクイナ生息調査など自然を守り生かす活動が特色。</td></tr>
+          <tr><td class="sname">国頭村立奥間小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">めざす子ども像は「明るく思いやりのある子」「健康でたくましい子」「よく考えがんばる子」。栽培活動や地域文化体験（芭蕉布体験など）を行う。</td></tr>
+          <tr><td class="sname">国頭村立辺土名小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">卒業式で保護者企画のサプライズライブがあり感動したという投稿が見られる</td><td class="feature">児童会の「あいさつ」「花」「読書」の3つのいっぱい運動や、地域講師によるクラブ活動（9クラブ）など地域に開かれた学校づくりが特色。</td></tr>
+          <tr><td class="sname">国頭村立国頭中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">校訓は「自学・自立・自力」。地域の自然・産業体験学習、職場体験、生徒自身が弁当を作る「弁当の日」など特色ある活動を行う。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">大</span><span class="muni-name">大宜味村</span><span class="muni-count">小1・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">大宜味村立大宜味小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">村の教育理念「人材を以て資源と為す」のもと知・徳・体の調和のとれた人間形成を目指す。ALT（外国語指導助手）を活用した語学教育や、視野を広げる「体験の翼」交流事業が特色。</td></tr>
+          <tr><td class="sname">大宜味村立大宜味中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">施設・設備が充実しているという書き込みが多い<br>少人数でいじめが少ないという投稿も見られる</td><td class="feature">村是「人材を以て資源と為す」を踏まえ「可能性を拓く」をキーワードに教育活動を進める。くがにー発表会（総合学習の成果発表）や子ども議会参加、地域との交流行事が特色。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">東</span><span class="muni-name">東村</span><span class="muni-count">小3・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">東村立高江小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校教育目標は「自ら学び、考え、行動し、たくましく生きる心豊かな高江っ子の育成」。山に囲まれた小規模校として、全校児童が職員・保護者・地域の人々に温かく見守られながら育つ環境を活かした教育を進めている。</td></tr>
+          <tr><td class="sname">東村立東小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">東小中学校として「ふるさとを愛し、心豊かで賢くたくましく、広く世界に飛躍する子どもを育成する」を掲げ、学年段階に応じた目標を設定。へき地教育の実践で沖縄タイムス教育賞を受賞している。</td></tr>
+          <tr><td class="sname">東村立有銘小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">有銘幼小学校として、少人数のよさを生かした幼小連携の学校づくりを進め、主体的に学ぶ力・共に学ぶ力・表現する力を育成。ヤンバルの豊かな自然環境を背景に地域と連携した教育活動を行っている。</td></tr>
+          <tr><td class="sname">東村立東小中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">東小学校を含む幼小中併置校。「ふるさとを愛し、心豊かで賢くたくましく、広く世界に飛躍する子どもを育成する」を掲げ、道徳教育の研究指定を受けるなど小中一貫的な特色ある活動を展開している。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">今</span><span class="muni-name">今帰仁村</span><span class="muni-count">小3・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">今帰仁村立天底小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「心豊かでたくましく生きる天底っ子」。校庭のシンボル「学者ガジュマル」に見守られ、天底発表会で創作マット運動や合奏、福祉学習などの発表を行う特色がある。</td></tr>
+          <tr><td class="sname">今帰仁村立兼次小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">少人数で先生と生徒の距離が近いという書き込みが多い<br>地域の伝統芸能に関わる児童が多いという投稿も見られる</td><td class="feature">教育目標は「自ら進んで学ぶ子、明るく心豊かな子、健康でたくましい子」。世界遺産・今帰仁城の城下に位置し、「でぃーわーちゃー」をテーマに地域資源を活かした活動や英語教育課程特例校としての取り組みを進める。</td></tr>
+          <tr><td class="sname">今帰仁村立今帰仁小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「よく考えて学習する子、思いやりのある子、ねばり強くがんばる子」。143年の歴史を持つ村内最大の小学校で、老人会とのグランドゴルフ交流や弁当の日、地域ボランティアによる読み聞かせなどの特色活動を行う。</td></tr>
+          <tr><td class="sname">今帰仁村立今帰仁中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">駅伝・陸上・野球など部活動が強いという書き込みが多い<br>先生の指導に差があるという投稿も見られる</td><td class="feature">めざす生徒像は「自ら学び深く考える生徒、明るく思いやりのある生徒、ねばり強くたくましい生徒」。スローガン「一生懸命がかっこいい」のもと、村内全域から通う統合校として駅伝・陸上での活躍やICT活用を推進している。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">本</span><span class="muni-name">本部町</span><span class="muni-count">小5・中4</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">本部町立伊豆味小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">小規模な山間部の学校で、古くから琉球藍の産地という地域特性を活かし、「伊豆味すてきマップ探検」など藍農家・染織家の工房を訪ねる体験的な地域学習が特色。</td></tr>
+          <tr><td class="sname">本部町立上本部小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">2020年に小中一貫校「上本部学園」として新校舎でスタート。フクギ並木や海、日本一早咲きの桜などをモチーフにした校章・イメージキャラクター（ふくちゃん・べぇちゃん）で地域に根ざした一貫教育を特色としている。</td></tr>
+          <tr><td class="sname">本部町立瀬底小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「調和のとれた人間性豊かな子」。「進んで学ぶ子（かしこく）」「心ゆたかな子（やさしく）」「明るくたくましい子（たくましく）」を目指し、瀬底島の環境を活かした学校づくりを行う。</td></tr>
+          <tr><td class="sname">本部町立水納小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">水納島の小規模校。2020年度より児童生徒ゼロにより休校中（廃校予定はなく施設は維持）。</td></tr>
+          <tr><td class="sname">本部町立本部小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「つよく、ゆたかに、かしこく」。2020年度に崎本部小学校を統合した町内の中心的な小学校で、地域学習やスポーツ活動（ミニバスケットボールなど）を実施している。</td></tr>
+          <tr><td class="sname">本部町立上本部中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">2020年に上本部小学校と一体型の小中一貫教育校「上本部学園」として開校。9年間を見通した学びと、ふるさとの自然・文化への誇りを育む教育を特色とする。</td></tr>
+          <tr><td class="sname">本部町立本部中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">校訓は「自主・共生・創造」。「気づき、考え、行動する生徒」の育成を重点に掲げ、生徒と教師の距離が近く明るい校風で行事の一致団結や部活動の活発さが特徴。</td></tr>
+          <tr><td class="sname">本部町立伊豆味中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">小学校と併設の小規模校（伊豆味小中学校）。地域の自然や藍文化を活かした体験・探究学習を中学生段階で深める取り組みを進めている。</td></tr>
+          <tr><td class="sname">本部町立水納中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">水納島の小規模校。小学校と同様に2020年度より児童生徒ゼロにより休校中。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">恩</span><span class="muni-name">恩納村</span><span class="muni-count">小4・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">恩納村立安冨祖小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">志を高く持ち、自ら気づき・考え・行動する児童の育成を重点に、ウェルビーイングで地域と共にある学校を目指す。ふるさとの自然（サンゴなど）を生かした体験的・探究的なSDGs実践が特色。</td></tr>
+          <tr><td class="sname">恩納村立恩納小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">「地域に誇りを持ち、世界に羽ばたく国際人の育成」を指針に、知・徳・体のバランスのとれた生きる力を育てる。平和戦跡フィールド学習、みそ作り・稲作りなど地域と連携した実践的な活動が特徴。</td></tr>
+          <tr><td class="sname">恩納村立仲泊小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">「ハートの温かい子」「アイディア豊富な子」「チャレンジする子」を教育目標とし、「一生懸命がカッコイイ」を掲げる。小規模校の一体感を活かしたサンゴ観察や琉歌などの伝統文化活動を展開している。</td></tr>
+          <tr><td class="sname">恩納村立山田小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">伝統的に「やさしく思いやりのある子・まじめに学習する子・だいじな体を守れる子」（頭文字で「や・ま・だ」）を目指し、徳・知・体の調和を図る。コミュニティ・スクールの推進など地域との強い連携が特色。</td></tr>
+          <tr><td class="sname">恩納村立うんな中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">村の教育ビジョン「自律・協働・創造」を学校教育目標に据える。STEAM教育やプログラミング、地域課題解決を目的としたSDGsプロジェクト（UNNA魂）、自由進度学習などの先進的な取り組みが特色。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">宜</span><span class="muni-name">宜野座村</span><span class="muni-count">小3・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">宜野座村立漢那小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「やさしく かしこく たくましく 未来を拓く漢那っ子」。小規模校の特性を活かし、科学作品や花のコンクールでの実績、地域交流（県外交流など）を通じた体験的な活動が特色。</td></tr>
+          <tr><td class="sname">宜野座村立宜野座小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「よく学ぶ子（知）・明るく心豊かな子（徳）・健康でたくましい子（体）」。コスモス運動や学力向上プラン「夢・にぬふぁ星プラン」など幼小中連携・地域連携を重視した開かれた学校づくりが特色。</td></tr>
+          <tr><td class="sname">宜野座村立松田小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「明るく思いやりのある子・進んで学ぶ子・健康でねばり強い子」。小規模校ならではの地域密着型教育を推進し、活発なPTA活動やこちゃまつりなどの地域行事が特色。</td></tr>
+          <tr><td class="sname">宜野座村立宜野座中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校教育目標は「自ら、心を磨く生徒（徳）・自ら、頭を磨く生徒（知）・自ら、体を鍛える生徒（体）」。村唯一の中学校として3小学校からの進学を受け入れ、バスケットボール・野球・吹奏楽など多様な部活動が盛ん。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">金</span><span class="muni-name">金武町</span><span class="muni-count">小3・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">金武町立嘉芸小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「すすんで学習する子」「心ゆたかな子」「たくましい子」。英語教育課程特例校として1年生から多くの英語活動を実施し、稲作体験など地域の自然や生活に根ざした体験活動が特色。</td></tr>
+          <tr><td class="sname">金武町立金武小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「くじけず最後までやりぬく子、進取の気象と不撓不屈」でスローガンは「本気が一番かっこいい」。1882年創立の歴史ある学校で、當山久三ら町の偉人に関する学習も行う。</td></tr>
+          <tr><td class="sname">金武町立中川小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校教育目標は「夢や目標を持ち、心身ともに健康でたくましく、ふるさとに誇りを持ち、持続可能な社会に貢献する子」。ユネスコスクールとして活動し、中川子ども憲章やあいさつ憲章を活用した心の教育が特色。</td></tr>
+          <tr><td class="sname">金武町立金武中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">施設・環境が良くのびのびしているという書き込みが多い<br>部活動が盛んという投稿も見られる</td><td class="feature">「金武魂」として「進取の気象」「質実剛健」「不撓不屈の精神」を掲げ、学校経営テーマは「文武挑戦」「一致団結」。町内唯一の中学校として部活動を通じた文武両道の挑戦や進路学習を充実させている。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">伊</span><span class="muni-name">伊江村</span><span class="muni-count">小2・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">伊江村立伊江小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「深く考える子・明るく思いやりのある子・健康でたくましい子」で、合い言葉は「伊江っ子よ強く正しく朗らかに」。伊江島スタンダードによる授業改善や縦割り班活動・平和学習などを推進している。</td></tr>
+          <tr><td class="sname">伊江村立西小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">「確かな学力」の向上と「生きる力」を育むことを目標に、学校・家庭・地域・行政の連携を重視。伊江島スタンダードを基軸にした授業改善や縦割り班活動の充実が特色。</td></tr>
+          <tr><td class="sname">伊江村立伊江中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">地域ぐるみで子どもを見守る安心感があるという書き込みが多い<br>運動系の部活動が活発という投稿も見られる</td><td class="feature">「確かな学力」の向上と「生きる力」を育むことを目標に、高校進学で島を離れる前に自立心を養う「島建ち」教育を重視。ふるさと教育・グローカル教育や地域行事への参画が特色。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+    <div class="gun-group">
+      <p class="gun-label">中頭郡(中部・村町)</p>
+      <details class="muni">
+        <summary><span class="muni-badge">読</span><span class="muni-name">読谷村</span><span class="muni-count">小5・中2</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">読谷村立喜名小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">2者面談で子どもの様子を丁寧に説明してくれるという投稿も見られる<br>施設が良好で学童も近いという投稿も見られる</td><td class="feature">ICT機器の日常的な活用を全教員で推進し、授業改善と学力向上を図っている。歴史的な喜名番所に隣接する立地を生かし、基礎学力定着と協働的な学びを重視。</td></tr>
+          <tr><td class="sname">読谷村立渡慶次小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「郷土を愛し、自主性・創造性・国際性豊かな渡慶次っ子の育成」。対話を重視した主体的な学び、一校一運動による体力づくりやキャリア教育が特色。</td></tr>
+          <tr><td class="sname">読谷村立古堅小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">「共に学び、共に育つ教育による確かな学力の向上」をテーマに、「学びのサイクル」による自学自習力の育成を進める。異学年交流やキャリア教育を通じた心の育成が特色。</td></tr>
+          <tr><td class="sname">読谷村立古堅南小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">新校舎を活用した「緑豊かな楽しい学校」を目指し、インクルーシブ教育や多様な学習空間での活動を推進。防災教育や地域連携を重視。</td></tr>
+          <tr><td class="sname">読谷村立読谷小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">総括目標は「郷土の歴史・文化に誇りを持ち、協働して未来を切り拓く読谷っ子」。主体的に考えを深め表現する授業研究や基本的生活習慣の確立が特色。</td></tr>
+          <tr><td class="sname">読谷村立古堅中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">確かな学力・豊かな心・健やかな体のバランスのとれた育成を図り、部活動や地域との連携を通じた実践的な教育を進める。陸上などスポーツ面での活躍も見られる。</td></tr>
+          <tr><td class="sname">読谷村立読谷中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">ごく普通の公立中学校という投稿も見られる<br>校則が以前より緩やかになったという投稿も見られる</td><td class="feature">創造性・国際性に富む人材育成を目指し、主体的・対話的で深い学びやキャリア教育を推進。文化・スポーツ両面での活躍や国際理解教育が特色。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">嘉</span><span class="muni-name">嘉手納町</span><span class="muni-count">小2・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">嘉手納町立嘉手納小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「未来に夢を持って主体的に学び、共によりよく生きる、たくましい子の育成」。町の「かでな型学力」育成を軸に、ふるさとキャリア教育、ICTを活用した探究型学習や小中一貫教育、国際理解教育を特色とする。</td></tr>
+          <tr><td class="sname">嘉手納町立屋良小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校教育目標は「一人一人が輝く屋良っ子」。家庭・地域との連携を重視し、父母による読み聞かせや地域人材を活用した総合学習、英会話科(教育課程特例)などの体験的・国際理解教育が特色。</td></tr>
+          <tr><td class="sname">嘉手納町立嘉手納中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">米軍機の騒音がある中でも勉強に集中しているという投稿も見られる<br>ソフトボール部が強いという投稿も見られる</td><td class="feature">教育目標は「主体的に知性を高め、協働的に学び合い、未来を切り拓く生徒の育成」。リーディングDXスクールとしてICT・生成AIを活用した探究的な学びやふるさとキャリア教育、小中一貫の取り組みを推進。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">北</span><span class="muni-name">北谷町</span><span class="muni-count">小4・中2</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">北谷町立北玉小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「未来を見つめて自ら学び、心豊かにたくましく生きる児童の育成」。コミュニティ・スクールとして地域に根ざした開かれた学校づくりを進めている。</td></tr>
+          <tr><td class="sname">北谷町立北谷小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「未来を見据え 自立に向かう強い意志と豊かな心をもつ北谷っ子の育成」。教育課程特例校として英語教育を強化し、スマイルプログラムやクラス会議による支持的風土づくりに取り組む。</td></tr>
+          <tr><td class="sname">北谷町立北谷第二小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「子どもたちが優しく生き生きしているという書き込みが多い」<br>「校長が児童の名前を覚えて挨拶してくれるという声がある」<br>「宿題の連帯責任的な指導に不満という声もある」</td><td class="feature">教育目標は「郷土に誇りを持ち 自らを切り拓く強い意志と 豊かな心を持つ子の育成」。リーディングDX指定校として、ICT活用による自立した学習者の育成に取り組んでいる。</td></tr>
+          <tr><td class="sname">北谷町立浜川小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「先生の対応が丁寧で子ども目線という書き込みが多い」<br>「問題があればすぐ改善しようとする姿勢を評価する声がある」<br>「移住者増加に伴うマナー面の指摘も見られる」</td><td class="feature">総括目標は「自信と誇りを持ち 夢や希望に向かって 自立・自律できる子供の育成」。一人ひとりが「自分は大切にされている」と実感できる環境づくりを重視している。</td></tr>
+          <tr><td class="sname">北谷町立桑江中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「制服がダサいという書き込みが多い」<br>「先生は良い・真剣に向き合ってくれるという声がある」<br>「いじめや人間関係の悩みを指摘する声もある」</td><td class="feature">「生徒と教職員のウェルビーイング」を最上位目標に掲げる。リーディングDXスクールとしてICT・AIを活用した主体的・対話的な学びに取り組んでいる。</td></tr>
+          <tr><td class="sname">北谷町立北谷中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「活気があって個性が強く楽しいという書き込みが多い」<br>「制服がダサいという書き込みが多い」<br>「クラスが騒がしく授業に集中しにくいという書き込みも多い」<br>「先生のノリが良く生徒会主催のイベントが盛んという声がある」</td><td class="feature">「夢に向かって常に自らを磨く生徒を育てる」を掲げ、生徒会を中心とした「生徒が主役となる学校づくり」を進める。ユネスコスクールとして国際理解・平和・環境に関する活動に取り組んでいる。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">北</span><span class="muni-name">北中城村</span><span class="muni-count">小3・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">北中城村立北中城小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「給食が美味しいという書き込みがある」<br>「校舎が古い・送迎が必要という指摘もある」</td><td class="feature">学校教育目標は「思いやりのある子・よく考える子・じょうぶな子」。「夢・じりつ(自立・自律)・共生」を掲げ、ウェルビーイングな学校を目指している。</td></tr>
+          <tr><td class="sname">北中城村立島袋小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「小規模でアットホームという書き込みが多い」<br>「給食がおいしいという声がある」<br>「保護者参加の機会が多いという声もある」</td><td class="feature"></td></tr>
+          <tr><td class="sname">沖縄三育小学校</td><td class="skind">小</td><td class="stype">私立</td><td class="srate"></td><td class="feature">聖書の教えを土台に、心・頭・体の調和ある発達を通して隣人や社会のために喜んで働く子どもを育てることを方針とする。少人数制・聖書の授業・卵乳菜食・早期英語教育などを特色としている。</td></tr>
+          <tr><td class="sname">北中城村立北中城中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「部活動が盛んという書き込みがある」<br>「生徒が生き生きしているという声がある」<br>「吹奏楽コンクールやスポーツ大会の結果に関する言及が多い」</td><td class="feature"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">中</span><span class="muni-name">中城村</span><span class="muni-count">小3・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">中城村立津覇小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「歴史・平和教育の題材として取り上げられるという書き込みが多い」</td><td class="feature">学校教育目標は「地域の歴史文化を知り、自ら学びみんなとともに伸びる心豊かでたくましい子供の育成」。「中城・ごさまる科」の推進や、わかる授業づくりによる確かな学力の向上を重点にしている。</td></tr>
+          <tr><td class="sname">中城村立中城小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">総括目標は「一人一人が輝く中小っ子の育成」。対話的な学びの日常化やコミュニティ・スクールの推進、「ごさまる科」の開設など、地域と連携した教育を進めている。</td></tr>
+          <tr><td class="sname">中城村立中城南小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「教育熱心という書き込みが多い」<br>「スポーツや音楽活動が活発という声がある」<br>「教室が暑くクーラーが効きにくいという指摘もある」</td><td class="feature">総括目標は「歴史・文化に誇りを持ち、現状を自力で切り拓き、未来に夢を描き輝き続ける子」の育成。中城ごさまる科の推進や学力保障・誇りの持てる美しい学校づくりを特色としている。</td></tr>
+          <tr><td class="sname">中城村立中城中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「部活や人間関係の良さを評価する声がある」<br>「校則や生徒指導が厳しいという指摘もある」<br>「施設が古いという声もある」</td><td class="feature">「生徒の可能性の拡大」に向けた教育活動を通じて信頼される学校づくりに取り組む。校訓は「自律・協働・剛健」。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">西</span><span class="muni-name">西原町</span><span class="muni-count">小5・中3</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">西原町立坂田小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「生徒数が多くマンモス校という書き込みが多い」<br>「校舎がきれいに改装されているという声がある」<br>「クラス数の多さで運動会等の運営が大変という指摘もある」</td><td class="feature">教育目標は「よく考え、最後までやりぬく子(知)」「思いやりがあり、助け合う子(徳)」「進んで体をきたえる子(体)」。シンボル「坂田の金太郎」が地域で親しまれている。</td></tr>
+          <tr><td class="sname">西原町立西原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「町中にあり地域に見守られているという書き込みが多い」<br>「PTA活動の参加者と不参加者の格差が目立つという指摘が多い」<br>「給食の量が少ないという不満が多い」<br>「先生によって対応に差があるという声もある」</td><td class="feature">教育目標は「自ら学び考える子」「心豊かで思いやりのある子」「健康でたくましい子」。安全・安心を基盤に夢や希望を育む教育を推進している。</td></tr>
+          <tr><td class="sname">西原町立西原東小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「スポーツが盛んという書き込みが多い」<br>「子どもたちが明るく元気という声がある」<br>「校舎が古い・年季が入っているという指摘もある」</td><td class="feature"></td></tr>
+          <tr><td class="sname">西原町立西原南小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「小規模で地域密着という書き込みが多い」<br>「先生と生徒の距離が近いという声がある」<br>「施設面の評価がやや低いという投稿も見られる」<br>「指導方針がわかりにくいという声もある」</td><td class="feature">教育目標は「進んで学びやり抜く子」「思いやりがあり仲良くできる子」「健康で明るい子」。地域人材を活用した豊かな心の育成を重視している。</td></tr>
+          <tr><td class="sname">琉球大学教育学部附属小学校</td><td class="skind">小</td><td class="stype">国立</td><td class="srate">「学年ごとに特色があるという書き込みが多い」<br>「保護者が教育熱心という声がある」<br>「保護者の行事参加・協力の負担が大きいという書き込みが多い」<br>「運動場が狭く行事の観覧席確保が大変という声もある」</td><td class="feature">教育目標は「一人一人が夢をもち、未来を生きる力のある子」。3〜6学年で連続する宿泊体験活動や、教育理論と実践の研究発表会を特色としている。</td></tr>
+          <tr><td class="sname">西原町立西原東中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「部活動の大会実績が良いという書き込みが多い」<br>「制服(特に女子)が可愛いと評判という声がある」<br>「治安・アクセス面の評価がやや低いという投稿も見られる」</td><td class="feature">教育目標は「将来に希望を持ち意欲的に学習する生徒」等の知・徳・体・勤労の4本柱。校章に象徴される未来への飛躍を目指す教育を展開している。</td></tr>
+          <tr><td class="sname">西原町立西原中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「部活を通してマナーや礼儀を教えてくれるという書き込みが多い」<br>「心優しい・素直な雰囲気という声がある」<br>「学習環境の評価がやや低いという投稿も見られる」<br>「制服の評価は分かれるという声もある」</td><td class="feature">教育目標は「自ら考え進んで学ぶ生徒」「豊かな心を持ちたくましく生きる生徒」。「誰も取り残さない」学校づくりを強調している。</td></tr>
+          <tr><td class="sname">琉球大学教育学部附属中学校</td><td class="skind">中</td><td class="stype">国立</td><td class="srate">「学校行事が盛り上がるという書き込みが多い」<br>「個性的で面白い授業という声がある」<br>「定期テストや席次がなく自分の学力位置が分かりにくいという書き込みが多い」<br>「先生の当たり外れが大きいという指摘が多い」<br>「施設が古いという声もある」</td><td class="feature">「よく考え 豊かに感じ 自発的に行動する 生徒の人間性を形成する」を掲げる。附属学校として教育研究や公開研究会を重視している。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+    <div class="gun-group">
+      <p class="gun-label">島尻郡(南部・村町)</p>
+      <details class="muni">
+        <summary><span class="muni-badge">与</span><span class="muni-name">与那原町</span><span class="muni-count">小2・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">与那原町立与那原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校教育目標は「よく考える子」「心豊かな子」「たくましい子」の育成。体験学習(4年生の三線体験等)や食育授業を通じて実践的な学びを重視している。</td></tr>
+          <tr><td class="sname">与那原町立与那原東小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校経営目標として「一人一人を大切にする“温かい学校”」を掲げる。あいさつ・はき物そろえ等の「5つの日本一」や、居場所づくり・絆づくりを推進している。</td></tr>
+          <tr><td class="sname">与那原町立与那原中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「部活が活気があり強い部があるという書き込みが多い」<br>「生徒の素行やいじめに関する指摘もある」<br>「施設や制服については好意的な記述が多い」</td><td class="feature">校訓「立志・自主・勤勉」に基づき「立志の教育」を推進する。学力向上・学級自治力・主体性の向上を図っている。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">南</span><span class="muni-name">南風原町</span><span class="muni-count">小4・中3</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">南風原町立北丘小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「坂道がきついという書き込みが多い」<br>「校門での見守り・挨拶が活発という声がある」<br>「景観が良いという言及がある」</td><td class="feature"></td></tr>
+          <tr><td class="sname">南風原町立翔南小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「進んで学ぶ子(かしこく)」「思いやりのある子(なかよく)」「元気でねばり強い子(げんきよく)」。読み解く力の育成やタブレットを活用した個別最適な学びに取り組んでいる。</td></tr>
+          <tr><td class="sname">南風原町立津嘉山小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「よく考え自ら学ぶ子、心豊かで思いやりのある子、元気な明るい子、郷土を愛し進んで働く子」。修学旅行や校内音楽発表会など、マスコット「つかキラビ」を活用した学校づくりに取り組む。</td></tr>
+          <tr><td class="sname">南風原町立南風原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「立地が便利で通いやすいという声がある」<br>「運動場や体育館が広いという声がある」<br>「地域一体の子育てがしやすいという言及がある」<br>「特別な支援が必要な児童への対応に先生が追われることがあるという投稿も見られる」</td><td class="feature">「まいにちがたのしい」学校を掲げる。体育成果発表会(エイサー・組体操等)や民俗芸能交流会など地域と連携した活動に取り組んでいる。</td></tr>
+          <tr><td class="sname">沖縄県立開邦中学校</td><td class="skind">中</td><td class="stype">県立</td><td class="srate">「全国トップレベルの進学校という書き込みが多い」<br>「少人数で目が行き届き学校行事も多いという声がある」<br>「施設は古い・部活は少なめという指摘もある」</td><td class="feature">校訓は「開邦雄飛」。併設型中高一貫教育や探究活動の充実、海外研修などを特色としている。</td></tr>
+          <tr><td class="sname">南風原町立南風原中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「施設が整備され部活が活発という書き込みが多い」<br>「学力レベルは県平均を上回るという声がある」<br>「校則がやや厳しいという指摘もある」</td><td class="feature">教育目標は「目標を持ち自ら学ぶ生徒」「心豊かで思いやりのある生徒」「心身ともに健康で忍耐力のある生徒」。「子ども一人ひとりに自己肯定感をもたせる」ことを重点にしている。</td></tr>
+          <tr><td class="sname">南風原町立南星中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「よく学ぶ生徒」「心豊かな生徒」「たくましい生徒」。校訓は「自立・共生」。読み解く力の育成(南星スタディープラン)やPBL、地域連携のキャリア教育に取り組む。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">渡</span><span class="muni-name">渡嘉敷村</span><span class="muni-count">小2・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">渡嘉敷村立阿波連小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「学年を超えた仲の良さという書き込みが多い」<br>「行事で一人ひとりが主役になり自信がつくという声がある」<br>「ビーチ近くの自然豊かな立地という声もある」</td><td class="feature">教育目標は「自ら学ぶ、心豊かなたくましい子」の育成。「愛郷」の精神を大切にし、伝統行事のハナリ島遠泳やあはりっ子太鼓、海洋・環境教育を推進している。</td></tr>
+          <tr><td class="sname">渡嘉敷村立渡嘉敷小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「複式少人数で先生が一人ひとりを見てくれるという書き込みが多い」<br>「異年齢交流が盛んという声がある」<br>「学力が平均よりやや上という声もある」</td><td class="feature">小中併置校。教育目標は「自ら学び、心豊かに、たくましく、自立する児童生徒の育成」。学年縦割りの異年齢活動や伝統の「美ら島とかしき太鼓」に取り組む。</td></tr>
+          <tr><td class="sname">渡嘉敷村立渡嘉敷中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「小人数でアットホームという書き込みが多い」<br>「幼小中の長い付き合いで結束が強いという声がある」<br>「学力が全国平均以上で丁寧な指導という声もある」</td><td class="feature">小中併置校。教育目標は小学校と同様「自ら学び、心豊かに、たくましく、自立する児童生徒の育成」。伝統の「風神太鼓」など地域資源を活かした教育を推進している。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">座</span><span class="muni-name">座間味村</span><span class="muni-count">小3・中3</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">座間味村立阿嘉小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「自然を活かした体験学習が魅力という書き込みが多い」<br>「小規模ながら地域に支えられた温かみがあるという声がある」</td><td class="feature">学校教育目標は「郷土阿嘉島を誇りに、未来を切り拓く子どもの育成」。天然記念物ケラマジカの調査や体験ダイビング、サンゴの産卵観察など自然を活かした体験学習を地域の協力で実施している。</td></tr>
+          <tr><td class="sname">座間味村立慶留間小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「世界一美しいロケーションの学校という書き込みが多い」<br>「目の前の海がプール代わりという声がある」<br>「通いたい小学校という声もある」</td><td class="feature">道路清掃・田植え・魚とりなど地域の人々と行う活動が特徴。水泳学習・シュノーケル、異学年合同授業、エイサー練習などに取り組んでいる。</td></tr>
+          <tr><td class="sname">座間味村立座間味小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「校庭が広く自然豊かでのびのびしているという書き込みが多い」<br>「海に近く建物も綺麗で良い雰囲気という声がある」</td><td class="feature">合言葉は「島に誇りを 心に夢を 15の春の自立を叶える」。幼小中12年間を見通した連携や、縦割班による異学年交流を充実させている。</td></tr>
+          <tr><td class="sname">座間味村立座間味中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「校庭が広く自然豊かでのびのびしているという書き込みが多い」<br>「海に近く建物も綺麗で良い雰囲気という声がある」</td><td class="feature">合言葉は「島に誇りを 心に夢を 15の春の自立を叶える」。サバニ帆漕レース参加や「グリーンパーク」整備など地域・保護者との協働による学校づくりを行う。</td></tr>
+          <tr><td class="sname">座間味村立阿嘉中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「自然を活かした体験学習が魅力という書き込みが多い」<br>「小規模ながら地域に支えられた温かみがあるという声がある」</td><td class="feature">学校教育目標は「郷土阿嘉島を誇りに、未来を切り拓く子どもの育成」。幼小中一体の小規模校として自己肯定感を育む教育に取り組んでいる。</td></tr>
+          <tr><td class="sname">座間味村立慶留間中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「世界一美しいロケーションの学校という書き込みが多い」<br>「留学制度があり自然環境が決め手という声もある」</td><td class="feature">村内で最も小さな学校として、地域の人々と道路清掃・田植え・魚とりなどの活動を行う。平和学習や防災ワークショップにも取り組んでいる。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">粟</span><span class="muni-name">粟国村</span><span class="muni-count">小1・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">粟国村立粟国小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「大自然の中で少人数で健やかに育つという書き込みが多い」<br>「島の環境を活かしたのびのびした雰囲気という声がある」</td><td class="feature">学校教育目標は「学びに向かう力と『夢を描き』自分の将来を創造できる児童・生徒の育成」。小中合同のリコーダー部が沖縄県コンテストで長年連続金賞を受賞している。</td></tr>
+          <tr><td class="sname">粟国村立粟国中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「島の人たちが優しく感謝の気持ちが強いという声がある」</td><td class="feature">教育目標は小学校と共通(校訓「勤勉進取」も共通)。職場体験やオンラインベトナム交流学習、男子バドミントン部の県大会優勝などの実績がある。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">渡</span><span class="muni-name">渡名喜村</span><span class="muni-count">小1・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">渡名喜村立渡名喜小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校教育目標は「夢・希望に輝く子の育成」。校訓「積小為大」のもと、100年以上続く伝統の水上運動会やリーフ釣りなど海の体験活動を展開している。</td></tr>
+          <tr><td class="sname">渡名喜村立渡名喜中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">最上位目標は小学校と同じ「夢・希望に輝く子の育成」。島に高校がないため自立心の育成を重視し、地域全体を巻き込んだ行事に取り組んでいる。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">南</span><span class="muni-name">南大東村</span><span class="muni-count">小1・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">南大東村立南大東小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校教育目標は「かしこく・やさしく・たくましく・みらいに向かう」の4つの柱。校訓「夢の実現」「開拓者精神の継承」のもと、小規模校の利点を生かした少人数教育に取り組む。</td></tr>
+          <tr><td class="sname">南大東村立南大東中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は小学校と共通。生徒会主催の「原料糖バケツリレー」は開拓125周年を記念し島民約270人が参加してギネス世界記録に認定された。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">北</span><span class="muni-name">北大東村</span><span class="muni-count">小1・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">北大東村立北大東小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">小中併置校共通のテーマ「島に誇りを 心に夢を」を掲げる。少人数による異年齢交流や地域行事への積極参加、バドミントン・陸上などの課外活動、ALTを活用した英語教育、弁当の日など生活自立の取り組みを行う。</td></tr>
+          <tr><td class="sname">北大東村立北大東中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">小学校と同じ小中併置校で、共通テーマ「島に誇りを 心に夢を」のもと、少人数ならではの密な指導、バドミントン部・陸上部の活動、ALTによる英語教育、地域行事（大東宮祭など）への参加に取り組む。島内に高校がないため、卒業後は本島などへの進学が一般的。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">伊</span><span class="muni-name">伊平屋村</span><span class="muni-count">小2・中2</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">伊平屋村立伊平屋小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">伊平屋村の教育理念「島発ち教育」（島の歴史・文化に誇りを持ち、学び続け、自分らしさを伸ばし、島を愛し未来を創る人を育てる）と「視野は世界、視点は郷土」を基盤に、国際感覚と郷土学習を並行した教育を推進している。</td></tr>
+          <tr><td class="sname">伊平屋村立野甫小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">伊平屋村立伊平屋中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">めざす生徒像として「気づき・考え・選択（自己決定）し行動に移せる生徒」「あきらめない心で主体的に学び挑戦する生徒」「自他を認め誠実で心豊かな生徒」「時を守り・場を清め・礼を正す凡事徹底ができる生徒」を掲げ、夢や希望を持って安心して学べる学校づくりを目指している。</td></tr>
+          <tr><td class="sname">伊平屋村立野甫中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">伊</span><span class="muni-name">伊是名村</span><span class="muni-count">小1・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">伊是名村立伊是名小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">村全体で推進する「島立ち（立・発）の教育」を基調に、「知・徳・体」の調和のとれた児童の育成や「互いに尊重し、よさを認め合える児童」の育成を重視している。</td></tr>
+          <tr><td class="sname">伊是名村立伊是名中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">島内に高校がなく卒業後は親元を離れる生徒が多い実態を踏まえ「島立ちの教育」を推進。沖縄県教育委員会のSDGs達成に向けた教育実践研究校の指定を受け、伊是名島の自然・歴史・文化を題材にした探究学習や、SDGsパスポートを活用した海浜清掃などのボランティア活動に取り組んでいる。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">久</span><span class="muni-name">久米島町</span><span class="muni-count">小6・中2</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">久米島町立大岳小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校教育目標は「自ら考え、進んで学習に励む子（知）」「豊かな心で思いやりのある子（徳）」「最後までやりぬく子（情）」「健康で明るい子（体）」。創立140年余りの伝統を大事にしつつ、創造性・国際性を備えた児童の育成とキャリア教育や学習発表会などの活動を展開している。</td></tr>
+          <tr><td class="sname">久米島町立久米島小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「健康でたくましい子（体）」「心豊かな子（徳）」「進んで学習する子（知）」。学力向上・体力向上・魅力ある学校づくりに向けた取組を進め、複式学級を含む少人数環境で読書活動や健康教育などを実施している。</td></tr>
+          <tr><td class="sname">久米島町立清水小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">久米島町立仲里小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">スローガン「みんなちがってみんないい」を掲げ、地域の自然環境を生かした活動や他校との交流を行っている。</td></tr>
+          <tr><td class="sname">久米島町立比屋定小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">小規模校の利点を生かし、一人一人がバランスよく挑戦できる機会を設けている。<br><span style="color:#A8461F;font-size:11.5px;">※行政発表:児童数減少により2026年4月から一時休校予定(口コミの集計とは別に、公的発表があった事実として記載)</span></td></tr>
+          <tr><td class="sname">久米島町立美崎小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「少人数で学年を超えた仲の良さ・上学年の面倒見の良さが評価される書き込みが多い」<br>「先生が一人ひとりに目を向けやすい、校長先生も含めた地域参加型の行事が好意的という声がある」<br>「宿題の量の日によるばらつきや他校との統合可能性への懸念を指摘する声もある」</td><td class="feature">キャッチフレーズ「しにうむさん」を掲げ、総合的な学習で「海の豊かさを守ろう」など地域の自然を題材にした活動を行っている。</td></tr>
+          <tr><td class="sname">久米島町立球美中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">平成26年の統合校として、主体的・協働的な学び（ICT活用や自由進度学習など）、多様性の尊重、小中連携、キャリア教育、運動会でのエイサーなどを特色ある活動として展開している。</td></tr>
+          <tr><td class="sname">久米島町立久米島西中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「少人数で生徒同士の距離が近く、転校生も孤立しにくいという書き込みが多い」<br>「一部の先生による個別対応や学習支援を評価する声がある」<br>「身だしなみチェックなど校則の厳しさや施設面への不満を指摘する声もある」<br>「いじめは少ない傾向という指摘が多い」</td><td class="feature">校訓は「切磋琢磨」、教育目標は「自ら考えて行動できる生徒を育む（知）」「思いやりがあり正しいことは最後までやり抜く生徒を育む（徳）」「元気で明るくたくましい生徒を育む（体）」「郷土を知り誇りを持てる生徒を育む（郷）」。キャッチフレーズ「安らぎと英知と元気のある学校」を掲げている。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">八</span><span class="muni-name">八重瀬町</span><span class="muni-count">小4・中2</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">八重瀬町立新城小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「進んで学ぶ子（知）」「思いやりのある子（徳）」「元気な子（体）」。人間尊重と個性の伸長を基盤に、社会に貢献できる人間性豊かな児童の育成を目指す。あいさつ・人権教育・たて割り活動や食育・安全教育を重視している。</td></tr>
+          <tr><td class="sname">八重瀬町立具志頭小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「スポーツやクラブ活動が盛んで放課後も活気がある」「歴史ある学校」という書き込みが複数見られる</td><td class="feature"></td></tr>
+          <tr><td class="sname">八重瀬町立東風平小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「児童数が多い（マンモス校）」という書き込みが多い<br>「何かあったら先生からすぐに連絡が来る」という保護者の声がある<br>「町の人口増で教室が不足しているという投稿も見られる」<br>伝統芸能（獅子舞・棒術など）への取り組みを評価する声もある</td><td class="feature">教育目標は「進んで学習する子」「心豊かな子」「健康で粘り強い子」（かしこく・やさしく・たくましく）。創立145年の伝統を踏まえ、地域の歴史・文化を活かした教育や「あたりまえのこと」（時を守る・場を清める・礼を正す）の徹底、主体的・対話的で深い学びを推進している。</td></tr>
+          <tr><td class="sname">八重瀬町立白川小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">過去のグランドデザイン（令和3年度頃）では、学校教育目標として「心豊かで（徳）」「進んで学ぶ（知）」「たくましい子（体）」を掲げ、共に学び育ち合う学校を目指していた。</td></tr>
+          <tr><td class="sname">八重瀬町立東風平中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「運動系部活が強く盛ん」「生徒数が多い（約900人規模）」という書き込みが多い<br>「校舎・体育館など施設が古く雨漏りなどの不満がある」という声がある<br>学習サポートは比較的良いという声と、先生の対応や不登校関連の指摘が混在する</td><td class="feature">校訓は「鍛錬・創造・立志」。学校教育目標は「自他を尊重し、自らの目標に向かって行動できる生徒」で、自分を大切にし他者と協力する生徒、自ら学び「わかる・できる・楽しい」を実感する生徒、心身ともに健康で粘り強くやり抜く生徒の育成を目指している。</td></tr>
+          <tr><td class="sname">八重瀬町立具志頭中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育スローガンは「汗水節（あしみじぶし）の心を行動に！」。教育目標は「目標を持ち自ら学ぶ生徒、情操豊かで思いやりのある生徒、健康でたくましい生徒」。地元出身の仲本稔氏による教訓歌「汗水節」の六心（勤労・勤倹・夢と希望・健康長寿・学問奨励・社会奉仕）を基盤に、地域と連携した人を大事にする学校づくりを特色としている。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+    <div class="gun-group">
+      <p class="gun-label">宮古郡</p>
+      <details class="muni">
+        <summary><span class="muni-badge">多</span><span class="muni-name">多良間村</span><span class="muni-count">小1・中1</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">多良間村立多良間小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育重点目標は基礎・基本の確実な知識・技能の習得と活用する力の育成、学習規律の徹底。島の伝統行事「八月踊り」（国の重要無形民俗文化財）を活用した「ふるさと教材」、方言での昔話発表、学校農園でのアワ栽培と豊年祭への提供、岩手県宮古市の姉妹校との交流など、小規模校の特性を活かした地域一体の教育が特色。</td></tr>
+          <tr><td class="sname">多良間村立多良間中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自ら進んで学ぶ生徒」「心豊かで思いやりのある生徒」「心身ともに強くたくましい生徒」。島に高校がないため「15歳の島立ち」を見据えたキャリア教育を中核に据え、自立した学習者の育成や自己肯定感の向上を図っている。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+    <div class="gun-group">
+      <p class="gun-label">八重山郡</p>
+      <details class="muni">
+        <summary><span class="muni-badge">竹</span><span class="muni-name">竹富町</span><span class="muni-count">小10・中10</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">竹富町立竹富小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">公式サイト等での特色確認は未了。X上では2024年以降、校舎周辺の花やマングローブなど自然豊かな環境を好意的に伝える投稿、当時を懐かしむ卒業生の投稿が見られる。</td></tr>
+          <tr><td class="sname">竹富町立小浜小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「自ら進んで学習し、心豊かでたくましく、ねばり強い小浜っ子」。特色として海洋教育（もずく採りなど）、食育講話、伝統文化（旧盆・結願祭）への取り組みを行っている。</td></tr>
+          <tr><td class="sname">竹富町立黒島小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校教育目標は「9年間を通して育てる ふるさとを愛し、未来を切り開く黒島っ子の育成」。ふるさと黒島学（地域資源を活用した探究）、アーサ採り体験、着衣泳教室、ビーチクリーンなど、海洋教育と郷土愛を軸にした体験学習が充実している。</td></tr>
+          <tr><td class="sname">竹富町立大原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">教育目標は「よく考え、進んで学び合う子」「思いやりがあり、友だちと仲良くする子」「身体をきたえ、ねばり強く頑張る子」「地域の自然・歴史・文化を大切にし、郷土を愛する子」。校訓は「心豊かに たくましく」。稲刈り体験、サトウキビ作り、ビーチクリーン、巻き網漁体験、ピナイサーラトレッキングなど西表島東部の自然を活かした体験活動が中心。</td></tr>
+          <tr><td class="sname">竹富町立上原小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「離島ならではの伝統行事（魚まきなど）や自然体験を評価する声がある」<br>「教員の異動が比較的頻繁で落ち着きにくいという指摘もある」</td><td class="feature">教育目標は「進んで学びよく考える子」「明るく思いやりのある子」「体をきたえ、ねばり強くやりぬく子」「自然と文化を大切にし、郷土を愛する子」。校訓は「自主 努力 敬愛」。海洋教育を推進し、魚まき集会（追い込み漁体験）、ビーチクリーン、防災学習、海神祭（ハーリー）への参加など西表島北西部の自然と地域行事を活かした体験活動を行う。</td></tr>
+          <tr><td class="sname">竹富町立西表小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">小中併置校で、西表島の自然を活かした体験学習（和紙作り、白浜海神祭への参加、キャリア講話など）を中心に教育活動を展開している。</td></tr>
+          <tr><td class="sname">竹富町立白浜小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">統括目標は「社会で自立（自律）できる児童の育成」。具体目標として「よく考え進んで学習する子」「心豊かで思いやりのある子」「心身ともに健康でたくましい子」を掲げる。海の体験学習（刺し網漁）、マングローブ観察・カヌー体験、白浜海神祭への参加、地域とのふれあいグランドゴルフなど西表島最西端の自然環境を活かした活動が中心。</td></tr>
+          <tr><td class="sname">竹富町立船浮小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校教育目標は「進んで学び、考えぬく子（知）」「明るく思いやりのある子（徳）」「元気でねばり強い子（体）」。極小規模校で陸の孤島的な環境にあり、地域の全面協力で学校行事が成り立つ。白浜海神祭への参加、平和学習、救急救命講習、地域伝統行事との連携などを行う。校章はヤエヤマハマゴウをモチーフに郷土愛を表現している。</td></tr>
+          <tr><td class="sname">竹富町立鳩間小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate">「海が綺麗で環境が良い」「島全体で学校を支える雰囲気」という書き込みが多い<br>「親元を離れた留学・受け入れ制度がある」という声がある<br>「児童数が極端に少なく廃校の危機が繰り返し指摘される」傾向がある</td><td class="feature">教育目標は「心豊かに（徳）かしこく（知）たくましく（体）」。現行学習指導要領に基づく知徳体バランスの取れた「生きる力」の育成を目指す。海洋教育（サンゴ学習、グルクン釣り体験、ホシスナ採集など）、地域行事（豊年祭・結願祭・音楽祭）への参加、つばさ寮を活用した島留学制度、小中合同調理実習などを実施。極小規模で島全体で子どもを育てる教育が特徴。</td></tr>
+          <tr><td class="sname">竹富町立波照間小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">公式サイト等での特色確認は未了。X上では2024年以降、校歌や130周年記念行事を通じて地域に愛されている様子を伝える投稿、卒業生が民謡を歌った学校生活を懐かしむ投稿が見られる。</td></tr>
+          <tr><td class="sname">竹富町立竹富中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「少人数で先生の割合が高く、周囲の環境が良くのびのび育つ雰囲気」「八重山の文化を取り入れている」という書き込みがある</td><td class="feature">学校教育目標は「新しい時代を切り拓く 創造性豊かでたくましい 実践力のある児童生徒の育成」（自主・自立〈律〉・挑戦・協働）。小中併置の利点を生かし、海洋教育や伝統文化体験を通じて、中学卒業後の「15の春（島立ち）」を見据えた主体的・創造的な力を育成している。</td></tr>
+          <tr><td class="sname">竹富町立小浜中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校教育目標は「自ら進んで学習し 心豊かでたくましく ねばり強い 小浜っ子」、スローガンは「笑顔 あいさつ 思いやり 共に学び合う 楽しい学校」。自立と共生を重視し、海洋教育や地域連携を通じて基礎学力と豊かな心を育んでいる。</td></tr>
+          <tr><td class="sname">竹富町立黒島中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「少人数で家族的な雰囲気、自然豊かでのびのびした環境」「生徒の挨拶が良い」という書き込みがある</td><td class="feature">公式サイトで最新の学校教育目標の明確な記載は確認できず。過去の資料では「9年間を通して育てる ふるさとを愛し、未来を切り開く黒島っ子の育成」といったふるさと教育を重視した目標が示され、地域の自然や伝統を活かした活動が行われている。</td></tr>
+          <tr><td class="sname">竹富町立大原中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「自然体験学習が多く、生徒がしっかり挨拶してくれる良い環境」という書き込みがある</td><td class="feature">校訓は「立志・自立・郷土愛」。15歳の島立ちを見据えた教育を推進。海洋教育（結ぬ海科）や三大行事（西表島横断・古見岳登山・仲間川下り）があり、郷土の自然に親しみ誇りを持つ生徒の育成を目指している。</td></tr>
+          <tr><td class="sname">竹富町立船浦中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校教育目標は「自ら考え、判断し、言動できる人」の育成。校訓は「自主・親愛・努力」。特色ある日課表を活用した学習や自由進度学習、海洋教育・三大行事などを通じ、主体性（エージェンシー）とウェルビーイングを重視した教育を展開している。</td></tr>
+          <tr><td class="sname">竹富町立西表中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「自然に囲まれた環境でのびのびしている」ように見えるという書き込みがある</td><td class="feature">公式サイト上で学校教育目標の明確な記載は確認できず。活動日誌などから、サバニ体験などの海洋教育や稲作・和紙作りなどの体験学習、地域行事への参加を重視した特色ある教育が行われている。</td></tr>
+          <tr><td class="sname">竹富町立白浜中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">独立した中学校としての公式サイトや学校教育目標の明確な記載は確認できず。白浜小学校は存在し、西表島の学校として地域行事や自然体験に関わる活動が見られる。</td></tr>
+          <tr><td class="sname">竹富町立船浮中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature"></td></tr>
+          <tr><td class="sname">竹富町立鳩間中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">公式サイトの学校紹介等で学校教育目標の明確な記載は確認できず。島留学制度（つばさ寮）や地域行事への積極的参加、小規模校ならではの異年齢交流など、島の生活と一体となった教育が特色。</td></tr>
+          <tr><td class="sname">竹富町立波照間中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate">「のどかで良い」「卒業生の絵が描かれた塀など心が温まる」という書き込みが多い（観光客目線の感想が中心）</td><td class="feature">教育目標は「島と海と地域を愛し、共生・協働じりつできるウタマ」（知：自ら学び表現できる／徳：島と海と地域を愛し心豊かな／体：たくましくねばり強い）。校訓は「知徳・師弟和楽・誠心」。日本最南端の学校として、海洋教育や水泳教室、ヤギ飼育などの地域の自然を活かした活動を通じて、15歳のじりつ（自立・自律）を目指している。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="muni">
+        <summary><span class="muni-badge">与</span><span class="muni-name">与那国町</span><span class="muni-count">小3・中2</span></summary>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>学校名</th><th>区分</th><th>設置</th><th>口コミ</th><th>特性</th></tr></thead>
+            <tbody>
+          <tr><td class="sname">与那国町立久部良小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">日本最西端の小学校で久部良集落の高台に位置し、天候により台湾を望める点や、創立約101年の歴史ある学校であることが特色。近隣の久部良中学校と同一敷地にあり、地域とのつながりが強い立地。</td></tr>
+          <tr><td class="sname">与那国町立比川小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">学校教育目標は「自ら学び みんなとともに伸びる 心豊かでたくましい子」。児童数が極めて少ない小規模校（近年4名程度）で、海と山に囲まれた自然環境を活かし、地域住民が参加する運動会・学芸会や、乗馬クラブ・横笛教室・海人祭・比川浜清掃などの地域資源を活用した活動が特色。</td></tr>
+          <tr><td class="sname">与那国町立与那国小学校</td><td class="skind">小</td><td class="stype">公立</td><td class="srate"></td><td class="feature">校訓は「自律・協働・創造」（2022年改定。以前は「自主・勤勉・礼節」）。明治18年（1885年）創立の歴史ある学校で、過去の情報では知・徳・体・意を重視した目標が掲げられていた。</td></tr>
+          <tr><td class="sname">与那国町立与那国中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">合言葉は「さわやか与中」（さわやかな挨拶・返事、笑いに満ちた思いやり、やる気、感謝の心）。郷土学習「どぅなんタイム」（与那国島の文化・芸能体験）や、台湾との国際交流・修学旅行などが特色ある活動として行われている。</td></tr>
+          <tr><td class="sname">与那国町立久部良中学校</td><td class="skind">中</td><td class="stype">公立</td><td class="srate"></td><td class="feature">校訓は「世界雄飛」。日本最西端の中学校で、隣接する久部良小学校よりさらに西に位置する。地域人材を活用した「久中プロジェクト」（そばづくり・民具づくり）、郷土芸能（棒術・三線・笛・踊り）、職業人講話などのキャリア教育や、台湾を含む文化交流が特色。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+    </section>
+
+    <section class="section">
+      <h2><span class="badge">確</span>内見前・契約前に確認すること</h2>
+      <hr class="section-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="g1" type="button"><span class="check-box"></span><span class="check-text">物件の候補地にあたる市町村を、このページで開いて学校名を確認した</span></button></li>
+        <li><button class="check-item" data-id="g2" type="button"><span class="check-box"></span><span class="check-text">物件の正確な住所(番地まで)で、自治体の学区マップ・規則を確認した(学校名が分かっても、校区の境界は住所で機械的に決まるため別途必要)</span></button></li>
+        <li><button class="check-item" data-id="g3" type="button"><span class="check-box"></span><span class="check-text">口コミ(★)が載っている学校は、投稿時期にも注意して参考程度に見た。載っていない学校は「情報が無いだけ」と理解したうえで検討した</span></button></li>
+        <li><button class="check-item" data-id="g4" type="button"><span class="check-box"></span><span class="check-text">気になる場合は、教育委員会の窓口に直接電話して確認した</span></button></li>
+        <li><button class="check-item" data-id="g5" type="button"><span class="check-box"></span><span class="check-text">子どもの年齢が上がるタイミングでの学校再編・統合計画がないか(市町村教育委員会に確認)</span></button></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <div class="note-box">掲載した学校名・所在地(市町村)は、沖縄県小学校一覧・中学校一覧(Wikipedia、沖縄県教育委員会公表データに基づく集計を転記)を基にしています。学校の統廃合・新設により最新の状況と差がある場合があります。口コミ(★)は、口コミサイトに投稿された評価の集計値であり、投稿者の主観に基づくものです。「特性」は学校公式サイト等の公表情報を要約したもので、一部はX(旧Twitter)上の投稿傾向も参考にしていますが、いずれも学校の現在の実態を保証するものではなく、当サービスが学校を評価・順位付けするものでもありません。最終的な判断材料には、学校・教育委員会が公式に発表している情報もあわせてご確認ください。この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORAGE_KEY = "okinawa_gakku_check_v3";
+  function loadState(){try{var raw=localStorage.getItem(STORAGE_KEY);if(!raw)return{};var p=JSON.parse(raw);return(p&&typeof p==="object")?p:{};}catch(e){return{};}}
+  function saveState(s){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(s));}catch(e){}}
+  var state = loadState();
+  var items = Array.prototype.slice.call(document.querySelectorAll(".check-item"));
+  function applyItemState(el){var id=el.getAttribute("data-id");if(state[id]){el.classList.add("checked");}else{el.classList.remove("checked");}}
+  items.forEach(function(el){applyItemState(el);el.addEventListener("click",function(){var id=el.getAttribute("data-id");state[id]=!state[id];saveState(state);applyItemState(el);});});
+})();
+</script>
+</body>
+</html>

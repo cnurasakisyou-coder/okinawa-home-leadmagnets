@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>沖縄で家を買う前のチェックリスト30|沖縄マイホーム研究室</title>
+<meta name="description" content="内見前に開いておく30項目。お金・エリア・台風対策・塩害・シロアリ・土地権利・契約をタップでチェックできます。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(25px,6vw,32px);font-weight:600;line-height:1.55;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.52em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;
+    font-weight:700;margin:0 0 18px;
+  }
+  .hero h1{
+    position:relative;font-size:clamp(23px,4.8vw,28px);line-height:1.55;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"PURCHASE GUIDE  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero-lead{
+    font-size:14.5px;line-height:1.95;margin:0;color:#46545E;
+    border-left:2px solid var(--gold);padding:1px 0 1px 16px;
+  }
+
+  /* ---- Progress ---- */
+  .progress-sticky{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,241,232,.97);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    padding:13px clamp(20px,6vw,30px) 15px;
+  }
+  .progress-row{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:9px}
+  .progress-label{font-size:10px;letter-spacing:.16em;color:var(--muted);font-weight:700}
+  .progress-text{font-size:13px;font-variant-numeric:tabular-nums;color:var(--navy);font-weight:700}
+  .progress-text .num{font-size:18px;color:var(--gold)}
+  .progress-track{width:100%;height:5px;background:#DDD8CD}
+  .progress-fill{height:100%;width:0%;background:var(--navy);transition:width .35s ease}
+  .progress-done-msg{display:none;margin-top:9px;font-size:12.5px;color:var(--navy);font-weight:700}
+  .progress-done-msg.show{display:block}
+
+  main{padding:8px clamp(20px,6vw,30px) 4px}
+
+  /* ---- Category ---- */
+  .category{margin:30px 0 0}
+  .category h2{
+    display:flex;align-items:center;gap:12px;margin:0 0 2px;
+    font-size:17.5px;font-weight:600;color:var(--navy);line-height:1.5
+  }
+  .badge{
+    flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;font-size:14.5px;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);
+    position:relative;top:0
+  }
+  .cat-count{font-size:11px;color:var(--muted);font-weight:500;margin-left:auto;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .category-rule{border:none;border-top:1px solid var(--gold);margin:11px 0 16px;position:relative}
+  .category-rule::after{content:"";position:absolute;left:0;top:-2px;width:48px;height:3px;background:var(--navy)}
+
+  /* ---- Check list ---- */
+  .check-list{list-style:none;margin:0;padding:0}
+  .check-item{
+    width:100%;display:flex;align-items:flex-start;gap:13px;text-align:left;
+    background:transparent;border:0;border-bottom:1px solid var(--line);
+    padding:16px 6px;font-size:14.5px;font-family:inherit;color:var(--ink);
+    cursor:pointer;min-height:48px;-webkit-tap-highlight-color:transparent;
+    transition:background .15s ease;
+  }
+  .check-item:hover{background:#F8F5EF}
+  .check-box{
+    flex:0 0 18px;width:18px;height:18px;border:1px solid #8B969B;
+    margin-top:3px;position:relative;transition:all .15s ease;background:#fffefa
+  }
+  .check-box::after{
+    content:"";position:absolute;left:4px;top:1px;width:6px;height:10px;
+    border-right:2px solid #fff;border-bottom:2px solid #fff;
+    transform:rotate(40deg);opacity:0
+  }
+  .check-item.checked .check-box{background:var(--navy);border-color:var(--navy)}
+  .check-item.checked .check-box::after{opacity:1}
+  .check-text{flex:1}
+  .check-item.checked .check-text{color:#737D82;text-decoration:line-through;text-decoration-color:var(--gold)}
+
+  .extra-note{
+    font-size:12.5px;color:#344655;background:#F4F1E9;
+    border-left:3px solid var(--gold);padding:15px 17px;margin:16px 0 0;line-height:1.9
+  }
+  .extra-note b{display:block;margin-bottom:5px;color:var(--navy);font-size:13px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+
+  /* ---- Closing ---- */
+  .closing{padding:34px clamp(20px,6vw,30px) 40px;background:#fffefa}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+  .reset-link{display:block;text-align:left;margin:20px 0 0;font-size:12.5px;color:var(--muted);background:none;border:none;text-decoration:underline;cursor:pointer;padding:0}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .check-item{font-size:14px;gap:10px;padding:14px 2px}
+    .category h2{gap:8px}
+    .badge{flex-basis:28px;width:28px;height:28px}
+    .cat-count{font-size:10px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+    .progress-sticky{position:static}
+    .check-item{break-inside:avoid}
+    .reset-link{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>内見前にひらく全項目</span>沖縄で家を買う前の<br>チェックリスト30</h1>
+      <p class="cover-subtitle">お金・エリア・台風対策・塩害・シロアリ・土地権利・契約まで、後悔しないための30項目をタップでチェックできます。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典</p>
+    <h1>沖縄で家を買う前の<br>チェックリスト30</h1>
+    <p class="hero-lead">「なんでこの家にしたの」と後で聞かれたとき、ちゃんと答えられるかどうか。あとで「しまった」と思う人の多くは、見るべき場所をそもそも知らなかっただけです。内見前にこの30項目を開いておけば、同じ後悔はしません。各項目には「なぜそこを見るのか」の理由と、具体的な金額の目安も添えています。</p>
+  </header>
+
+  <div class="progress-sticky">
+    <div class="progress-row">
+      <span class="progress-label">CHECK PROGRESS</span>
+      <span class="progress-text"><span class="num" id="progressCount">0</span> / 30</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-done-msg" id="progressDoneMsg">全部チェックできました。内見の準備は万端です。</div>
+  </div>
+
+  <main>
+
+    <section class="category">
+      <h2><span class="badge">金</span>お金<span class="cat-count">6項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="c1" type="button"><span class="check-box"></span><span class="check-text">ローン返済+維持費(固定資産税・保険・管理費・修繕積立金・駐車場)の合計を月額で出した<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">「買えるかどうか」は銀行の審査に通るかではなく、固定費を払い続けても暮らしが崩れないかで考えたい。マンションは管理費・修繕積立金が、戸建ても固定資産税・火災保険料が、ローン返済とは別に一生ついてくる</span></span></button></li>
+        <li><button class="check-item" data-id="c2" type="button"><span class="check-box"></span><span class="check-text">金利が+1%になっても払える額か確認した<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">借入4,000万円で金利が1.0%→2.0%になると、35年間の総返済額は約823万円増える(自前試算)。2026年10月時点、日銀の政策金利は31年ぶりの水準まで上がり、沖縄の地銀3行も2024年10月に17年ぶりに変動金利を引き上げている。「今の金利のまま」が続く保証はない</span></span></button></li>
+        <li><button class="check-item" data-id="c3" type="button"><span class="check-box"></span><span class="check-text">1人の収入でも払える額か確認した(ペアローンの場合)<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">ペアローンは世帯年収で見れば借入枠が広がる一方、産休育休・転職・休職でどちらかの収入が一時的に途切れると、残った側だけでは返済が厳しくなることがある。「2人で払う前提」の計算とは別に、「1人になっても崩れないか」を一度試算しておきたい</span></span></button></li>
+        <li><button class="check-item" data-id="c4" type="button"><span class="check-box"></span><span class="check-text">諸費用(物件価格の6〜10%前後)と生活防衛資金を現金で確保した<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">諸費用は仲介手数料・登記費用・ローン事務手数料・火災保険料などの合計で、物件価格の6〜10%が目安。さらに生活費3〜6か月分程度の生活防衛資金を別に残しておかないと、入居直後の家具・引っ越し・設備故障などの出費で資金繰りが詰まりやすい</span></span></button></li>
+        <li><button class="check-item" data-id="c5" type="button"><span class="check-box"></span><span class="check-text">住宅ローン減税・補助金(国・県・市町村)の対象と締切を確認した<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">住宅ローン減税は2030年末まで延長され、省エネ性能の高い中古住宅も対象に含まれる(控除13年、子育て世帯は借入限度額最大4,500万円)。一方、国の「みらいエコ住宅2026事業」は新築限定で中古には使えない。市町村の補助金(八重瀬町・沖縄市のリフォーム支援等)は先着順・予算上限ありで、年度の途中でも受付が終了することがある</span></span></button></li>
+        <li><button class="check-item" data-id="c6" type="button"><span class="check-box"></span><span class="check-text">銀行の事前審査を通した<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">住宅ローンの事前審査に落ちる人は一般的に1割程度、初めて申し込む人では何らかの金融機関で審査落ちを経験する人が14.3%という調査もある。主な理由は返済負担率の超過、信用情報の延滞履歴、勤続年数の短さなど。内見前に通しておけば、気に入った物件が出たときにすぐ動ける</span></span></button></li>
+      </ul>
+      <div class="extra-note">
+        <b>「借りられる額」と「返せる額」は別</b>
+        銀行の審査が通る金額と、暮らしが崩れずに返せる金額はイコールではない。特典2(年収別「いくらまで買える?」診断シート)で、世帯年収から無理のない借入目安をその場で計算できる。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">地</span>エリア<span class="cat-count">5項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="c7" type="button"><span class="check-box"></span><span class="check-text">平日の朝7時台に職場まで走ってみた<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">沖縄は車社会で、職場までの所要時間は平日朝のピーク時と、内見でよくある昼間・休日とで体感がまったく違う。国道58号やそのバイパスなど幹線道路沿いは朝夕に渋滞が集中しやすいとされる</span></span></button></li>
+        <li><button class="check-item" data-id="c8" type="button"><span class="check-box"></span><span class="check-text">保育園・小学校までのルートと学区を確認した<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">校区は住んでいる住所で自治体の規則によって機械的に決まり、同じ町内でも番地によって校区が分かれることがある。那覇市・浦添市・宜野湾市・うるま市は学区マップを公式サイトで公開しているので、物件の番地で内見前に確認したい</span></span></button></li>
+        <li><button class="check-item" data-id="c9" type="button"><span class="check-box"></span><span class="check-text">実家・祖父母宅までの時間を確認した<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">台風時の停電・断水や、子育て中の急な預け先の確保など、いざという時に頼れる距離かどうかは暮らしやすさに直結する</span></span></button></li>
+        <li><button class="check-item" data-id="c10" type="button"><span class="check-box"></span><span class="check-text">夜の周辺の明るさ・騒音(基地周辺は航空機の音も)を確認した<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">嘉手納・普天間周辺には住宅防音工事の助成制度があるが、対象は一定の期日までに建てられた住宅に限られ(嘉手納は1983年3月10日まで、普天間は同年9月10日まで)、新築はこの助成の対象外になりやすい。騒音の感じ方は時間帯・風向きで変わるため、できれば夜に現地を訪れて確認したい</span></span></button></li>
+        <li><button class="check-item" data-id="c11" type="button"><span class="check-box"></span><span class="check-text">ハザードマップで津波・土砂災害・浸水を確認した<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">沖縄本島南部には埋立地が多く、地震による液状化や高潮・津波の浸水想定区域に入っている土地もある。ハザードマップは各市町村の公式サイトで公開されている</span></span></button></li>
+      </ul>
+      <div class="extra-note">
+        <b>地価・人口の動きも参考に</b>
+        特典3(エリア別メモ)で南部・中部10エリアの人口増減・地価データをまとめている。那覇市は人口が2020→2025年で−2.1%と減っている一方、地価は公示地価ベースで+6.0%上昇しているなど、住みやすさと価格は必ずしも一致しない。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">風</span>台風・停電・断水<span class="cat-count">4項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="c12" type="button"><span class="check-box"></span><span class="check-text">雨戸・シャッターがすべての窓にあるか<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">飛来物で窓が割れて室内が浸水した体験談も報告されている。2018年の台風では停電が最長108時間続いた記録もあり、内見では晴れた日しか見えないが、年に数回は台風と付き合う前提で設備を見ておきたい</span></span></button></li>
+        <li><button class="check-item" data-id="c13" type="button"><span class="check-box"></span><span class="check-text">給水方式(受水槽+ポンプ/直結)と給水タンクの有無<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">マンションは受水槽+ポンプ方式が多く、停電するとポンプが止まって断水することがある(直結方式より影響を受けやすい)。2023年の台風6号では、停電の影響で実際に断水も発生した</span></span></button></li>
+        <li><button class="check-item" data-id="c14" type="button"><span class="check-box"></span><span class="check-text">マンションの非常用電源・過去の停電/断水の記録<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">共用部に非常用発電機があるかどうかで、停電中もエレベーター・給水ポンプが使えるかが変わる。2023年台風6号では沖縄本島の全世帯の約34%にあたる最大約22万戸が停電し、完全復旧までに2日半ほどかかった。管理組合や管理会社に過去の停電・断水の履歴を聞いておくと、そのマンションの弱点が見えてくる</span></span></button></li>
+        <li><button class="check-item" data-id="c15" type="button"><span class="check-box"></span><span class="check-text">火災保険で風災・水災が補償されるか<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">契約プランによっては風災・水災が補償対象外だったり、免責金額(自己負担の下限額)が設定されていたりする。台風が多い沖縄では、この特約の有無が被災後の負担を大きく左右する</span></span></button></li>
+      </ul>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">塩</span>塩害・建物<span class="cat-count">6項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="c16" type="button"><span class="check-box"></span><span class="check-text">天井・外壁のひび割れ、茶色いサビの筋(爆裂のサイン)<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">「爆裂」は、コンクリート内部の鉄筋が海からの塩分と空気中の炭酸ガスによる中性化で錆び、体積が膨張してコンクリートを押し割る現象。補修費用は浅い欠損なら1箇所1万〜2万円程度から、鉄筋の防錆処理が必要な場合は2万〜4万円以上と幅があり、放置期間が長いほど補修範囲が広がりやすい</span></span></button></li>
+        <li><button class="check-item" data-id="c17" type="button"><span class="check-box"></span><span class="check-text">ベランダ手すりの根元、鉄部のサビ<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">手すりの根元は雨水が溜まりやすく、海沿いでなくても潮風の影響を受ける箇所。小さなサビでも内部の鉄筋まで進行している場合がある</span></span></button></li>
+        <li><button class="check-item" data-id="c18" type="button"><span class="check-box"></span><span class="check-text">給湯器・室外機のサビと設置場所(海側を避ける)<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">海側に面した設置は潮風を直接受けやすく、本来の耐用年数より早く交換が必要になることがある。交換は数万円〜十数万円の出費になり、入居直後にその出費が来ると家計を圧迫しやすい</span></span></button></li>
+        <li><button class="check-item" data-id="c19" type="button"><span class="check-box"></span><span class="check-text">窓まわりの雨染み・屋上防水の状態<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">屋上防水の劣化は、直下階の天井のシミとして現れやすい。マンションの場合は大規模修繕で防水工事をいつ行ったか・次はいつ予定されているかを確認したい(詳しくは特典4)</span></span></button></li>
+        <li><button class="check-item" data-id="c20" type="button"><span class="check-box"></span><span class="check-text">カビのにおい・壁紙の黒ずみ・換気<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">沖縄は高温多湿で、RC造は木造より調湿性が低くカビが出やすいとされる。内見時は普段あまり開けない収納・北側の部屋のにおいも確認したい</span></span></button></li>
+        <li><button class="check-item" data-id="c21" type="button"><span class="check-box"></span><span class="check-text">中古ならホームインスペクション(住宅診断)を入れるか検討した<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">第三者の建築士が目視・計測で劣化状況を調べる検査で、費用はマンション4万〜6万円、戸建て5万〜7万円程度が目安とされる。中古は保証が薄い分、数万円の検査費用で数十万〜数百万円規模の後悔を避けられる可能性がある</span></span></button></li>
+      </ul>
+      <div class="extra-note">
+        <b>爆裂は直しても再発しやすい</b>
+        一度コンクリートの爆裂が起きた建物は、塩分が入り込む経路そのものが残っていることが多い。補修歴がある物件は「いつ・どこを・どう直したか」を売主や管理組合に確認しておきたい。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">蟻</span>シロアリ<span class="cat-count">2項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="c22" type="button"><span class="check-box"></span><span class="check-text">最後の防蟻処理の時期と保証の有無<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">沖縄のシロアリ被害はほぼ100%がイエシロアリによるもので、1コロニー最大100万匹規模(本土で多いヤマトシロアリは1万〜3万匹程度)と桁違いに大きい。駆除費用は30坪で17万円前後が目安だが、修繕まで含めると合計50万〜100万円以上かかることもある</span></span></button></li>
+        <li><button class="check-item" data-id="c23" type="button"><span class="check-box"></span><span class="check-text">床下・収納・サッシ枠の木部に被害の跡がないか<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">床下収納を開けて、蟻道(土でできた通り道)や羽アリの死骸、木部の盛り上がりがないか確認するだけでも見落としを減らせる。鉄筋コンクリート造の建物でも、サッシ枠・建具・床下の木部は被害に遭う。「RCだから大丈夫」という思い込みが一番の見落としにつながる</span></span></button></li>
+      </ul>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">権</span>土地・権利<span class="cat-count">4項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="c24" type="button"><span class="check-box"></span><span class="check-text">登記簿の名義(相続未登記・共有名義でないか)<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">沖縄戦で公図・公簿の多くが焼失した経緯があり、相続未登記・所有者不明の土地が今も残っている(2023年3月時点で所有者不明土地は2,694筆・約98ha)。共有名義のままだと、将来売却する際に共有者全員の同意が必要になる</span></span></button></li>
+        <li><button class="check-item" data-id="c25" type="button"><span class="check-box"></span><span class="check-text">道路に2m以上接しているか(再建築できるか)<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">原則、幅4m以上の道路に2m以上接していないと建て替え(再建築)ができない。再建築不可の土地は住宅ローンが使えないことも多く、資産価値も大きく下がる</span></span></button></li>
+        <li><button class="check-item" data-id="c26" type="button"><span class="check-box"></span><span class="check-text">境界が確定しているか(測量図)<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">境界確定測量は、官民査定ありで60万〜80万円、なしでも35万〜45万円程度かかり、隣地所有者全員の立会いが必要なため1か月半〜4か月ほどの期間がかかる。中古は境界があいまいなまま売買されるケースもあり、測量図の有無を先に確認しておくと、入居後に自己負担で測量し直す事態を避けやすい</span></span></button></li>
+        <li><button class="check-item" data-id="c27" type="button"><span class="check-box"></span><span class="check-text">建物が登記されているか<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">沖縄は増築が多く、未登記のまま売られているケースがあるとされる。未登記の増築部分があると住宅ローンの審査や将来の売却で問題になることがある</span></span></button></li>
+      </ul>
+      <div class="extra-note">
+        <b>「もう直せない」のが土地・権利</b>
+        建物の設備は後から直せても、境界・接道・登記は契約後に発覚すると解決に時間とお金がかかる。中古を検討している場合は特典4(中古物件だけの購入前チェックリスト16・上級編)でさらに深掘りしている。
+      </div>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">約</span>契約<span class="cat-count">3項目</span></h2>
+      <hr class="category-rule">
+      <ul class="check-list">
+        <li><button class="check-item" data-id="c28" type="button"><span class="check-box"></span><span class="check-text">ローン特約(ローン審査に通らなければ契約を白紙解除できる約束)が入っているか、期限はいつか<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">この特約がない、または期限が短すぎると、審査落ちでも手付金を失うリスクがある。白紙解除や手付金の返還をめぐる相談は少なくないとされる</span></span></button></li>
+        <li><button class="check-item" data-id="c29" type="button"><span class="check-box"></span><span class="check-text">契約不適合責任(引き渡し後に欠陥が見つかった時の売主の責任)の範囲と期間<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">引き渡し後に雨漏り・シロアリ被害・構造の問題などが見つかった場合に売主が負う責任の範囲と期間。中古は「契約不適合責任を免責」とする契約も多く、免責の場合は発見後の修繕費が全額自己負担になる</span></span></button></li>
+        <li><button class="check-item" data-id="c30" type="button"><span class="check-box"></span><span class="check-text">注文住宅なら完成保証の有無と、前払い金の割合<span style="display:block;font-size:12.5px;color:var(--muted);margin-top:5px;">工事中に施工会社が倒産すると、前払い金が戻らず工事も止まるリスクがある。県内でも建築会社の破産で負債が生じた実例が報道されている。完成保証制度に加入しているか、前払い金の割合(契約時・着工時・上棟時など)を事前に確認したい</span></span></button></li>
+      </ul>
+      <div class="extra-note">
+        <b>契約書に押す前に、もう一度読む時間を取る</b>
+        重要事項説明を受けた後は、その内容を理由にした白紙解除はできない。説明書は事前にコピーをもらって先に読んでおくと、その場で質問しやすくなる。
+      </div>
+    </section>
+
+  </main>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。</p>
+    <p style="font-size:12.5px;color:var(--muted);margin:0;">まだの方は、トーク画面で「30秒で予算を診断」と送ると次の特典が届きます。この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</p>
+    <button class="reset-link" id="resetBtn" type="button">チェックを全部リセットする</button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var STORAGE_KEY = "okinawa_checklist_v1";
+  var TOTAL = 30;
+  function loadState(){try{var raw=localStorage.getItem(STORAGE_KEY);if(!raw)return{};var p=JSON.parse(raw);return(p&&typeof p==="object")?p:{};}catch(e){return{};}}
+  function saveState(s){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(s));}catch(e){}}
+  var state = loadState();
+  var items = Array.prototype.slice.call(document.querySelectorAll(".check-item"));
+  var progressFill = document.getElementById("progressFill");
+  var progressCount = document.getElementById("progressCount");
+  var progressDoneMsg = document.getElementById("progressDoneMsg");
+  var resetBtn = document.getElementById("resetBtn");
+  function updateProgress(){var checked=0;items.forEach(function(el){if(state[el.getAttribute("data-id")])checked++;});var pct=Math.round((checked/TOTAL)*100);progressFill.style.width=pct+"%";progressCount.textContent=checked;if(checked>=TOTAL){progressDoneMsg.classList.add("show");}else{progressDoneMsg.classList.remove("show");}}
+  function applyItemState(el){var id=el.getAttribute("data-id");if(state[id]){el.classList.add("checked");}else{el.classList.remove("checked");}}
+  function toggleItem(el){var id=el.getAttribute("data-id");state[id]=!state[id];saveState(state);applyItemState(el);updateProgress();}
+  items.forEach(function(el){applyItemState(el);el.addEventListener("click",function(){toggleItem(el);});});
+  updateProgress();
+  resetBtn.addEventListener("click",function(){state={};saveState(state);items.forEach(applyItemState);updateProgress();});
+})();
+</script>
+
+<!--
+  公開方法(どちらでも無料・このファイル1つだけでOK):
+
+  [GitHub Pages]
+  1. GitHubにリポジトリを作成し、このファイルを含むフォルダをpush
+  2. リポジトリの Settings → Pages → Branch を選んで Save
+  3. 発行されたURL(https://ユーザー名.github.io/リポジトリ名/checklist.html)をLINEで配布
+
+  [Netlify Drop]
+  1. https://app.netlify.com/drop を開く
+  2. このファイル(1枚)、またはlead_magnetsフォルダをブラウザにドラッグ&ドロップ
+  3. 数秒で発行されるURLをLINEで配布(無料・会員登録不要)
+-->
+</body>
+</html>

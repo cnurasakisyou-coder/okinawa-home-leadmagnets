@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>年収別「いくらまで買える?」診断シート|沖縄マイホーム研究室</title>
+<meta name="description" content="世帯年収・金利・返済負担率を入れると借入目安がその場で分かります。沖縄の住宅価格の参考値つき。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .tnum{font-variant-numeric:tabular-nums}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:560px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(25px,6vw,32px);font-weight:600;line-height:1.55;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.52em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;
+    font-weight:700;margin:0 0 18px;
+  }
+  .hero h1{
+    position:relative;font-size:clamp(21px,4.6vw,26px);line-height:1.55;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"PURCHASE GUIDE  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero-lead{
+    font-size:14.5px;line-height:1.95;margin:0;color:#46545E;
+    border-left:2px solid var(--gold);padding:1px 0 1px 16px;
+  }
+
+  main{padding:8px clamp(20px,6vw,30px) 4px}
+
+  /* ---- Section / category ---- */
+  .category{margin:30px 0 0}
+  .category h2{
+    display:flex;align-items:center;gap:12px;margin:0 0 2px;
+    font-size:17.5px;font-weight:600;color:var(--navy);line-height:1.5
+  }
+  .badge{
+    flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;font-size:14.5px;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);
+  }
+  .category-rule{border:none;border-top:1px solid var(--gold);margin:11px 0 16px;position:relative}
+  .category-rule::after{content:"";position:absolute;left:0;top:-2px;width:48px;height:3px;background:var(--navy)}
+
+  /* ---- Calculator ---- */
+  .calc-field{margin-bottom:16px}
+  .calc-field label{
+    display:block;font-size:12.5px;font-weight:700;color:var(--navy);
+    letter-spacing:.03em;margin-bottom:7px;
+  }
+  .calc-input-row{display:flex;align-items:center;gap:10px}
+  .calc-input-row input[type="number"]{
+    flex:1;width:100%;font-size:18px;padding:11px 12px;
+    border:1.5px solid var(--navy);background:var(--paper);color:var(--ink);
+    font-variant-numeric:tabular-nums;
+  }
+  .calc-input-row input[type="number"]:focus{outline:none;border-color:var(--gold)}
+  .calc-unit{font-size:13.5px;color:var(--muted);white-space:nowrap}
+  .rate-presets{display:flex;gap:8px;margin-top:9px}
+  .preset-btn{
+    flex:1;padding:9px 4px;font-size:12.5px;border:1.5px solid var(--navy);
+    background:var(--paper);color:var(--navy);cursor:pointer;font-weight:700;
+  }
+  .preset-btn.active{background:var(--navy);color:#E9D9B8;border-color:var(--gold)}
+  .calc-btn{
+    width:100%;padding:16px;background:var(--navy);color:#fff;border:1px solid var(--gold);
+    font-size:15.5px;font-weight:700;cursor:pointer;margin-top:6px;letter-spacing:.04em;
+  }
+  .calc-btn:active{opacity:.85}
+
+  .calc-result{margin-top:22px;display:none}
+  .calc-result.show{display:block}
+  .result-main{text-align:center;padding:4px 0 18px}
+  .result-main .label{font-size:11.5px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+  .amount-ring{
+    display:inline-flex;align-items:center;justify-content:center;aspect-ratio:1/1;
+    min-width:156px;max-width:200px;border-radius:50%;border:1.5px solid var(--navy);
+    background:var(--blue-pale);padding:10px 18px;margin:14px auto 2px;
+  }
+  .result-main .amount{font-size:32px;font-weight:700;color:var(--navy);margin:4px 0}
+  .result-main .amount .unit{font-size:16px;color:var(--muted);font-weight:600}
+  .result-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:11px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--muted);
+  }
+  .result-row:last-child{border-bottom:none}
+  .result-row .val{font-weight:700;color:var(--ink);font-size:14.5px}
+  .calc-error{
+    display:none;margin-top:14px;border-left:3px solid var(--gold);
+    padding:4px 0 4px 14px;font-size:13.5px;color:var(--muted);
+  }
+  .calc-error.show{display:block}
+  .assumption-box{
+    border-left:3px solid var(--gold);padding:4px 0 4px 14px;
+    font-size:12.5px;line-height:1.9;margin-top:22px;color:#58656C;background:#F4F1E9;
+    padding:14px 16px 14px 18px;
+  }
+  .assumption-box strong{display:block;margin-bottom:6px;color:var(--navy);font-weight:700;font-size:13px}
+
+  /* ---- Table ---- */
+  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table.rate-table{border-collapse:collapse;width:100%;min-width:560px;font-size:12.5px}
+  table.rate-table th, table.rate-table td{
+    padding:10px 8px;text-align:center;border-bottom:1px solid var(--line);
+    white-space:nowrap;font-variant-numeric:tabular-nums;
+  }
+  table.rate-table thead th{background:var(--navy);color:#E9D9B8;font-weight:700;border-bottom:2px solid var(--gold);position:sticky;top:0}
+  table.rate-table tbody th{background:var(--blue-pale);color:var(--navy);font-weight:700;position:sticky;left:0}
+  table.rate-table tbody tr:last-child td,table.rate-table tbody tr:last-child th{border-bottom:none}
+  .table-hint{font-size:12px;color:var(--muted);padding:9px 0 0}
+
+  .mikata-list{margin:16px 0 0;padding:0;list-style:none}
+  .mikata-list li{padding:11px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:#46545E;line-height:1.9}
+  .mikata-list li:last-child{border-bottom:none}
+  .mikata-list strong{color:var(--navy)}
+
+  .price-list{margin:0;padding:0;list-style:none}
+  .price-list li{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:12px 0;border-bottom:1px solid var(--line);font-size:14px;
+  }
+  .price-list li:last-child{border-bottom:none}
+  .price-list .figure{font-weight:700;color:var(--navy);font-size:16px}
+  .footnote{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.85}
+
+  /* ---- Closing ---- */
+  .closing{padding:34px clamp(20px,6vw,30px) 40px;background:#fffefa;border-top:1px solid var(--line)}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .category h2{gap:8px}
+    .badge{flex-basis:28px;width:28px;height:28px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>世帯年収から考える</span>年収別「いくらまで買える?」<br>診断シート</h1>
+      <p class="cover-subtitle">銀行が貸してくれる額ではなく、暮らしが崩れない「返せる額」の目安を、その場で計算できます。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典</p>
+    <h1>年収別「いくらまで買える?」<br>診断シート</h1>
+    <p class="hero-lead">「"結局うちの年収でいくらまで無理なく買えるの?"に、その場で答えが出ます。銀行が"貸してくれる額"ではなく、暮らしが崩れない"返せる額"の目安です。審査が通る金額まで借りると、金利が少し上がっただけで家計が苦しくなる人が実際にいます。だからこのシートは、あえて少し手前の数字を出します。」</p>
+  </header>
+
+  <main>
+
+    <!-- 計算機 -->
+    <section class="category">
+      <h2><span class="badge">算</span>借入目安 計算機</h2>
+      <hr class="category-rule">
+
+      <div class="calc-field">
+        <label for="income">世帯年収(額面)</label>
+        <div class="calc-input-row">
+          <input type="number" id="income" inputmode="decimal" placeholder="例:500" min="0" step="10">
+          <span class="calc-unit">万円</span>
+        </div>
+      </div>
+
+      <div class="calc-field">
+        <label for="interest">想定金利</label>
+        <div class="calc-input-row">
+          <input type="number" id="interest" inputmode="decimal" placeholder="例:1.0" min="0" max="10" step="0.1" value="1.0">
+          <span class="calc-unit">%</span>
+        </div>
+        <div class="footnote" style="margin-top:7px;">参考:沖縄の地銀3行(琉球銀行・沖縄銀行・沖縄海邦銀行)の変動金利の基準金利は揃って年3.825%(2026年10月1日時点、各行公式)。これは窓口に貼り出されている「表面上の金利」で、実際に適用される金利(実行金利)は取引状況・審査結果に応じて優遇され、各行とも具体的な優遇幅は非公開。上の初期値1.0%は、その優遇後の実行金利としてありうる一例として置いているだけで「沖縄の地銀はだいたい1.0%で借りられる」という意味ではない。基準金利そのものに近い条件で試算したい場合は3.8程度を、優遇が少ない前提で手堅く見たい場合は1.5〜2.0程度を入力してほしい。</div>
+      </div>
+
+      <div class="calc-field">
+        <label for="repaymentRate">返済負担率<a href="#assumptionBox" style="font-size:11px;font-weight:400;color:var(--navy);text-decoration:underline;margin-left:6px;letter-spacing:0;">※くわしい説明</a></label>
+        <div class="footnote" style="margin-top:0;margin-bottom:7px;">年収のうち、住宅ローンの返済に充てる割合のこと。何を入れればいいか迷ったら、下のボタンから選ぶだけでOK。</div>
+        <div class="calc-input-row">
+          <input type="number" id="repaymentRate" inputmode="decimal" placeholder="例:20" min="1" max="50" step="1" value="20">
+          <span class="calc-unit">%</span>
+        </div>
+        <div class="rate-presets">
+          <button type="button" class="preset-btn active" data-rate="20">20%(余裕重視)</button>
+          <button type="button" class="preset-btn" data-rate="25">25%(標準)</button>
+        </div>
+      </div>
+
+      <button type="button" class="calc-btn" id="calcBtn">借入目安を計算する</button>
+
+      <div class="calc-error" id="calcError">年収・金利・返済負担率を正しい数字で入力してください。</div>
+
+      <div class="calc-result" id="calcResult">
+        <div class="result-main">
+          <div class="label">診断結果(35年・元利均等)</div>
+          <div class="amount-ring">
+            <div class="amount tnum"><span id="resultLoan">0</span><span class="unit">万円</span></div>
+          </div>
+        </div>
+        <div class="result-row"><span>年間返済額</span><span class="val tnum" id="resultAnnual">0万円</span></div>
+        <div class="result-row"><span>月々の返済額</span><span class="val tnum" id="resultMonthly">0万円</span></div>
+      </div>
+
+      <div class="assumption-box" id="assumptionBox">
+        <strong>この計算の前提(目安です・断定ではありません)</strong>
+        計算式:年間返済額=世帯年収(額面)×返済負担率 / 借入目安=その年間返済額を、入力した金利・35年・元利均等・ボーナス払いなしの条件で返せる金額に逆算したものです。「返済負担率」とは、年収に対して住宅ローンの返済がどれくらいの割合を占めるかという数字で、フラット35の利用条件では年収400万円未満で30%以下・400万円以上で35%以下が上限と定められています(出典:住宅金融支援機構フラット35公式「ご利用条件」)。このシートはその上限よりあえて低い20〜25%を使っています。審査上の上限いっぱいまで借りると、教育費・車・医療費などの他の支出に回す余力がほとんど残らず、金利が少し上がるだけで家計が苦しくなるケースが出てくるためです。これは「暮らしが崩れずに返せる額」の目安であり、実際に借りられる金額(審査結果)ではありません。マンションは管理費・修繕積立金などの維持費が別にかかるため、目安より低めに考えてください。
+      </div>
+    </section>
+
+    <!-- 年収別参考表 -->
+    <section class="category">
+      <h2><span class="badge">表</span>年収別 参考表</h2>
+      <hr class="category-rule">
+      <div class="table-scroll">
+        <table class="rate-table">
+          <thead>
+            <tr>
+              <th>世帯年収</th>
+              <th>負担率20%<br>(月)</th>
+              <th>金利1.0%</th>
+              <th>金利2.0%</th>
+              <th>負担率25%<br>(月)</th>
+              <th>金利1.0%</th>
+              <th>金利2.0%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th>400万円</th><td>6.7万円</td><td>2,362万円</td><td>2,013万円</td><td>8.3万円</td><td>2,952万円</td><td>2,516万円</td></tr>
+            <tr><th>500万円</th><td>8.3万円</td><td>2,952万円</td><td>2,516万円</td><td>10.4万円</td><td>3,690万円</td><td>3,145万円</td></tr>
+            <tr><th>600万円</th><td>10.0万円</td><td>3,543万円</td><td>3,019万円</td><td>12.5万円</td><td>4,428万円</td><td>3,773万円</td></tr>
+            <tr><th>700万円</th><td>11.7万円</td><td>4,133万円</td><td>3,522万円</td><td>14.6万円</td><td>5,166万円</td><td>4,402万円</td></tr>
+            <tr><th>800万円</th><td>13.3万円</td><td>4,723万円</td><td>4,025万円</td><td>16.7万円</td><td>5,904万円</td><td>5,031万円</td></tr>
+            <tr><th>900万円</th><td>15.0万円</td><td>5,314万円</td><td>4,528万円</td><td>18.8万円</td><td>6,642万円</td><td>5,660万円</td></tr>
+            <tr><th>1,000万円</th><td>16.7万円</td><td>5,904万円</td><td>5,031万円</td><td>20.8万円</td><td>7,380万円</td><td>6,289万円</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="table-hint">→ 横にスクロールできます</div>
+
+      <ul class="mikata-list">
+        <li><strong>子どもが2人以上・車のローンがある</strong> → 負担率20%の列。固定費の多い世帯ほど、返済に回せる余力は薄くなる</li>
+        <li><strong>共働きで余裕がある</strong> → 25%の列。ただし「金利2.0%」の列でも払えるか確認。今の金利は過去30年の水準から見れば低い方で、今後さらに上がる前提で見ておきたい</li>
+        <li>物件価格 ≒ 借入額+頭金。諸費用(物件価格の6〜10%前後)は別に現金で用意する</li>
+        <li><strong>当てはめの例:</strong>世帯年収600万円・負担率20%・金利1.0%なら借入目安は3,543万円。沖縄の中古マンション平均価格(築10年・70㎡換算)は4,633万円のため、この条件だけだと約1,000万円の差が出る。頭金を増やすか、負担率を25%に上げるか、価格の低いエリア・築年数の物件を探すか、どこかで調整が必要になる、という読み方ができる</li>
+      </ul>
+    </section>
+
+    <!-- 参考:沖縄の価格 -->
+    <section class="category">
+      <h2><span class="badge">価</span>参考:沖縄の価格</h2>
+      <hr class="category-rule">
+      <ul class="price-list">
+        <li><span>新築マンション県平均</span><span class="figure tnum">5,160万円</span></li>
+        <li><span>中古マンション(築10年・70㎡)</span><span class="figure tnum">4,633万円</span></li>
+        <li><span>中古戸建て(築10年の目安・AI予測)</span><span class="figure tnum">3,661万円</span></li>
+        <li><span>那覇の3LDK賃貸(月)</span><span class="figure tnum">14.6万円</span></li>
+      </ul>
+      <div class="footnote">新築マンション・中古マンションは2024年、賃貸は2026年4月時点の実データ。中古戸建てはAIによる価格予測(公的統計ではない参考値)。試算であり、実際の借入可能額は金融機関の審査によります。</div>
+      <div class="footnote" style="margin-top:10px;">中古マンション(築10年・70㎡換算)の年収倍率は11.19倍で全国4位の水準。マンション価格はこの10年でおよそ2倍になったとも報じられている。年収が同じペースで伸びているわけではないため、「数年前に買った人と同じ金額感」で探すと予算が足りなくなりやすい。</div>
+    </section>
+
+  </main>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。提携が決まり次第、条件が合う方から順に非公開物件の先行情報をお届けします。</p>
+    <p style="font-size:12.5px;color:var(--muted);margin:0;">トーク画面で希望条件をお伝えください。</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var TERM_MONTHS = 35 * 12; // 35年想定(固定)
+
+  var incomeInput = document.getElementById("income");
+  var interestInput = document.getElementById("interest");
+  var rateInput = document.getElementById("repaymentRate");
+  var calcBtn = document.getElementById("calcBtn");
+  var errorBox = document.getElementById("calcError");
+  var resultBox = document.getElementById("calcResult");
+  var resultLoan = document.getElementById("resultLoan");
+  var resultAnnual = document.getElementById("resultAnnual");
+  var resultMonthly = document.getElementById("resultMonthly");
+  var presetBtns = Array.prototype.slice.call(document.querySelectorAll(".preset-btn"));
+
+  function formatMan(yen){
+    var man = yen / 10000;
+    return Math.round(man).toLocaleString("ja-JP");
+  }
+
+  function calcLoan(incomeMan, interestPct, ratePct){
+    var incomeYen = incomeMan * 10000;
+    var annualRepayment = incomeYen * (ratePct / 100);
+    var monthlyRepayment = annualRepayment / 12;
+    var loanAmount;
+    if(interestPct <= 0){
+      loanAmount = monthlyRepayment * TERM_MONTHS;
+    }else{
+      var monthlyRate = (interestPct / 100) / 12;
+      loanAmount = monthlyRepayment * (1 - Math.pow(1 + monthlyRate, -TERM_MONTHS)) / monthlyRate;
+    }
+    return {
+      annualRepayment: annualRepayment,
+      monthlyRepayment: monthlyRepayment,
+      loanAmount: loanAmount
+    };
+  }
+
+  function runCalc(){
+    var income = parseFloat(incomeInput.value);
+    var interest = parseFloat(interestInput.value);
+    var rate = parseFloat(rateInput.value);
+
+    var valid =
+      !isNaN(income) && income > 0 && income <= 10000 &&
+      !isNaN(interest) && interest >= 0 && interest <= 10 &&
+      !isNaN(rate) && rate >= 1 && rate <= 50;
+
+    if(!valid){
+      errorBox.classList.add("show");
+      resultBox.classList.remove("show");
+      return;
+    }
+    errorBox.classList.remove("show");
+
+    var r = calcLoan(income, interest, rate);
+
+    resultLoan.textContent = formatMan(r.loanAmount);
+    resultAnnual.textContent = formatMan(r.annualRepayment) + "万円";
+    resultMonthly.textContent = (r.monthlyRepayment / 10000).toFixed(1) + "万円";
+    resultBox.classList.add("show");
+  }
+
+  calcBtn.addEventListener("click", runCalc);
+
+  presetBtns.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      presetBtns.forEach(function(b){ b.classList.remove("active"); });
+      btn.classList.add("active");
+      rateInput.value = btn.getAttribute("data-rate");
+    });
+  });
+
+  rateInput.addEventListener("input", function(){
+    var v = rateInput.value;
+    presetBtns.forEach(function(b){
+      if(b.getAttribute("data-rate") === v){
+        b.classList.add("active");
+      }else{
+        b.classList.remove("active");
+      }
+    });
+  });
+})();
+</script>
+
+<!--
+  公開方法(どちらでも無料・このファイル1つだけでOK):
+
+  [GitHub Pages]
+  1. GitHubにリポジトリを作成し、このファイルを含むフォルダをpush
+  2. リポジトリの Settings → Pages → Branch を選んで Save
+  3. 発行されたURL(https://ユーザー名.github.io/リポジトリ名/budget.html)をLINEで配布
+
+  [Netlify Drop]
+  1. https://app.netlify.com/drop を開く
+  2. このファイル(1枚)、またはlead_magnetsフォルダをブラウザにドラッグ&ドロップ
+  3. 数秒で発行されるURLをLINEで配布(無料・会員登録不要)
+-->
+</body>
+</html>

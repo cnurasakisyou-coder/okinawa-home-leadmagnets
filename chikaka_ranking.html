@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>沖縄県 地価上昇率ランキング(2026年公示・市町村別)|沖縄マイホーム研究室</title>
+<meta name="description" content="出典がある市町村だけの地価上昇率ランキング(上位4市町村)と、載っていない市町村を自分で調べる方法。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+  .tnum{font-variant-numeric:tabular-nums;}
+
+  .roofline{height:7px;background:var(--navy);border-bottom:2px solid var(--gold);}
+
+  /* ---- Cover ---- */
+  .cover-page{position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;}
+  .cover-photo{position:absolute;inset:0;z-index:-2;background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=85');background-size:cover;background-position:center;filter:saturate(.72);}
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;}
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(23px,5.6vw,29px);font-weight:600;line-height:1.6;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  .hero{padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px;}
+  .hero h1{position:relative;font-size:clamp(20px,4.6vw,24px);line-height:1.55;margin:0 0 20px;padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;}
+  .hero h1::before{content:"LAND PRICE  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;}
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px;}
+
+  main{padding:28px 22px 4px;}
+  h2{font-size:17px;color:var(--ink);margin:0 0 10px;font-weight:600;}
+
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 10px;}
+  .table-wrap table{min-width:540px;}
+  table{width:100%;border-collapse:collapse;margin:0 0 14px;}
+  th,td{padding:11px 8px;text-align:left;border-bottom:1px solid var(--line);font-size:14.5px;}
+  th{font-size:11.5px;letter-spacing:.08em;color:var(--navy);text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--navy);}
+  td.rank{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;font-weight:700;color:var(--gold);width:30px;}
+  td.rate{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink);text-align:right;}
+
+  .ref-line{font-size:13px;color:var(--muted);margin:0 0 6px;}
+  .source-line{font-size:11.5px;color:var(--muted);margin:0 0 24px;}
+
+  .note-box{font-size:12.5px;color:var(--muted);padding:16px 18px;background:var(--paper);border:1px solid var(--line);margin:0 0 30px;line-height:1.9;}
+  .note-box ul{margin:6px 0 0;padding-left:18px;}
+  .note-box li{margin-bottom:6px;}
+
+  .method{border-top:1px solid var(--navy);padding-top:20px;margin-top:4px;}
+  .method-item{margin:0 0 20px;}
+  .method-title{font-size:15px;font-weight:700;color:var(--ink);margin:0 0 4px;}
+  .method-body{font-size:13.5px;color:var(--muted);}
+  .method-body a{color:var(--navy);}
+
+  .disclaimer{font-size:12.5px;color:var(--muted);padding:18px 22px;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.9;}
+
+  .closing{padding:40px 22px 44px;}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 18px;}
+  .cta-button{display:block;width:100%;padding:17px 10px;background:var(--gold);color:#fff;text-decoration:none;font-weight:700;font-size:15.5px;text-align:center;letter-spacing:.04em;}
+  .cta-button:active{opacity:.85;}
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>2026年公示・市町村別</span>沖縄県 地価上昇率<br>ランキング</h1>
+      <p class="cover-subtitle">出典のある市町村だけの上昇率ランキングと、自分で全市町村を調べる方法をまとめました。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典6</p>
+    <h1>沖縄県 地価上昇率ランキング<br>(2026年公示・市町村別)</h1>
+    <p class="hero-lead">「"このエリアの地価、上がってるの?"を知らずに決めると、あとで『他のエリアの方が上がってたのに』と気になることがあります。出典がある市町村だけのランキングと、自分で全市町村を調べる方法も載せています。」</p>
+  </header>
+
+  <main>
+    <h2>ランキング(出典あり分のみ)</h2>
+    <p class="ref-line">2026年公示地価 1/1時点・全用途の前年比</p>
+    <table>
+      <thead><tr><th>順位</th><th>市町村</th><th>上昇率</th></tr></thead>
+      <tbody>
+        <tr><td class="rank tnum">1</td><td>北谷町</td><td class="rate tnum">+9.2%</td></tr>
+        <tr><td class="rank tnum">2</td><td>宜野湾市</td><td class="rate tnum">+8.9%</td></tr>
+        <tr><td class="rank tnum">3</td><td>那覇市</td><td class="rate tnum">+6.0%</td></tr>
+        <tr><td class="rank tnum">4</td><td>浦添市</td><td class="rate tnum">+5.5%</td></tr>
+      </tbody>
+    </table>
+    <p class="ref-line">参考:沖縄県全体 +6.6%(全国2位)、住宅地 +6.4%。基準地価(2026年7/1時点)は県全体+5.8%で13年連続上昇(伸びは縮小)、住宅地+5.3%(全国2位)、商業地+6.9%(全国4位)、工業地+8.5%(全国3位)。県内41市町村のうち、地価が下落したのは1村のみで、残り40市町村は上昇しています。</p>
+    <p class="source-line">出典:琉球新報、沖縄デイリー。公示地価・基準地価はどちらも土地取引の目安となる公的な価格で、毎年3月(公示地価)・9月(基準地価)に更新されます。市町村別の上昇率(北谷町+9.2%等)は、不動産業界のAI推計サイトによる集計値です。</p>
+
+    <p class="method-body" style="margin:0 0 10px;">上位市町村にはそれぞれ背景があります。北谷町は、1981年に返還された旧ハンビー飛行場の跡地を再開発した「美浜タウンリゾート・アメリカンビレッジ」が観光・商業の中心となっており、リゾート需要の高まりが地価上昇の一因とされています。宜野湾市は、普天間飛行場の返還・跡地利用に向けた検討が続いており、2026年2月には県と市が「普天間飛行場跡地利用推進会議」を開催しました。ただし返還時期そのものは未定で、現時点では跡地利用計画の具体化に向けた検討段階です(出典:沖縄タイムス、琉球新報、宜野湾市公式)。</p>
+
+    <div class="note-box">
+      <ul>
+        <li>これは「上昇率」のランキングで、1㎡あたりの絶対額(価格そのもの)のランキングではありません。物件の割安・割高の比較には使えません。たとえば下の坪単価表で見ると、那覇市(75.5万円/坪)と国頭郡(6.3万円/坪)では坪単価に約12倍の差があります。「上昇率が高い=割安な掘り出し物件が多い」という意味ではないので、上昇率と坪単価の両方を合わせて見る必要があります</li>
+        <li>地価の上昇率は過去の実績であり、将来の値上がりを保証するものではありません</li>
+        <li>参考までに、令和7年国勢調査の確定値では県内41市町村のうち16市町村で人口が増えています(詳しくは特典5参照)。地価上昇と人口動態は必ずしも一致するとは限りませんが、合わせて見ておくと判断材料が増えます</li>
+        <li>公示地価は相続税路線価(目安は公示地価の8割程度)・固定資産税評価額(目安は公示地価の7割程度)の算定基準にもなっているため、地価の上昇が続くエリアでは将来的に相続税評価額・固定資産税の負担も連動して上がっていく可能性があります(仕組みの詳しい説明は特典5を参照)</li>
+      </ul>
+    </div>
+
+    <h2 style="margin-top:28px;">住宅地の坪単価・上昇率(市町村・郡別)</h2>
+    <p class="ref-line">2026年公示地価・住宅地。上記の「全用途」ランキングとは基準が異なるため数値は一致しません(別の集計として参照してください)。北谷町・嘉手納町・北中城村・中城村・西原町(中頭郡)、南風原町・八重瀬町・与那原町(島尻郡)は、各町村ごとの公示地価データが個別に確認できたため、郡集計から切り出して追加しています(中頭郡・島尻郡の行は、それ以外の町村も含む郡全体の集計値として参考に残しています)。国頭郡(本部町・恩納村・読谷村等)は今回は郡単位の集計のみで、町村ごとの切り出しは未着手です</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>市町村・郡</th><th>坪単価</th><th>前年比</th><th>地点数</th></tr></thead>
+      <tbody>
+        <tr><td>那覇市</td><td class="tnum">75.5万円</td><td class="rate tnum">+4.7%</td><td class="tnum">46件</td></tr>
+        <tr><td>北谷町</td><td class="tnum">54.2万円</td><td class="rate tnum">+9.6%</td><td class="tnum">8件</td></tr>
+        <tr><td>浦添市</td><td class="tnum">49.5万円</td><td class="rate tnum">+5.5%</td><td class="tnum">22件</td></tr>
+        <tr><td>宜野湾市</td><td class="tnum">45.6万円</td><td class="rate tnum">+2.7%</td><td class="tnum">17件</td></tr>
+        <tr><td>豊見城市</td><td class="tnum">37.3万円</td><td class="rate tnum">+4.9%</td><td class="tnum">14件</td></tr>
+        <tr><td>中頭郡 郡合計(北谷町・嘉手納町・北中城村・中城村・西原町ほかを含む)</td><td class="tnum">36.2万円</td><td class="rate tnum">+6.8%</td><td class="tnum">37件</td></tr>
+        <tr><td>西原町</td><td class="tnum">35.9万円</td><td class="rate tnum">+5.2%</td><td class="tnum">9件</td></tr>
+        <tr><td>南風原町</td><td class="tnum">34.6万円</td><td class="rate tnum">+7.5%</td><td class="tnum">9件</td></tr>
+        <tr><td>中城村</td><td class="tnum">31.9万円</td><td class="rate tnum">+5.9%</td><td class="tnum">5件</td></tr>
+        <tr><td>北中城村</td><td class="tnum">29.8万円</td><td class="rate tnum">+8.9%</td><td class="tnum">6件</td></tr>
+        <tr><td>嘉手納町</td><td class="tnum">28.8万円</td><td class="rate tnum">+2.6%</td><td class="tnum">4件</td></tr>
+        <tr><td>与那原町</td><td class="tnum">27.8万円</td><td class="rate tnum">+6.9%</td><td class="tnum">7件</td></tr>
+        <tr><td>沖縄市</td><td class="tnum">27.4万円</td><td class="rate tnum">+3.9%</td><td class="tnum">19件</td></tr>
+        <tr><td>八重瀬町</td><td class="tnum">26.3万円</td><td class="rate tnum">+7.3%</td><td class="tnum">8件</td></tr>
+        <tr><td>糸満市</td><td class="tnum">22.8万円</td><td class="rate tnum">+6.1%</td><td class="tnum">10件</td></tr>
+        <tr><td>島尻郡 郡合計(南風原町・八重瀬町・与那原町ほかを含む)</td><td class="tnum">18.8万円</td><td class="rate tnum">+7.0%</td><td class="tnum">40件</td></tr>
+        <tr><td>うるま市</td><td class="tnum">17.4万円</td><td class="rate tnum">+6.9%</td><td class="tnum">20件</td></tr>
+        <tr><td>石垣市</td><td class="tnum">16.8万円</td><td class="rate tnum">+5.1%</td><td class="tnum">9件</td></tr>
+        <tr><td>南城市</td><td class="tnum">15.5万円</td><td class="rate tnum">+6.2%</td><td class="tnum">13件</td></tr>
+        <tr><td>名護市</td><td class="tnum">11.5万円</td><td class="rate tnum">+7.0%</td><td class="tnum">11件</td></tr>
+        <tr><td>宮古島市</td><td class="tnum">8.8万円</td><td class="rate tnum">+10.5%</td><td class="tnum">17件</td></tr>
+        <tr><td>国頭郡(本部町・恩納村・読谷村等/個別データ未切り出し)</td><td class="tnum">6.3万円</td><td class="rate tnum">+10.9%</td><td class="tnum">32件</td></tr>
+        <tr><td>八重山郡(竹富町・与那国町=個別データなし。両町とも2026年の公示地価の標準地点自体が設定されておらず、基準地価のみ公表)</td><td class="tnum">2.7万円</td><td class="rate tnum">+4.0%</td><td class="tnum">6件</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="method-body" style="margin:0 0 10px;">うるま市は令和7年国勢調査の確定値で人口の実数増加が全市町村トップ(+2,940人)であると同時に、住宅地坪単価も+6.9%上昇しています。人口流入と地価上昇が同時に進んでいるエリアの実例として参考になります。坪単価が最も低い八重山郡(2.7万円)と最も高い那覇市(75.5万円)では28倍近い開きがあり、沖縄県内でも土地の価格水準がエリアによって大きく異なることがわかります。</p>
+    <p class="source-line">出典:国交省「不動産情報ライブラリ」のデータをもとにした不動産情報サイト(tochidai.info等)の独自集計です。北谷町・嘉手納町・北中城村・中城村・西原町・南風原町・八重瀬町・与那原町の個別値は、同サイトの市町村別ページ(2026年・住宅地)から取得しました。個別市町村で公表されている北谷町(+9.2%)・宜野湾市(+8.9%)等(全用途)は上記ランキング表を参照してください。竹富町・与那国町は2026年の公示地価の標準地点が設定されておらず、公示地価の個別値は存在しません(基準地価のみ公表)。</p>
+
+    <h2 style="margin-top:28px;">同じ予算で買える土地面積は、エリアでこれだけ違う</h2>
+    <p class="method-body" style="margin:0 0 10px;">坪単価表をもとに、土地取得費3,000万円で買える土地面積を単純計算すると、那覇市(75.5万円/坪)では約39.7坪(約131㎡)、中頭郡(36.2万円/坪)では約82.9坪(約274㎡)、うるま市(17.4万円/坪)では約172.4坪(約570㎡)、国頭郡(6.3万円/坪)では約476.2坪(約1,574㎡)という目安になります(当サービスの試算。建物費用・諸費用は含みません)。坪単価が最も低い八重山郡と最も高い那覇市では、同じ予算で確保できる土地面積に約12倍の差が出る計算です。「上昇率」だけでなく、そもそもの坪単価水準も見ておく必要がある理由はここにあります。</p>
+
+    <h2 style="margin-top:28px;">「今後上がると言われている」エリアと理由</h2>
+    <div class="note-box" style="margin-bottom:14px;">以下は不動産業界のコラム・報道で語られている見解(業界の見立て)であり、当サービスが将来の値上がりを保証・断定するものではありません。個別の業者名は省略し、「〜という見方がある」という紹介に留めます。</div>
+    <div class="method-item">
+      <p class="method-title">浦添市・牧港補給地区(キャンプ・キンザー)周辺</p>
+      <p class="method-body">浦添市は2024年に「牧港補給地区跡地利用計画」を策定済み。面積は約270ヘクタール(浦添市域の約14%)で、地権者は約2,700人。跡地利用で「税収13倍」の効果が見込まれるとの試算があり、2026年10月には市議会・市長が国に全面返還を要請。段階的な返還・再開発が進むとの見方がある(出典:琉球新報、沖縄タイムス)</p>
+    </div>
+    <div class="method-item">
+      <p class="method-title">那覇市・那覇軍港周辺</p>
+      <p class="method-body">那覇新都心(旧米軍住宅地区)の再開発が地価上昇の成功例として引き合いに出されており、那覇軍港など今後返還が見込まれる地区も同様に都市開発の核になるとの見方がある。那覇市は本記事のランキングでも+6.0%上昇、坪単価は75.5万円と県内で最も高く、令和7年国勢調査の確定値では人口が▲6,920人で全市町村中もっとも減少しています。地価が上がりながら人口が減るという一見逆の動きは、転出が周辺市町村への移動(住み替え)によるものである可能性があり、那覇市内の価格水準の高さが周辺エリアへの転出を後押ししているという見方もできます。個別の再開発時期・規模は本リストでは一次確認できていません</p>
+    </div>
+    <div class="method-item">
+      <p class="method-title">うるま市</p>
+      <p class="method-body">令和7年国勢調査の確定値で、うるま市は人口の実数増加数が全市町村の中で最も多く(+2,940人)、住宅地坪単価も+6.9%上昇しています(出典:沖縄県企画部統計課、上記坪単価表)。人口流入と地価上昇が同時に進んでいる数少ない市町村として注目されています</p>
+    </div>
+    <div class="method-item">
+      <p class="method-title">名護市・南城市(人口実数増加2位・4位)</p>
+      <p class="method-body">名護市は人口の実数増加が全市町村で2番目に多く(+2,458人)、住宅地坪単価も+7.0%上昇しています。南城市も実数増加4位(+1,269人)で、坪単価は+6.2%上昇。いずれも那覇市から車で30〜60分圏のエリアで、那覇市の地価・家賃上昇を背景に移住先として選ばれている可能性があります(出典:沖縄県企画部統計課、上記坪単価表)</p>
+    </div>
+    <div class="method-item">
+      <p class="method-title">宮古島市・石垣市</p>
+      <p class="method-body">宮古島市は住宅地+10.5%、商業地は前年比+17.1%という上昇率の報道あり。台湾・香港からのインバウンド増加でホテル・飲食店の開業が相次いでいることが要因とされる。石垣市は新石垣空港周辺のインフラ整備・旧空港跡地の利用計画が進行中で、地価上昇の要因として挙げられている</p>
+    </div>
+    <div class="method-item">
+      <p class="method-title">北部エリア(テーマパーク需要)</p>
+      <p class="method-body">名護市街地で再開発が進んでいることに加え、北部のテーマパーク開業に伴う需要増で賃貸住宅の建築が進んでいるとの指摘がある。テーマパークの名称・開業時期は本リストでは一次確認していません。なお上の坪単価表で見ると、国頭郡(本部町・恩納村・読谷村等)の住宅地坪単価の前年比上昇率は+10.9%で、全23区分の中で最も高い水準です。上昇率だけを見ると、本島中心部より離島・郡部の方が大きく動いているケースがあるという点も特徴です</p>
+    </div>
+
+    <div class="method">
+      <h2>自分で全市町村・絶対額を調べる方法</h2>
+      <div class="method-item">
+        <p class="method-title">① 不動産情報ライブラリ(国土交通省)</p>
+        <p class="method-body">地点ごとの公示地価・都道府県地価調査(基準地価)を検索できます。公的データの一次ソースです。検索画面で対象エリアを地図上で選び、「住宅地」「商業地」等の用途区分・年度を指定すると、地点ごとの価格・用途地域・前面道路の状況まで確認できます。<br><a href="https://www.reinfolib.mlit.go.jp/landPrices/" target="_blank" rel="noopener">reinfolib.mlit.go.jp/landPrices/</a></p>
+      </div>
+      <div class="method-item">
+        <p class="method-title">② 全国地価マップ(一般財団法人 資産評価システム研究センター)</p>
+        <p class="method-body">地図上で固定資産税路線価・公示地価・基準地価を確認できます。地図から探したい人向けです。<br><a href="https://www.chikamap.jp/chikamap/" target="_blank" rel="noopener">chikamap.jp/chikamap/</a></p>
+      </div>
+    </div>
+  </main>
+
+  <div class="disclaimer">この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+</div>
+</body>
+</html>

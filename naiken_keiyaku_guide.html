@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>内見〜契約までの流れ&仲介手数料 早わかりガイド|沖縄マイホーム研究室</title>
+<meta name="description" content="内見で見るべき実践ポイント、重要事項説明で見落としがちな点、仲介手数料の金額の決まり方、契約から引き渡しまでの期間の目安を1つにまとめたガイドです。">
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    line-height:1.8;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{
+    width:min(100%,480px);
+    margin:0 auto;
+    background:var(--paper);
+    min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);
+  }
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+  .tnum{font-variant-numeric:tabular-nums}
+  .roofline{
+    height:7px;
+    background:var(--navy);
+    border-bottom:2px solid var(--gold);
+  }
+
+  /* ---- Cover ---- */
+  .cover-page{
+    position:relative;min-height:600px;display:flex;align-items:center;justify-content:center;
+    padding:46px 24px;background:#e9e4d9;overflow:hidden;isolation:isolate;
+  }
+  .cover-photo{
+    position:absolute;inset:0;z-index:-2;
+    background-image:linear-gradient(90deg,rgba(19,43,62,.10),rgba(19,43,62,.02)),url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=85');
+    background-size:cover;background-position:center;
+    filter:saturate(.72);
+  }
+  .cover-page:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(245,241,232,.10) 0%,rgba(245,241,232,.04) 100%)}
+  .cover-panel{
+    width:min(100%,400px);background:rgba(20,48,70,.96);color:#fffdf8;
+    padding:32px 27px 29px;border:1px solid rgba(190,164,111,.95);
+    box-shadow:9px 10px 0 rgba(16,40,61,.14);position:relative;
+  }
+  .cover-kicker{font-size:10px;letter-spacing:.18em;color:#d8c59c;margin:0 0 22px;text-transform:uppercase}
+  .cover-rule{height:1px;background:#b69a62;width:42px;margin:0 0 20px}
+  .cover-panel h1{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-size:clamp(24px,5.6vw,30px);font-weight:600;line-height:1.6;letter-spacing:.035em;margin:0 0 20px;color:#fffdf8}
+  .cover-panel h1 span{display:block;font-size:.5em;line-height:1.8;color:#e9dfc9;letter-spacing:.09em;margin-bottom:7px}
+  .cover-subtitle{font-size:12px;line-height:2;color:#e3e8eb;margin:0 0 26px;letter-spacing:.025em}
+  .cover-bottom{border-top:1px solid rgba(190,164,111,.65);padding-top:14px;display:flex;justify-content:space-between;gap:12px;align-items:end;font-size:9px;letter-spacing:.12em;color:#e4d7ba}
+  .cover-bottom strong{font-size:11px;font-weight:500;letter-spacing:.08em}
+  @media print{
+    .cover-page{height:100vh;min-height:0;break-after:page;page-break-after:always;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .hero{break-before:page;page-break-before:always}
+  }
+
+  /* ---- Hero ---- */
+  .hero{
+    padding:clamp(26px,6vw,42px) clamp(20px,6vw,30px) 28px;
+    background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;font-weight:700;margin:0 0 18px}
+  .hero h1{
+    position:relative;font-size:clamp(20px,4.6vw,24px);line-height:1.55;margin:0 0 20px;
+    padding:20px 20px 22px;font-weight:600;letter-spacing:.03em;color:#fff;
+    background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);text-wrap:balance;
+  }
+  .hero h1::before{
+    content:"PURCHASE GUIDE  /  OKINAWA";display:block;font-family:"Hiragino Sans","Yu Gothic",sans-serif;
+    color:#D7C49B;font-size:9px;font-weight:600;letter-spacing:.19em;margin-bottom:11px;
+  }
+  .hero-lead{font-size:14.5px;line-height:1.95;margin:0;color:#46545E;border-left:2px solid var(--gold);padding:1px 0 1px 16px}
+
+  main{padding:8px clamp(20px,6vw,30px) 4px}
+
+  /* ---- Section / category ---- */
+  .category{margin:30px 0 0}
+  .category h2{
+    display:flex;align-items:center;gap:12px;margin:0 0 2px;
+    font-size:17px;font-weight:600;color:var(--navy);line-height:1.5
+  }
+  .badge{
+    flex:0 0 32px;width:32px;height:32px;background:var(--navy);color:#E9D9B8;
+    display:flex;align-items:center;justify-content:center;font-size:14.5px;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;border:1px solid var(--gold);
+  }
+  .category-rule{border:none;border-top:1px solid var(--gold);margin:11px 0 16px;position:relative}
+  .category-rule::after{content:"";position:absolute;left:0;top:-2px;width:48px;height:3px;background:var(--navy)}
+
+  /* ---- Plain list (no checkbox) ---- */
+  ul.plain{list-style:none;margin:0 0 12px;padding:0}
+  ul.plain li{padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;color:var(--ink);line-height:1.8}
+  ul.plain li:last-child{border-bottom:none}
+
+  .flow-note{font-size:13.5px;line-height:1.95;color:#344655;margin:14px 0 0}
+  .flow-note b{color:var(--navy)}
+  .source-line{font-size:11.5px;color:var(--muted);margin:8px 0 0;line-height:1.8}
+
+  .care-box{font-size:13px;color:#344655;background:#F4F1E9;border-left:3px solid var(--gold);padding:15px 17px;margin:14px 0 0;line-height:1.95}
+  .care-box p{margin:0 0 6px}
+  .care-box p:last-child{margin-bottom:0}
+  .care-box b{display:block;margin-bottom:6px;color:var(--navy);font-size:13.5px;font-family:"Hiragino Mincho ProN","Yu Mincho",serif}
+
+  /* ---- Table ---- */
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0 0;border:1px solid var(--line)}
+  .table-wrap table{min-width:420px;width:100%;border-collapse:collapse}
+  .table-wrap th,.table-wrap td{padding:10px 8px;text-align:left;border-bottom:1px solid var(--line);font-size:13px}
+  .table-wrap thead th{background:var(--navy);color:#E9D9B8;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;border-bottom:2px solid var(--gold)}
+  .table-wrap td.formula{font-variant-numeric:tabular-nums;color:var(--navy);font-weight:700;text-align:right}
+  .table-wrap tbody tr:last-child td{border-bottom:none}
+
+  /* ---- Flow diagram ---- */
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:12.5px;color:var(--navy);font-weight:700;margin:14px 0 0}
+  .flow span.step{background:var(--navy);color:#E9D9B8;padding:7px 10px;white-space:nowrap;border:1px solid var(--gold)}
+  .flow span.arrow{color:var(--muted);font-weight:400}
+
+  .note-box{font-size:12.5px;color:var(--muted);padding:18px clamp(20px,6vw,30px);background:#F0EEE7;border-top:1px solid var(--line);border-bottom:1px solid var(--line);line-height:1.95}
+
+  /* ---- Closing ---- */
+  .closing{padding:34px clamp(20px,6vw,30px) 40px;background:#fffefa}
+  .closing p{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+
+  @media(max-width:420px){
+    .hero h1{padding:17px 16px 19px;box-shadow:4px 4px 0 var(--gold-pale)}
+    .hero-lead{font-size:14px}
+    .category h2{gap:8px}
+    .badge{flex-basis:28px;width:28px;height:28px}
+  }
+  @media print{
+    body{background:#fff}
+    .wrap{width:100%;box-shadow:none}
+  }
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="wrap">
+
+  <section class="cover-page" aria-label="表紙">
+    <div class="cover-photo" aria-hidden="true"></div>
+    <div class="cover-panel">
+      <p class="cover-kicker">OKINAWA HOME BUYING GUIDE</p>
+      <div class="cover-rule"></div>
+      <h1><span>見落としを減らす内見〜契約の実務</span>内見〜契約までの流れ<br>&amp; 仲介手数料 早わかり</h1>
+      <p class="cover-subtitle">内見で見るべき実践ポイントから、重要事項説明の注意点、仲介手数料の金額、引き渡しまでの期間の目安までを1つにまとめました。</p>
+      <div class="cover-bottom"><strong>沖縄マイホーム研究室</strong><span>BUY SMART, LIVE WELL</span></div>
+    </div>
+  </section>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ LINE特典8</p>
+    <h1>内見〜契約までの流れ<br>&amp; 仲介手数料 早わかりガイド</h1>
+    <p class="hero-lead">「"内見で何を見ればいいか分からない"まま契約して、あとで『そこ確認すればよかった』と悔やむ人は少なくありません。"仲介手数料って結局いくらかかるの?"も合わせて、流れと数字で先に知っておくためのガイドです。」</p>
+  </header>
+
+  <main>
+
+    <section class="category">
+      <h2><span class="badge">見</span>内見で見るべきポイント(実践編)</h2>
+      <hr class="category-rule">
+      <ul class="plain">
+        <li>コンセントの数・位置</li>
+        <li>天井や壁のシミ(雨漏りのサイン)</li>
+        <li>床下収納を開けて、シロアリ被害(蟻道・羽アリの死骸・土の盛り上がり)の有無を確認</li>
+        <li>歩いたときの床のきしみ・沈み</li>
+        <li>築30年超の場合、配管・配線が更新されているか</li>
+        <li>リフォーム済み物件は「どこを・どの程度」リフォームしたか、工事保証書の有無</li>
+      </ul>
+      <p class="flow-note">これらを見る理由は、入居後の修繕費に直結するからです。給排水管は、国土交通省の「長期修繕計画作成ガイドライン」で内部のコーティングだけ行う「更生」の目安が19〜23年、配管そのものを取り替える「更新」の目安は築30〜40年程度とされています(出典:国土交通省「長期修繕計画作成ガイドライン」)。マンションだけでなく戸建てでも配管の寿命の考え方は共通するため、「築30年超なら配管・配線が更新されているか」を内見で確認する理由はここにあります。天井・壁のシミやシロアリ被害(蟻道・羽アリの死骸・土の盛り上がり)は、見た目以上に構造部分の修繕費がかさみやすいサインとされています。</p>
+      <p class="source-line">※このセクションの内見チェックポイントは、不動産業界のコラム記事を参考にまとめています。</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">説</span>重要事項説明で見落としがちな点</h2>
+      <hr class="category-rule">
+      <ul class="plain">
+        <li>権利関係の制限内容</li>
+        <li>物件の瑕疵・修繕履歴</li>
+        <li>周辺環境とアクセスの将来性(発展の見込み・交通アクセス向上計画の有無)</li>
+      </ul>
+      <p class="flow-note">中古物件ならではの項目として、宅建業法第35条では「既存建物状況調査(インスペクション)を実施しているかどうかとその結果の概要」「契約不適合責任(かつての瑕疵担保責任)の履行に関する保険契約締結等の措置の有無」の説明が義務付けられています。後者は「既存住宅売買瑕疵保険」への加入有無が該当します。個人間売買の場合でも、登録検査事業者の検査を経て保険法人に直接申し込める「インスペクターコース」という仕組みがありますが、加入率(付保率)は全体で2018年時点1割超、個人が売主の物件に限ると3割程度以下とみられるという業界推計があります。「保険に入っているかどうか」は重要事項説明で必ず確認しておきたい項目です。</p>
+      <div class="care-box">
+        <p><b>気をつけたいこと</b></p>
+        <p>・重要事項説明を受ける前に売買契約書にサインしない</p>
+        <p>・説明書の事前コピーをもらって、先に読んでおく</p>
+        <p>・気になる点はその場で質問する</p>
+        <p>・説明を受けた後は、内容を理由にした白紙解除はできない</p>
+      </div>
+      <p class="source-line">出典:宅建業法第35条。中古物件特有の注意点は業界団体・業界コラムの解説を参考にしています。</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">料</span>仲介手数料の仕組み(宅建業法第46条)</h2>
+      <hr class="category-rule">
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>売買価格の部分</th><th>速算式(+消費税)</th></tr></thead>
+        <tbody>
+          <tr><td>200万円以下</td><td class="formula">価格×5%</td></tr>
+          <tr><td>200万円超400万円以下</td><td class="formula">価格×4%+2万円</td></tr>
+          <tr><td>400万円超</td><td class="formula">価格×3%+6万円</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="flow-note">例:2,000万円の物件なら2,000万円×3%+6万円=<b>66万円(+消費税で72万6,000円)</b>。4,000万円の物件なら4,000万円×3%+6万円=<b>126万円(+消費税で138万6,000円)</b>。3,000万円の物件なら3,000万円×3%+6万円=<b>96万円(+消費税で105万6,000円)</b>が、それぞれ仲介手数料の上限です。</p>
+      <p class="flow-note">2024年7月の法改正で、<b>800万円以下の空き家</b>は売主・買主それぞれの上限が<b>33万円(税込)</b>に引き上げられました。通常の速算式だと500万円の物件では500万円×4%+2万円=22万円(+消費税で24万2,000円)が上限ですが、空き家特例の対象になると33万円(税込)まで請求できるようになります。これは安価な空き家ほど仲介しても利益が出にくく、業者が取り扱いを避けがちだった構造を変え、空き家の流通を後押しする狙いがあるとされます(沖縄の古民家・外人住宅など割安な中古物件を検討する場合に関係します)。</p>
+      <p class="source-line">出典:宅建業法第46条。計算例・空き家特例の背景は業界コラムの解説を参考にしています。</p>
+    </section>
+
+    <section class="category">
+      <h2><span class="badge">期</span>契約〜引き渡しまでの期間</h2>
+      <hr class="category-rule">
+      <div class="flow">
+        <span class="step">申込</span><span class="arrow">→</span>
+        <span class="step">事前審査</span><span class="arrow">→</span>
+        <span class="step">売買契約</span><span class="arrow">→</span>
+        <span class="step">ローン本審査</span><span class="arrow">→</span>
+        <span class="step">ローン契約</span><span class="arrow">→</span>
+        <span class="step">決済</span>
+      </div>
+      <p class="flow-note">契約書に署名する前に知っておきたいのが「ローン特約(融資特約)」です。契約後に住宅ローンの本審査が通らなかった場合、手付金を放棄せずに契約を解除できる特約で、一般的には契約から1カ月程度を解除期限とすることが多いとされます。これに対して「手付解除」は買主の自己都合による解除で、手付金を放棄すれば違約金なしで解除できますが、売主が契約の履行に着手した後は使えません。解除方法とその期限の違いは、契約書にサインする前に必ず確認しておきたいポイントです。</p>
+      <ul class="plain">
+        <li>契約締結後、引き渡しまで通常<b>1〜1.5カ月程度</b></li>
+        <li>ローン本審査が長引く場合は3週間程度、売主側の測量・解体工事がある場合は2カ月程度</li>
+        <li>居住中の物件は売主の引っ越しを待つため、2カ月程度かかる場合がある</li>
+        <li>物件探しから引き渡しまでの全体は通常<b>2〜6カ月</b></li>
+      </ul>
+      <p class="source-line">出典:業界コラムの解説・一般的な取引実務を参考にしています。</p>
+      <p class="flow-note" style="margin-top:10px;color:var(--muted);font-size:12.5px;">上記は一般的な流れ・業者コラムからの目安であり、実際の期間・条件は契約する物件・金融機関によって異なります。</p>
+    </section>
+
+  </main>
+
+  <div class="note-box">この特典の情報は参考情報です。最終的な判断は、専門家(宅建士・ファイナンシャルプランナー・弁護士等)にもご確認のうえ、ご自身で行ってください。</div>
+
+  <div class="closing">
+    <p>このページは沖縄マイホーム研究室の公式LINEからお届けした特典です。気になることがあれば、このLINEに気軽にどうぞ。</p>
+  </div>
+
+</div>
+</body>
+</html>
