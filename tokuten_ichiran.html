@@ -198,20 +198,20 @@
 
     <div class="tgrid">
 
-      <article class="tcard lead-card" id="tokuten-1">
+      <article class="tcard" id="tokuten-1">
         <p class="highlight-flag">ここに格納されました</p>
-        <div class="tcard-head"><span class="tcard-no lead">特典01</span></div>
+        <div class="tcard-head"><span class="tcard-no">特典01</span></div>
         <h2 class="tcard-title">沖縄で家を買う前のチェックリスト30</h2>
         <p class="tcard-desc">お金6・エリア5・台風4・塩害建物6・シロアリ2・土地権利4・契約3の全30項目を、確認する理由と具体的な金額の目安つきでチェックできるシートです。</p>
+        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
         <a class="tcard-cta" href="checklist.html">特典を受け取る ↓</a>
       </article>
 
-      <article class="tcard" id="tokuten-2">
+      <article class="tcard lead-card" id="tokuten-2">
         <p class="highlight-flag">ここに格納されました</p>
-        <div class="tcard-head"><span class="tcard-no">特典02</span></div>
+        <div class="tcard-head"><span class="tcard-no lead">特典02</span></div>
         <h2 class="tcard-title">年収別「いくらまで買える?」診断シート</h2>
         <p class="tcard-desc">世帯年収400万〜1,000万円・返済負担率20%/25%・金利1.0%/2.0%の組み合わせから、借入の目安がその場でわかる診断シートです。</p>
-        <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>もうすぐ解放されます。</b><br>LINEでお知らせします。</span></div>
         <a class="tcard-cta" href="budget.html">特典を受け取る ↓</a>
       </article>
 
@@ -397,10 +397,11 @@
   // ロック解除の仕組み。
   // URLの ?unlock=N (カンマ区切りで複数可。例: ?unlock=2,3) を読み取り、
   // localStorage(キー:unlockedTokuten)に追記保存する。
-  // 特典01・20はロック対象外。それ以外は unlockedTokuten に含まれるまで
+  // 特典02・20はロック対象外。それ以外は unlockedTokuten に含まれるまで
   // カードに .locked クラスを付け、タイトルのみ見える「ロックUI」で表示する。
+  // [2026-10-13改定]一発目のフックを強くするため、即時解放を特典01(チェックリスト)→特典02(予算診断)に変更。
   var STORAGE_KEY = "unlockedTokuten";
-  var ALWAYS_UNLOCKED = ["1", "20"]; // 特典01・特典20はロック対象外
+  var ALWAYS_UNLOCKED = ["2", "20"]; // 特典02・特典20はロック対象外
 
   function readUnlocked(){
     try{
@@ -439,7 +440,7 @@
     var cards = document.querySelectorAll(".tcard[id^='tokuten-']");
     cards.forEach(function(card){
       var num = card.id.replace("tokuten-", "");
-      if(ALWAYS_UNLOCKED.indexOf(num) !== -1) return; // 特典01・20は対象外
+      if(ALWAYS_UNLOCKED.indexOf(num) !== -1) return; // 特典02・20は対象外
       if(unlockedSet[num]){
         card.classList.remove("locked");
       }else{
