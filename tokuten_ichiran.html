@@ -206,21 +206,21 @@
 
     <div class="tgrid">
 
-      <article class="tcard" id="tokuten-1">
+      <article class="tcard lead-card" id="tokuten-1">
         <p class="highlight-flag">ここに格納されました</p>
-        <div class="tcard-head"><span class="tcard-no">特典01</span></div>
+        <div class="tcard-head"><span class="tcard-no lead">特典01</span></div>
+        <h2 class="tcard-title">年収別「いくらまで買える?」診断シート</h2>
+        <p class="tcard-desc">世帯年収400万〜1,000万円・返済負担率20%/25%・金利1.0%/2.0%の組み合わせから、借入の目安がその場でわかる診断シートです。</p>
+        <a class="tcard-cta" href="budget.html">特典を受け取る ↓</a>
+      </article>
+
+      <article class="tcard" id="tokuten-2">
+        <p class="highlight-flag">ここに格納されました</p>
+        <div class="tcard-head"><span class="tcard-no">特典02</span></div>
         <h2 class="tcard-title">沖縄で家を買う前のチェックリスト30</h2>
         <p class="tcard-desc">お金6・エリア5・台風4・塩害建物6・シロアリ2・土地権利4・契約3の全30項目を、確認する理由と具体的な金額の目安つきでチェックできるシートです。</p>
         <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>順番に解放されます。</b><br>解放されたらLINEでお知らせします。</span></div>
         <a class="tcard-cta" href="checklist.html">特典を受け取る ↓</a>
-      </article>
-
-      <article class="tcard lead-card" id="tokuten-2">
-        <p class="highlight-flag">ここに格納されました</p>
-        <div class="tcard-head"><span class="tcard-no lead">特典02</span></div>
-        <h2 class="tcard-title">年収別「いくらまで買える?」診断シート</h2>
-        <p class="tcard-desc">世帯年収400万〜1,000万円・返済負担率20%/25%・金利1.0%/2.0%の組み合わせから、借入の目安がその場でわかる診断シートです。</p>
-        <a class="tcard-cta" href="budget.html">特典を受け取る ↓</a>
       </article>
 
       <article class="tcard" id="tokuten-3">
@@ -236,7 +236,7 @@
         <p class="highlight-flag">ここに格納されました</p>
         <div class="tcard-head"><span class="tcard-no">特典04</span></div>
         <h2 class="tcard-title">中古物件だけの購入前チェックリスト(上級編・16項目)</h2>
-        <p class="tcard-desc">特典1の30項目に加え、中古だけが持つ「もう直せない・もう選べない」リスク(老朽化・修繕積立金・権利関係)を16項目で確認するチェックシートです。</p>
+        <p class="tcard-desc">特典2の30項目に加え、中古だけが持つ「もう直せない・もう選べない」リスク(老朽化・修繕積立金・権利関係)を16項目で確認するチェックシートです。</p>
         <div class="tcard-lock-msg"><span class="lock-icon">🔒</span><span class="lock-text"><b>順番に解放されます。</b><br>解放されたらLINEでお知らせします。</span></div>
         <a class="tcard-cta" href="chuko_checklist16.html">特典を受け取る ↓</a>
       </article>
@@ -403,13 +403,16 @@
 (function(){
   "use strict";
   // ロック解除の仕組み。
-  // URLの ?unlock=N (カンマ区切りで複数可。例: ?unlock=1,3) を読み取り、
+  // URLの ?unlock=N (カンマ区切りで複数可。例: ?unlock=2,3) を読み取り、
   // localStorage(キー:unlockedTokuten)に追記保存する。
-  // 特典02・20はロック対象外。それ以外は unlockedTokuten に含まれるまで
+  // 特典01・20はロック対象外。それ以外は unlockedTokuten に含まれるまで
   // カードに .locked クラスを付け、タイトルのみ見える「ロックUI」で表示する。
-  // [2026-10-13改定]一発目のフックを強くするため、即時解放を特典01(チェックリスト)→特典02(予算診断)に変更。
+  // [2026-10-13改定]一発目のフックを強くするため、即時解放をチェックリスト→予算診断シートに変更。
+  // [2026-10-13再改定]「特典01がロックされ特典02が先に開く」という見た目の違和感を解消するため、
+  // 番号ラベルと中身の対応を入れ替えた(特典01=予算診断シート/特典02=チェックリスト30)。
+  // 挙動は中身に紐づいたまま:予算診断シート=常時解放、チェックリスト30=ヒアリング後解放。
   var STORAGE_KEY = "unlockedTokuten";
-  var ALWAYS_UNLOCKED = ["2", "20"]; // 特典02・特典20はロック対象外
+  var ALWAYS_UNLOCKED = ["1", "20"]; // 特典01(予算診断シート)・特典20はロック対象外
 
   // 30秒ヒアリングの回答フォームURL。
   // [2026-10-13確認]フォーム自体はエルメで作成・公開済み。ただし「送信用URL」は
@@ -420,8 +423,8 @@
   // リッチメニューへ誘導する案内文を出す(line/01_greeting_and_rich_menu.md参照)。
   var SURVEY_URL = "";
   // ヒアリングに答えると解放される特典(line/02_survey_and_tags.md:
-  // tokuten_ichiran.html?unlock=1,3 で解放)。それ以外のロック中特典は週1回の順番解放。
-  var SURVEY_UNLOCKED = ["1", "3"];
+  // tokuten_ichiran.html?unlock=2,3 で解放)。それ以外のロック中特典は週1回の順番解放。
+  var SURVEY_UNLOCKED = ["2", "3"];
 
   function lockMessageHtml(num){
     if(SURVEY_UNLOCKED.indexOf(num) !== -1){
@@ -474,7 +477,7 @@
     var cards = document.querySelectorAll(".tcard[id^='tokuten-']");
     cards.forEach(function(card){
       var num = card.id.replace("tokuten-", "");
-      if(ALWAYS_UNLOCKED.indexOf(num) !== -1) return; // 特典02・20は対象外
+      if(ALWAYS_UNLOCKED.indexOf(num) !== -1) return; // 特典01・20は対象外
       if(unlockedSet[num]){
         card.classList.remove("locked");
       }else{
