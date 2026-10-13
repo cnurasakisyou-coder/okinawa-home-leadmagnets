@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<!-- 限定公開。検索エンジンに載せない・SNSカードも出さない -->
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="referrer" content="no-referrer">
+<title>物件情報(先行案内)|沖縄マイホーム研究室</title>
+<style>
+  :root{
+    --navy:#17344D;
+    --navy-deep:#10283D;
+    --gold:#B69A62;
+    --gold-pale:#E9DFC9;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+    --blue-pale:#E8EEF1;
+    --coral:#A8461F;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);color:var(--ink);line-height:1.8;font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{width:min(100%,560px);margin:0 auto;background:var(--paper);min-height:100vh;
+    box-shadow:0 0 38px rgba(23,52,77,.06);}
+  h1,h2,.mincho{font-family:"Hiragino Mincho ProN","Yu Mincho",serif;}
+  .tnum{font-variant-numeric:tabular-nums;}
+  .roofline{height:7px;background:var(--navy);border-bottom:2px solid var(--gold);}
+
+  .hero{padding:26px clamp(20px,6vw,30px) 22px;background:linear-gradient(180deg,#fffefa 0%,#F7F3EA 100%);
+    border-bottom:1px solid var(--line);}
+  .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--gold);font-weight:700;margin:0 0 14px;}
+  .hero h1{font-size:clamp(19px,4.6vw,23px);line-height:1.6;margin:0 0 14px;padding:18px 18px 20px;
+    font-weight:600;letter-spacing:.03em;color:#fff;background:var(--navy);box-shadow:6px 6px 0 var(--gold-pale);}
+  .bukken-no{display:inline-block;background:var(--navy);color:#fff;font-size:12px;font-weight:700;
+    letter-spacing:.08em;padding:3px 9px;}
+  .price{font-size:clamp(26px,7vw,34px);font-weight:700;color:var(--coral);margin:10px 0 2px;letter-spacing:.02em;}
+  .price small{font-size:14px;color:var(--muted);font-weight:500;margin-left:6px;}
+  .updated{font-size:12px;color:var(--muted);margin:0;}
+
+  main{padding:0 clamp(20px,6vw,30px) 10px;}
+  .sec{margin:28px 0 0;}
+  .sec-title{display:flex;align-items:center;gap:10px;margin:0 0 10px;}
+  .badge{display:inline-flex;width:26px;height:26px;align-items:center;justify-content:center;
+    background:var(--navy);color:#fff;font-size:14px;font-weight:700;flex:none;}
+  .sec-title h2{font-size:16px;margin:0;font-weight:600;letter-spacing:.04em;}
+  hr.rule{border:0;border-top:1px solid var(--line);margin:8px 0 14px;}
+
+  table.spec{width:100%;border-collapse:collapse;font-size:14.5px;}
+  table.spec th,table.spec td{border-bottom:1px solid var(--line);padding:9px 6px;text-align:left;vertical-align:top;}
+  table.spec th{width:34%;color:var(--muted);font-weight:600;background:#FBFAF6;}
+
+  .photos{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .photos figure{margin:0;}
+  .photos img{width:100%;height:auto;display:block;border:1px solid var(--line);}
+  .photos figcaption{font-size:11.5px;color:var(--muted);margin-top:4px;line-height:1.6;}
+  .photo-note{font-size:11.5px;color:var(--muted);margin:8px 0 0;}
+  .madori img{width:100%;border:1px solid var(--line);display:block;}
+
+  .note{font-size:13.5px;line-height:1.9;border-left:3px solid var(--coral);padding:2px 0 2px 12px;margin:0;}
+
+  .cta{margin:26px 0 0;padding:18px;background:var(--blue-pale);border:1px solid var(--line);}
+  .cta h2{font-size:15.5px;margin:0 0 10px;}
+  .cta-btn{display:block;text-align:center;text-decoration:none;font-weight:700;font-size:15px;
+    padding:14px 12px;margin:0 0 10px;}
+  .cta-btn.primary{background:var(--navy);color:#fff;border:2px solid var(--navy);}
+  .cta-btn.secondary{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .cta small{display:block;font-size:12px;color:var(--muted);line-height:1.8;}
+
+  .legal{padding:18px clamp(20px,6vw,30px) 40px;border-top:1px solid var(--line);margin-top:26px;}
+  .legal p{font-size:11.5px;color:var(--muted);line-height:1.9;margin:0 0 8px;}
+
+  /* ---- ご成約済み表示(フラグ1つで切り替え) ---- */
+  .sold-banner{display:none;background:var(--navy-deep);color:#fff;padding:16px 18px;margin:0;}
+  .sold-banner b{display:block;font-size:17px;letter-spacing:.06em;margin-bottom:4px;}
+  .sold-banner span{font-size:13px;color:#E9DFC9;}
+  body.sold .sold-banner{display:block;}
+  /* 成約後は物件を特定できる情報(価格・所在地・面積・写真・連絡導線)を一切出さない */
+  body.sold .price,
+  body.sold .hide-when-sold{display:none !important;}
+</style>
+</head>
+<body>
+<!--
+=========================================================================
+ 非公開物件 掲載ページ テンプレート(2026-10-13新設)
+
+ 使い方(1物件1ファイル):
+ 1. このファイルをコピーし、ファイル名を  {物件番号}-{ランダム6桁英数字}.html  にする
+      例) OKI-2026-001-k7q2xz.html
+      ※連番だけにしない。次の番号を推測して未公開の物件ページを先に開かれるのを防ぐため。
+      ※ランダム6桁は下記コマンドで作れる:
+         python3 -c "import secrets,string;print(''.join(secrets.choice(string.ascii_lowercase+string.digits) for _ in range(6)))"
+ 2. すぐ下の DATA オブジェクトだけを書き換える(HTML本体は触らない)
+ 3. 両方のリポジトリにpushする(okinawa-home-media と okinawa-home-leadmagnets)。
+    公開URLは https://cnurasakisyou-coder.github.io/okinawa-home-leadmagnets/bukken/{ファイル名}
+ 4. 成約・募集終了したら DATA.sold を true にして、再度push(ファイルは消さない)
+    → 価格・所在地・面積・写真・連絡導線はページから削除され、「ご成約済み」だけが残る。
+    ページのソースからも完全に消したい場合は、あわせて DATA の price / address / landArea /
+    buildingArea / photos / formUrl / agentTel を空文字("")・空配列([])にしてpushする。
+
+ 守ること:
+ - 掲載してよいのは業者の許可が取れた情報・写真だけ(line/04_property_broadcast_template.md「配信前チェック」)
+ - 一覧ページ(tokuten_ichiran.html)からはリンクしない。URLを知っている人だけが開ける限定公開
+ - noindex を外さない
+=========================================================================
+-->
+<script>
+// ====== ここだけ書き換える ======
+var DATA = {
+  // --- 状態 ---
+  sold: false,                      // 成約・募集終了したら true にする(ファイルは消さない)
+  soldDate: "",                     // 例 "2026年11月5日"
+
+  // --- 物件の基本情報 ---
+  bukkenNo:    "OKI-2026-001",
+  title:       "豊見城市 中古戸建て 4LDK",   // 物件の見出し(1行)
+  lead:        "小学校まで徒歩7分、南向きのリビング。2019年に外壁と屋上防水を実施済みです。", // 事実だけ1〜2行
+  price:       "3,480万円",
+  priceNote:   "税込",              // 「税込」か「税別」を必ず書く
+  address:     "沖縄県豊見城市字○○",  // 町名まで。地番・号数は出さない
+  access:      "バス停「○○」から徒歩5分 / 那覇空港自動車道 豊見城・名嘉地ICから車7分",
+  landArea:    "132.45㎡(公簿)",    // 公簿／実測の別を必ず書く
+  buildingArea:"98.12㎡(登記)",
+  layout:      "4LDK",
+  structure:   "鉄筋コンクリート造 2階建て",
+  builtAt:     "2008年3月",
+  parking:     "2台",
+  remarks:     "セットバック要・再建築不可などの制限があれば必ずここに書く。無ければ「特になし」",
+
+  // --- 提供業者(必須表示) ---
+  agentName:    "○○不動産株式会社",
+  agentLicense: "沖縄県知事(2)第○○○○号",
+  dealType:     "媒介",             // 売主 / 代理 / 媒介
+  agentTel:     "098-000-0000",
+  agentUrl:     "https://example.com/contact",
+
+  // --- 情報の鮮度 ---
+  providedAt:  "2026年10月13日",    // 情報提供日
+  nextUpdate:  "2026年10月27日",    // 次回更新予定
+
+  // --- 申し込み導線 ---
+  formUrl: "https://forms.gle/xxxxx?usp=pp_url&entry.XXXXX=OKI-2026-001", // Googleフォームの事前入力リンク
+
+  // --- 写真(業者提供・掲載許可済みのものだけ) ---
+  // 同じフォルダに置いた画像ファイル名か、業者から提供されたURLを入れる。無ければ空配列のままでよい
+  photos: [
+    // { src: "OKI-2026-001-01.jpg", caption: "外観(南側)" },
+    // { src: "OKI-2026-001-02.jpg", caption: "リビング" }
+  ],
+  madoriImage: "",                 // 間取り図の画像ファイル名。無ければ空のまま
+  around: "小学校まで徒歩7分、スーパー・ドラッグストアが車5分圏内。朝7時台の那覇方面は渋滞しやすい区間です。" // 周辺の様子の補足(事実のみ)
+};
+// ====== ここまで ======
+</script>
+
+<div class="roofline"></div>
+<div class="wrap">
+
+  <p class="sold-banner"><b>ご成約済みです</b><span id="soldDate"></span></p>
+
+  <header class="hero">
+    <p class="eyebrow">沖縄マイホーム研究室 ─ 先行案内(限定公開)</p>
+    <p><span class="bukken-no tnum" id="bukkenNo"></span></p>
+    <h1 id="title"></h1>
+    <p class="note hide-when-sold" id="lead"></p>
+    <p class="price tnum" id="price"></p>
+    <p class="updated tnum" id="updated"></p>
+  </header>
+
+  <main>
+    <section class="sec hide-when-sold">
+      <div class="sec-title"><span class="badge">宅</span><h2>物件の概要</h2></div>
+      <hr class="rule">
+      <table class="spec tnum">
+        <tbody id="specBody"></tbody>
+      </table>
+    </section>
+
+    <section class="sec hide-when-sold" id="photoSec">
+      <div class="sec-title"><span class="badge">写</span><h2>写真</h2></div>
+      <hr class="rule">
+      <div class="photos" id="photos"></div>
+      <p class="photo-note">写真は{業者名}から提供を受け、掲載の許可を得たものです。撮影時点の状態で、現況と異なる場合があります。</p>
+    </section>
+
+    <section class="sec hide-when-sold" id="madoriSec">
+      <div class="sec-title"><span class="badge">図</span><h2>間取り図</h2></div>
+      <hr class="rule">
+      <div class="madori"><img id="madoriImg" alt="間取り図"></div>
+    </section>
+
+    <section class="sec hide-when-sold" id="aroundSec">
+      <div class="sec-title"><span class="badge">地</span><h2>周辺の様子</h2></div>
+      <hr class="rule">
+      <p id="around" style="font-size:14.5px;margin:0;"></p>
+    </section>
+
+    <section class="sec hide-when-sold">
+      <div class="sec-title"><span class="badge">情</span><h2>情報提供元</h2></div>
+      <hr class="rule">
+      <table class="spec">
+        <tbody id="agentBody"></tbody>
+      </table>
+    </section>
+
+    <div class="cta hide-when-sold">
+      <h2 class="mincho">この物件が気になった方へ</h2>
+      <a class="cta-btn primary" id="telBtn" href="#">お急ぎの方:電話でお問い合わせ</a>
+      <a class="cta-btn secondary" id="agentUrlBtn" href="#" target="_blank" rel="noopener noreferrer">業者の問い合わせフォームへ</a>
+      <a class="cta-btn secondary" id="formBtn" href="#" target="_blank" rel="noopener noreferrer">日程を伝えて折り返しがほしい方:内覧のお申し込み(1分)</a>
+      <small>
+        「LINEを見た」とお伝えいただけると、話が早く進みます。<br>
+        内覧のお申し込みからいただいた内容は、この物件の提携不動産会社にお伝えします。その後、担当者から直接お電話(またはSMS)でご連絡します。<br>
+        先着順のため、すでにご成約の場合はご容赦ください。
+      </small>
+    </div>
+  </main>
+
+  <div class="legal">
+    <p id="legalAgent"></p>
+    <p>沖縄マイホーム研究室は宅地建物取引業者ではありません。物件のご案内・条件交渉・契約の手続きは、すべて情報提供元の不動産会社が行います。</p>
+    <p>取引態様:不動産会社がこの物件にどう関わっているかの表示です(売主=会社自身が売る/代理=売主の代理として動く/媒介(仲介)=売主と買主の間を取り次ぐ)。</p>
+    <p>公簿/実測:土地面積が登記簿上の数字(公簿)か、実際に測量した数字(実測)かの違いです。古い物件では公簿と実際の面積が異なることがあります。</p>
+    <p>このページはURLを知っている方だけにお届けしている限定公開のページです。転載・再配布はご遠慮ください。</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var d = DATA;
+  function set(id, text){ var el=document.getElementById(id); if(el) el.textContent = text || ""; }
+  function row(label, value){
+    if(!value) return "";
+    return "<tr><th>"+label+"</th><td>"+value+"</td></tr>";
+  }
+
+  document.title = d.bukkenNo + " " + d.title + "|沖縄マイホーム研究室";
+  set("bukkenNo", d.bukkenNo);
+  set("title", d.title);
+  set("lead", d.lead);
+  set("price", d.price + (d.priceNote ? "(" + d.priceNote + ")" : ""));
+  set("updated", "情報提供日:" + d.providedAt + " / 次回更新予定:" + d.nextUpdate);
+  set("around", d.around);
+
+  document.getElementById("specBody").innerHTML =
+    row("所在地", d.address) +
+    row("交通", d.access) +
+    row("土地面積", d.landArea) +
+    row("建物延床面積", d.buildingArea) +
+    row("間取り", d.layout) +
+    row("構造・階数", d.structure) +
+    row("築年月", d.builtAt) +
+    row("駐車場", d.parking) +
+    row("特記事項", d.remarks);
+
+  document.getElementById("agentBody").innerHTML =
+    row("提供業者", d.agentName) +
+    row("免許番号", d.agentLicense) +
+    row("取引態様", d.dealType) +
+    row("電話", d.agentTel) +
+    row("情報提供日", d.providedAt) +
+    row("次回更新予定", d.nextUpdate);
+
+  // 写真(許可を得たものだけ。無ければセクションごと非表示)
+  var photoSec = document.getElementById("photoSec");
+  if(d.photos && d.photos.length){
+    document.getElementById("photos").innerHTML = d.photos.map(function(p){
+      return '<figure><img src="'+p.src+'" alt="'+(p.caption||"物件写真")+'" loading="lazy">'+
+             '<figcaption>'+(p.caption||"")+'</figcaption></figure>';
+    }).join("");
+    photoSec.querySelector(".photo-note").textContent =
+      "写真は" + d.agentName + "から提供を受け、掲載の許可を得たものです。撮影時点の状態で、現況と異なる場合があります。";
+  }else{
+    photoSec.style.display = "none";
+  }
+
+  var madoriSec = document.getElementById("madoriSec");
+  if(d.madoriImage){ document.getElementById("madoriImg").src = d.madoriImage; }
+  else{ madoriSec.style.display = "none"; }
+
+  if(!d.around){ document.getElementById("aroundSec").style.display = "none"; }
+
+  // CTA
+  var tel = document.getElementById("telBtn");
+  tel.href = "tel:" + (d.agentTel||"").replace(/[^0-9+]/g, "");
+  tel.textContent = "お急ぎの方:" + d.agentName + "へ電話(" + d.agentTel + ")";
+  var au = document.getElementById("agentUrlBtn");
+  if(d.agentUrl){ au.href = d.agentUrl; } else { au.style.display = "none"; }
+  var fb = document.getElementById("formBtn");
+  if(d.formUrl){ fb.href = d.formUrl; } else { fb.style.display = "none"; }
+
+  set("legalAgent", "この物件のご案内・契約は " + d.agentName + "(" + d.agentLicense + "・取引態様:" + d.dealType + ")が行います。");
+
+  // 成約済み表示:価格・所在地・面積・写真・連絡導線をDOMから削除する
+  // (CSSで隠すだけだと、ページの要素を見れば中身が読めてしまうため)
+  if(d.sold){
+    document.body.classList.add("sold");
+    set("soldDate", d.soldDate ? "("+d.soldDate+"時点)この物件の募集は終了しました。" : "この物件の募集は終了しました。");
+    document.title = d.bukkenNo + " ご成約済み|沖縄マイホーム研究室";
+    document.querySelectorAll(".hide-when-sold").forEach(function(el){ el.remove(); });
+    var priceEl = document.querySelector(".price"); if(priceEl) priceEl.remove();
+    var updEl = document.getElementById("updated"); if(updEl) updEl.remove();
+    set("legalAgent", "この物件は " + d.agentName + " が取り扱っていました。");
+  }
+})();
+</script>
+
+</body>
+</html>

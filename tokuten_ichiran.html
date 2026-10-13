@@ -146,6 +146,14 @@
   .tcard-lock-msg .lock-icon{font-size:19px;line-height:1;margin-bottom:8px;opacity:.55;}
   .tcard-lock-msg .lock-text{font-size:12.5px;line-height:1.85;color:var(--muted);}
   .tcard-lock-msg .lock-text b{color:#5B6670;font-weight:700;}
+  /* ロック中カードの導線(30秒ヒアリングへ) */
+  .lock-cta{
+    display:inline-block;margin-top:12px;padding:9px 16px;
+    border:1.5px solid var(--navy);border-radius:2px;
+    font-size:12.5px;font-weight:700;color:var(--navy);text-decoration:none;
+    background:#fff;
+  }
+  .lock-hint{display:block;margin-top:10px;font-size:12px;line-height:1.8;color:var(--muted);}
 
   /* ---- アンカー誘導時のハイライト(格納演出) ---- */
   .tcard.highlight{
@@ -403,6 +411,29 @@
   var STORAGE_KEY = "unlockedTokuten";
   var ALWAYS_UNLOCKED = ["2", "20"]; // 特典02・特典20はロック対象外
 
+  // 30秒ヒアリングの回答フォームURL。
+  // 公式LINE(エルメ)でフォームを作ると発行される。発行されたらこの1行だけ書き換える。
+  // 空のままなら、ボタンの代わりにリッチメニューへ誘導する案内文を出す
+  // (存在しないURLのボタンを置かないため)。
+  var SURVEY_URL = "";
+  // ヒアリングに答えると解放される特典(line/02_survey_and_tags.md:
+  // tokuten_ichiran.html?unlock=1,3 で解放)。それ以外のロック中特典は週1回の順番解放。
+  var SURVEY_UNLOCKED = ["1", "3"];
+
+  function lockMessageHtml(num){
+    if(SURVEY_UNLOCKED.indexOf(num) !== -1){
+      var cta = SURVEY_URL
+        ? '<a class="lock-cta" href="' + SURVEY_URL + '">30秒ヒアリングに答える</a>'
+        : '<span class="lock-hint">LINEのメニュー「🎁 特典を受け取る」から、30秒ヒアリングに進めます。</span>';
+      return '<span class="lock-icon">🔒</span>' +
+        '<span class="lock-text"><b>30秒ヒアリングに答えると開きます。</b><br>' +
+        '3問だけ(約30秒)です。</span>' + cta;
+    }
+    return '<span class="lock-icon">🔒</span>' +
+      '<span class="lock-text"><b>毎週1本ずつ、順番に解放されます。</b><br>' +
+      '解放されたらLINEでお知らせします。</span>';
+  }
+
   function readUnlocked(){
     try{
       var raw = localStorage.getItem(STORAGE_KEY);
@@ -445,6 +476,8 @@
         card.classList.remove("locked");
       }else{
         card.classList.add("locked");
+        var msg = card.querySelector(".tcard-lock-msg");
+        if(msg) msg.innerHTML = lockMessageHtml(num);
       }
     });
   }
