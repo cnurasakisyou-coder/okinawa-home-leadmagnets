@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>LINE登録特典 一覧|沖縄マイホーム研究室</title>
-<meta name="description" content="沖縄マイホーム研究室の公式LINE登録特典、全20本をまとめた一覧ページです。届いた特典はいつでもここから読み返せます。">
+<meta name="description" content="沖縄マイホーム研究室の公式LINE登録特典19本と、毎月更新のニュースをまとめた一覧ページです。届いた特典はいつでもここから読み返せます。">
 <style>
   :root{
     --navy:#17344D;
@@ -165,6 +165,70 @@
   }
   .tcard.highlight .highlight-flag{display:block;}
 
+  /* ---- タブ(特典一覧 / 今月のニュース) ---- */
+  .tabs{
+    display:grid;grid-template-columns:1fr 1fr;
+    margin:22px clamp(22px,6vw,40px) 0;
+  }
+  .tab{
+    position:relative;appearance:none;-webkit-appearance:none;cursor:pointer;
+    font-family:inherit;font-size:13.5px;font-weight:700;line-height:1.5;
+    letter-spacing:.02em;text-align:center;
+    padding:12px 12px 11px;
+    background:var(--paper);color:var(--muted);
+    border:1px solid var(--line);border-bottom:3px solid var(--line);
+    border-radius:0;box-shadow:none;
+  }
+  .tab + .tab{border-left:none;}
+  .tab-sub{
+    display:block;font-size:11px;font-weight:600;line-height:1.6;
+    margin-top:3px;letter-spacing:0;color:var(--muted);
+  }
+  .tab.is-active{
+    color:var(--navy);background:#F7F3EA;
+    border-bottom:3px solid var(--navy);
+  }
+  .tab.is-active .tab-sub{color:#5B6670;}
+  .tab-dot{
+    position:absolute;top:7px;right:8px;
+    width:7px;height:7px;background:var(--gold);border-radius:0;
+  }
+
+  /* ---- 今月のニュース パネル ---- */
+  .news-lead{
+    font-size:13px;line-height:1.95;color:var(--muted);
+    margin:0 0 20px;border-left:2px solid var(--gold);padding:1px 0 1px 14px;
+  }
+  .news-card{
+    border:1px solid var(--gold);box-shadow:inset 0 0 0 1px rgba(182,154,98,.25);
+    background:var(--paper);padding:24px 20px;
+    scroll-margin-top:16px;
+    transition:background-color .6s ease, box-shadow .3s ease;
+  }
+  .news-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .news-badge{
+    display:inline-block;font-size:15px;font-weight:600;letter-spacing:.05em;
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;color:#E9D9B8;
+    background:var(--navy);padding:4px 10px;box-shadow:2px 2px 0 var(--gold-pale);
+    border:1px solid var(--gold);
+  }
+  .news-issue{font-size:12.5px;font-weight:700;color:var(--navy);}
+  .news-title{font-size:16px;line-height:1.55;font-weight:600;color:var(--ink);margin:0 0 10px;}
+  .news-desc{font-size:13px;line-height:1.85;color:var(--muted);margin:0 0 18px;}
+  .news-cta{
+    display:block;width:100%;padding:13px 10px;background:var(--navy);
+    color:#fff;text-decoration:none;font-weight:700;font-size:13.5px;
+    text-align:center;letter-spacing:.03em;border:1px solid var(--gold);
+  }
+  .news-cta:active{opacity:.85;}
+  .news-card.highlight{background:#F7F3EA;box-shadow:inset 0 0 0 2px var(--gold);}
+  .news-card.highlight .highlight-flag{display:block;}
+  .news-archive{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);}
+  .news-archive-title{font-size:13.5px;font-weight:700;color:var(--navy);margin:0 0 10px;}
+  .news-archive ul{margin:0;padding-left:1.2em;}
+  .news-archive li{font-size:13px;line-height:2;}
+  .news-archive a{color:var(--navy);}
+
   /* ---- Footer ---- */
   .closing{padding:40px clamp(22px,6vw,40px) 16px;}
   .closing p{font-size:13.5px;color:var(--muted);margin:0 0 18px;}
@@ -177,6 +241,10 @@
     .hero h1{padding:19px 18px 21px;box-shadow:5px 5px 0 var(--gold-pale);}
     .hero-sub{font-size:13.5px;}
     .tcard-no,.tcard-no.lead{font-size:13px;padding:3px 8px;}
+    .news-badge{font-size:13px;padding:3px 8px;}
+    .tab{font-size:13px;padding:11px 6px 10px;}
+    .tab-sub{font-size:10.5px;}
+    .tab-dot{top:6px;right:6px;}
   }
 </style>
 </head>
@@ -187,7 +255,7 @@
   <header class="hero">
     <p class="eyebrow">沖縄マイホーム研究室 ─ LINE登録特典</p>
     <h1>LINE登録特典 一覧</h1>
-    <p class="hero-sub">全20本を、このページにまとめています。</p>
+    <p class="hero-sub">順番に開く特典19本と、毎月更新のニュースをまとめています。</p>
   </header>
 
   <div class="greeting">
@@ -197,11 +265,25 @@
   </div>
 
   <div class="howto">
-    <b>見方:</b> 特典は番号順に並んでいます。LINEでお届けしたメッセージのリンクをタップすると、このページの該当する特典まで自動でジャンプします。まだ受け取っていない特典も含め、全部のタイトルと概要はこのページでいつでも確認できます。
+    <b>見方:</b> 特典は番号順に並んでいます。LINEでお届けしたメッセージのリンクをタップすると、このページの該当する特典まで自動でジャンプします。まだ受け取っていない特典も含め、全部のタイトルと概要はこのページでいつでも確認できます。<br>
+    <b>「今月のニュース」</b>は、すぐ下のタブからいつでも開けます。毎月末に最新号へ更新されます。
   </div>
 
+  <nav class="tabs" role="tablist" aria-label="表示の切り替え">
+    <button type="button" class="tab is-active" id="tab-tokuten" role="tab"
+            aria-selected="true" aria-controls="panel-tokuten">
+      特典一覧<span class="tab-sub">全19本・順番に開きます</span>
+    </button>
+    <button type="button" class="tab" id="tab-monthly" role="tab"
+            aria-selected="false" aria-controls="panel-monthly">
+      今月のニュース<span class="tab-sub">毎月更新・いつでも読めます</span>
+      <span class="tab-dot" aria-hidden="true"></span>
+    </button>
+  </nav>
+
   <main>
-    <div class="section-title"><h2 class="mincho">特典一覧(全20)</h2><span class="count tnum">01–20</span></div>
+    <section id="panel-tokuten" role="tabpanel" aria-labelledby="tab-tokuten">
+    <div class="section-title"><h2 class="mincho">特典一覧(全19)</h2><span class="count tnum">01–19</span></div>
     <hr class="section-rule">
 
     <div class="tgrid">
@@ -376,15 +458,35 @@
         <a class="tcard-cta" href="jutaku_loan_genzei_check.html">特典を受け取る ↓</a>
       </article>
 
-      <article class="tcard" id="tokuten-20">
+    </div>
+    </section>
+
+    <section id="panel-monthly" role="tabpanel" aria-labelledby="tab-monthly" hidden>
+      <div class="section-title"><h2 class="mincho">今月のニュース</h2>
+        <span class="count" id="news-label"></span></div>
+      <hr class="section-rule">
+
+      <p class="news-lead">金利・地価・空き家バンクの補助金額・リフォーム補助の受付状況など、
+      その月に実際に動いた部分だけをまとめています。毎月末に最新号へ更新され、
+      更新のたびにLINEでもお知らせします。順番に開く特典とは別枠なので、ロックはかかりません。</p>
+
+      <article class="news-card" id="tokuten-20">
         <p class="highlight-flag">ここに格納されました</p>
-        <div class="tcard-head"><span class="tcard-no">特典20</span></div>
-        <h2 class="tcard-title">今月の金利・地価・補助金ニュース(毎月更新)</h2>
-        <p class="tcard-desc">金利・地価上昇率・空き家バンクの補助金額・リフォーム補助の受付状況など、各特典の「今月動きがあった部分」をまとめた毎月更新のダイジェストです。</p>
-        <a class="tcard-cta" href="monthly_news_2026_10.html">特典を受け取る ↓</a>
+        <div class="news-head">
+          <span class="news-badge">最新号</span>
+          <span class="news-issue tnum" id="news-issue"></span>
+        </div>
+        <h2 class="news-title">今月の金利・地価・補助金ニュース</h2>
+        <p class="news-desc">金利・地価上昇率・空き家バンクの補助金額・リフォーム補助の受付状況など、
+        各特典の「今月動きがあった部分」をまとめたダイジェストです。</p>
+        <a class="news-cta" id="news-cta" href="monthly_news_latest.html">今月号を読む ↓</a>
       </article>
 
-    </div>
+      <div class="news-archive" id="news-archive" hidden>
+        <h3 class="news-archive-title">バックナンバー</h3>
+        <ul id="news-archive-list"></ul>
+      </div>
+    </section>
   </main>
 
   <div class="closing">
@@ -399,6 +501,111 @@
 
 </div>
 
+<script src="news_index.js"></script>
+<script>
+(function(){
+  "use strict";
+  // タブ制御(「特典一覧」/「今月のニュース」)。
+  // [2026-10-13新設]特典20(毎月更新ニュース)は週1解放の19本と性質が違い、
+  // 同じ1列の末尾に置くと毎月来る人が長い列を通過しないとたどり着けないため、
+  // タブで2枚に分けた(オーナー指摘)。タブは2枚までに固定する(3枚目は作らない)。
+  //
+  // 最新号の情報は news_index.js の window.NEWS_INDEX が唯一の正。
+  // 毎月末の更新は news_index.js の latest を書き換えるだけで、このファイルは触らない。
+  var TABS = {
+    tokuten: { tab: "tab-tokuten", panel: "panel-tokuten" },
+    monthly: { tab: "tab-monthly", panel: "panel-monthly" }
+  };
+
+  function activateTab(name){ // "tokuten" | "monthly"
+    if(!TABS[name]) return;
+    Object.keys(TABS).forEach(function(key){
+      var isTarget = (key === name);
+      var tab = document.getElementById(TABS[key].tab);
+      var panel = document.getElementById(TABS[key].panel);
+      if(tab){
+        tab.classList.toggle("is-active", isTarget);
+        tab.setAttribute("aria-selected", isTarget ? "true" : "false");
+      }
+      if(panel){
+        if(isTarget){ panel.removeAttribute("hidden"); }
+        else{ panel.setAttribute("hidden", ""); }
+      }
+    });
+  }
+
+  // 月間パネルの中身(号ラベル・リンク・バックナンバー)を news_index.js から流し込む。
+  function fillNews(){
+    var idx = window.NEWS_INDEX;
+    if(!idx || !idx.latest) return;
+    var label = idx.latest.label || "";
+    var file = idx.latest.file || "";
+    var issue = document.getElementById("news-issue");
+    var countLabel = document.getElementById("news-label");
+    var cta = document.getElementById("news-cta");
+    if(issue) issue.textContent = label;
+    if(countLabel) countLabel.textContent = label;
+    if(cta && file){
+      cta.setAttribute("href", file);
+      if(label) cta.textContent = label + "を読む ↓";
+    }
+
+    var archive = Array.isArray(idx.archive) ? idx.archive : [];
+    var wrap = document.getElementById("news-archive");
+    var list = document.getElementById("news-archive-list");
+    if(!wrap || !list) return;
+    if(archive.length === 0){
+      wrap.setAttribute("hidden", ""); // 創刊号だけの間はバックナンバー見出しを出さない
+      return;
+    }
+    list.innerHTML = "";
+    archive.forEach(function(item){
+      if(!item || !item.file) return;
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.setAttribute("href", item.file);
+      a.textContent = item.label || item.file;
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+    wrap.removeAttribute("hidden");
+  }
+
+  function initialTabFromHash(){
+    var hash = window.location.hash;
+    // #monthly(タブ直指定)と #tokuten-20(ニュースカードへのディープリンク)だけ月間タブで開く。
+    // 直前に開いていたタブは覚えない(既定は常に「特典一覧」)。
+    if(hash === "#monthly" || hash === "#tokuten-20") return "monthly";
+    return "tokuten";
+  }
+
+  fillNews();
+  activateTab(initialTabFromHash());
+
+  Object.keys(TABS).forEach(function(name){
+    var tab = document.getElementById(TABS[name].tab);
+    if(!tab) return;
+    tab.addEventListener("click", function(){
+      activateTab(name);
+      // location.hash への代入は hashchange を発火させ、
+      // 下のハイライト処理が二重に動くため replaceState を使う。
+      try{
+        if(name === "monthly"){
+          history.replaceState(null, "", "#monthly");
+        }else{
+          history.replaceState(null, "", window.location.pathname + window.location.search);
+        }
+      }catch(e){
+        // replaceStateが使えない環境ではURLを変えないだけ(表示の切り替えは成立する)
+      }
+    });
+  });
+
+  // ハイライト処理から「対象カードが入っているパネルのタブを先に開く」ために公開する。
+  window.OKINAWA_TABS = { activate: activateTab };
+})();
+</script>
+
 <script>
 (function(){
   "use strict";
@@ -412,6 +619,9 @@
   // 番号ラベルと中身の対応を入れ替えた(特典01=予算診断シート/特典02=チェックリスト30)。
   // 挙動は中身に紐づいたまま:予算診断シート=常時解放、チェックリスト30=ヒアリング後解放。
   var STORAGE_KEY = "unlockedTokuten";
+  // [2026-10-13]特典20は月間パネル(.news-card)へ移動したため、
+  // .tcard を走査する下記のロック処理の対象外になった(="20"は無害な空振り)。
+  // 将来また .tcard 側に戻した時にロックがかかる事故を防ぐため、消さずに残している。
   var ALWAYS_UNLOCKED = ["1", "20"]; // 特典01(予算診断シート)・特典20はロック対象外
 
   // 30秒ヒアリングの回答フォームURL。
@@ -502,11 +712,24 @@
   "use strict";
   // URLフラグメント(#tokuten-N)で来訪した場合、該当カードへスクロールし一時的にハイライトする。
   // これにより「配信された特典がこの一覧ページに格納された」体験を、静的ページのまま実現する。
+  // [2026-10-13改定]特典20が .tcard から .news-card(月間パネル内)に変わったため、
+  // ガードを .news-card にも広げた。さらに、対象が隠れているタブの中にある場合は
+  // スクロール前にそのタブを開く(開かないと #tokuten-20 で来た人の画面で何も起きない)。
   function highlightFromHash(){
     var hash = window.location.hash;
     if(!hash) return;
-    var target = document.querySelector(hash);
-    if(!target || !target.classList.contains("tcard")) return;
+    var target;
+    try{
+      target = document.querySelector(hash);
+    }catch(e){
+      return; // #monthly 等、要素に対応しないhashはここで終わり(タブ制御側が処理する)
+    }
+    if(!target) return;
+    if(!(target.classList.contains("tcard") || target.classList.contains("news-card"))) return;
+    var panel = target.closest("[role=tabpanel]");
+    if(panel && panel.id.indexOf("panel-") === 0 && window.OKINAWA_TABS){
+      window.OKINAWA_TABS.activate(panel.id.replace("panel-", ""));
+    }
     target.classList.add("highlight");
     target.scrollIntoView({behavior:"smooth", block:"center"});
     setTimeout(function(){ target.classList.remove("highlight"); }, 4500);

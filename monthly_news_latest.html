@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>今月のニュース(最新号)|沖縄マイホーム研究室</title>
+<meta name="description" content="沖縄マイホーム研究室「今月の金利・地価・補助金ニュース」の最新号に転送されます。">
+<!--
+  固定URLページ。
+  LINEの自動応答・リッチメニューなど「URLを固定したい場所」はすべてこのファイルを指す。
+  実際の最新号は news_index.js の latest.file で決まるので、
+  毎月末の更新時にこのファイルを書き換える必要はない。
+-->
+<style>
+  :root{
+    --navy:#17344D;
+    --gold:#B69A62;
+    --ivory:#F5F1E8;
+    --paper:#FFFEFB;
+    --ink:#243545;
+    --muted:#65717A;
+    --line:#DDD8CD;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--ivory);color:var(--ink);line-height:1.85;font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .roofline{height:7px;background:var(--navy);border-bottom:2px solid var(--gold);}
+  .box{
+    max-width:560px;margin:0 auto;background:var(--paper);
+    padding:40px 24px 44px;min-height:60vh;
+  }
+  h1{
+    font-family:"Hiragino Mincho ProN","Yu Mincho",serif;
+    font-size:19px;font-weight:600;color:var(--navy);margin:0 0 16px;
+  }
+  p{font-size:13.5px;line-height:1.95;color:var(--muted);margin:0 0 16px;}
+  a.cta{
+    display:block;width:100%;padding:13px 10px;background:var(--navy);
+    color:#fff;text-decoration:none;font-weight:700;font-size:13.5px;
+    text-align:center;letter-spacing:.03em;border:1px solid var(--gold);
+  }
+  a.sub{color:var(--navy);font-size:13px;}
+</style>
+</head>
+<body>
+<div class="roofline"></div>
+<div class="box">
+  <h1>今月のニュースを開いています</h1>
+  <p>最新号へ移動中です。画面が変わらない場合は、下のボタンからお進みください。</p>
+  <a class="cta" id="fallback-cta" href="tokuten_ichiran.html#monthly">今月のニュースを開く ↓</a>
+  <noscript>
+    <p>自動で開けませんでした。お手数ですが、
+    <a class="sub" href="tokuten_ichiran.html#monthly">特典一覧ページの「今月のニュース」</a>
+    から最新号を開いてください。</p>
+  </noscript>
+</div>
+
+<script src="news_index.js"></script>
+<script>
+(function(){
+  "use strict";
+  // news_index.js の latest.file へ転送する。
+  // ブラウザの戻るボタンでこのページに戻ってループしないよう、
+  // location.href ではなく location.replace を使う(履歴を置き換える)。
+  var idx = window.NEWS_INDEX;
+  var cta = document.getElementById("fallback-cta");
+  if(idx && idx.latest && idx.latest.file){
+    if(cta){
+      cta.setAttribute("href", idx.latest.file);
+      if(idx.latest.label) cta.textContent = idx.latest.label + "を読む ↓";
+    }
+    window.location.replace(idx.latest.file);
+  }
+  // news_index.js が読めなかった場合は転送せず、
+  // 一覧ページ(#monthly)へのボタンをそのまま残す。
+})();
+</script>
+</body>
+</html>
