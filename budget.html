@@ -247,12 +247,32 @@
       </div>
 
       <div class="calc-field">
+        <label for="loanTerm">借入期間</label>
+        <div class="calc-input-row">
+          <input type="number" id="loanTerm" inputmode="decimal" placeholder="例:35" min="1" max="50" step="1" value="35">
+          <span class="calc-unit">年</span>
+        </div>
+        <div class="rate-presets">
+          <button type="button" class="preset-btn term-preset-btn" data-term="25">25年</button>
+          <button type="button" class="preset-btn term-preset-btn" data-term="30">30年</button>
+          <button type="button" class="preset-btn term-preset-btn active" data-term="35">35年</button>
+          <button type="button" class="preset-btn term-preset-btn" data-term="50">50年</button>
+        </div>
+        <div class="footnote" style="margin-top:7px;">参考:沖縄県内の主要金融機関のうち、琉球銀行・沖縄銀行・沖縄ろうきん(有担保)は中古住宅でも最長50年の借入に対応(各行公式、2026年10月時点)。期間を延ばすと月々の負担は下がる一方、完済までに払う利息の総額(総返済額)は増える。</div>
+      </div>
+
+      <div class="calc-field">
         <label for="interest">想定金利</label>
         <div class="calc-input-row">
           <input type="number" id="interest" inputmode="decimal" placeholder="例:1.0" min="0" max="10" step="0.1" value="1.0">
           <span class="calc-unit">%</span>
         </div>
-        <div class="footnote" style="margin-top:7px;">参考:沖縄の地銀3行(琉球銀行・沖縄銀行・沖縄海邦銀行)の変動金利の基準金利は揃って年3.825%(2026年10月1日時点、各行公式)。これは窓口に貼り出されている「表面上の金利」で、実際に適用される金利(実行金利)は取引状況・審査結果に応じて優遇され、各行とも具体的な優遇幅は非公開。上の初期値1.0%は、その優遇後の実行金利としてありうる一例として置いているだけで「沖縄の地銀はだいたい1.0%で借りられる」という意味ではない。基準金利そのものに近い条件で試算したい場合は3.8程度を、優遇が少ない前提で手堅く見たい場合は1.5〜2.0程度を入力してほしい。</div>
+        <div class="rate-presets" style="margin-top:9px;">
+          <button type="button" class="preset-btn interest-preset-btn" data-interest="3.825">3.825%(基準金利)</button>
+          <button type="button" class="preset-btn interest-preset-btn" data-interest="1.23">1.23%(全国参考・下限)</button>
+          <button type="button" class="preset-btn interest-preset-btn" data-interest="1.51">1.51%(全国参考・上限)</button>
+        </div>
+        <div class="footnote" style="margin-top:7px;">参考①:沖縄の地銀3行(琉球銀行・沖縄銀行・沖縄海邦銀行)の変動金利の基準金利は揃って年3.825%(2026年10月1日時点、各行公式)。これは「優遇なしの建前上の上限値」で、実際に適用される金利(実行金利)は取引状況・審査結果に応じて優遇され、各行とも具体的な優遇幅は非公開。<br>参考②:全国の地方銀行の実行金利(優遇後)の平均は2026年9〜10月時点で年1.23%〜1.51%という業界集計がある(出典:リクルート「住宅ローン金利に異変あり」、モゲチェック2026年10月記事)。沖縄県内の地銀の実行金利はこの集計に含まれておらず非公開のため、これは「全国平均を参考値として使う場合」の数字であり、沖縄の実行金利そのものではない。<br>参考③(沖縄で実際に開示されている個別の実行金利の例。相場ではなく個別事例):沖縄振興開発金融公庫のマイホーム融資は年2.05%(令和8年10月1日時点、公式。中古住宅購入が対象メニューに含まれるかは公式ページ上で未確認)、沖縄ろうきん(有担保)は年1.15%〜3.675%(公式開示)。<br>上の初期値1.0%はこれらのどの数字とも一致しない一例として置いているだけで、「沖縄の地銀はだいたい1.0%で借りられる」という意味ではない。手堅く見たいときは3.825%、全国平均を参考にしたいときは1.23〜1.51%、沖縄で実際に開示されている例を見たいときは2.05%やろうきんの1.15%〜を入力してほしい。</div>
       </div>
 
       <div class="calc-field">
@@ -263,8 +283,8 @@
           <span class="calc-unit">%</span>
         </div>
         <div class="rate-presets">
-          <button type="button" class="preset-btn active" data-rate="20">20%(余裕重視)</button>
-          <button type="button" class="preset-btn" data-rate="25">25%(標準)</button>
+          <button type="button" class="preset-btn rate-preset-btn active" data-rate="20">20%(余裕重視)</button>
+          <button type="button" class="preset-btn rate-preset-btn" data-rate="25">25%(標準)</button>
         </div>
       </div>
 
@@ -274,7 +294,7 @@
 
       <div class="calc-result" id="calcResult">
         <div class="result-main">
-          <div class="label">診断結果(35年・元利均等)</div>
+          <div class="label">診断結果(<span id="resultTerm">35</span>年・元利均等)</div>
           <div class="amount-ring">
             <div class="amount tnum"><span id="resultLoan">0</span><span class="unit">万円</span></div>
           </div>
@@ -285,7 +305,7 @@
 
       <div class="assumption-box" id="assumptionBox">
         <strong>この計算の前提(目安です・断定ではありません)</strong>
-        計算式:年間返済額=世帯年収(額面)×返済負担率 / 借入目安=その年間返済額を、入力した金利・35年・元利均等・ボーナス払いなしの条件で返せる金額に逆算したものです。「返済負担率」とは、年収に対して住宅ローンの返済がどれくらいの割合を占めるかという数字で、フラット35の利用条件では年収400万円未満で30%以下・400万円以上で35%以下が上限と定められています(出典:住宅金融支援機構フラット35公式「ご利用条件」)。このシートはその上限よりあえて低い20〜25%を使っています。審査上の上限いっぱいまで借りると、教育費・車・医療費などの他の支出に回す余力がほとんど残らず、金利が少し上がるだけで家計が苦しくなるケースが出てくるためです。これは「暮らしが崩れずに返せる額」の目安であり、実際に借りられる金額(審査結果)ではありません。マンションは管理費・修繕積立金などの維持費が別にかかるため、目安より低めに考えてください。
+        計算式:年間返済額=世帯年収(額面)×返済負担率 / 借入目安=その年間返済額を、入力した金利・借入期間(初期値35年。25〜50年まで選べます)・元利均等・ボーナス払いなしの条件で返せる金額に逆算したものです。「返済負担率」とは、年収に対して住宅ローンの返済がどれくらいの割合を占めるかという数字で、フラット35の利用条件では年収400万円未満で30%以下・400万円以上で35%以下が上限と定められています(出典:住宅金融支援機構フラット35公式「ご利用条件」)。このシートはその上限よりあえて低い20〜25%を使っています。審査上の上限いっぱいまで借りると、教育費・車・医療費などの他の支出に回す余力がほとんど残らず、金利が少し上がるだけで家計が苦しくなるケースが出てくるためです。これは「暮らしが崩れずに返せる額」の目安であり、実際に借りられる金額(審査結果)ではありません。マンションは管理費・修繕積立金などの維持費が別にかかるため、目安より低めに考えてください。
       </div>
     </section>
 
@@ -338,6 +358,7 @@
         <li><span>那覇の3LDK賃貸(月)</span><span class="figure tnum">14.6万円</span></li>
       </ul>
       <div class="footnote">新築マンション・中古マンションは2024年、賃貸は2026年4月時点の実データ。中古戸建てはAIによる価格予測(公的統計ではない参考値)。試算であり、実際の借入可能額は金融機関の審査によります。</div>
+      <div class="footnote" style="margin-top:10px;">金利の実例(沖縄の相場ではなく個別の開示例):沖縄振興開発金融公庫のマイホーム融資は年2.05%(令和8年10月1日時点、公式)、沖縄ろうきん(有担保)は年1.15%〜3.675%(公式開示、2026年10月時点)。地銀3行の基準金利年3.825%(優遇なしの建前上の上限値)と、全国の地方銀行の実行金利平均1.23%〜1.51%(参考値)の間には幅があり、どの数字も「沖縄の実行金利そのもの」として断定はできません。</div>
       <div class="footnote" style="margin-top:10px;">中古マンション(築10年・70㎡換算)の年収倍率は11.19倍で全国4位の水準。マンション価格はこの10年でおよそ2倍になったとも報じられている。年収が同じペースで伸びているわけではないため、「数年前に買った人と同じ金額感」で探すと予算が足りなくなりやすい。</div>
     </section>
 
@@ -353,9 +374,10 @@
 <script>
 (function(){
   "use strict";
-  var TERM_MONTHS = 35 * 12; // 35年想定(固定)
+  var DEFAULT_TERM_YEARS = 35; // 既定値(初期表示・未入力時はこれまでと同じ35年)
 
   var incomeInput = document.getElementById("income");
+  var termInput = document.getElementById("loanTerm");
   var interestInput = document.getElementById("interest");
   var rateInput = document.getElementById("repaymentRate");
   var calcBtn = document.getElementById("calcBtn");
@@ -364,23 +386,27 @@
   var resultLoan = document.getElementById("resultLoan");
   var resultAnnual = document.getElementById("resultAnnual");
   var resultMonthly = document.getElementById("resultMonthly");
-  var presetBtns = Array.prototype.slice.call(document.querySelectorAll(".preset-btn"));
+  var resultTerm = document.getElementById("resultTerm");
 
   function formatMan(yen){
     var man = yen / 10000;
     return Math.round(man).toLocaleString("ja-JP");
   }
 
-  function calcLoan(incomeMan, interestPct, ratePct){
+  // 計算ロジック本体は変更していません。以前は35年を内部で固定していた箇所を、
+  // 借入期間(termYears)を引数として受け取るように変えただけで、
+  // termYears=35を渡した場合の計算結果・式はこれまでと完全に同一です。
+  function calcLoan(incomeMan, interestPct, ratePct, termYears){
+    var termMonths = (termYears || DEFAULT_TERM_YEARS) * 12;
     var incomeYen = incomeMan * 10000;
     var annualRepayment = incomeYen * (ratePct / 100);
     var monthlyRepayment = annualRepayment / 12;
     var loanAmount;
     if(interestPct <= 0){
-      loanAmount = monthlyRepayment * TERM_MONTHS;
+      loanAmount = monthlyRepayment * termMonths;
     }else{
       var monthlyRate = (interestPct / 100) / 12;
-      loanAmount = monthlyRepayment * (1 - Math.pow(1 + monthlyRate, -TERM_MONTHS)) / monthlyRate;
+      loanAmount = monthlyRepayment * (1 - Math.pow(1 + monthlyRate, -termMonths)) / monthlyRate;
     }
     return {
       annualRepayment: annualRepayment,
@@ -391,11 +417,17 @@
 
   function runCalc(){
     var income = parseFloat(incomeInput.value);
+    var term = parseFloat(termInput.value);
     var interest = parseFloat(interestInput.value);
     var rate = parseFloat(rateInput.value);
 
+    if(isNaN(term)){
+      term = DEFAULT_TERM_YEARS;
+    }
+
     var valid =
       !isNaN(income) && income > 0 && income <= 10000 &&
+      term >= 1 && term <= 50 &&
       !isNaN(interest) && interest >= 0 && interest <= 10 &&
       !isNaN(rate) && rate >= 1 && rate <= 50;
 
@@ -406,34 +438,42 @@
     }
     errorBox.classList.remove("show");
 
-    var r = calcLoan(income, interest, rate);
+    var r = calcLoan(income, interest, rate, term);
 
     resultLoan.textContent = formatMan(r.loanAmount);
     resultAnnual.textContent = formatMan(r.annualRepayment) + "万円";
     resultMonthly.textContent = (r.monthlyRepayment / 10000).toFixed(1) + "万円";
+    resultTerm.textContent = term;
     resultBox.classList.add("show");
   }
 
   calcBtn.addEventListener("click", runCalc);
 
-  presetBtns.forEach(function(btn){
-    btn.addEventListener("click", function(){
-      presetBtns.forEach(function(b){ b.classList.remove("active"); });
-      btn.classList.add("active");
-      rateInput.value = btn.getAttribute("data-rate");
+  // プリセットボタン共通処理:グループ内の値をinputへ反映し、activeの見た目を切り替える
+  function setupPresetGroup(groupClass, input, dataAttr){
+    var btns = Array.prototype.slice.call(document.querySelectorAll("." + groupClass));
+    btns.forEach(function(btn){
+      btn.addEventListener("click", function(){
+        btns.forEach(function(b){ b.classList.remove("active"); });
+        btn.classList.add("active");
+        input.value = btn.getAttribute(dataAttr);
+      });
     });
-  });
+    input.addEventListener("input", function(){
+      var v = input.value;
+      btns.forEach(function(b){
+        if(b.getAttribute(dataAttr) === v){
+          b.classList.add("active");
+        }else{
+          b.classList.remove("active");
+        }
+      });
+    });
+  }
 
-  rateInput.addEventListener("input", function(){
-    var v = rateInput.value;
-    presetBtns.forEach(function(b){
-      if(b.getAttribute("data-rate") === v){
-        b.classList.add("active");
-      }else{
-        b.classList.remove("active");
-      }
-    });
-  });
+  setupPresetGroup("rate-preset-btn", rateInput, "data-rate");
+  setupPresetGroup("term-preset-btn", termInput, "data-term");
+  setupPresetGroup("interest-preset-btn", interestInput, "data-interest");
 })();
 </script>
 
